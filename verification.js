@@ -46,14 +46,17 @@ function validLogin(field){
 
 function survole_personne_cache(event)
 {
-	if( window.event)
-    	event = window.event;
-	var x = event.clientX;
-  	var y = event.clientY;
 	var element = document.getElementById('liste_personnes_caches');
+	var element2 = document.getElementById('personnes_caches');
+	var curleft = curtop = 0;
+	if (element2.offsetParent) {
+		do {
+			curleft += element2.offsetLeft;
+			curtop += element2.offsetTop;
+		} while (element2 = element2.offsetParent);
+	}
 	element.style.position = 'fixed';
-	element.style.left = x + 'px';
-	element.style.top = y + 'px';
+	element.style.left = curleft+"px";
 	element.style.visibility='visible';
 	element.style.height='auto';
 	element.style.width='auto';
