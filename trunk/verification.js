@@ -43,3 +43,25 @@ function validLogin(field){
 	var pseudoField=field.pseudo; // idem, il faut id="nom" dans le forlmulaire.
 	return (verifPseudo(pseudoField) && verifMdp(mdpField));
 }
+
+function survole_personne_cache(event)
+{
+	if( window.event)
+    	event = window.event;
+	var x = event.clientX;
+  	var y = event.clientY;
+	var element = document.getElementById('liste_personnes_caches');
+	element.style.position = 'absolute';
+	element.style.left = x + 'px';
+	element.style.top = y + 'px';
+	element.style.visibility='visible';
+	element.style.height='auto';
+	element.style.width='auto';
+}
+function quitte_personne_cache()
+{
+	var element = document.getElementById('liste_personnes_caches');
+	element.style.visibility='hidden';
+	element.style.height='0px';
+	element.style.width='0px';
+}

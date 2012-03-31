@@ -172,7 +172,7 @@
 				}
 				else
 				{
-					echo "<input type='submit' name='action' value='Annuler'/>";
+					echo "<input type='submit' name='action' value='J&apos;aime plus'/>";
 					echo "<input type='hidden' name='id' value='".$row["id"]."'/>";
 				}
 			echo"</form>";
@@ -193,35 +193,7 @@
 				$vous=1;
 			}
 		}
-		$nb_max_like = 3;
-		$nb_jaime = 0;
-		for($key=0;$key<=$i;$key++) {
-			if(isset($tab_log_aime[$key]['login']))
-			{
-				echo $tab_log_aime[$key]['login'];
-				if($nb_jaime != (count($tab_log_aime)-1) && $nb_jaime >= $nb_max_like && $vous == 1)
-				{
-					echo " et ".(count($tab_log_aime) - 1 - $nb_jaime)." autres personnes aimez cette blague.";
-					$key = $i+1;
-				}
-				else if($nb_jaime != (count($tab_log_aime)-1) && $nb_jaime >= $nb_max_like)
-				{
-					echo " et ".(count($tab_log_aime) - $nb_jaime)." autres personnes aiment cette blague.";
-					$key = $i+1;
-				}
-				else if($nb_jaime < count($tab_log_aime)-2)
-					echo ",";
-				else if($nb_jaime == count($tab_log_aime)-2)
-					echo " et ";
-				else if($vous == 1)
-					echo " aimez cette blague.";
-				else if(count($tab_log_aime) > 1)
-					echo " aiment cette blague.";
-				else
-					echo " aime cette blague.";
-				$nb_jaime++;
-			}
-		}
+		affiche_login_qui_aime($tab_log_aime,$vous,$i);
 	}
 	function commentaire($row)
 	{
@@ -241,6 +213,56 @@
 		while ($row_com = mysql_fetch_assoc($result_com)) {
 			echo $row_com['commentaire']." de ".$row_com['login']."</br>";
 		}
+	}
+	function affiche_login_qui_aime($tab_log_aime,$vous,$i)
+	{
+		$nb_max_like = 3;
+		$nb_jaime = 0;
+		for($key=0;$key<=$i;$key++) {
+			if(isset($tab_log_aime[$key]['login']))
+			{
+				echo $tab_log_aime[$key]['login'];
+				if($nb_jaime != (count($tab_log_aime)-1) && $nb_jaime >= $nb_max_like)
+				{
+					echo " et <span id='personnes_caches' onMouseOver='survole_personne_cache()' onMouseOut='quitte_personne_cache()'>".(count($tab_log_aime) - 1 - $nb_jaime);
+					if((count($tab_log_aime) - 1 - $nb_jaime) > 1)
+						echo " autres personnes";
+					else
+						echo " autre personne";
+					if($vous == 1)
+						echo " aimez ";
+					else
+						echo " aiment";
+					echo "cette blague.";
+					personneCache($tab_log_aime,$key,$i);
+					echo "</span>";
+					$key = $i+1;
+				}
+				else if($nb_jaime < count($tab_log_aime)-2)
+					echo ", ";
+				else if($nb_jaime == count($tab_log_aime)-2)
+					echo " et ";
+				else if($vous == 1)
+					echo " aimez cette blague.";
+				else if(count($tab_log_aime) > 1)
+					echo " aiment cette blague.";
+				else
+					echo " aime cette blague.";
+				$nb_jaime++;
+			}
+		}
+	}
+	function personneCache($tab_log_aime,$key,$i)
+	{
+		echo "<div id='liste_personnes_caches'>";
+		for($key=$key+1;$key<=$i;$key++)
+		{
+			if(isset($tab_log_aime[$key]['login']))
+			{
+				echo "<li>".$tab_log_aime[$key]['login']."</li>";
+			}
+		}
+		echo "</div>";
 	}
  ?>
  
