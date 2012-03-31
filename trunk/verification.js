@@ -51,7 +51,7 @@ function survole_personne_cache(event)
 	var x = event.clientX;
   	var y = event.clientY;
 	var element = document.getElementById('liste_personnes_caches');
-	element.style.position = 'absolute';
+	element.style.position = 'fixed';
 	element.style.left = x + 'px';
 	element.style.top = y + 'px';
 	element.style.visibility='visible';
