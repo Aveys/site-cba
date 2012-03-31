@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Sam 31 Mars 2012 à 13:30
+-- Généré le : Sam 31 Mars 2012 à 15:29
 -- Version du serveur: 5.1.30
 -- Version de PHP: 5.2.8
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `blagues` (
 --
 
 INSERT INTO `blagues` (`id`, `texte`, `id_pseudo`, `cat`, `date`, `nbJaime`) VALUES
-(18, 'Ceci est une blague pas drôle alors accrochez vous ça va faire mal! \r\nAie', 0, 'Nonsens', '2012-03-31', 1);
+(18, 'Ceci est une blague pas drôle alors accrochez vous ça va faire mal! \r\nAie', 0, 'Nonsens', '2012-03-31', 6);
 
 -- --------------------------------------------------------
 
@@ -84,7 +84,13 @@ CREATE TABLE IF NOT EXISTS `log` (
 --
 
 INSERT INTO `log` (`login`, `mdp`, `admin`, `mail`, `date_naissance`) VALUES
-('toto74', 'toto74', 0, 'thomas.rovayaz@hotmail.fr', '1993-09-08');
+('toto742', 'ttoto742', 0, 'thomas.rovayaz@hotmail.fr', '2012-09-03'),
+('toto74', 'toto74', 1, 'thomas.rovayaz74@gmail.com', '1993-09-08'),
+('toto743', 'toto743', 0, 'thomas.rovayaz@hotmail.fr', '2012-01-03'),
+('toto744', 'toto744', 0, 'thomas.rovayaz@hotmail.fr', '2012-03-03'),
+('toto745', 'toto745', 0, 'thomas.rovayaz@hotmail.fr', '2012-10-03'),
+('toto746', 'toto746', 0, 'thomas.rovayaz@hotmail.fr', '2012-03-03'),
+('toto747', 'toto747', 0, 'thomas.rovayaz@hotmail.fr', '2012-10-03');
 
 -- --------------------------------------------------------
 
@@ -104,4 +110,10 @@ CREATE TABLE IF NOT EXISTS `synchro_jaime_log` (
 --
 
 INSERT INTO `synchro_jaime_log` (`id_log`, `id_blague`, `jaime`) VALUES
-('toto74', 18, 1);
+('toto74', 18, 1),
+('toto742', 18, 1),
+('toto743', 18, 1),
+('toto744', 18, 1),
+('toto745', 18, 1),
+('toto746', 18, 1),
+('toto747', 18, 0);
