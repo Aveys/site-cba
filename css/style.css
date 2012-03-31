@@ -33,6 +33,13 @@ body{
 	position: relative;
 	left: 50px;
 }
+#liste_personnes_caches{
+	background-color: orange;
+	visibility: hidden;
+	width: 0px;
+	height: 0px;
+	z-index: 1;
+}
 .calendar
 {
 	background-color:#f7f6f3;

@@ -24,7 +24,7 @@
 				$result = mysql_query($query) or die(mysql_error());
 			}
 		}
-		else if(($_POST["action"]=="Annuler")){
+		else if(($_POST["action"]=="J\'aime plus")){
 			$query = "update blagues set nbJaime = nbJaime-1 where id='".$_POST["id"]."'";
 			mysql_query($query) or die(mysql_error());
 			$query = "update synchro_jaime_log set jaime = 0 where id_blague='".$_POST["id"]."' and id_log='".$_SESSION["pseudo"]."'";
