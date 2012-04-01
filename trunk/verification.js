@@ -74,11 +74,20 @@ function survole_profil_apercu(content)
 {
 	var element = content.querySelector('#profil_apercu');
 	var element2 = content;
-	var curleft = curtop = 0;
+	var curleft = curtop = tmp = 0;
 	if (element2.offsetParent) {
 		do {
+			if(element2.style.position != 'fixed')
+			{
+				tmp = element2.offsetTop;
+				curtop += tmp;
+			}
+			else
+			{
+				curtop = element2.offsetTop+(tmp/2);
+				curleft += 20;
+			}
 			curleft += element2.offsetLeft;
-			curtop += element2.offsetTop;
 		} while (element2 = element2.offsetParent);
 	}
 	element.style.position = 'fixed';
