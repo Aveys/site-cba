@@ -127,7 +127,7 @@
 	
 	function displayDeleteForm(){		
 		if (isset($_SESSION["pseudo"])){
-			if(verif_admin($_SESSION["pseudo"]) == 1)
+			if(isadmin($_SESSION["pseudo"]) == 1)
 			{
 		?>
 				<form name="deleteBlagues" action="actions.php" method="POST">
@@ -190,7 +190,7 @@
 				$tab_log_aime[$i]['login'] = $row_log_aime['login'];
 			else
 			{
-				$tab_log_aime[0]['login'] = "Vous";
+				$tab_log_aime[0]['login'] = $row_log_aime['login'];
 				$vous=1;
 			}
 		}
@@ -271,8 +271,11 @@
 	}
 	function link_profil($login)
 	{
-		echo "<span id='profil".$login."' onMouseOver='survole_profil_apercu(this)' onMouseOut='quitte_profil_apercu(this)'><a href='profil.php?id=".$login."'>".$login."</a>";
-		profil($login);
+		$log = $login;
+		if($login==$_SESSION['pseudo'])
+			$login='Vous';
+		echo "<span id='profil".$log."' onMouseOver='survole_profil_apercu(this,event)' onMouseOut='quitte_profil_apercu(this)'><a href='profil.php?id=".$log."'>".$login."</a>";
+		profil($log);
 		echo "</span>";
 	}
 	function profil($log)
@@ -286,7 +289,7 @@
 			affiche_anni($row['date_naissance'],$log);
 		echo "</div>";
 	}
-	function verif_admin($login)
+	function isadmin($login)
 	{
 		$query = "select admin from log where login='".$login."'";
 		$result = mysql_query($query);
@@ -302,10 +305,12 @@
 			echo "Vous avez ";
 		else
 			echo $login." a ";
-		if($date_anni['mois'] >= date('m') && $date_anni['jour'] >= date('d'))
-			echo date('Y')-$date_anni['annee'];
+		if($date_anni['mois'] < date('m'))
+			echo (date('Y')-$date_anni['annee']);
+		else if($date_anni['mois'] == date('m') && $date_anni['jour'] <= date('d'))
+			echo (date('Y')-$date_anni['annee']);
 		else
-			echo date('Y')-$date_anni['annee']-1;
+			echo (date('Y')-$date_anni['annee']-1);
 		echo " ans.";
 	}
  ?>
