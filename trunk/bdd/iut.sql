@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Sam 31 Mars 2012 à 15:29
+-- Généré le : Dim 01 Avril 2012 à 19:45
 -- Version du serveur: 5.1.30
 -- Version de PHP: 5.2.8
 
@@ -22,10 +22,10 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `blagues`
+-- Structure de la table `articles`
 --
 
-CREATE TABLE IF NOT EXISTS `blagues` (
+CREATE TABLE IF NOT EXISTS `articles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `texte` text NOT NULL,
   `id_pseudo` int(11) NOT NULL,
@@ -33,14 +33,14 @@ CREATE TABLE IF NOT EXISTS `blagues` (
   `date` date NOT NULL,
   `nbJaime` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=19 ;
 
 --
--- Contenu de la table `blagues`
+-- Contenu de la table `articles`
 --
 
-INSERT INTO `blagues` (`id`, `texte`, `id_pseudo`, `cat`, `date`, `nbJaime`) VALUES
-(18, 'Ceci est une blague pas drôle alors accrochez vous ça va faire mal! \r\nAie', 0, 'Nonsens', '2012-03-31', 6);
+INSERT INTO `articles` (`id`, `texte`, `id_pseudo`, `cat`, `date`, `nbJaime`) VALUES
+(18, 'Ceci est une blague pas drôle alors accrochez vous ça va faire mal! \r\nAie', 0, 'Nonsens', '2012-03-31', 7);
 
 -- --------------------------------------------------------
 
@@ -50,18 +50,19 @@ INSERT INTO `blagues` (`id`, `texte`, `id_pseudo`, `cat`, `date`, `nbJaime`) VAL
 
 CREATE TABLE IF NOT EXISTS `com` (
   `id_log` varchar(40) NOT NULL,
-  `id_blague` int(11) NOT NULL,
+  `id_article` int(11) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `commentaire` text NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_log` (`id_log`,`id_blague`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+  KEY `id_log` (`id_log`,`id_article`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Contenu de la table `com`
 --
 
-INSERT INTO `com` (`id_log`, `id_blague`, `id`, `commentaire`) VALUES
+INSERT INTO `com` (`id_log`, `id_article`, `id`, `commentaire`) VALUES
+('toto74', 18, 8, 'commentaire'),
 ('toto74', 18, 7, 'booooooooooouuuuuuuuuuuuuhhhhhh');
 
 -- --------------------------------------------------------
@@ -84,12 +85,12 @@ CREATE TABLE IF NOT EXISTS `log` (
 --
 
 INSERT INTO `log` (`login`, `mdp`, `admin`, `mail`, `date_naissance`) VALUES
-('toto742', 'ttoto742', 0, 'thomas.rovayaz@hotmail.fr', '2012-09-03'),
+('toto742', 'ttoto742', 0, 'thomas.rovayaz@hotmail.fr', '1993-01-04'),
 ('toto74', 'toto74', 1, 'thomas.rovayaz74@gmail.com', '1993-09-08'),
 ('toto743', 'toto743', 0, 'thomas.rovayaz@hotmail.fr', '2012-01-03'),
 ('toto744', 'toto744', 0, 'thomas.rovayaz@hotmail.fr', '2012-03-03'),
 ('toto745', 'toto745', 0, 'thomas.rovayaz@hotmail.fr', '2012-10-03'),
-('toto746', 'toto746', 0, 'thomas.rovayaz@hotmail.fr', '2012-03-03'),
+('toto746', 'toto746', 0, 'thomas.rovayaz@hotmail.fr', '0000-00-00'),
 ('toto747', 'toto747', 0, 'thomas.rovayaz@hotmail.fr', '2012-10-03');
 
 -- --------------------------------------------------------
@@ -100,20 +101,21 @@ INSERT INTO `log` (`login`, `mdp`, `admin`, `mail`, `date_naissance`) VALUES
 
 CREATE TABLE IF NOT EXISTS `synchro_jaime_log` (
   `id_log` varchar(40) NOT NULL,
-  `id_blague` int(11) NOT NULL,
+  `id_article` int(11) NOT NULL,
   `jaime` int(11) NOT NULL,
-  PRIMARY KEY (`id_log`,`id_blague`)
+  PRIMARY KEY (`id_log`,`id_article`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=FIXED;
 
 --
 -- Contenu de la table `synchro_jaime_log`
 --
 
-INSERT INTO `synchro_jaime_log` (`id_log`, `id_blague`, `jaime`) VALUES
+INSERT INTO `synchro_jaime_log` (`id_log`, `id_article`, `jaime`) VALUES
 ('toto74', 18, 1),
 ('toto742', 18, 1),
 ('toto743', 18, 1),
 ('toto744', 18, 1),
 ('toto745', 18, 1),
 ('toto746', 18, 1),
-('toto747', 18, 0);
+('toto747', 18, 0),
+('toto748', 18, 1);

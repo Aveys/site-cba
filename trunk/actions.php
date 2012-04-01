@@ -4,7 +4,7 @@
 	ini_set('display_errors', true);
 	
 	include_once "connect.php";
-	include_once "blagues.php";
+	include_once "articles.php";
 	if(isset($_POST["action"])){
 		if(($_POST["action"]=="ajouter")){
 			if(isset($_SESSION["pseudo"]))
@@ -14,24 +14,24 @@
 			deleteBlague($_POST["categorie"]);		
 		}
 		else if(($_POST["action"]=="Jaime")){
-			$query = "update blagues set nbJaime = nbJaime+1 where id='".$_POST["id"]."'";
+			$query = "update articles set nbJaime = nbJaime+1 where id='".$_POST["id"]."'";
 			mysql_query($query) or die(mysql_error());
-			$query = "update synchro_jaime_log set jaime = 1 where id_blague='".$_POST["id"]."' and id_log='".$_SESSION["pseudo"]."'";
+			$query = "update synchro_jaime_log set jaime = 1 where id_article='".$_POST["id"]."' and id_log='".$_SESSION["pseudo"]."'";
 			$result = mysql_query($query) or die(mysql_error());
 			if(mysql_affected_rows() == 0)
 			{
-				$query = "insert into synchro_jaime_log(id_log,id_blague,jaime) values('".$_SESSION["pseudo"]."','".$_POST["id"]."',1)";
+				$query = "insert into synchro_jaime_log(id_log,id_article,jaime) values('".$_SESSION["pseudo"]."','".$_POST["id"]."',1)";
 				$result = mysql_query($query) or die(mysql_error());
 			}
 		}
 		else if(($_POST["action"]=="J\'aime plus")){
-			$query = "update blagues set nbJaime = nbJaime-1 where id='".$_POST["id"]."'";
+			$query = "update articles set nbJaime = nbJaime-1 where id='".$_POST["id"]."'";
 			mysql_query($query) or die(mysql_error());
-			$query = "update synchro_jaime_log set jaime = 0 where id_blague='".$_POST["id"]."' and id_log='".$_SESSION["pseudo"]."'";
+			$query = "update synchro_jaime_log set jaime = 0 where id_article='".$_POST["id"]."' and id_log='".$_SESSION["pseudo"]."'";
 			mysql_query($query) or die(mysql_error());
 		}
 		else if(($_POST["action"]=="Commenter")){
-			$query = "insert into com(id_log,id_blague,commentaire) values('".$_SESSION['pseudo']."','".$_POST['id']."','".$_POST['commentaire']."')";
+			$query = "insert into com(id_log,id_article,commentaire) values('".$_SESSION['pseudo']."','".$_POST['id']."','".$_POST['commentaire']."')";
 			mysql_query($query) or die(mysql_error());
 		}
 		else if(($_POST["action"]=="Connexion")){
