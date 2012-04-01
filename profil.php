@@ -66,7 +66,7 @@
 	}
 	function autorise_edition($login)
 	{
-		if(isadmin($_SESSION['pseudo']) || (isset($_SESSION['pseudo']) && $login == $_SESSION['pseudo']))
+		if(isset($_SESSION['pseudo']) && (isadmin($_SESSION['pseudo']) || $login == $_SESSION['pseudo']))
 			return true;
 		else
 			return false;
