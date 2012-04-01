@@ -57,6 +57,7 @@ function survole_personne_cache(event)
 	}
 	element.style.position = 'fixed';
 	element.style.left = curleft+"px";
+	element.style.top = curtop+15+"px";
 	element.style.visibility='visible';
 	element.style.height='auto';
 	element.style.width='auto';
@@ -64,6 +65,28 @@ function survole_personne_cache(event)
 function quitte_personne_cache()
 {
 	var element = document.getElementById('liste_personnes_caches');
+	element.style.visibility='hidden';
+	element.style.height='0px';
+	element.style.width='0px';
+}
+
+function survole_profil_apercu(content)
+{
+	var element = content.querySelector('#profil_apercu');
+	if( window.event)
+    	event = window.event;
+	var x = event.clientX;
+  	var y = event.clientY;
+	element.style.position = 'fixed';
+	element.style.left = x+"px";
+	element.style.top = y+"px";
+	element.style.visibility='visible';
+	element.style.height='auto';
+	element.style.width='auto';
+}
+function quitte_profil_apercu(content)
+{
+	var element = content.querySelector('#profil_apercu');
 	element.style.visibility='hidden';
 	element.style.height='0px';
 	element.style.width='0px';
