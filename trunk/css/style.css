@@ -1,6 +1,6 @@
 *{
-	margin:0;
-	padding:0;
+	margin:0px;
+	padding:0px;
 	position:relative;
 }
 
@@ -41,6 +41,8 @@ body{
 	z-index: 1;
 }
 #profil_apercu{
+	margin: 0px;
+	padding: 0px;
 	background-color: orange;
 	visibility: hidden;
 	width: 0px;

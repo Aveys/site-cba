@@ -59,6 +59,13 @@
 				echo '<script language="Javascript">document.location.replace("inscription.php");</script>';
 			}
 		}
+		else if(($_POST["action"]=="Editer")){
+			$query = "update log set mail = '".$_POST["mail"]."' where login='".$_POST["id"]."'";
+			mysql_query($query) or die(mysql_error());
+			$query = "update log set date_naissance = '".$_POST["naissance"]."' where login='".$_POST["id"]."'";
+			mysql_query($query) or die(mysql_error());
+			echo "<script language='Javascript'>document.location.replace('profil.php?id=".$_POST["id"]."');</script>";
+		}
 
 	}
 	echo '<script language="Javascript">document.location.replace(".");</script>';
