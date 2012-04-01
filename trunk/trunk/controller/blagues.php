@@ -172,7 +172,7 @@
 				}
 				else
 				{
-					echo "<input type='submit' name='action' value='J&apos;aime plus'/>";
+					echo "<input type='submit' name='action' value='Jaimeplus'/>";
 					echo "<input type='hidden' name='id' value='".$row["id"]."'/>";
 				}
 			echo"</form>";
