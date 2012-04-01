@@ -31,8 +31,8 @@ function verifMdp(field){
 }
 
 function valid(){
-	var texteField=document.blagues.texte; //on ne met pas le getElementById("ou"); car on n'a pas d'id="ou" dans notre formulaire.
-	var pseudoField=document.blagues.pseudo; // idem, il faut id="nom" dans le forlmulaire.
+	var texteField=document.articles.texte; //on ne met pas le getElementById("ou"); car on n'a pas d'id="ou" dans notre formulaire.
+	var pseudoField=document.articles.pseudo; // idem, il faut id="nom" dans le forlmulaire.
 	var texteOK = verifTexte(texteField);
 	var pseudoOK = verifPseudo(pseudoField);
 	return texteOK && pseudoOK;
