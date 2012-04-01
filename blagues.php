@@ -272,7 +272,7 @@
 	function link_profil($login)
 	{
 		$log = $login;
-		if($login==$_SESSION['pseudo'])
+		if(isset($_SESSION['pseudo']) && $login==$_SESSION['pseudo'])
 			$login='Vous';
 		echo "<span id='profil".$log."' onMouseOver='survole_profil_apercu(this,event)' onMouseOut='quitte_profil_apercu(this)'><a href='profil.php?id=".$log."'>".$login."</a>";
 		profil($log);
