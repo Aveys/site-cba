@@ -38,10 +38,6 @@
 			if ( checkLogin($_POST["pseudo"], $_POST["mdp"])){
 				unset($_SESSION['erreur_connect']);
 				$_SESSION["pseudo"] = $_POST["pseudo"];
-				$query = "select admin from log where login='".$_SESSION["pseudo"]."'";
-				$result = mysql_query($query);
-				$row = mysql_fetch_assoc($result);
-				$_SESSION["admin"] = $row['admin'];
 			}
 		}
 		else if(($_POST["action"]=="Deconnexion")){

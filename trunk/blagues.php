@@ -64,7 +64,8 @@
 			echo "<div class='info_blague'>Fait par ";
 			$resultLog=mysql_query("select l.login from blagues b join synchro_jaime_log s on b.id=s.id_blague join log l on l.login=s.id_log where b.id='".$row['id']."'");
 			$rowLog=mysql_fetch_assoc($resultLog);
-			echo $rowLog['login']." le ".$row['date'].".</div>";
+			link_profil($rowLog['login']);
+			echo " le ".$row['date'].".</div>";
 			echo "<div class='nbJaime'>";
 				login_qui_aiment($row);
 			echo "</div>";
@@ -125,8 +126,8 @@
 	}
 	
 	function displayDeleteForm(){		
-		if (isset($_SESSION["pseudo"]) && isset($_SESSION["admin"])){
-			if($_SESSION["admin"] == 1)
+		if (isset($_SESSION["pseudo"])){
+			if(verif_admin($_SESSION["pseudo"]) == 1)
 			{
 		?>
 				<form name="deleteBlagues" action="actions.php" method="POST">
@@ -211,7 +212,9 @@
 		$query_com = "select login,commentaire from com c join blagues b on c.id_blague=b.id join log l on c.id_log=l.login where b.id=".$row['id'];
 		$result_com = mysql_query($query_com) or die(mysql_error());
 		while ($row_com = mysql_fetch_assoc($result_com)) {
-			echo $row_com['commentaire']." de ".$row_com['login']."</br>";
+			echo $row_com['commentaire']." de ";
+			link_profil($row_com['login']);
+			echo "</br>";
 		}
 	}
 	function affiche_login_qui_aime($tab_log_aime,$vous,$i)
@@ -221,7 +224,7 @@
 		for($key=0;$key<=$i;$key++) {
 			if(isset($tab_log_aime[$key]['login']))
 			{
-				echo $tab_log_aime[$key]['login'];
+				link_profil($tab_log_aime[$key]['login']);
 				if($nb_jaime != (count($tab_log_aime)-1) && $nb_jaime >= $nb_max_like)
 				{
 					echo " et <span id='personnes_caches' onMouseOver='survole_personne_cache()' onMouseOut='quitte_personne_cache()'>".(count($tab_log_aime) - 1 - $nb_jaime);
@@ -259,10 +262,50 @@
 		{
 			if(isset($tab_log_aime[$key]['login']))
 			{
-				echo "<li>".$tab_log_aime[$key]['login']."</li>";
+				echo "<li>";
+				link_profil($tab_log_aime[$key]['login']);
+				echo "</li>";
 			}
 		}
 		echo "</div>";
 	}
+	function link_profil($login)
+	{
+		echo "<span id='profil".$login."' onMouseOver='survole_profil_apercu(this)' onMouseOut='quitte_profil_apercu(this)'><a href='profil.php?id=".$login."'>".$login."</a>";
+		profil($login);
+		echo "</span>";
+	}
+	function profil($log)
+	{
+		echo "<div id='profil_apercu' style='float: left;'>";
+			echo "<h3>".$log."</h3>";
+			$query = "select mail,date_naissance from log where login='".$log."'";
+			$result = mysql_query($query) or die(mysql_error());
+			$row = mysql_fetch_assoc($result);
+			echo "Mail: ".$row['mail']."</br>";
+			affiche_anni($row['date_naissance'],$log);
+		echo "</div>";
+	}
+	function verif_admin($login)
+	{
+		$query = "select admin from log where login='".$login."'";
+		$result = mysql_query($query);
+		$row = mysql_fetch_assoc($result);
+		return $row['admin'];
+	}
+
+	function affiche_anni($date_naissance,$login)
+	{
+		list($date_anni['annee'],$date_anni['jour'],$date_anni['mois']) = explode("-", $date_naissance);
+		date_default_timezone_set('Europe/Paris');
+		if(isset($_SESSION['pseudo']) && $login == $_SESSION['pseudo'])
+			echo "Vous avez ";
+		else
+			echo $login." a ";
+		if($date_anni['mois'] >= date('m') && $date_anni['jour'] >= date('d'))
+			echo date('Y')-$date_anni['annee'];
+		else
+			echo date('Y')-$date_anni['annee']-1;
+		echo " ans.";
+	}
  ?>
- 
