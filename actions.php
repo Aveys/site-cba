@@ -31,7 +31,7 @@
 			mysql_query($query) or die(mysql_error());
 		}
 		else if(($_POST["action"]=="Commenter")){
-			$query = "insert into com(id_log,id_article,commentaire) values('".$_SESSION['pseudo']."','".$_POST['id']."','".$_POST['commentaire']."')";
+			$query = "insert into com(id_log,id_article,commentaire,date_publication) values('".$_SESSION['pseudo']."','".$_POST['id']."','".htmlspecialchars($_POST['commentaire'])."',now())";
 			mysql_query($query) or die(mysql_error());
 		}
 		else if(($_POST["action"]=="Connexion")){
