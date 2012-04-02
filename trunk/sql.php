@@ -1,12 +1,9 @@
 <?php
-$createtable="drop table if exists STUL_COMMENT;
-
+$createtable="
+drop table if exists STUL_COMMENT;
 drop table if exists STUL_OPTIONS;
-
 drop table if exists STUL_POST;
-
 drop table if exists STUL_USERS;
-
 create table STUL_COMMENT
 (
    COM_ID               int not null auto_increment,
@@ -17,7 +14,6 @@ create table STUL_COMMENT
    COM_DATE             datetime,
    primary key (COM_ID)
 );
-
 alter table STUL_COMMENT comment 'table de commentaire';
 
 create table STUL_OPTIONS
@@ -52,9 +48,6 @@ create table STUL_USERS
    USER_STATUS          smallint,
    primary key (USER_ID)
 );
-
-alter table STUL_USERS comment 'table des utilisateurs';
-
 ALTER TABLE  STUL_USERS ADD UNIQUE (USER_DISPLAYNAME);
 
 alter table STUL_COMMENT add constraint FK_A foreign key (POST_ID)
@@ -68,3 +61,5 @@ alter table STUL_COMMENT add constraint FK_EST_PARENT foreign key (COM_PARENT)
 
 alter table STUL_POST add constraint FK_EST_L_AUTEUR foreign key (USER_ID)
       references STUL_USERS (USER_ID) on delete restrict on update restrict;";
+
+ ?>

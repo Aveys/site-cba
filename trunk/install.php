@@ -84,9 +84,45 @@ switch($step){
 	break;
 
 	case 3:
-	if (isset($_POST))
+	if (isset($_POST)){
 		print_r($_POST);
+		require_once("sql.php");
+		$dbname  = trim($_POST['BDD']);
+		$uname   = trim($_POST['user']);
+		$passwrd = trim($_POST['mdp']);
+		$dbhost  = trim($_POST['host']);
+		$link=mysql_connect($dbhost,$uname,$passwrd) or die(mysql_error()); //or die(erreur_SQL());
+		mysql_select_db($dbname) or die(mysql_error()); //or die(erreur_SQL());
+		mysql_unbuffered_query($createtable) or die(mysql_error()); //or die(erreur_SQL());
+	}
+	else
+		header("location:install.php?step=2");
+	displayHeader();?>
+	<body>
+		<div id="all">
+			<div id="content">
+				<div id="header" class="box">
+					<div id="logo"><img alt="Stul" src="images/install/logo.png" /></div>
+					<div id="titre">INSTALLATION</div>
+					<div id="sous-titre"> Etape 3 : Creation du compte administrateur</div>
+				</div>
+				<div id="text" class="box">
+					<p class="box"> La connexion à la base de donnée s'est bien déroulée, nous allons maintenant configurer votre compte administrateur</p>
 
+
+				</div>
+				<div id="footer">
+					<div id="tryagain" class="button"><a href="install.php?step=2">Continuer</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+</body>
+</html>
+<?php
 }
 
 
@@ -105,5 +141,38 @@ function displayHeader(){
 
 	</head>
 	<?php
+}
+function erreur_SQL(){
+	displayHeader();?>
+	<body>
+		<div id="all">
+			<div id="content">
+				<div id="header" class="box">
+					<div id="logo"><img alt="Stul" src="images/install/logo.png" /></div>
+					<div id="titre">INSTALLATION</div>
+					<div id="sous-titre"> Erreur lors de l’établissement de la connexion à la base de données</div>
+				</div>
+				<div id="text" class="box">
+					<p>Cela signifie soit que l&rsquo;identifiant et/ou le mot de passe indiqué(s) dans votre fichier <code>wp-config.php</code> sont incorrects, ou que le serveur de base de données à l&rsquo;adresse <code>localhost</code> est inaccessible - cela peut indiquer que le serveur de base de données de votre hébergeur est défaillant.</p>
+					<ul>
+						<li>Êtes-vous certain(e) d&rsquo;avoir correctement indiqué votre identifiant et votre mot de passe&nbsp;?</li>
+						<li>Êtes-vous certain(e) d&rsquo;avoir entré le bon serveur de base de données&nbsp;?</li>
+						<li>Êtes-vous certain(e) que le serveur de base de données fonctionne correctement&nbsp;?</li>
+					</ul>
+					<p>Si vous n&rsquo;êtes pas sûr(e) de bien comprendre les mots de cette liste, vous devriez sans doute prendre contact avec votre hébergeur.</p>
+				</div>
+				<div id="footer">
+					<div id="tryagain" class="button"><a href="install.php?step=2">Réessayez</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+</body>
+</html>
+<?php
+
 }
 ?>
