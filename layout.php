@@ -1,6 +1,9 @@
 <?php
 session_start(); 
 include_once "connect.php";
+include_once "sql.php";
+include_once "user_view.php";
+include_once "includes/admin/stul_fonctions.php";
 include_once "articles.php";
 date_default_timezone_set('Europe/Paris');
 ?>
@@ -12,6 +15,7 @@ date_default_timezone_set('Europe/Paris');
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <script type="text/javascript" src="verification.js"></script>
 <script type="text/javascript" src="calendrier.js"></script>
+<script type="text/javascript" src="apercu_profil.js"></script>
 </head>
 <body>
 

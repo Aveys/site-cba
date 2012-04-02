@@ -2,7 +2,6 @@
 	session_start();
 	error_reporting(E_ALL | E_STRICT );
 	ini_set('display_errors', true);
-	include_once "sql.php";
 	if(isset($_POST["action"])){
 		switch($_POST['action'])
 		 {
