@@ -36,7 +36,7 @@
 				unset($_SESSION["id"]);
 			break;
 			case "Inscription":
-				echo '<script language="Javascript">document.location.replace("inscription.php");</script>';
+				echo '<script language="Javascript">document.location.replace("?page=inscription");</script>';
 			break;
 			case "inscrire":
 				sql_inscrire_user($_POST);
