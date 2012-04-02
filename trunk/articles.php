@@ -59,7 +59,7 @@
  
 	function displayArticles(){
 		$result=mysql_query("select b.id,b.texte,b.cat,b.date,b.nbJaime from articles b");
-		while($row=mysql_fetch_assoc($result)){
+		while(($row=mysql_fetch_assoc($result)) != false){
 			echo "<div class='article'>".$row['texte']."</div>";
 			echo "<div class='info_article'>Fait par ";
 			$resultLog=mysql_query("select l.login from articles b join synchro_jaime_log s on b.id=s.id_article join log l on l.login=s.id_log where b.id='".$row['id']."'");
