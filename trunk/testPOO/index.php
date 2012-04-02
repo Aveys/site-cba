@@ -1,14 +1,36 @@
 <?php
 	session_start();
+	
 	mysql_connect("localhost", "root", "");
 	mysql_select_db("iut");
 	mysql_query("set names 'UTF8'");
-	include_once("membre.class.php");
-	if(isset($_POST['pseudo']))
+	function chargerClasse($class)
 	{
-		if(Membre::login($_POST))
+		require_once $class.'.class.php';
+	}
+	function login(array $data)
+	{
+		$req = mysql_query("SELECT * FROM users");
+		while(($r = mysql_fetch_assoc($req)) != false)
 		{
-				$message = "inscription réussie";
+			if($data['pseudo'] == $r['pseudo'])
+			{
+				if($r['admin'] == 1)
+					$_SESSION['user'] = new Admin($data, $r['ID']);
+				else
+					$_SESSION['user'] = new Membre($data, $r['ID']);
+				if($_SESSION['user'] != NULL)
+					return true;
+			}
+		}
+		return false;
+	}
+	spl_autoload_register('chargerClasse');
+	if(isset($_POST['action']) && !empty($_POST['pseudo']))
+	{
+		if(login($_POST))
+		{
+				$_SESSION['msg'] = "inscription réussie";
 		}
 	}
 ?>
@@ -22,19 +44,24 @@
 <body>
 	<form method="post" action=".">
     	<input type="text" name="pseudo" />
+        <input type="hidden" name="action" value="envoyer" />
         <input type="submit" value="envoyer" />
     </form>
     <p><?php
-		if(isset($message))
-			echo $message; ?></p>
-    <p><?php if(isset($_SESSION['membre']))
-				echo $_SESSION['membre']->getPseudo(); ?></p>
-    <?php
-		$r = mysql_query("SELECT pseudo FROM users");
-		foreach(mysql_fetch_assoc($r) as $res)
+		if(isset($_SESSION['msg']))
 		{
-			echo '<p>'.$res.'</p>';
-		}
-	?>
+			echo $_SESSION['msg'].'<br /><pre>';
+			var_dump($_SESSION);
+			echo '</pre>';
+			unset($_SESSION['msg']);
+		}?></p>
+    <p><?php
+				$user = $_SESSION['user'];
+				echo $user->getPseudo(); ?></p>
+
 </body>
 </html>
+
+<?php
+	session_destroy();
+?>
