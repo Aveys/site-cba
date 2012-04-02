@@ -28,14 +28,16 @@
 				mysql_query($query) or die(mysql_error());
 			break;*/
 			case "Commenter":
-				$query = "insert into stul_comment(user_id,post_id,com_content,com_date) values('".$_SESSION['id']."','".$_POST['id']."','".htmlspecialchars($_POST['commentaire'])."',now())";
+				$query = "insert into STUL_COMMENT user_id,post_id,com_content,com_date) values('".$_SESSION['id']."','".$_POST['id']."','".htmlspecialchars($_POST['commentaire'])."',now())";
 				mysql_query($query) or die(mysql_error());
 			break;
 			case "Connexion":
+				echo "3";
 				if ( checkLogin($_POST["pseudo"], $_POST["mdp"])){
+					echo "1";
 					unset($_SESSION['erreur_connect']);
 					$_SESSION["pseudo"] = $_POST["pseudo"];
-					$query = "select user_id from stul_users where user_login='".$_POST["pseudo"]."' and user_pass='".$_POST["mdp"]."'";
+					$query = "select user_id from STUL_USERS where user_login='".$_POST["pseudo"]."' and user_pass='".$_POST["mdp"]."'";
 					$result = mysql_query($query) or die(mysql_error());
 					$row = mysql_fetch_assoc($result);
 					$_SESSION["id"] = $row["user_id"];
@@ -48,8 +50,8 @@
 			case "Inscription":
 				echo '<script language="Javascript">document.location.replace("inscription.php");</script>';
 			break;
-			case "S\'inscrire":
-				$query = "select * from stul_users where user_login='".$_POST["pseudo"]."'";
+			case "inscrire":
+				$query = "select * from STUL_USERS where user_login='".$_POST["pseudo"]."'";
 				$result=mysql_query($query);
 				if(mysql_num_rows($result) == 0)
 				{
@@ -62,7 +64,7 @@
 				}
 			break;
 			case "Editer":
-				$query = "update stul_users set mail = '".$_POST["mail"]."' where user_id='".$_POST["id"]."'";
+				$query = "update STUL_USERS set mail = '".$_POST["mail"]."' where user_id='".$_POST["id"]."'";
 				mysql_query($query) or die(mysql_error());
 				/*$query = "update log set date_naissance = '".$_POST["naissance"]."' where login='".$_POST["id"]."'";
 				mysql_query($query) or die(mysql_error());*/
