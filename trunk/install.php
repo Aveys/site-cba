@@ -82,6 +82,11 @@ switch($step){
 
 	<?php
 	break;
+
+	case 3:
+	if (isset($_POST))
+		print_r($_POST);
+
 }
 
 

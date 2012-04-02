@@ -12,7 +12,7 @@ create table STUL_COMMENT
    COM_ID               int not null auto_increment,
    USER_ID              int,
    POST_ID              int not null,
-   _TABLE__PK           int,
+   COM_PARENT           int,
    COM_CONTENT          text,
    COM_DATE             datetime,
    primary key (COM_ID)
@@ -63,10 +63,8 @@ alter table STUL_COMMENT add constraint FK_A foreign key (POST_ID)
 alter table STUL_COMMENT add constraint FK_COMMENTE foreign key (USER_ID)
       references STUL_USERS (USER_ID) on delete restrict on update restrict;
 
-alter table STUL_COMMENT add constraint FK_EST_PARENT foreign key (_TABLE__PK)
+alter table STUL_COMMENT add constraint FK_EST_PARENT foreign key (COM_PARENT)
       references STUL_COMMENT (COM_ID) on delete restrict on update restrict;
 
 alter table STUL_POST add constraint FK_EST_L_AUTEUR foreign key (USER_ID)
-      references STUL_USERS (USER_ID) on delete restrict on update restrict;
-
-";
+      references STUL_USERS (USER_ID) on delete restrict on update restrict;";
