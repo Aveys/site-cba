@@ -33,6 +33,42 @@ function addFormAdmin()
 
 	<?php
 }
+	
+function displayDeleteForm(){		
+	if (isset($_SESSION["pseudo"])){
+		if(isadmin($_SESSION["pseudo"]) == 1)
+		{
+	?>
+			<form name="deleteArticles" action="actions.php" method="POST">
+			
+			<!-- choix Article -->
+			<label for="categorie">Quelle article ?</label>
+			<select name="categorie">
+			<?php
+			$result= sql_all_post();
+			while($row=mysql_fetch_assoc($result)){
+				echo "<option value='".$row["post_id"]."'>".$row["post_id"]."</option>";
+				}
+			?>
+			</select>
+			<input type="submit" name="action" value="supprimer"/>
+			</form>
+	<?php
+		}
+		else
+			echo "Vous n'etes pas admin.</br>";
+	}
+	else
+		echo "Veuillez vous loger en tant qu'admin.</br>";
+}
+
+function isadmin($id) //verif les appels de cette fonction pour bien mettre l'id
+{
+	if(sql_user_status($id) == 2)
+		return true;
+	else
+		return false;
+}
 
 //Fonction pour un petit formulaire de logout
 function addFormAdminLogout()
