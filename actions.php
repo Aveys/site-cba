@@ -28,7 +28,7 @@
 				mysql_query($query) or die(mysql_error());
 			break;*/
 			case "Commenter":
-				$query = "insert into STUL_COMMENT user_id,post_id,com_content,com_date) values('".$_SESSION['id']."','".$_POST['id']."','".htmlspecialchars($_POST['commentaire'])."',now())";
+				$query = "insert into STUL_COMMENT(user_id,post_id,com_content,com_date) values('".$_SESSION['id']."','".$_POST['id']."','".htmlspecialchars($_POST['commentaire'])."',now())";
 				mysql_query($query) or die(mysql_error());
 			break;
 			case "Connexion":
