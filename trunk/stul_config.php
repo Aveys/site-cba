@@ -8,6 +8,7 @@ $theme = "themes/cba/";
 //Chemin des fichiers
 $fActionPhp = "actions.php";
 $fAdminFonct = "stul_adminfonct.php";
+$fConnect = "connect.php";
 
 
 ?>
