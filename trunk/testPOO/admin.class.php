@@ -7,6 +7,7 @@
 		{
 			parent::__construct($data, $ident);
 			self::$_compteur++;
+			$this->statut = "admin";
 		}
 		public function __destruct()
 		{

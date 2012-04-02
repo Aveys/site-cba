@@ -28,11 +28,18 @@
 	spl_autoload_register('chargerClasse');
 	if(isset($_POST['action']) && !empty($_POST['pseudo']))
 	{
-		if(login($_POST))
+		if($_POST['action'] == "connexion")
 		{
+			if(login($_POST))
 				$_SESSION['msg'] = "inscription réussie";
+			else
+				$_SESSION['user'] = new User();
 		}
+		else if($_POST['action'] == "deconnexion")
+			$_SESSION['user'] = new User();
 	}
+	else
+		$_SESSION['user'] = new User();
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -42,26 +49,47 @@
 <title>Document sans titre</title>
 </head>
 <body>
+	<?php
+	if(!isset($_SESSION['user']) || $_SESSION['user']->getStatut() == "visiteur")
+	{
+	?>
 	<form method="post" action=".">
     	<input type="text" name="pseudo" />
-        <input type="hidden" name="action" value="envoyer" />
+        <input type="hidden" name="action" value="connexion" />
         <input type="submit" value="envoyer" />
     </form>
+    <?php
+	}
+	else
+	{
+	?>
+    <form method="post" action=".">
+    	<input type="hidden" name="action" value="deconnexion" />
+        <input type="submit" value="déconnexion" />
+    </form>
+    <?php
+	}
+	?>
     <p><?php
 		if(isset($_SESSION['msg']))
 		{
-			echo $_SESSION['msg'].'<br /><pre>';
+			echo $_SESSION['msg'];
+			unset($_SESSION['msg']);
+		}
+			echo '<br /><pre>';
 			var_dump($_SESSION);
 			echo '</pre>';
-			unset($_SESSION['msg']);
-		}?></p>
+			?></p>
     <p><?php
+			if(isset($_SESSION['user']) && $_SESSION['user']->getStatut() != "visiteur")
+			{
 				$user = $_SESSION['user'];
-				echo $user->getPseudo(); ?></p>
+				echo $user->getPseudo();
+			} ?></p>
 
 </body>
 </html>
 
 <?php
-	session_destroy();
+	unset($_SESSION['msg']);
 ?>
