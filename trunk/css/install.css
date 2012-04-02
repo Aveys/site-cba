@@ -1,4 +1,5 @@
 .button {
+			text-align: center;
 			font-family: sans-serif;
 			text-decoration: none;
 			font-size: 14px !important;
@@ -33,4 +34,50 @@
 			background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#ffffff));
 			background-image: -webkit-linear-gradient(top, #f2f2f2, #ffffff);
 			background-image: linear-gradient(top, #f2f2f2, #ffffff);
+		}
+		html {
+			background: #f9f9f9;
+		}
+		body {
+			background: #fff;
+			color: #333;
+			font-family: sans-serif;
+			margin: 2em auto;
+			padding: 1em 2em;
+			-webkit-border-radius: 3px;
+			border-radius: 3px;
+			border: 1px solid #dfdfdf;
+			max-width: 700px;
+		}
+		ul li {
+			margin-bottom: 10px;
+			font-size: 14px ;
+		}
+		a {
+			color: #21759B;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #D54E21;
+		}
+		.box{
+			border-bottom: 1px solid #999;
+			margin-bottom: 20px;
+		}
+		#header{
+			font-family: 'Droid Sans',Arial,Verdana,sans-serif;
+			text-align:center;
+		}
+		#titre{
+			text-decoration:bold;
+			font-size:32px;
+		}
+		#sous-titre{
+			text-decoration:italic;
+		}
+		#formulaire{
+			margin-bottom: 20px;
+			}		
+		label {
+			font-size:12px;
 		}
