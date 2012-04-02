@@ -1,4 +1,12 @@
 <?php
+/* 
+* Classe du membre de base
+* hérite de la classe User, 
+* COntient les informations de base du membres
+* et les actions que lui et utilisateurs héritiers peuvent
+* effectuer
+*/
+
 	include_once("user.class.php");
 	class Membre extends User
 	{
@@ -6,10 +14,10 @@
 		protected $pseudo;
 		protected $id;
 		protected static $_compteur = 0;
-		public function __construct(array $data, $ident)
+		public function __construct($data, $ident)
 		{
 			parent::__construct();
-			$this->pseudo = $data['pseudo'];
+			$this->pseudo = $data;
 			$this->id = $ident;
 			$this->statut = "membre";
 			self::$_compteur++;

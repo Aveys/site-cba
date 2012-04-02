@@ -11,15 +11,15 @@
 	spl_autoload_register('chargerClasse');
 	function logMembre(array $data)
 	{
-		$req = mysql_query("SELECT * FROM users");
+		$req = mysql_query("SELECT * FROM stul_users");
 		while(($r = mysql_fetch_assoc($req)) != false)
 		{
-			if($data['pseudo'] == $r['pseudo'])
+			if($data['pseudo'] == $r['user_login'])
 			{
 				if($r['admin'] == 1)
-					$_SESSION['user'] = new Admin($data, $r['ID']);
+					$_SESSION['user'] = new Admin($data['user_displayname'], $r['ID']);
 				else
-					$_SESSION['user'] = new Membre($data, $r['ID']);
+					$_SESSION['user'] = new Membre($data['user_displayname'], $r['ID']);
 				if($_SESSION['user'] != NULL)
 					return true;
 			}
