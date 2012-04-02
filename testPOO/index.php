@@ -8,7 +8,8 @@
 	{
 		require_once $class.'.class.php';
 	}
-	function login(array $data)
+	spl_autoload_register('chargerClasse');
+	function logMembre(array $data)
 	{
 		$req = mysql_query("SELECT * FROM users");
 		while(($r = mysql_fetch_assoc($req)) != false)
@@ -25,12 +26,12 @@
 		}
 		return false;
 	}
-	spl_autoload_register('chargerClasse');
+	
 	if(isset($_POST['action']) && !empty($_POST['pseudo']))
 	{
 		if($_POST['action'] == "connexion")
 		{
-			if(login($_POST))
+			if(logMembre($_POST))
 				$_SESSION['msg'] = "inscription réussie";
 			else
 				$_SESSION['user'] = new User();
