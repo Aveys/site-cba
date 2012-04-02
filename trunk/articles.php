@@ -208,7 +208,7 @@
 	}
 	function afficheCom($row)
 	{
-		$query_com = "select u.user_login, u.user_id ,c.com_content,c.com_date from STUL_COMMENT c join STUL_POST p on c.com_id=p.post_id join STUL_USERS u on c.com_id=u.user_id where p.post_id=".$row['POST_ID']." order by c.com_date";
+		$query_com = "select u.user_login, u.user_id ,c.com_content,c.com_date from STUL_COMMENT c join STUL_USERS u on c.user_id=u.user_id where c.post_id=".$row['POST_ID']." order by c.com_date";
 		$result_com = mysql_query($query_com) or die(mysql_error());
 		while ($row_com = mysql_fetch_assoc($result_com)) {
 			echo nl2br($row_com['com_content'])." de ";
@@ -222,15 +222,15 @@
 		if(date('Y',$date)-1970 != 0)
 			echo " il y a ".(date('Y',$date)-1970)." an(s).";
 		else if(date('m',$date)-1 != 0)
-			echo " il y a ".(date('m',$date)-1)." mois.";
+			echo " il y a ".(date('m',$date))." mois.";
 		else if(date('d',$date)-1 != 0)
-			echo " il y a ".(date('d',$date)-1)." jour(s).";
+			echo " il y a ".(date('d',$date))." jour(s).";
 		else if(date('H',$date)-1 != 0)
-			echo " il y a ".(date('H',$date)-1)." heure(s).";
+			echo " il y a ".(date('H',$date))." heure(s).";
 		else if(date('i',$date)-1 != 0)
-			echo " il y a ".(date('i',$date)-1)." minute(s).";
+			echo " il y a ".(date('i',$date))." minute(s).";
 		else if(date('s',$date)-1 != 0)
-			echo " il y a ".(date('s',$date)-1)." seconde(s).";
+			echo " il y a ".(date('s',$date))." seconde(s).";
 	}
 	function dateTimeToTime($date_heure)
 	{
