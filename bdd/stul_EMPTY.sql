@@ -54,6 +54,8 @@ create table STUL_USERS
 
 alter table STUL_USERS comment 'table des utilisateurs';
 
+ALTER TABLE  STUL_USERS ADD UNIQUE (USER_DISPLAYNAME);
+
 alter table STUL_COMMENT add constraint FK_A foreign key (POST_ID)
       references STUL_POST (POST_ID) on delete restrict on update restrict;
 
