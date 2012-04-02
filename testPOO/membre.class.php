@@ -1,29 +1,19 @@
 <?php
 	class Membre
 	{
-		protected $pseudo;
 		protected $email;
-		
-		public static function login(array $data)
+		protected $pseudo;
+		protected $id;
+		protected static $_compteur = 0;
+		public function __construct(array $data, $ident)
 		{
-			$connexion = false;
-			$req = mysql_query("SELECT pseudo FROM users");
-			foreach(mysql_fetch_assoc($req) as $r)
-			{
-				if($data['pseudo'] == $r['pseudo'])
-				{
-					$connexion = true;
-					$_SESSION['membre'] = new Membre($data, $r['ID']);
-					break;
-				}
-			}
-			return $connexion;	
+			$this->pseudo = $data['pseudo'];
+			$this->id = $ident;
+			self::$_compteur++;
 		}
-		public function __construct(array $data, $id)
+		public function __destruct()
 		{
-			$_SESSION['pseudo'] = $data['pseudo'];
-			$pseudo =  $data['pseudo'];
-			$_SESSION['ID'] = $id;
+			self::$_compteur--;
 		}
 		public function getPseudo()
 		{
