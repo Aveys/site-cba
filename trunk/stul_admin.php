@@ -1,8 +1,8 @@
 <?php
 //Auteur : Mathieu MARTIN
 //Date : 02/04/2012
-
-include_once "stul_config.php";
+session_start();
+include 'stul_config.php';
 include_once $fConnect;
 include_once $fAdminFonct;
 //include_once $fActionPhp;
@@ -13,6 +13,7 @@ include_once $fAdminFonct;
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href='<?php echo $vTheme; ?>/admin.css' />
 <title>Stul Admin</title>
 
 </head>
@@ -20,14 +21,25 @@ include_once $fAdminFonct;
 
 <div id="all">
 	<div id="content">
-		<div id="login">
 			<?php
-			//Connexion de l'admin
-			addFormAdmin();
+			if((isset($_SESSION["keyAdmin"]) == (isset($_SESSION["pass"])*isset($_SESSION["login"])) && isset($_SESSION["adminAuth"]) == 1))
+			{
+
+				//Debug
+				//print_r($_SESSION);
+				addFormAdminLogout();
+			}
+			else
+			{
+				//Connexion de l'admin
+				addFormAdmin();	
+
+			}
+				
+			
 
 
 			?>
-		</div><!--login-->
 	</div><!--content-->
 </div><!--all-->
 
