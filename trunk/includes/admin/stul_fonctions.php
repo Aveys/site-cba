@@ -11,7 +11,7 @@ function addFormAdmin()
 	?>
 	<!--Contenue du formulaire de connexion admin-->
 	<div id="login">
-		<h1>Stul</h1>
+		<h1><img src='<?php echo $vTheme;?>./images/icons/lock-closed.png' alt=""/>STUL Admin panel</h1>
 		<form id="loginAdmin" method="POST" action='<?php echo $fAdminAction;?>' name="loginAdmin">
 			<p>
 				<label for="pseudo">
