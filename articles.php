@@ -72,8 +72,8 @@
 			boutonJaime($row);*/
 			echo "<div id='com'>";
 				afficheCom($row);
-				commentaire($row);
 			echo "</div>";
+			add_commentaire($row,'commenter article');
 		}
 	}
 
@@ -195,20 +195,54 @@
 		}
 		affiche_login_qui_aime($tab_log_aime,$vous,$i);
 	}
-	function commentaire($row)
+	function add_commentaire($row,$text_button)
 	{
 		if(isset($_SESSION['pseudo']))
 		{
-			echo "<form method='post' name='com' action='actions.php'>";
-				echo "<textarea name='commentaire' cols='50' row='30'></textarea></br>";
-				echo "<input type='submit' name='action' value='Commenter'/>";
-				echo "<input type='hidden' name='id' value='".$row["POST_ID"]."'/>";
-			echo"</form>";
+			if(isset($row['com_content']))
+			{
+				echo "<input type='button' onClick=debloque_comment('comOfCom".$row['com_id']."') value='".$text_button."'/>";
+				echo "<form method='post' class='form_comment' name='comOfCom".$row["com_id"]."' id='comOfCom".$row['com_id']."' action='actions.php'>";
+					echo "<textarea name='commentaire' cols='50' row='30'></textarea></br>";
+					echo "<input type='submit' name='action' value='Commenter'/>";
+					echo "<input type='hidden' name='id' value='".$row["post_id"]."'/>";
+					echo "<input type='hidden' name='id_parent' value='".$row["com_id"]."'/>";
+				echo"</form>";
+			}
+			else
+			{
+				echo "<input type='button' onClick=debloque_comment('com".$row['POST_ID']."') value='".$text_button."'/>";
+				echo "<form method='post' class='form_comment' name='com".$row["POST_ID"]."' id='com".$row['POST_ID']."' action='actions.php'>";
+					echo "<textarea name='commentaire' cols='50' row='30'></textarea></br>";
+					echo "<input type='submit' name='action' value='Commenter'/>";
+					echo "<input type='hidden' name='id' value='".$row["POST_ID"]."'/>";
+				echo"</form>";
+			}
 		}
 	}
 	function afficheCom($row)
 	{
-		$query_com = "select u.user_login, u.user_id ,c.com_content,c.com_date from STUL_COMMENT c join STUL_USERS u on c.user_id=u.user_id where c.post_id=".$row['POST_ID']." order by c.com_date";
+		echo "</br>";
+		$query_com = "select c.com_id,u.user_login, u.user_id ,c.com_content,c.com_date,c.com_parent,c.post_id from STUL_COMMENT c join STUL_USERS u on c.user_id=u.user_id where c.post_id=".$row['POST_ID']." order by c.com_date";
+		$result_com = mysql_query($query_com) or die(mysql_error());
+		while ($row_com = mysql_fetch_assoc($result_com)) {
+			if($row_com['com_parent'] == "")
+			{
+				echo nl2br($row_com['com_content'])." de ";
+				link_profil($row_com['user_id']);
+				dateTimeToTime($row_com['com_date']);
+				echo "</br>";
+				echo "<div id='comOfCom'>";
+				afficheComOfCom($row_com['com_id']);
+				add_commentaire($row_com,'▼');
+				echo "</div>";
+				echo "</br>";
+			}
+		}
+	}
+	function afficheComOfCom($id_com_parent)
+	{
+		$query_com = "select u.user_login, u.user_id ,c.com_content,c.com_date,c.com_parent from STUL_COMMENT c join STUL_USERS u on c.user_id=u.user_id where c.com_parent=".$id_com_parent." order by c.com_date";
 		$result_com = mysql_query($query_com) or die(mysql_error());
 		while ($row_com = mysql_fetch_assoc($result_com)) {
 			echo nl2br($row_com['com_content'])." de ";
@@ -227,9 +261,9 @@
 			echo " il y a ".(date('d',$date))." jour(s).";
 		else if(date('H',$date)-1 != 0)
 			echo " il y a ".(date('H',$date))." heure(s).";
-		else if(date('i',$date)-1 != 0)
+		else if(date('i',$date) != 0)
 			echo " il y a ".(date('i',$date))." minute(s).";
-		else if(date('s',$date)-1 != 0)
+		else
 			echo " il y a ".(date('s',$date))." seconde(s).";
 	}
 	function dateTimeToTime($date_heure)
@@ -302,7 +336,7 @@
 			$result= mysql_query($query) or die(mysql_error());
 			$row = mysql_fetch_assoc($result);
 			$log=$row["user_login"];
-	 }
+	 	}
 		echo "<span id='profil".$log."' onMouseOver='survole_profil_apercu(this,event)' onMouseOut='quitte_profil_apercu(this)'><a href='profil.php?id=".$id."'>".$log."</a>";
 		profil($id);
 		echo "</span>";
@@ -310,7 +344,7 @@
 	function profil($user_id) //verif les appels de cette fonction pour bien mettre l'id
 	{
 		echo "<div id='profil_apercu' style='float: left;'>";
-			$query = "select user_mail, user_login from STUL_USERS where user_id='".$user_id."'";
+			$query = "select user_mail, user_login from STUL_USERS where user_id=".$user_id;
 			$result = mysql_query($query) or die(mysql_error());
 			$row = mysql_fetch_assoc($result);
 			echo "<h3>".$row['user_login']."</h3>";
