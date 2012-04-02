@@ -13,6 +13,7 @@ create table STUL_COMMENT
    POST_ID              int not null,
    _TABLE__PK           int,
    COM_CONTENT          text,
+   COM_DATE             datetime,
    primary key (COM_ID)
 );
 
