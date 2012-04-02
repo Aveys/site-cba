@@ -208,7 +208,7 @@
 	}
 	function afficheCom($row)
 	{
-		$query_com = "select u.user_login,c.com_content,c.com_date from stul_comment c join stul_post p on c.com_id=p.post_id join stul_users u on c.com_id=u.user_id where p.post_id=".$row['POST_ID']." order by c.com_date";
+		$query_com = "select u.user_login,c.com_content,c.com_date from stul_comment c join stul_users u on c.user_id=u.user_id where c.post_id=".$row['POST_ID']." order by c.com_date";
 		$result_com = mysql_query($query_com) or die(mysql_error());
 		while ($row_com = mysql_fetch_assoc($result_com)) {
 			echo nl2br($row_com['com_content'])." de ";
