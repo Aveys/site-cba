@@ -28,8 +28,17 @@ body{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
 
 }
-
+.form_comment
+{
+	visibility: hidden;
+	height: 0px;
+	width: 0px;
+}
 #com{
+	position: relative;
+	left: 50px;
+}
+#comOfCom{
 	position: relative;
 	left: 50px;
 }

@@ -28,13 +28,14 @@
 				mysql_query($query) or die(mysql_error());
 			break;*/
 			case "Commenter":
-				$query = "insert into STUL_COMMENT(user_id,post_id,com_content,com_date) values('".$_SESSION['id']."','".$_POST['id']."','".htmlspecialchars($_POST['commentaire'])."',now())";
+				if(isset($_POST['id_parent']))
+					$query = "insert into STUL_COMMENT(user_id,post_id,com_content,com_date,com_parent) values('".$_SESSION['id']."','".$_POST['id']."','".htmlspecialchars($_POST['commentaire'])."',now(),'".$_POST['id_parent']."')";
+				else
+					$query = "insert into STUL_COMMENT(user_id,post_id,com_content,com_date) values('".$_SESSION['id']."','".$_POST['id']."','".htmlspecialchars($_POST['commentaire'])."',now())";
 				mysql_query($query) or die(mysql_error());
 			break;
 			case "Connexion":
-				echo "3";
 				if ( checkLogin($_POST["pseudo"], $_POST["mdp"])){
-					echo "1";
 					unset($_SESSION['erreur_connect']);
 					$_SESSION["pseudo"] = $_POST["pseudo"];
 					$query = "select user_id from STUL_USERS where user_login='".$_POST["pseudo"]."' and user_pass='".$_POST["mdp"]."'";

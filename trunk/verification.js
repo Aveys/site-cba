@@ -104,3 +104,20 @@ function quitte_profil_apercu(content)
 	element.style.height='0px';
 	element.style.width='0px';
 }
+
+function debloque_comment(num_comment)
+{
+	element = document.getElementById(num_comment);
+	if(element.style.visibility != 'visible')
+	{
+		element.style.visibility = 'visible';
+		element.style.width = "auto";
+		element.style.height = "auto";
+	}
+	else
+	{
+		element.style.visibility = 'hidden';
+		element.style.width = "0px";
+		element.style.height = "0px";
+	}		
+}
