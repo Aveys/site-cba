@@ -43,10 +43,10 @@
 	}
 	
 	function checkLogin( $pseudo, $mdp){
-		$result=mysql_query("select * from log");
+		$result=mysql_query("select * from stul_users");
 		while($row=mysql_fetch_assoc($result)){
-			if($pseudo == $row["login"]){
-				if($mdp == $row["mdp"])
+			if($pseudo == $row["USER_LOGIN"]){
+				if($mdp == $row["USER_PASS"])
 					return true;
 				else
 					$_SESSION['erreur_connect'] = "Mauvais mot de passe";
@@ -58,18 +58,18 @@
 	}
  
 	function displayArticles(){
-		$result=mysql_query("select b.id,b.texte,b.cat,b.date,b.nbJaime from articles b");
-		while(($row=mysql_fetch_assoc($result)) != false){
-			echo "<div class='article'>".$row['texte']."</div>";
+		$result=mysql_query("select p.POST_ID,p.POST_CONTENT,p.POST_CATEGORY,P.POST_DATE from stul_post p");
+		while($row=mysql_fetch_assoc($result)){
+			echo "<div class='article'>".$row['POST_CONTENT']."</div>";
 			echo "<div class='info_article'>Fait par ";
-			$resultLog=mysql_query("select l.login from articles b join synchro_jaime_log s on b.id=s.id_article join log l on l.login=s.id_log where b.id='".$row['id']."'");
+			$resultLog=mysql_query("select u.USER_LOGIN,u.USER_ID from stul_post p join stul_users u on u.USER_ID=p.USER_ID where p.POST_ID='".$row['POST_ID']."'");
 			$rowLog=mysql_fetch_assoc($resultLog);
-			link_profil($rowLog['login']);
-			echo " le ".$row['date'].".</div>";
-			echo "<div class='nbJaime'>";
+			link_profil($rowLog['USER_LOGIN']);
+			echo " le ".$row['POST_DATE'].".</div>";
+			/*echo "<div class='nbJaime'>";
 				login_qui_aiment($row);
 			echo "</div>";
-			boutonJaime($row);
+			boutonJaime($row);*/
 			echo "<div id='com'>";
 				afficheCom($row);
 				commentaire($row);
@@ -107,21 +107,20 @@
 			echo "Veuillez vous loger.</br>";
 	}
 	
-	function addArticle($texte, $pseudo, $categorie){
+	function addPost($texte, $pseudo, $categorie){
 		include_once"connect.php";
-		$query="insert into articles(texte, id_pseudo, cat, date) values ('".$texte."','".$pseudo."','".$categorie."',now())";
+		$query="insert into stul_post(post_content, user_id, post_category, post_date) values ('".$texte."','".$pseudo."','".$categorie."',now())";
 		mysql_query($query) or die(mysql_error());
-		$query="insert into synchro_jaime_log(id_log, id_article, jaime) values ('".$pseudo."','".mysql_insert_id()."',0)";
-		mysql_query($query) or die(mysql_error());
+		//$query="insert into synchro_jaime_log(id_log, id_article, jaime) values ('".$pseudo."','".mysql_insert_id()."',0)";
+		//mysql_query($query) or die(mysql_error());
 	}
 	
-	function addPseudo($pseudo, $mdp,$mail,$naissance){
+	function addPseudo($pseudo, $mdp,$mail){
 		include_once"connect.php";
-			$query="insert into log(login, mdp,mail,date_naissance) 
+			$query="insert into stul_users(user_login, user_pass,user_mail) 
 										values ('".$pseudo."',
 												'".$mdp."',
-												'".$mail."',
-												'".$naissance."')";
+												'".$mail."')";
 			mysql_query($query) or die(mysql_error());
 	}
 	
@@ -136,9 +135,9 @@
 				<label for="categorie">Quelle article ?</label>
 				<select name="categorie">
 				<?php
-				$result=mysql_query("select id from articles");
+				$result=mysql_query("select post_id from stul_post");
 				while($row=mysql_fetch_assoc($result)){
-					echo "<option value='".$row["id"]."'>".$row["id"]."</option>";
+					echo "<option value='".$row["post_id"]."'>".$row["post_id"]."</option>";
 					}
 				?>
 				</select>
@@ -155,7 +154,7 @@
 	
 	function deleteArticle($id){
 		include_once"connect.php";
-			$query="delete from articles where id='".$id."'";
+			$query="delete from stul_post where post_id='".$id."'";
 			mysql_query($query) or die(mysql_error());
 	}
 
@@ -203,18 +202,18 @@
 			echo "<form method='post' name='com' action='actions.php'>";
 				echo "<textarea name='commentaire' cols='50' row='30'></textarea></br>";
 				echo "<input type='submit' name='action' value='Commenter'/>";
-				echo "<input type='hidden' name='id' value='".$row["id"]."'/>";
+				echo "<input type='hidden' name='id' value='".$row["POST_ID"]."'/>";
 			echo"</form>";
 		}
 	}
 	function afficheCom($row)
 	{
-		$query_com = "select login,commentaire,date_publication from com c join articles b on c.id_article=b.id join log l on c.id_log=l.login where b.id=".$row['id']." order by c.date_publication";
+		$query_com = "select u.user_login,c.com_content,c.com_date from stul_comment c join stul_post p on c.com_id=p.post_id join stul_users u on c.com_id=u.user_id where p.post_id=".$row['POST_ID']." order by c.com_date";
 		$result_com = mysql_query($query_com) or die(mysql_error());
 		while ($row_com = mysql_fetch_assoc($result_com)) {
-			echo nl2br($row_com['commentaire'])." de ";
-			link_profil($row_com['login']);
-			dateTimeToTime($row_com['date_publication']);
+			echo nl2br($row_com['com_content'])." de ";
+			link_profil($row_com['user_login']);
+			dateTimeToTime($row_com['com_date']);
 			echo "</br>";
 		}
 	}
@@ -302,23 +301,26 @@
 		profil($log);
 		echo "</span>";
 	}
-	function profil($log)
+	function profil($user_id) //verif les appels de cette fonction pour bien mettre l'id
 	{
 		echo "<div id='profil_apercu' style='float: left;'>";
 			echo "<h3>".$log."</h3>";
-			$query = "select mail,date_naissance from log where login='".$log."'";
+			$query = "select user_mail from stul_users where user_id='".$user_id."'";
 			$result = mysql_query($query) or die(mysql_error());
 			$row = mysql_fetch_assoc($result);
-			echo "Mail: ".$row['mail']."</br>";
-			affiche_anni($row['date_naissance'],$log);
+			echo "Mail: ".$row['user_mail']."</br>";
+			//affiche_anni($row['date_naissance'],$log);
 		echo "</div>";
 	}
-	function isadmin($login)
+	function isadmin($id) //verif les appels de cette fonction pour bien mettre l'id
 	{
-		$query = "select admin from log where login='".$login."'";
+		$query = "select user_status from stul_users where user_id='".$id."'";
 		$result = mysql_query($query);
 		$row = mysql_fetch_assoc($result);
-		return $row['admin'];
+		if($row['user_status'] == 2)
+			return true;
+		else
+			return false;
 	}
 
 	function affiche_anni($date_naissance,$login)
