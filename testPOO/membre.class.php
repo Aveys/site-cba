@@ -1,5 +1,6 @@
 <?php
-	class Membre
+	include_once("user.class.php");
+	class Membre extends User
 	{
 		protected $email;
 		protected $pseudo;
@@ -7,8 +8,10 @@
 		protected static $_compteur = 0;
 		public function __construct(array $data, $ident)
 		{
+			parent::__construct();
 			$this->pseudo = $data['pseudo'];
 			$this->id = $ident;
+			$this->statut = "membre";
 			self::$_compteur++;
 		}
 		public function __destruct()
