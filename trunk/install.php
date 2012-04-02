@@ -54,7 +54,7 @@ switch($step){
 				<div id="text" class="box">
 					<p> Veuillez rentrer les identifiants permettant de se connecter à la base de donnée MySQL</p>
 					<div id="formulaire">
-						<form action="install.php?step=3" method="POST" name="addBDD" onsubmit="return valid(this)">
+						<form action="install.php?step=3" method="POST" name="addBDD" onsubmit="return valid_sql(this)">
 							<input type='text' name='host' value='localhost' onFocus='init(this)' onBlur='notEmpty(this)'/>
 							<label for="host">Si localhost ne marche pas, vous devrez demander cette information à votre hébergeur.</label>
 							<input type='text' name='user' value='root' onFocus='init(this)' onBlur='notEmpty(this)'/>
@@ -93,8 +93,21 @@ switch($step){
 		$dbhost  = trim($_POST['host']);
 		$link=mysql_connect($dbhost,$uname,$passwrd) or die(mysql_error()); //or die(erreur_SQL());
 		mysql_select_db($dbname) or die(mysql_error()); //or die(erreur_SQL());
+		mysql_query("set names 'UTF8'");
 		foreach($createtable as $c)
 			mysql_query($c);
+		$fp = fopen("stul_config.php","a");
+		$txt="define('DB_NAME','".$dbname."');";
+		fputs($fp,$txt);
+		$txt="define('DB_USER','".$uname."');";
+		fputs($fp,$txt);
+		$txt="define('DB_PASSWORD','".$passwrd."');";
+		fputs($fp,$txt);
+		$txt="define('DB_HOST','".$dbhost."');";
+		fputs($fp,$txt);
+		fclose($fp);
+
+
 	}
 	else
 		header("location:install.php?step=2");
@@ -108,7 +121,27 @@ switch($step){
 					<div id="sous-titre"> Etape 3 : Creation du compte administrateur</div>
 				</div>
 				<div id="text" class="box">
-					<p class="box"> La connexion à la base de donnée s'est bien déroulée, nous allons maintenant configurer votre compte administrateur</p>
+					<p> La connexion à la base de donnée s'est bien déroulée, nous allons maintenant configurer votre compte administrateur</p>
+					<p class="box">Informations du compte</p>
+					<div id="formulaire">
+						<form action="install.php?step=4" method="POST" name="addAdmin" onSubmit="return valid_compte(this)">
+							<input type='text' name='login' value='admin' onFocus='init(this)' onBlur='notEmpty(this)'/>
+							<label for="login">Login du compte</label>
+							<input type='password' name='mdp' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
+							<label for="mdp">Mot de passe du compte.</label><br/>
+							<input type='password' name='mdp_verf' value=''  onBlur='verif(this)'/>
+							<label for="mdp_verf">Verifcation du mot de passe.</label><br/>
+							<input type='text' name='mail' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
+							<label for="mail">Entrez une adresse mail valide.</label><br/>
+
+
+						</div>
+					</div>
+					<div id="footer">
+						<input type="reset" class="button" value="reset"/><input class="button" type="submit" value="Continuer" />
+						<input type="hidden" name="action" value="envoyer"/>
+					</form><br/>
+
 
 
 				</div>
@@ -124,6 +157,17 @@ switch($step){
 </body>
 </html>
 <?php
+break;
+case 4:
+if (isset($_POST)){
+		print_r($_POST);
+		mysql_query("INSERT INTO STUL_USERS('USERL_LOGIN','USER_PASS',USER_DISPLAYNAME,USER_MAIL,USER_REGISTERED,USER_STATUS) VALUES ('".$_POST["login"]."'")
+	}
+	else
+		header("location:install.php?step=4");
+	displayHeader();break;?>
+
+
 }
 
 
