@@ -72,6 +72,7 @@ function quitte_personne_cache()
 
 function survole_profil_apercu(content)
 {
+	var scroll = getScrollPosition();
 	var element = content.querySelector('#profil_apercu');
 	var element2 = content;
 	var curleft = curtop = tmp = 0;
@@ -91,8 +92,8 @@ function survole_profil_apercu(content)
 		} while (element2 = element2.offsetParent);
 	}
 	element.style.position = 'fixed';
-	element.style.left = curleft+"px";
-	element.style.top = curtop+15+"px";
+	element.style.left = curleft-scroll[0]+"px";
+	element.style.top = curtop-scroll[1]+15+"px";
 	element.style.visibility='visible';
 	element.style.height='auto';
 	element.style.width='auto';
@@ -120,4 +121,8 @@ function debloque_comment(num_comment)
 		element.style.width = "0px";
 		element.style.height = "0px";
 	}		
+}
+function getScrollPosition()
+{
+	return Array((document.documentElement && document.documentElement.scrollLeft) || window.pageXOffset || self.pageXOffset || document.body.scrollLeft,(document.documentElement && document.documentElement.scrollTop) || window.pageYOffset || self.pageYOffset || document.body.scrollTop);
 }

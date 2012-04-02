@@ -1,6 +1,7 @@
 ﻿<?php
  include_once("sql.php");
  include_once("user_view.php");
+	include_once "includes/admin/stul_fonctions.php";
 	function displayAddFormLog(){
 	
 		if (isset($_SESSION["pseudo"])){	?>
