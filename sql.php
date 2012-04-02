@@ -13,8 +13,8 @@ drop table if exists STUL_USERS;",
 	   COM_CONTENT          text,
 	   COM_DATE             datetime,
 	   primary key (COM_ID)
-	);
-	alter table STUL_COMMENT comment 'table de commentaire';",
+	);",
+	"alter table STUL_COMMENT comment 'table de commentaire';",
 		"create table STUL_OPTIONS
 		(
 		   OP_ID                int not null auto_increment,
