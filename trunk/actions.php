@@ -72,5 +72,5 @@
 		}
 
 	}
-	//echo '<script language="Javascript">document.location.replace(".");</script>';
+	echo '<script language="Javascript">document.location.replace(".");</script>';
 ?>
