@@ -8,7 +8,7 @@ drop table if exists STUL_USERS;
 
 create table STUL_COMMENT
 (
-   COM_ID               int not null auto_increment,,
+   COM_ID               int not null auto_increment,
    USER_ID              int,
    POST_ID              int not null,
    _TABLE__PK           int,
