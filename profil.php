@@ -14,8 +14,8 @@
 </head>
 <h1>
 	<?php
-		if(isset($_GET['id']))
-			echo $_GET['id'];
+		if(isset($_GET['id']) && idUser_exist($_GET['id']))
+			echo sql_user_of_id($_GET['id']);
 		else
 			echo '<script language="Javascript">document.location.replace(".");</script>';
 	?>
@@ -29,39 +29,25 @@
 	function afficher_info_user($id)
 	{
 		if(autorise_edition($id))
-			echo "<a href="."profil.php?id=".$login."&editer=1>editer</a></br>";
-		$query = "select user_mail from stul_users where user_id='".$id."'";
-		$result = mysql_query($query) or die(mysql_error());
-		if($result && mysql_num_rows($result) > 0)
-		{
-			$row = mysql_fetch_assoc($result);
-			echo "Mail: ".$row['user_mail']."</br>";
-			//affiche_anni($row['date_naissance'],$login);
-		}
-		else
-			echo '<script language="Javascript">document.location.replace(".");</script>';
+			echo "<a href="."profil.php?id=".$id."&editer=1>editer</a></br>";
+		$row = sql_info_user($id);
+		echo "Mail: ".$row['user_mail']."</br>";
+		//affiche_anni($row['date_naissance'],$login);
 	}
 
 	function editer_info_user($id)
 	{
 		if(autorise_edition($id))
 		{
-			$query = "select user_mail from stul_users where user_id='".$id."'";
-			$result = mysql_query($query) or die(mysql_error());
-			if($result && mysql_num_rows($result) > 0)
-			{
-				echo "</br></br><form method='post' name='editer_user' action='actions.php'>";
-					$row = mysql_fetch_assoc($result);
-					echo "<label for='mail'>Mail :</label>";
-					echo "<input name='mail' value='".$row['user_mail']."'/></br></br>";
-					//echo "<label for='naissance'>Date de naissance :</label>";
-					//echo "<input type='text' name='naissance' class='calendrier' size='8' value='".$row['date_naissance']."'/></br></br>";
-					echo "<input type='submit' name='action' value='Editer'/>";
-					echo "<input type='hidden' name='id' value='".$id."'/>";
-				echo"</form>";
-			}
-			else
-				echo '<script language="Javascript">document.location.replace(".");</script>';
+			$row = sql_info_user($id);
+			echo "</br></br><form method='post' name='editer_user' action='actions.php'>";
+				echo "<label for='mail'>Mail :</label>";
+				echo "<input name='mail' value='".$row['user_mail']."'/></br></br>";
+				//echo "<label for='naissance'>Date de naissance :</label>";
+				//echo "<input type='text' name='naissance' class='calendrier' size='8' value='".$row['date_naissance']."'/></br></br>";
+				echo "<input type='submit' name='action' value='Editer'/>";
+				echo "<input type='hidden' name='id' value='".$id."'/>";
+			echo"</form>";
 		}
 	}
 	function autorise_edition($id)

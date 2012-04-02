@@ -1,10 +1,8 @@
-﻿
- <?php
-
+﻿<?php
+ include_once("sql.php");
 	function displayAddFormLog(){
 	
-		if (isset($_SESSION["pseudo"])){
-	?>
+		if (isset($_SESSION["pseudo"])){	?>
 			<form name="delogin" action="actions.php" method="POST">
 				
 				<!-- Unsubmit -->
@@ -12,12 +10,10 @@
 				<!-- submit -->
 
 			</form>	
-	<?php
-		}
+<?php 	}
 		else{
 			if(isset($_SESSION['erreur_connect']))
-				echo $_SESSION['erreur_connect']."</br>";
-	?>
+				echo $_SESSION['erreur_connect']."</br>";	?>
 			<form name="login" action="actions.php" method="POST" >
 
 				<!-- pseudo -->
@@ -31,40 +27,20 @@
 				<input type="submit" name="action" value="Connexion"/>
 
 			</form>
-	<?php
-		}
-	?>
+<?php	}	?>
 		<form name="inscription" action="inscription.php" method="POST">
 			<!-- Unsubmit -->
 			<input type="submit" name="action" value="Inscription"/>
 			<!-- submit -->
 		</form>
-	<?php
-	}
-	
-	function checkLogin( $pseudo, $mdp){
-		$result=mysql_query("select * from STUL_USERS");
-		while($row=mysql_fetch_assoc($result)){
-			if($pseudo == $row["USER_LOGIN"]){
-				if($mdp == $row["USER_PASS"])
-					return true;
-				else
-					$_SESSION['erreur_connect'] = "Mauvais mot de passe";
-			}
-			else
-				$_SESSION['erreur_connect'] = "Ce login n'existe pas, veuillez vous inscrire en cliquant sur le bouton inscription";
-		}
-		return false;
-	}
+<?php }
  
 	function displayArticles(){
-		$result=mysql_query("select p.POST_ID,p.POST_CONTENT,p.POST_CATEGORY,p.POST_DATE from STUL_POST p");
+		$result = sql_all_post();
 		while($row=mysql_fetch_assoc($result)){
 			echo "<div class='article'>".$row['POST_CONTENT']."</div>";
 			echo "<div class='info_article'>Fait par ";
-			$resultLog=mysql_query("select u.USER_LOGIN,u.USER_ID from STUL_POST p join STUL_USERS u on u.USER_ID=p.USER_ID where p.POST_ID='".$row['POST_ID']."'");
-			$rowLog=mysql_fetch_assoc($resultLog);
-			link_profil($rowLog['USER_ID']);
+			link_profil(sql_user_who_post($row['POST_ID']));
 			echo " le ".$row['POST_DATE'].".</div>";
 			/*echo "<div class='nbJaime'>";
 				login_qui_aiment($row);
@@ -107,23 +83,6 @@
 			echo "Veuillez vous loger.</br>";
 	}
 	
-	function addPost($texte, $pseudo, $categorie){
-		include_once "connect.php";
-		$query="insert into STUL_POST(post_content, user_id, post_category, post_date) values ('".$texte."','".$pseudo."','".$categorie."',now())";
-		mysql_query($query) or die(mysql_error());
-		//$query="insert into synchro_jaime_log(id_log, id_article, jaime) values ('".$pseudo."','".mysql_insert_id()."',0)";
-		//mysql_query($query) or die(mysql_error());
-	}
-	
-	function addPseudo($pseudo, $mdp,$mail){
-		include_once "connect.php";
-			$query="insert into STUL_USERS(USER_LOGIN, user_pass,user_mail) 
-										values ('".$pseudo."',
-												'".$mdp."',
-												'".$mail."')";
-			mysql_query($query) or die(mysql_error());
-	}
-	
 	function displayDeleteForm(){		
 		if (isset($_SESSION["pseudo"])){
 			if(isadmin($_SESSION["pseudo"]) == 1)
@@ -135,7 +94,7 @@
 				<label for="categorie">Quelle article ?</label>
 				<select name="categorie">
 				<?php
-				$result=mysql_query("select post_id from STUL_POST");
+				$result= sql_all_post();
 				while($row=mysql_fetch_assoc($result)){
 					echo "<option value='".$row["post_id"]."'>".$row["post_id"]."</option>";
 					}
@@ -151,13 +110,7 @@
 		else
 			echo "Veuillez vous loger en tant qu'admin.</br>";
 	}
-	
-	function deleteArticle($id){
-		include_once"connect.php";
-			$query="delete from STUL_POST where post_id='".$id."'";
-			mysql_query($query) or die(mysql_error());
-	}
-
+	/*
 	function boutonJaime($row)
 	{
 		if(isset($_SESSION['pseudo']))
@@ -194,7 +147,7 @@
 			}
 		}
 		affiche_login_qui_aime($tab_log_aime,$vous,$i);
-	}
+	}*/
 	function add_commentaire($row,$text_button)
 	{
 		if(isset($_SESSION['pseudo']))
@@ -223,8 +176,7 @@
 	function afficheCom($row)
 	{
 		echo "</br>";
-		$query_com = "select c.com_id,u.user_login, u.user_id ,c.com_content,c.com_date,c.com_parent,c.post_id from STUL_COMMENT c join STUL_USERS u on c.user_id=u.user_id where c.post_id=".$row['POST_ID']." order by c.com_date";
-		$result_com = mysql_query($query_com) or die(mysql_error());
+		$result_com = sql_com_of_post_with_log($row['POST_ID']);
 		while ($row_com = mysql_fetch_assoc($result_com)) {
 			if($row_com['com_parent'] == "")
 			{
@@ -242,8 +194,7 @@
 	}
 	function afficheComOfCom($id_com_parent)
 	{
-		$query_com = "select u.user_login, u.user_id ,c.com_content,c.com_date,c.com_parent from STUL_COMMENT c join STUL_USERS u on c.user_id=u.user_id where c.com_parent=".$id_com_parent." order by c.com_date";
-		$result_com = mysql_query($query_com) or die(mysql_error());
+		$result_com = sql_com_of_com_post_with_log($id_com_parent);
 		while ($row_com = mysql_fetch_assoc($result_com)) {
 			echo nl2br($row_com['com_content'])." de ";
 			link_profil($row_com['user_id']);
@@ -332,10 +283,7 @@
 			$log='Vous';
 		else
 		{
-			$query="select user_login from STUL_USERS where user_id=".$id;
-			$result= mysql_query($query) or die(mysql_error());
-			$row = mysql_fetch_assoc($result);
-			$log=$row["user_login"];
+			$log = sql_user_of_id($id);
 	 	}
 		echo "<span id='profil".$log."' onMouseOver='survole_profil_apercu(this,event)' onMouseOut='quitte_profil_apercu(this)'><a href='profil.php?id=".$id."'>".$log."</a>";
 		profil($id);
@@ -344,9 +292,7 @@
 	function profil($user_id) //verif les appels de cette fonction pour bien mettre l'id
 	{
 		echo "<div id='profil_apercu' style='float: left;'>";
-			$query = "select user_mail, user_login from STUL_USERS where user_id=".$user_id;
-			$result = mysql_query($query) or die(mysql_error());
-			$row = mysql_fetch_assoc($result);
+			$row = sql_info_user($user_id);
 			echo "<h3>".$row['user_login']."</h3>";
 			echo "Mail: ".$row['user_mail']."</br>";
 			//affiche_anni($row['date_naissance'],$log);
@@ -354,10 +300,8 @@
 	}
 	function isadmin($id) //verif les appels de cette fonction pour bien mettre l'id
 	{
-		$query = "select user_status from stul_users where user_id='".$id."'";
-		$result = mysql_query($query);
-		$row = mysql_fetch_assoc($result);
-		if($row['user_status'] == 2)
+		
+		if(sql_user_status($id) == 2)
 			return true;
 		else
 			return false;
