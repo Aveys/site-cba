@@ -14,11 +14,9 @@ function notEmpty(field){
 }
 
 
-function valid(){
-	var hostn = document.getElementsByName("hostn");
-	var user = document.getElementsByName("user");
-	var BDD = document.getElementsByName("BDD")
-	if(notEmpty(hostn) && notEmpty(user) && notEmpty(BDD))
+function valid(field){
+
+	if(notEmpty(field.host) && notEmpty(field.user) && notEmpty(field.BDD))
 		return true;
 
 	else
