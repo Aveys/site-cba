@@ -31,6 +31,6 @@
 	<input type="text" name="naissance" id="" class="calendrier" size="8" /><br/><br/>
 -->
 	<!-- submit -->
-	<input type="submit" name="action" value="S'inscrire"/>
+	<input type="submit" name="action" value="inscrire"/>
 
 </form>

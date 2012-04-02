@@ -18,7 +18,7 @@
 			if(isset($_SESSION['erreur_connect']))
 				echo $_SESSION['erreur_connect']."</br>";
 	?>
-			<form name="login" action="actions.php" method="POST" onSubmit="return validLogin()">
+			<form name="login" action="actions.php" method="POST" >
 
 				<!-- pseudo -->
 				<label for="pseudo">Pseudo :</label>
@@ -43,7 +43,7 @@
 	}
 	
 	function checkLogin( $pseudo, $mdp){
-		$result=mysql_query("select * from stul_users");
+		$result=mysql_query("select * from STUL_USERS");
 		while($row=mysql_fetch_assoc($result)){
 			if($pseudo == $row["USER_LOGIN"]){
 				if($mdp == $row["USER_PASS"])
@@ -58,13 +58,13 @@
 	}
  
 	function displayArticles(){
-		$result=mysql_query("select p.POST_ID,p.POST_CONTENT,p.POST_CATEGORY,P.POST_DATE from stul_post p");
+		$result=mysql_query("select p.POST_ID,p.POST_CONTENT,p.POST_CATEGORY,p.POST_DATE from STUL_POST p");
 		while($row=mysql_fetch_assoc($result)){
 			echo "<div class='article'>".$row['POST_CONTENT']."</div>";
 			echo "<div class='info_article'>Fait par ";
-			$resultLog=mysql_query("select u.USER_LOGIN,u.USER_ID from stul_post p join stul_users u on u.USER_ID=p.USER_ID where p.POST_ID='".$row['POST_ID']."'");
+			$resultLog=mysql_query("select u.USER_LOGIN,u.USER_ID from STUL_POST p join STUL_USERS u on u.USER_ID=p.USER_ID where p.POST_ID='".$row['POST_ID']."'");
 			$rowLog=mysql_fetch_assoc($resultLog);
-			link_profil($rowLog['USER_LOGIN']);
+			link_profil($rowLog['USER_ID']);
 			echo " le ".$row['POST_DATE'].".</div>";
 			/*echo "<div class='nbJaime'>";
 				login_qui_aiment($row);
@@ -108,16 +108,16 @@
 	}
 	
 	function addPost($texte, $pseudo, $categorie){
-		include_once"connect.php";
-		$query="insert into stul_post(post_content, user_id, post_category, post_date) values ('".$texte."','".$pseudo."','".$categorie."',now())";
+		include_once "connect.php";
+		$query="insert into STUL_POST(post_content, user_id, post_category, post_date) values ('".$texte."','".$pseudo."','".$categorie."',now())";
 		mysql_query($query) or die(mysql_error());
 		//$query="insert into synchro_jaime_log(id_log, id_article, jaime) values ('".$pseudo."','".mysql_insert_id()."',0)";
 		//mysql_query($query) or die(mysql_error());
 	}
 	
 	function addPseudo($pseudo, $mdp,$mail){
-		include_once"connect.php";
-			$query="insert into stul_users(user_login, user_pass,user_mail) 
+		include_once "connect.php";
+			$query="insert into STUL_USERS(USER_LOGIN, user_pass,user_mail) 
 										values ('".$pseudo."',
 												'".$mdp."',
 												'".$mail."')";
@@ -135,7 +135,7 @@
 				<label for="categorie">Quelle article ?</label>
 				<select name="categorie">
 				<?php
-				$result=mysql_query("select post_id from stul_post");
+				$result=mysql_query("select post_id from STUL_POST");
 				while($row=mysql_fetch_assoc($result)){
 					echo "<option value='".$row["post_id"]."'>".$row["post_id"]."</option>";
 					}
@@ -154,7 +154,7 @@
 	
 	function deleteArticle($id){
 		include_once"connect.php";
-			$query="delete from stul_post where post_id='".$id."'";
+			$query="delete from STUL_POST where post_id='".$id."'";
 			mysql_query($query) or die(mysql_error());
 	}
 
@@ -208,11 +208,11 @@
 	}
 	function afficheCom($row)
 	{
-		$query_com = "select u.user_login,c.com_content,c.com_date from stul_comment c join stul_users u on c.user_id=u.user_id where c.post_id=".$row['POST_ID']." order by c.com_date";
+		$query_com = "select u.user_login, u.user_id ,c.com_content,c.com_date from STUL_COMMENT c join STUL_POST p on c.com_id=p.post_id join STUL_USERS u on c.com_id=u.user_id where p.post_id=".$row['POST_ID']." order by c.com_date";
 		$result_com = mysql_query($query_com) or die(mysql_error());
 		while ($row_com = mysql_fetch_assoc($result_com)) {
 			echo nl2br($row_com['com_content'])." de ";
-			link_profil($row_com['user_login']);
+			link_profil($row_com['user_id']);
 			dateTimeToTime($row_com['com_date']);
 			echo "</br>";
 		}
@@ -292,22 +292,28 @@
 		}
 		echo "</div>";
 	}
-	function link_profil($login)
+	function link_profil($id)
 	{
-		$log = $login;
-		if(isset($_SESSION['pseudo']) && $login==$_SESSION['pseudo'])
-			$login='Vous';
-		echo "<span id='profil".$log."' onMouseOver='survole_profil_apercu(this,event)' onMouseOut='quitte_profil_apercu(this)'><a href='profil.php?id=".$log."'>".$login."</a>";
-		profil($log);
+		if(isset($_SESSION['id']) && $id==$_SESSION['id'])
+			$log='Vous';
+		else
+		{
+			$query="select user_login from STUL_USERS where user_id=".$id;
+			$result= mysql_query($query) or die(mysql_error());
+			$row = mysql_fetch_assoc($result);
+			$log=$row["user_login"];
+	 }
+		echo "<span id='profil".$log."' onMouseOver='survole_profil_apercu(this,event)' onMouseOut='quitte_profil_apercu(this)'><a href='profil.php?id=".$id."'>".$log."</a>";
+		profil($id);
 		echo "</span>";
 	}
 	function profil($user_id) //verif les appels de cette fonction pour bien mettre l'id
 	{
 		echo "<div id='profil_apercu' style='float: left;'>";
-			echo "<h3>".$log."</h3>";
-			$query = "select user_mail from stul_users where user_id='".$user_id."'";
+			$query = "select user_mail, user_login from STUL_USERS where user_id='".$user_id."'";
 			$result = mysql_query($query) or die(mysql_error());
 			$row = mysql_fetch_assoc($result);
+			echo "<h3>".$row['user_login']."</h3>";
 			echo "Mail: ".$row['user_mail']."</br>";
 			//affiche_anni($row['date_naissance'],$log);
 		echo "</div>";
