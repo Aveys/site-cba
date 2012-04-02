@@ -93,7 +93,8 @@ switch($step){
 		$dbhost  = trim($_POST['host']);
 		$link=mysql_connect($dbhost,$uname,$passwrd) or die(mysql_error()); //or die(erreur_SQL());
 		mysql_select_db($dbname) or die(mysql_error()); //or die(erreur_SQL());
-		mysql_unbuffered_query($createtable) or die(mysql_error()); //or die(erreur_SQL());
+		foreach($createtable as $c)
+			mysql_query($c);
 	}
 	else
 		header("location:install.php?step=2");
