@@ -8,7 +8,7 @@ drop table if exists STUL_USERS;
 
 create table STUL_COMMENT
 (
-   COM_ID               int not null,
+   COM_ID               int not null auto_increment,,
    USER_ID              int,
    POST_ID              int not null,
    _TABLE__PK           int,
@@ -21,7 +21,7 @@ alter table STUL_COMMENT comment 'table de commentaire';
 
 create table STUL_OPTIONS
 (
-   OP_ID                int not null,
+   OP_ID                int not null auto_increment,
    OP_NAME              varchar(500) not null,
    OP_VALUE             text,
    primary key (OP_ID, OP_NAME)
