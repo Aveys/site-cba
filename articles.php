@@ -111,6 +111,30 @@ function affichage_article($row,$masque)
 		}
 	}
 }
+function button_facebook($url)
+{
+	?>
+	<iframe id='facebook' src="http://www.facebook.com/plugins/like.php?href="<?php echo $url ?>"&amp;layout=box_count&amp;show_faces=true&amp;width=65&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=65" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:65px; height:65px; margin-top:3px;" allowTransparency="true"></iframe>
+	<?php
+}
+function button_twitter()
+{
+	?>
+	<a href="http://twitter.com/share" id='twitter' class="twitter-share-button"
+		data-count="horizontal" data-via="_toto74">Tweet</a>
+	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+	<?php
+}
+function button_googleplus()
+{
+	echo "<g:plusone id='google_plus' size='middle'></g:plusone>";
+}
+function affiche_button_reseausociaux($url)
+{
+	button_facebook($url);
+	button_twitter();
+	button_googleplus();
+}
 /*	affiche un formulaire d'edition de post seulement si l'utilisateur est admin
 */
 function affiche_form_edition_post($content,$idPost)
