@@ -51,6 +51,14 @@ create table STUL_USERS
    primary key (USER_ID)
 );
 
+create table STUL_CATEGORY
+(
+   CATEGORY_ID          int not null auto_increment,
+   CATEGORY_NAME        varchar(100),
+   CATEGORY_DESC        text,
+   primary key (CATEGORY_ID)      
+);
+
 ALTER TABLE  STUL_USERS ADD UNIQUE (USER_DISPLAYNAME);
 
 alter table STUL_COMMENT add constraint FK_A foreign key (POST_ID)
@@ -64,4 +72,7 @@ alter table STUL_COMMENT add constraint FK_EST_PARENT foreign key (COM_PARENT)
 
 alter table STUL_POST add constraint FK_EST_L_AUTEUR foreign key (USER_ID)
       references STUL_USERS (USER_ID) on delete restrict on update restrict;
+
+alter table STUL_POST add constraint FK_APPARTIENT foreign key (CATEGORY_ID)
+      references STUL_CATEGORY (CATEGORY_ID) on delete restrict on update restrict;
 
