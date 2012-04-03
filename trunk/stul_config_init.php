@@ -27,7 +27,7 @@ if(!defined('DB_USER'))
 	define('DB_USER', 'votre_utilisateur_de_bdd');
 
 /** Mot de passe de la base de données MySQL. */
-if(!defined('DB_USER'))
+if(!defined('DB_PASSWORD'))
 	define('DB_PASSWORD', 'votre_mdp_de_bdd');
 
 /** Adresse de l'hébergement MySQL. */
