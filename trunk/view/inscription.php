@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	if(isset($_SESSION["erreur_inscrip"]))
 		echo $_SESSION["erreur_inscrip"]."</br>";
 ?>
@@ -12,7 +11,7 @@
 <script type="text/javascript" src="verification.js"></script>
 <script type="text/javascript" src="calendrier.js"></script>
 </head>
-<form name="inscription_form" action="actions.php" method="post" onSubmit="return validLogin(this)">
+<form name="inscription_form" action="<?php echo $fcAction; ?>" method="post" onSubmit="return validLogin(this)">
 
 	<!-- pseudo -->
 	<label for="pseudo">Pseudo :</label>
