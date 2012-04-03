@@ -1,3 +1,5 @@
+/*	affichage de la div des personnes inclus dans le " et 3 autres personnes aiment ca"
+*/
 function survole_personne_cache(event)
 {
 	var element = document.getElementById('liste_personnes_caches');
@@ -16,6 +18,8 @@ function survole_personne_cache(event)
 	element.style.height='auto';
 	element.style.width='auto';
 }
+/*	va avec la fonction precedente mais cache la div en question
+*/
 function quitte_personne_cache()
 {
 	var element = document.getElementById('liste_personnes_caches');
@@ -23,7 +27,8 @@ function quitte_personne_cache()
 	element.style.height='0px';
 	element.style.width='0px';
 }
-
+/*	affichage de l'apercu du profil au survol d'un login
+*/
 function survole_profil_apercu(content)
 {
 	var scroll = getScrollPosition();
@@ -52,6 +57,8 @@ function survole_profil_apercu(content)
 	element.style.height='auto';
 	element.style.width='auto';
 }
+/*	va avec la fonction precedente et permet de cacher la div en question
+*/
 function quitte_profil_apercu(content)
 {
 	var element = content.querySelector('#profil_apercu');
@@ -59,7 +66,8 @@ function quitte_profil_apercu(content)
 	element.style.height='0px';
 	element.style.width='0px';
 }
-
+/*	affichage ou masquage de la div contenant des commentaires en appuyant sur le bouton en triangle
+*/
 function debloque_comment(num_comment)
 {
 	element = document.getElementById(num_comment);
@@ -76,6 +84,8 @@ function debloque_comment(num_comment)
 		element.style.height = "0px";
 	}		
 }
+/*	renvoi un tableau contenant scrollX et scrollY de la page
+*/
 function getScrollPosition()
 {
 	return Array((document.documentElement && document.documentElement.scrollLeft) || window.pageXOffset || self.pageXOffset || document.body.scrollLeft,(document.documentElement && document.documentElement.scrollTop) || window.pageYOffset || self.pageYOffset || document.body.scrollTop);

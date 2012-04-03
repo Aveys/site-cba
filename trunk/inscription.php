@@ -27,9 +27,10 @@
 	<input name="mail"/><br/><br/>
 
 	<!-- date de naissance -->
-<!--	<label for="naissance">Date de naissance :</label>
+	<!--
+	<label for="naissance">Date de naissance :</label>
 	<input type="text" name="naissance" id="" class="calendrier" size="8" /><br/><br/>
--->
+	-->
 	<!-- submit -->
 	<input type="submit" name="action" value="inscrire"/>
 
