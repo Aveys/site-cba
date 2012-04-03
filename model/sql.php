@@ -179,3 +179,8 @@
       $row = mysql_fetch_assoc(sql_post_of_idPost($postId));
       return $row['POST_TITLE'];
    }
+
+   function sql_recherche($search)
+   {
+      return mysql_query("select * from STUL_POST where post_content LIKE '%".$search."%' OR post_title LIKE '%".$search."%' OR post_tag LIKE '%".$search."%'");
+   }

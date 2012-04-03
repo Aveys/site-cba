@@ -4,6 +4,7 @@ require_once($fmSql);
 require_once($fcUserView);
 require_once($fAdminFonct);
 require_once($fcArticle);
+require_once($fcSearch);
 date_default_timezone_set('Europe/Paris');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -45,10 +46,16 @@ date_default_timezone_set('Europe/Paris');
 	</span>
 	<a class="itemMenuBar" id="contact" href=<?php echo $Site."contact/" ?>>Contact</a>
 </div>
+<?php
+	form_search();
+?>
 <div id="articles">
 <h2>Tous les articles</h2>
 <?php 
-displayArticles($fcAction);
+if(!isset($_GET['recherche']))
+	displayArticles($fcAction);
+else
+	search($_GET["recherche"]);
 ?>
 </div>
 
