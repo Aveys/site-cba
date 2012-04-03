@@ -30,7 +30,7 @@ create table STUL_POST
    POST_ID              int not null auto_increment,
    USER_ID              int,
    POST_DATE            datetime,
-   POST_CATEGORY        int,
+   CATEGORY_ID          int,
    POST_STATUS          smallint,
    POST_TYPE            smallint,
    POST_TITLE           text,
