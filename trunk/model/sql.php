@@ -29,6 +29,23 @@
          $_SESSION["id"] = $row["user_id"];
       }
    }
+   /* fonction admin qui permet d'ajouter un utilisateur en verifiant qu'il est pas deja le meme login dans la BDDD*/
+   function sql_inscrire_user_by_admin($login, $pass, $pseudo, $email, $dateReg, $status)
+   {
+      $query = "select * from STUL_USERS where user_login='".$login."'";
+      $result=mysql_query($query);
+      if(mysql_num_rows($result) == 0)
+      {
+         mysql_query("insert into STUL_USERS (USER_LOGIN, USER_PASS, USER_DISPLAYNAME, USER_MAIL, USER_REGISTERED, USER_STATUS  ) 
+                              values ('".$login."','".$pass."','".$pseudo."','".$email."','".$dateReg."', '".$status."')"); 
+         header("Location:../../includes/admin/viewer/index.php?mode=editComptes");
+      }
+      else
+      {
+         $_SESSION["erreur_inscrip"] = "Ce login existe deja"; 
+          header("Location:../../includes/admin/viewer/index.php?mode=addCompte");
+      }
+   }
    /* fonction qui permet d'ajouter un login avec son pass dans la bdd en test si le login n'existe pas deja
    */
    function sql_inscrire_user($_POST)
@@ -69,6 +86,12 @@
       }
       return false;
    }
+
+   /*Fonction pour editer completement le compte user*/
+   function sql_allEdit_user($idUser, $login, $pass, $pseudo, $email, $status)
+   {
+      mysql_query("update STUL_USERS set user_login='".$login."', user_pass='".$pass."', user_displayname='".$pseudo."', user_mail='".$email."', user_status='".$status."' where user_id=".$idUser."");
+   }
    /* fonction qui edite le profil demande
    */
    function sql_edit_user($_POST)
@@ -76,6 +99,12 @@
       mysql_query("update STUL_USERS set mail = '".$_POST["mail"]."' where user_id='".$_POST["id"]."'");
       // mysql_query("update log set date_naissance = '".$_POST["naissance"]."' where login='".$_POST["id"]."'");
       echo "<script language='Javascript'>document.location.replace('../profil.php?id=".$_POST["id"]."');</script>";
+   }
+   /* supprime le compte d'un utilisateur par sont ID
+   */
+   function sql_delete_user($idUser)
+   {
+      mysql_query("delete from STUL_USERS where user_id='".$idUser."'");
    }
    /* fonction qui renvoie l'id de l'utilisateur ayant poster 
    */
@@ -87,7 +116,11 @@
 
    function sql_all_post()
    {
-      return mysql_query("select * from STUL_POST p");
+      return mysql_query("select * from STUL_POST");
+   }
+   function sql_all_users()
+   {
+      return mysql_query("select * from STUL_USERS");
    }
    /* return tout les commentaires correspond a l'idpost proposé
    */
@@ -112,7 +145,7 @@
    */
    function sql_info_user($idUser)
    {
-      return mysql_fetch_assoc(mysql_query("select user_mail, user_login from STUL_USERS where user_id=".$idUser));
+      return mysql_fetch_assoc(mysql_query("select * from STUL_USERS where user_id=".$idUser));
    }
    /* return le statut de l'utilisateur proposé (admin,visiteur,membre...)
    */
@@ -149,8 +182,8 @@
    /* edite le post proposé
    */
    function sql_edit_post($post)
-   {
-      mysql_query("update STUL_POST set post_content = '".$post['article']."' where post_id='".$post['id_post']."'");
+   {//post_content = '".$post['article']."'
+      mysql_query("update STUL_POST set post_content='".$post['content']."', post_title='".$post['title']."' where post_id=".$post['id_post']."");
    }
    /* supprime le post proposé avec suppression de ses commentaires en cascade
    */
