@@ -180,7 +180,59 @@ switch($step){
 					}
 					else
 						header("location:install.php?step=4");
-					displayHeader();break;
+					displayHeader();?>
+					<body>
+						<div id="all">
+							<div id="content">
+								<div id="header" class="box">
+									<div id="logo"><img alt="Stul" src="images/install/logo.png" /></div>
+									<div id="titre">INSTALLATION</div>
+									<div id="sous-titre"> Etape 4 : Creation du site</div>
+								</div>
+								<div id="text" class="box">
+									<p> Le Compte administrateur a bien été crée.Nous touchons à la fin de l'installation : Il ne reste qu'a configurer les informations générales du site</p>
+									<p class="box">Informations du site</p>
+									<div id="formulaire">
+										<form action="install.php?step=5" method="POST" name="site">
+											<input type='text' name='nom' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
+											<label for="nom">Nom du site</label><br/>
+										</div>
+									</div>
+									<div id="footer">
+										<input type="reset" class="button" value="reset"/><input class="button" type="submit" value="Continuer" />
+										<input type="hidden" name="action" value="envoyer"/>
+									</form><br/>
+								</div>
+							</div>
+						</div>
+
+
+					</body>
+					</html>
+					<?php
+					break;
+					case 5:
+					if (isset($_POST["nom"])){
+						foreach ($configFile as $line_num => $line) {
+						switch (substr($line,0,5)) {
+						case "$Site "
+									}
+								}
+								if(is_writable(ABSPATH)){
+								$handle = fopen(ABSPATH . 'stul_config.php', 'w');
+								foreach( $configFile as $line ) {
+									fwrite($handle, $line);
+								}
+								fclose($handle);
+								chmod(ABSPATH . 'stul_config.php', 0666);
+								}else 
+									erreur_ecriture();
+							}
+						}
+
+
+						}
+					}
 
 
 				}
