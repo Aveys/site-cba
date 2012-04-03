@@ -1,8 +1,11 @@
 <?php
-include_once "sql.php";
 	session_start();
 	error_reporting(E_ALL | E_STRICT );
 	ini_set('display_errors', true);
+	
+	require_once("../stul_config.php");
+	require_once($a_fmSql);
+	require_once($a_fmConnect);
 	if(isset($_POST["action"])){
 		switch($_POST['action'])
 		 {
@@ -39,7 +42,7 @@ include_once "sql.php";
 				unset($_SESSION["id"]);
 			break;
 			case "Inscription":	//redirige vers la page d'inscription
-				echo '<script language="Javascript">document.location.replace("?page=inscription");</script>';
+				echo '<script language="Javascript">document.location.replace("../?page=inscription");</script>';
 			break;
 			case "inscrire":	//inscription du nouvel utilisateur dans la bdd
 				sql_inscrire_user($_POST);
@@ -51,5 +54,5 @@ include_once "sql.php";
 		}
 
 	}
-	echo '<script language="Javascript">document.location.replace(".");</script>';	//redirection vers l'index.php
+	echo '<script language="Javascript">document.location.replace("../.");</script>';	//redirection vers l'index.php
 ?>

@@ -1,5 +1,5 @@
 <?php
-	require_once "stul_config.php";
+	require_once("../stul_config.php");
 	error_reporting(E_ALL | E_STRICT );
 	ini_set('display_errors', true);
 	
