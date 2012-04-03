@@ -19,7 +19,7 @@
 
 				<!-- pseudo -->
 				<label for="pseudo">Pseudo :</label>
-				<input name="pseudo" onBlur="verifPseudo(this)"/>
+				<input name="pseudo" onBlur="verifPseudo(this)"/></br>
 
 				<!-- login -->
 				<label for="mdp">Mot de passe :</label>
