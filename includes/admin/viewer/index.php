@@ -99,9 +99,20 @@
                 case 'addArticle':
                     include_once("add_article.php");
                 break;
+
+                case 'editComptes':
+                    include_once("edit_comptes.php");
+                break;
+
+                case 'editCompte':
+                    include_once("edit_compte.php");
+                break;
+                case 'addCompte':
+                    include_once("add_compte.php");
+                break;
                 
                 default:
-                    # code...
+                   
                     break;
             }
         }

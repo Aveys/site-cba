@@ -1,13 +1,13 @@
 <div id="content" class="black">
                       
-            <h1><img src="img/icons/dashboard.png" alt="" /> Dashboard </h1>
+            <h1><img src="img/icons/database.png" alt="" /> Board</h1>
                     
             <!--Bloc pour le mode Articles-->        
             <div class="bloc">
                 <div class="title">
                     Articles
                 </div>
-                <div class="content dashboard">
+                <div class="content">
                     <div class="center">
                         <a href="?mode=addArticle" class="shortcut">
                             <img src="img/page.png" alt="" width="48" height="48"/>
@@ -27,13 +27,12 @@
                 <div class="title">
                     Commentaires
                 </div>
-                <div class="content dashboard">
+                <div class="content">
                     <div class="center">
                          <a href="#" class="shortcut">
                             <img src="img/icons/note-sticky.png" alt="" width="48" height="48" />
                             Gérer les commentaires
                         </a>
-                        <div class="cb"></div>
                     </div>
                 </div>
             </div>
@@ -43,13 +42,16 @@
                 <div class="title">
                     Comptes
                 </div>
-                <div class="content dashboard">
+                <div class="content">
                     <div class="center">
-                         <a href="#" class="shortcut">
-                            <img src="img/icons/users.png" alt="" width="48" height="48" />
-                            Gérer les comptes utilisateur
+                        <a href="?mode=addCompte" class="shortcut">
+                            <img src="img/icons/user.png" alt="" width="48" height="48"/>
+                            Crée un compte
                         </a>
-                        <div class="cb"></div>
+                        <a href="?mode=editComptes" class="shortcut">
+                            <img src="img/icons/users.png" alt="" width="48" height="48" />
+                            Gérer les comptes
+                        </a>
                     </div>
                 </div>
             </div>
@@ -59,13 +61,12 @@
                 <div class="title">
                     Options
                 </div>
-                <div class="content dashboard">
+                <div class="content">
                     <div class="center">
                          <a href="#" class="shortcut">
                             <img src="img/icons/window.png" alt="" width="48" height="48" />
                             Gérer les options
                         </a>
-                        <div class="cb"></div>
                     </div>
                 </div>
             </div>

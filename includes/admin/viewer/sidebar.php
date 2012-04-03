@@ -1,7 +1,7 @@
 <div id="sidebar" class="black">
             <ul>
                 <li >
-                    <a href="?mode=board"><img src="img/icons/menu/layout.png" alt="" /> Dashboard</a>
+                    <a href="?mode=board"><img src="img/icons/menu/layout.png" alt="" /> Board</a>
                 </li>
 
                 <li>
@@ -22,7 +22,8 @@
                  <li>
                     <a href="#"><img src="img/icons/menu/users.png" alt="" /> Comptes</a>
                     <ul>
-                        <li><a href="#">Gérer les Comptes</a></li>
+                        <li><a href="?mode=addCompte">Crée un compte</a></li>
+                        <li><a href="?mode=editComptes">Gérer les Comptes</a></li>
                     </ul>
                 </li>
 
@@ -33,6 +34,4 @@
                
 
             </ul>
-            <a href="#collapse" id="menucollapse">&#9664; Réduire la sidebar</a>
-
         </div>

@@ -11,7 +11,7 @@ jQuery(function($){
      /**
      * Slide toggle for blocs
      * */
-     $('.bloc .title').append('<a href="#" class="toggle"></a>');
+     /*$('.bloc .title').append('<a href="#" class="toggle"></a>');
      $('.bloc .title .tabs').parent().find('.toggle').remove(); 
      $('.bloc .title .toggle').click(function(){
          $(this).toggleClass('hide').parent().parent().find('.content').slideToggle(300);
@@ -22,7 +22,7 @@ jQuery(function($){
       e.find('.content').hide(); 
       e.find('.toggle').addClass('hide');
      })
-     
+     */
      /**
       *  Visual Editor for textarea
       *  https://github.com/akzhan/jwysiwyg/

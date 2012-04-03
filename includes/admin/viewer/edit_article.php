@@ -17,10 +17,16 @@ $row = mysql_fetch_assoc($result);
                 <div class="content"> 
                  <form method="POST" action='../../../<?php echo $fAdminAction;?>'> 
                     <div class="input textarea">
+                    <p>
+                        <label for="textTitle">Titre</label>
+                        <input type="text" name="title" value='<?php echo $row["POST_TITLE"];?>'/>
+                    </p>
+                    <p>
                         <label for="textarea2">Editer le texte</label>
-                        <textarea name="article" id="textarea2" rows="7" class="wysiwyg" cols="4">
+                        <textarea name="article" rows="7" class="wysiwyg" cols="4">
                             <?php echo $row["POST_CONTENT"];?>
                         </textarea>
+                    </p>
                     </div>
                     <input type="hidden" name="id_post" value='<?php echo $idArticle;?>'/>
                     <div class="input">

@@ -16,6 +16,10 @@
 				sql_delete_post($_GET["id"]);
 				header('Location:./viewer/index.php?mode=editArticles');
 			break;
+			case 'delCompte':
+				sql_delete_user($_GET["id"]);
+				header('Location:./viewer/index.php?mode=editComptes');
+			break;
 			
 			default:break;
 		}
@@ -39,6 +43,17 @@
 
 			case 'Mettre à jour':
 				sql_edit_post($_POST);
+				header('Location:./viewer/index.php?mode=editArticles'); 
+			break;
+
+			case 'Mettre à jour le compte':
+				sql_allEdit_user($_POST["id_user"], $_POST["login"], $_POST["password"], $_POST["pseudo"], $_POST["email"], $_POST["status"]);
+				header('Location:./viewer/index.php?mode=editComptes'); 
+			break;
+
+			case 'Ajouter ce compte':
+				sql_inscrire_user_by_admin($_POST["login"], $_POST["password"], $_POST["pseudo"], $_POST["email"], $_POST["dateReg"], $_POST["status"]);
+				//header('Location:./viewer/index.php?mode=editComptes'); 
 			break;
 
 
