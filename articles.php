@@ -78,7 +78,9 @@ function displayArticles(){
 			echo "</div>";
 			echo "<div class='info_article'>Fait par ";
 			link_profil(sql_user_who_post($row['POST_ID']));
-			echo " le ".$row['POST_DATE'].".</div>";
+			echo " le ";
+			dateTimeToTime($row['POST_DATE']);
+			echo "</div>";
 		}
 }
 function affichage_article($row,$masque)
