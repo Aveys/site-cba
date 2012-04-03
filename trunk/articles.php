@@ -33,6 +33,17 @@
 			<!-- submit -->
 		</form>
 <?php }
+
+function button_delete_post($idPost)
+{
+	if(isadmin($_SESSION['id']))
+	{
+		echo "<form name='delete_com' style='float:left;' action='actions.php' method='post'>";
+			echo "<input name='id_post' type='hidden' value='".$idPost."'/>";
+			echo "<input name='action' value='Supprimer post' type='submit'/>";
+		echo "</form>";
+	}
+}
 	/*
 	function boutonJaime($row)
 	{

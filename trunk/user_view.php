@@ -1,4 +1,5 @@
 <?php
+include_once "view_comment.php";
 function displayArticles(){
 	$result = sql_all_post();
 	while($row=mysql_fetch_assoc($result)){
@@ -6,6 +7,8 @@ function displayArticles(){
 		echo "<div class='info_article'>Fait par ";
 		link_profil(sql_user_who_post($row['POST_ID']));
 		echo " le ".$row['POST_DATE'].".</div>";
+		button_delete_post($row['POST_ID']);
+		add_commentaire($row,'commenter article');
 		/*echo "<div class='nbJaime'>";
 			login_qui_aiment($row);
 		echo "</div>";
@@ -13,7 +16,6 @@ function displayArticles(){
 		echo "<div id='com'>";
 			afficheCom($row);
 		echo "</div>";
-		add_commentaire($row,'commenter article');
 	}
 }
 
@@ -47,60 +49,6 @@ function displayAddForm(){
 		echo "Veuillez vous loger.</br>";
 }
 
-function add_commentaire($row,$text_button)
-{
-	if(isset($_SESSION['pseudo']))
-	{
-		if(isset($row['com_content']))
-		{
-			echo "<input type='button' onClick=debloque_comment('comOfCom".$row['com_id']."') value='".$text_button."'/>";
-			echo "<form method='post' class='form_comment' name='comOfCom".$row["com_id"]."' id='comOfCom".$row['com_id']."' action='actions.php'>";
-				echo "<textarea name='commentaire' cols='50' row='30'></textarea></br>";
-				echo "<input type='submit' name='action' value='Commenter'/>";
-				echo "<input type='hidden' name='id' value='".$row["post_id"]."'/>";
-				echo "<input type='hidden' name='id_parent' value='".$row["com_id"]."'/>";
-			echo"</form>";
-		}
-		else
-		{
-			echo "<input type='button' onClick=debloque_comment('com".$row['POST_ID']."') value='".$text_button."'/>";
-			echo "<form method='post' class='form_comment' name='com".$row["POST_ID"]."' id='com".$row['POST_ID']."' action='actions.php'>";
-				echo "<textarea name='commentaire' cols='50' row='30'></textarea></br>";
-				echo "<input type='submit' name='action' value='Commenter'/>";
-				echo "<input type='hidden' name='id' value='".$row["POST_ID"]."'/>";
-			echo"</form>";
-		}
-	}
-}
-function afficheCom($row)
-{
-	echo "</br>";
-	$result_com = sql_com_of_post_with_log($row['POST_ID']);
-	while ($row_com = mysql_fetch_assoc($result_com)) {
-		if($row_com['com_parent'] == "")
-		{
-			echo nl2br($row_com['com_content'])." de ";
-			link_profil($row_com['user_id']);
-			dateTimeToTime($row_com['com_date']);
-			echo "</br>";
-			echo "<div id='comOfCom'>";
-			afficheComOfCom($row_com['com_id']);
-			add_commentaire($row_com,'▼');
-			echo "</div>";
-			echo "</br>";
-		}
-	}
-}
-function afficheComOfCom($id_com_parent)
-{
-	$result_com = sql_com_of_com_post_with_log($id_com_parent);
-	while ($row_com = mysql_fetch_assoc($result_com)) {
-		echo nl2br($row_com['com_content'])." de ";
-		link_profil($row_com['user_id']);
-		dateTimeToTime($row_com['com_date']);
-		echo "</br>";
-	}
-}
 function afficheTempsEcoulee($date)
 {
 	if(date('Y',$date)-1970 != 0)

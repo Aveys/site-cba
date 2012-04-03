@@ -61,7 +61,6 @@ drop table if exists STUL_USERS;",
 						  references STUL_USERS (USER_ID) on delete restrict on update restrict;");
    
    function deleteArticle($id){
-      include_once"connect.php";
          $query="delete from STUL_POST where post_id='".$id."'";
          mysql_query($query) or die(mysql_error());
    }
@@ -161,7 +160,7 @@ drop table if exists STUL_USERS;",
 
    function sql_com_of_com_post_with_log($idComParent)
    {
-      return mysql_query("select u.user_login, u.user_id ,c.com_content,c.com_date,c.com_parent from STUL_COMMENT c join STUL_USERS u on c.user_id=u.user_id where c.com_parent=".$idComParent." order by c.com_date");
+      return mysql_query("select c.com_id,u.user_login, u.user_id ,c.com_content,c.com_date,c.com_parent from STUL_COMMENT c join STUL_USERS u on c.user_id=u.user_id where c.com_parent=".$idComParent." order by c.com_date");
    }
 
    function sql_user_of_id($idUser)
@@ -187,4 +186,24 @@ drop table if exists STUL_USERS;",
          return true;
       else
          return false;
+   }
+
+   function sql_delete_com($idCom)
+   {
+      $query="delete from STUL_COMMENT where com_id='".$idCom."'";
+      mysql_query($query) or die(mysql_error());
+      $result=sql_com_of_com_post_with_log($idCom);
+      while ($row = mysql_fetch_assoc($result)) {
+         sql_delete_com($row['com_id']);
+      }
+   }
+
+   function sql_delete_post($idPost)
+   {
+      $query="delete from STUL_POST where post_id='".$idPost."'";
+      mysql_query($query) or die(mysql_error());
+      $result=sql_com_of_post_with_log($idPost);
+      while ($row = mysql_fetch_assoc($result)) {
+         sql_delete_com($row['com_id']);
+      }
    }
