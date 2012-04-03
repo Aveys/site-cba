@@ -86,17 +86,17 @@ switch($step){
 
 	case 3:
 	if (isset($_POST)){
-		//print_r($_POST);
-		require_once("sql.php");
+		print_r($_POST);
+		require_once("sql_install.php");
 		$dbname  = trim($_POST['BDD']);
 		$uname   = trim($_POST['user']);
 		$passwrd = trim($_POST['mdp']);
 		$dbhost  = trim($_POST['host']);
-		$link=mysql_connect($dbhost,$uname,$passwrd) or die(erreur_SQL());
+		$link=mysql_connect($dbhost,$uname,$passwrd,true);
 		if(!$link){
 			erreur_SQL();
 		}else{
-			$db=mysql_select_db($dbname) or die(erreur_SQL());
+			$db=mysql_select_db($dbname);
 			if(!$db){
 				erreur_SQL();
 			}else{
@@ -125,8 +125,8 @@ switch($step){
 
 
 					}
-					else
-						header("location:install.php?step=2");
+	else
+		header("location:install.php?step=2");
 					displayHeader();?>
 					<body>
 						<div id="all">
@@ -171,7 +171,7 @@ switch($step){
 						mysql_query("INSERT INTO STUL_USERS(USER_LOGIN,USER_PASS,USER_DISPLAYNAME,USER_MAIL,USER_REGISTERED,USER_STATUS) VALUES ('".$_POST["login"]."','".sha1($_POST["mdp"])."','".$_POST["login"]."','".$_POST["mail"]."',now(),2");
 					}
 					else
-						header("location:install.php?step=4");*/
+						header("location:install.php?step=4");
 					displayHeader();break;
 
 
