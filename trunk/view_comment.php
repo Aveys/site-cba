@@ -1,6 +1,7 @@
 <?php
 /*	fonction qui affiche un formulaire pour ajouter un commentaire soit à un post soit à un autre commentaire
 */
+require_once("stul_config.php");
 function add_commentaire($row,$text_button)
 {
 	if(isset($_SESSION['pseudo']))
@@ -8,7 +9,7 @@ function add_commentaire($row,$text_button)
 		if(isset($row['com_content']))
 		{
 			echo "<input type='button' onClick=debloque_comment('comOfCom".$row['com_id']."') value='".$text_button."'/>";
-			echo "<form method='post' class='form_comment' name='comOfCom".$row["com_id"]."' id='comOfCom".$row['com_id']."' action='actions.php'>";
+			echo "<form method='post' class='form_comment' name='comOfCom".$row["com_id"]."' id='comOfCom".$row['com_id']."' action='controller/actions.php'>";
 				echo "<textarea name='commentaire' cols='50' row='30'></textarea></br>";
 				echo "<input type='submit' name='action' value='Commenter'/>";
 				echo "<input type='hidden' name='id' value='".$row["post_id"]."'/>";
@@ -18,7 +19,7 @@ function add_commentaire($row,$text_button)
 		else
 		{
 			echo "<input type='button' onClick=debloque_comment('com".$row['POST_ID']."') value='".$text_button."'/>";
-			echo "<form method='post' class='form_comment' name='com".$row["POST_ID"]."' id='com".$row['POST_ID']."' action='actions.php'>";
+			echo "<form method='post' class='form_comment' name='com".$row["POST_ID"]."' id='com".$row['POST_ID']."' action='controller/actions.php'>";
 				echo "<textarea name='commentaire' cols='50' row='30'></textarea></br>";
 				echo "<input type='submit' name='action' value='Commenter'/>";
 				echo "<input type='hidden' name='id' value='".$row["POST_ID"]."'/>";
@@ -57,18 +58,22 @@ function afficheComOfCom($id_com_parent)
 		link_profil($row_com['user_id']);		//apercu du profil de l'auteur du com
 		dateTimeToTime($row_com['com_date']);	//affiche la date de publication au format facebook
 		button_delete_com($row_com['com_id']); //bouton de suppression de ce com
+		echo "</br>";
 	}
 }
 /*	affiche un formulaire de suppression de com seulement si l'utilisateur est admin
 */
 function button_delete_com($idCom)
 {
+	if(isset($_SESSION['id']))
+	{
 	if(isadmin($_SESSION['id']))
 	{
 		echo "<form name='delete_com' action='actions.php' method='post'>";
 			echo "<input name='id_com' type='hidden' value='".$idCom."'/>";
 			echo "<input name='action' value='Supprimer com' type='submit'/>";
 		echo "</form>";
+	}
 	}
 }
 ?>
