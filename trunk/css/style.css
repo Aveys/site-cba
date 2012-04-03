@@ -62,13 +62,23 @@ body{
 	position: relative;
 	margin: 0px 10%;
 }
-#header h1{
+#contentArticle{
+	padding: 20px;
+}
+#header h1,#headerArticle h1{
 	text-align: center;
 }
 #connexion{
 	position: fixed;
 }
-#connexion input,#comOfCom input,.article input{
+#connexion label{
+	display: block;
+}
+#connexion input{
+	display: block;
+	float: left;
+}
+#comOfCom input,.article input{
 	position: relative;
 	display: block;
 	float: left;

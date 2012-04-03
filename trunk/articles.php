@@ -6,10 +6,10 @@
 			echo "<h2>".$_SESSION["pseudo"]."</h2>";	
 			echo '<form name="delogin" action="'.$fcAction.'" method="POST" >'; ?>
 				<!-- Unsubmit -->
-				
+			<div id="deconnexion">
 				<input type="submit" name="action" value="Deconnexion"/>
 				<!-- submit -->
-
+			</div>
 			</form>	
 <?php 	}
 		else{
@@ -19,11 +19,11 @@
 
 				<!-- pseudo -->
 				<label for="pseudo">Pseudo :</label>
-				<input name="pseudo" onBlur="verifPseudo(this)"/><br/><br/>
+				<input name="pseudo" onBlur="verifPseudo(this)"/>
 
 				<!-- login -->
 				<label for="mdp">Mot de passe :</label>
-				<input type=password name="mdp" onBlur="verifMdp(this)"/><br/><br/>
+				<input type=password name="mdp" onBlur="verifMdp(this)"/></br>
 				<!-- submit -->
 				<input type="submit" name="action" value="Connexion"/>
 

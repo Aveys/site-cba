@@ -20,6 +20,7 @@ date_default_timezone_set('Europe/Paris');
 </script>
 </head>
 <body>
+	<div id='contentArticle'>
 	<?php
 	if(get_is_exist())
 	{
@@ -28,9 +29,9 @@ date_default_timezone_set('Europe/Paris');
 		echo "</h1></div>";
 		$result = sql_post_of_idPost($_GET['POST_ID']);
 		while($row=mysql_fetch_assoc($result)){
-			echo "<div class='article'>";
+			echo "<div class='article'><h3>";
 				affichage_article($row,0, $fcAction);
-			echo "</div>";
+			echo "</h3></div>";
 			echo "<div class='info_article'>Fait par ";
 			link_profil(sql_user_who_post($row['POST_ID']));
 			echo " le ";
@@ -45,7 +46,7 @@ date_default_timezone_set('Europe/Paris');
 			echo "</table>";
 			echo "<table id='ligne_bouton_post'>";
 			echo "<tr>";
-					if(!(isset($_GET['edit']) && $_GET['edit'] == 1))
+					/*if(!(isset($_GET['edit']) && $_GET['edit'] == 1))
 					{
 						echo "<td>";
 							button_edit_post($row['POST_ID']);
@@ -53,8 +54,9 @@ date_default_timezone_set('Europe/Paris');
 					}
 					echo "<td>";
 						button_delete_post($row['POST_ID'],$fcAction);			//bouton delete pour supprimer le post
-					echo "</td><td>";
-						add_commentaire($row,'commenter article');		//formulaire ajout de commentaire au post
+					echo "</td>*/
+					echo "<td>";
+						add_commentaire($row,'▼');		//formulaire ajout de commentaire au post
 					echo "</td>";
 				echo "</tr>";
 			echo "</table>";
@@ -69,4 +71,5 @@ date_default_timezone_set('Europe/Paris');
 		}
 	}
 ?>
+</div>
 </body>

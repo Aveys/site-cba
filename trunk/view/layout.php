@@ -52,13 +52,9 @@ displayArticles($fcAction);
 ?>
 </div>
 
-
-<div id="addArticle">
-<h2>Ajouter un article</h2>
-<?php 
-displayAddForm($fcAction);
+<?php
+//echo "<div id='addArticle'><h2>Ajouter un article</h2>".displayAddForm($fcAction)."</div>"; 
 ?>
-</div>
 
 </div><!-- content -->
 
