@@ -77,7 +77,7 @@ function editer_info_user($id)
 	if(autorise_edition($id))
 	{
 		$row = sql_info_user($id);
-		echo "</br></br><form method='post' name='editer_user' action='actions.php'>";
+		echo "</br></br><form method='post' name='editer_user' action='controller/actions.php'>";
 			echo "<label for='mail'>Mail :</label>";
 			echo "<input name='mail' value='".$row['user_mail']."'/></br></br>";
 			//echo "<label for='naissance'>Date de naissance :</label>";
