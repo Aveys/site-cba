@@ -1,4 +1,6 @@
-﻿<?php
+﻿<?php 
+	/*	fonction qui affiche un formulaire permettant de se loger ou de se deloger
+	*/
 	function displayAddFormLog(){
 	
 		if (isset($_SESSION["pseudo"])){	?>
@@ -33,7 +35,8 @@
 			<!-- submit -->
 		</form>
 <?php }
-
+/*	fonction qui affiche un bouton permettant de supprimer le post
+*/
 function button_delete_post($idPost)
 {
 	if(isadmin($_SESSION['id']))

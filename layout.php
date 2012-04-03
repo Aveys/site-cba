@@ -44,13 +44,6 @@ displayAddForm();
 ?>
 </div>
 
-<div id="deleteblague">
-<h2>Supprimer un article</h2>
-<?php 
-displayDeleteForm();
-?>
-</div>
-
 </div><!-- content -->
 
 </div><!-- all -->
