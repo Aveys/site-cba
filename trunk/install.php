@@ -3,13 +3,12 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 //function install(){
 define( 'ABSPATH', dirname(__FILE__) . '/' );
-$configFile = file(ABSPATH . 'stul_config.php');
 
 if (isset($_GET['step']))
 	$step = $_GET['step'];
 else
 	$step = 1;
-$configfile= file('stul_config.php');
+$configFile= file('stul_config.php');
 
 
 switch($step){
@@ -86,7 +85,7 @@ switch($step){
 
 	case 3:
 	if (isset($_POST)){
-		print_r($_POST);
+		//print_r($_POST);
 		require_once("sql_install.php");
 		$dbname  = trim($_POST['BDD']);
 		$uname   = trim($_POST['user']);
@@ -109,10 +108,10 @@ switch($step){
 							$configFile[$line_num] = str_replace("votre_nom_de_bdd", $dbname, $line);
 						break;
 						case "define('DB_USER'":
-							$configFile[$line_num] = str_replace("'votre_utilisateur_de_bdd'", "'$uname'", $line);
+							$configFile[$line_num] = str_replace("'votre_utilisateur_de_bdd'", $uname, $line);
 					 	break;
 						case "define('DB_PASSW":
-							$configFile[$line_num] = str_replace("'votre_mdp_de_bdd'", "'$passwrd'", $line);
+							$configFile[$line_num] = str_replace("'votre_mdp_de_bdd'", $passwrd, $line);
 						break;
 						case "define('DB_HOST'":
 							$configFile[$line_num] = str_replace("localhost", $dbhost, $line);
@@ -120,6 +119,15 @@ switch($step){
 
 									}
 								}
+								if(is_writable(ABSPATH)){
+								$handle = fopen(ABSPATH . 'stul_config.php', 'w');
+								foreach( $configFile as $line ) {
+									fwrite($handle, $line);
+								}
+								fclose($handle);
+								chmod(ABSPATH . 'stul_config.php', 0666);
+								}else 
+									erreur_ecriture();
 							}
 						}
 
