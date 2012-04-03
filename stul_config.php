@@ -8,23 +8,26 @@ $vTheme			= 'themes/cba';
 
 
 $Site = '/site-cba/';
+$rootSite = $_SERVER['DOCUMENT_ROOT'].$Site;
 //Chemin des fichiers
-$fcActionPhp 	= $_SERVER['DOCUMENT_ROOT'].$Site.'controller/actions.php';
-$fcUserView		= $_SERVER['DOCUMENT_ROOT'].$Site.'user_view.php';
+$fcAction	 	= "controller/actions.php";
+$fcUserView		= $rootSite."user_view.php";
+$fcArticle		= $rootSite."articles.php";
 
-$fmConnect 		= $_SERVER["DOCUMENT_ROOT"].$Site.'model/connect.php';
-$fmEscape		= $_SERVER['DOCUMENT_ROOT'].$Site.'model/escape.php';
-$fmSql			= $_SERVER['DOCUMENT_ROOT'].$Site.'model/sql.php';
+$fmConnect 		= $rootSite."model/connect.php";
+$fmEscape		= $rootSite."model/escape.php";
+$fmSql			= $rootSite."model/sql.php";
 
-$fvLayout		= $_SERVER['DOCUMENT_ROOT'].$Site.'view/layout.php';
-$fvInscription	= $_SERVER['DOCUMENT_ROOT'].$Site.'view/inscription.php';
-$fvInstall		= $_SERVER['DOCUMENT_ROOT'].$Site.'install.php';
+$fvLayout		= $rootSite."view/layout.php";
+$fvInscription	= $rootSite."view/inscription.php";
+$fvInstall		= $rootSite."install.php";
+$fvArticle		= $rootSite."article.php";
 
-$fAdmin 		= $_SERVER["DOCUMENT_ROOT"].$Site.'stul_admin.php';
-$fViewerAdmin	= $_SERVER['DOCUMENT_ROOT'].$Site.'includes/admin/viewer/index.php';
-$fLanguage		= $_SERVER['DOCUMENT_ROOT'].$Site.'includes/stul_language.php';
-$fAdminFonct 	= $_SERVER['DOCUMENT_ROOT'].$Site.'includes/admin/stul_fonctions.php';
-$fAdminAction	= 'includes/admin/stul_actions.php';
+$fAdmin 		= $rootSite."stul_admin.php";
+$fViewerAdmin	= $rootSite."includes/admin/viewer/index.php";
+$fLanguage		= $rootSite."includes/stul_language.php";
+$fAdminFonct 	= $rootSite."includes/admin/stul_fonctions.php";
+$fAdminAction	= "includes/admin/stul_actions.php";
 
 
 
