@@ -28,6 +28,14 @@ body{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
 
 }
+#content,#menuBar,#articles,#addArticle{
+	margin: 20px;
+}
+#addArticle label{
+	display: block;
+	width: 175px;
+	float: left;
+}
 #facebook,#twitter,#google_plus{
 	float: left;
 	width: 5px;
@@ -45,7 +53,29 @@ body{
 }
 #comOfCom{
 	position: relative;
-	left: 50px;
+	margin-left: 50px;
+}
+#menuBar{
+	border: solid 1px black;
+}
+.itemMenuBar{
+	position: relative;
+	margin: 0px 10%;
+}
+#header h1{
+	text-align: center;
+}
+#connexion{
+	position: fixed;
+}
+#connexion input,#comOfCom input,.article input{
+	position: relative;
+	display: block;
+	float: left;
+}
+#ligne_bouton_post{
+	position: relative;
+	margin-top: -3%;
 }
 #liste_personnes_caches{
 	background-color: orange;
@@ -62,9 +92,6 @@ body{
 	width: 0px;
 	height: 0px;
 	z-index: 2;
-}
-.itemMenuBar{
-	position: relative;
 }
 #equipeListe{
 	z-index: 10;
