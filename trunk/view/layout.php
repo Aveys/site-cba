@@ -18,13 +18,16 @@ date_default_timezone_set('Europe/Paris');
 <script type="text/javascript" src="view/apercu_equipe.js"></script>
 </head>
 <body>
+	<div id="connexion">
+	<?php
+	displayAddFormLog($fcAction);
+	?>
+	</div>
 
 <div id="all">
 
 <div id="header">
-<?php
-displayAddFormLog($fcAction);
-?>
+</br>
 <h1>CBA Website</h1>
 </div>
 <div id="content">
@@ -50,7 +53,7 @@ displayArticles($fcAction);
 </div>
 
 
-<div id="addblague">
+<div id="addArticle">
 <h2>Ajouter un article</h2>
 <?php 
 displayAddForm($fcAction);

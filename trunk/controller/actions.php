@@ -11,7 +11,7 @@
 		 {
 			case "ajouter":		//ajouter un post
 				if(isset($_SESSION["id"]))
-					addArticle($_POST["texte"], $_SESSION["id"]);
+					addArticle($_POST["texte"], $_SESSION["id"],$_POST["titre"],$_POST["tag"]);
 			break;
 			case "Supprimer com":	//supprimer un com
 				sql_delete_com($_POST["id_com"]);		

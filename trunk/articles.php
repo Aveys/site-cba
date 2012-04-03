@@ -15,7 +15,7 @@
 		else{
 			if(isset($_SESSION['erreur_connect']))
 				echo $_SESSION['erreur_connect']."</br>";	?>
-			<form name="login" action="actions.php" method="POST" >
+			<form name="login" action=<?php echo "'".$fcAction."'" ?> method="POST" >
 
 				<!-- pseudo -->
 				<label for="pseudo">Pseudo :</label>
@@ -52,10 +52,18 @@ function displayAddForm(){
 	?>
 		<form name="articles" action="controller/actions.php" method="POST" onSubmit="return valid()">
 
-		<!-- texte -->
-		<label for="texte">Texte :</label>
-		<textarea name="texte" cols="50" row="30" onBlur="verifTexte(this)"></textarea> 
+		<!-- titre -->
+		<label for="titre">Titre :</label>
+		<input name="titre" cols="50" row="30" onBlur="verifTexte(this)"></textarea> 
 		<br/><br/>
+		<!-- texte -->
+		<label for="texte">Article :</label>
+		<textarea name="texte" cols="50" row="30" onBlur="verifTexte(this)"></textarea> 
+		<br/>
+		<!-- texte -->
+		<label for="tag">Tag (séparé d'un espace) :</label>
+		<textarea name="tag" cols="50" row="30" onBlur="verifTexte(this)"></textarea> 
+		<br/>
 		
 		<!-- submit -->
 		<input type="submit" name="action" value="ajouter"/>
@@ -164,7 +172,7 @@ function button_edit_post($idPost)
 	{
 		if(isadmin($_SESSION['id']))
 		{
-			echo "<form name='delete_com' action='?page=article&POST_ID=".$idPost."&edit=1' method='post'>";
+			echo "<form name='delete_com' style='float:left; margin-left:0px;' action='?page=article&POST_ID=".$idPost."&edit=1' method='post'>";
 				echo "<input name='action' value='Editer post' type='submit'/>";
 				echo "<input type='hidden' name='url' value='?page=article&POST_ID=".$idPost."'/>";
 			echo "</form>";
@@ -175,7 +183,7 @@ function button_edit_post($idPost)
 */
 function button_delete_post($idPost)
 {
-	if(isadmin($_SESSION['id']))
+	if(isset($_SESSION['id']) && isadmin($_SESSION['id']))
 	{
 		echo "<form name='delete_com' style='float:left;' action='controller/actions.php' method='post'>";
 			echo "<input name='id_post' type='hidden' value='".$idPost."'/>";

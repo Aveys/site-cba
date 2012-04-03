@@ -23,6 +23,9 @@ date_default_timezone_set('Europe/Paris');
 	<?php
 	if(get_is_exist())
 	{
+		echo "<div id='headerArticle'><h1>";
+		echo sql_title_of_post($_GET['POST_ID']);
+		echo "</h1></div>";
 		$result = sql_post_of_idPost($_GET['POST_ID']);
 		while($row=mysql_fetch_assoc($result)){
 			echo "<div class='article'>";
@@ -33,11 +36,29 @@ date_default_timezone_set('Europe/Paris');
 			echo " le ";
 			dateTimeToTime($row['POST_DATE']);
 			echo "</div>";
-			if(!(isset($_GET['edit']) && $_GET['edit'] == 1))
-				button_edit_post($row['POST_ID']);
-			button_delete_post($row['POST_ID'],$fcAction);			//bouton delete pour supprimer le post
-			add_commentaire($row,'commenter article');		//formulaire ajout de commentaire au post
-			affiche_button_reseausociaux("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+			echo "<table>";
+				echo "<tr>";
+					echo "<td colspan='3'>";
+						affiche_button_reseausociaux("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+					echo "</td>";
+				echo "</tr>";
+			echo "</table>";
+			echo "<table id='ligne_bouton_post'>";
+			echo "<tr>";
+					if(!(isset($_GET['edit']) && $_GET['edit'] == 1))
+					{
+						echo "<td>";
+							button_edit_post($row['POST_ID']);
+						echo "</td>";
+					}
+					echo "<td>";
+						button_delete_post($row['POST_ID'],$fcAction);			//bouton delete pour supprimer le post
+					echo "</td><td>";
+						add_commentaire($row,'commenter article');		//formulaire ajout de commentaire au post
+					echo "</td>";
+				echo "</tr>";
+			echo "</table>";
+			echo "</br>";
 			/*echo "<div class='nbJaime'>";
 				login_qui_aiment($row);
 			echo "</div>";
