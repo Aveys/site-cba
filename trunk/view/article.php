@@ -30,6 +30,8 @@ date_default_timezone_set('Europe/Paris');
 			echo " le ";
 			dateTimeToTime($row['POST_DATE']);
 			echo "</div>";
+			if(!(isset($_GET['edit']) && $_GET['edit'] == 1))
+				button_edit_post($row['POST_ID']);
 			button_delete_post($row['POST_ID'],$fcAction);			//bouton delete pour supprimer le post
 			add_commentaire($row,'commenter article');		//formulaire ajout de commentaire au post
 			/*echo "<div class='nbJaime'>";

@@ -16,6 +16,12 @@
 			case "Supprimer com":	//supprimer un com
 				sql_delete_com($_POST["id_com"]);		
 			break;
+			case "Editer com":	//supprimer un com
+				sql_edit_com($_POST);		
+			break;
+			case "Editer post":	//supprimer un com
+				sql_edit_post($_POST);		
+			break;
 			case "Supprimer post": 	//supprimer un post
 				sql_delete_post($_POST["id_post"]);		
 			break;

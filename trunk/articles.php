@@ -5,7 +5,6 @@
 		if (isset($_SESSION["pseudo"])){
 			echo "<h2>".$_SESSION["pseudo"]."</h2>";	
 			echo '<form name="delogin" action="'.$fcAction.'" method="POST" >'; ?>
-				
 				<!-- Unsubmit -->
 				
 				<input type="submit" name="action" value="Deconnexion"/>
@@ -15,8 +14,8 @@
 <?php 	}
 		else{
 			if(isset($_SESSION['erreur_connect']))
-				echo $_SESSION['erreur_connect']."</br>";	
-				echo '<form name="login" action="'.$fcAction.'" method="POST" >'; ?>
+				echo $_SESSION['erreur_connect']."</br>";	?>
+			<form name="login" action="actions.php" method="POST" >
 
 				<!-- pseudo -->
 				<label for="pseudo">Pseudo :</label>
@@ -48,10 +47,10 @@ function get_is_exist()
 }
 /*	formulaire d'ajout de post seulement si utilisateur connecte
 */
-function displayAddForm($fcAction){
+function displayAddForm(){
 	if (isset($_SESSION["pseudo"])){
-	
-		echo '<form name="articles" action="'.$fcAction.'" method="POST" onSubmit="return valid()" >'; ?>
+	?>
+		<form name="articles" action="controller/actions.php" method="POST" onSubmit="return valid()">
 
 		<!-- texte -->
 		<label for="texte">Texte :</label>
@@ -72,12 +71,12 @@ function displayAddForm($fcAction){
 /*affiche tous les articles de la bdd avec ses infos
 	- nom du posteur, date de création
 */
-function displayArticles($fcAction){
+function displayArticles(){
 	
 		$result = sql_all_post();
 		while($row=mysql_fetch_assoc($result)){
 			echo "<div class='article'>";
-				affichage_article($row,1, $fcAction);
+				affichage_article($row,1);
 			echo "</div>";
 			echo "<div class='info_article'>Fait par ";
 			link_profil(sql_user_who_post($row['POST_ID']));
@@ -86,7 +85,7 @@ function displayArticles($fcAction){
 			echo "</div>";
 		}
 }
-function affichage_article($row,$masque, $fcAction)
+function affichage_article($row,$masque)
 {
 	$text = explode("<more>", $row['POST_CONTENT']);
 	if($masque)
@@ -97,29 +96,67 @@ function affichage_article($row,$masque, $fcAction)
 		echo "<form method='post' class='form_lire_la_suite' name='lireLaSuite' id='lireLaSuite' action='?page=article&POST_ID=".$row["POST_ID"]."'>";
 			echo "<input type='submit' name='action' value='Lire la suite'/>";
 		echo"</form>";
-		button_delete_post($row['POST_ID'], $fcAction);			//bouton delete pour supprimer le post
+		button_delete_post($row['POST_ID']);			//bouton delete pour supprimer le post
 		echo "</br>";
 	}
 	else
 	{
-		foreach ($text as $key => $value) {
-			echo $value;
+		if(isset($_GET['edit']) && $_GET['edit'] == 1)
+			affiche_form_edition_post($text,$row['POST_ID']);
+		else
+		{
+			foreach ($text as $key => $value) {
+				echo $value;
+			}
+		}
+	}
+}
+/*	affiche un formulaire d'edition de post seulement si l'utilisateur est admin
+*/
+function affiche_form_edition_post($content,$idPost)
+{
+	if(isset($_SESSION['id']))
+	{
+		if(isadmin($_SESSION['id']))
+		{
+			echo "<form name='edit_post' action='controller/actions.php' method='post'>";
+				echo "<textarea name='article' cols='50' row='30'>";
+				foreach ($content as $key => $value) {
+					echo $value;
+				}
+				echo "</textarea></br>";
+				echo "<input name='id_post' type='hidden' value='".$idPost."'/>";
+				echo "<input name='action' value='Editer post' type='submit'/>";
+				echo "<input type='hidden' name='url' value='?page=article&POST_ID=".$idPost."'/>";
+			echo "</form>";
+		}
+	}
+}
+/*	affiche un formulaire d'edition de post seulement si l'utilisateur est admin
+*/
+function button_edit_post($idPost)
+{
+	if(isset($_SESSION['id']))
+	{
+		if(isadmin($_SESSION['id']))
+		{
+			echo "<form name='delete_com' action='?page=article&POST_ID=".$idPost."&edit=1' method='post'>";
+				echo "<input name='action' value='Editer post' type='submit'/>";
+				echo "<input type='hidden' name='url' value='?page=article&POST_ID=".$idPost."'/>";
+			echo "</form>";
 		}
 	}
 }
 /*	fonction qui affiche un bouton permettant de supprimer le post
 */
-function button_delete_post($idPost, $fcAction)
+function button_delete_post($idPost)
 {
-	if(isset($_SESSION['id']))
-	{
 	if(isadmin($_SESSION['id']))
 	{
-		echo "<form name='delete_com' style='float:left;' action='".$fcAction."' method='post'>";
+		echo "<form name='delete_com' style='float:left;' action='controller/actions.php' method='post'>";
 			echo "<input name='id_post' type='hidden' value='".$idPost."'/>";
 			echo "<input name='action' value='Supprimer post' type='submit'/>";
 		echo "</form>";
-	}
 	}
 }
 	/*

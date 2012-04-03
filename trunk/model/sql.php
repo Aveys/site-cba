@@ -140,6 +140,18 @@
          sql_delete_com($row['com_id']);
       }
    }
+   /* edite le commentaire proposé
+   */
+   function sql_edit_com($post)
+   {
+      mysql_query("update STUL_COMMENT set com_content = '".$post['commentaire']."' where com_id='".$post['id_com']."'");
+   }
+   /* edite le post proposé
+   */
+   function sql_edit_post($post)
+   {
+      mysql_query("update STUL_POST set post_content = '".$post['article']."' where post_id='".$post['id_post']."'");
+   }
    /* supprime le post proposé avec suppression de ses commentaires en cascade
    */
    function sql_delete_post($idPost)
