@@ -212,8 +212,27 @@
       $row = mysql_fetch_assoc(sql_post_of_idPost($postId));
       return $row['POST_TITLE'];
    }
-
+   function sql_recherche_post_title($search)
+   {
+      return mysql_query("select * from STUL_POST where post_title LIKE '%".$search."%'");
+   }
+   function sql_recherche_post_content($search)
+   {
+      return mysql_query("select * from STUL_POST where post_content LIKE '%".$search."%'");
+   }
+   function sql_recherche_post_tag($search)
+   {
+      return mysql_query("select * from STUL_POST where post_tag LIKE '%".$search."%'");
+   }
+   function sql_recherche_com_content($search)
+   {
+      return mysql_query("select p.POST_ID,p.POST_TITLE,p.USER_ID,p.POST_DATE,p.CATEGORY_ID,p.POST_STATUS,p.POST_TYPE,p.POST_CONTENT,p.POST_TAG from STUL_POST p join STUL_COMMENT c on p.post_id=c.post_id where c.com_content LIKE '%".$search."%'");
+   }
    function sql_recherche($search)
    {
-      return mysql_query("select * from STUL_POST where post_content LIKE '%".$search."%' OR post_title LIKE '%".$search."%' OR post_tag LIKE '%".$search."%'");
+      $result[] = sql_recherche_post_title($search);
+      $result[] = sql_recherche_post_content($search);
+      $result[] = sql_recherche_post_tag($search);
+      $result[] = sql_recherche_com_content($search);
+      return $result;
    }
