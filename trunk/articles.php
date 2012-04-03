@@ -107,12 +107,15 @@ function affichage_article($row,$masque, $fcAction)
 */
 function button_delete_post($idPost, $fcAction)
 {
+	if(isset($_SESSION['id']))
+	{
 	if(isadmin($_SESSION['id']))
 	{
 		echo "<form name='delete_com' style='float:left;' action='".$fcAction."' method='post'>";
 			echo "<input name='id_post' type='hidden' value='".$idPost."'/>";
 			echo "<input name='action' value='Supprimer post' type='submit'/>";
 		echo "</form>";
+	}
 	}
 }
 	/*
