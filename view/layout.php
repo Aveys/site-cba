@@ -1,10 +1,10 @@
 <?php
 session_start(); 
-include_once $fmConnect;
-include_once "sql.php";
-include_once "user_view.php";
-include_once $fAdminFonct;
-include_once "articles.php";
+require_once($fmConnect);
+require_once($fmSql);
+require_once($fcViewUser);
+require_once($fAdminFonct);
+require_once("articles.php");
 date_default_timezone_set('Europe/Paris');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">

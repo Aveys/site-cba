@@ -10,9 +10,11 @@ $vTheme			= 'themes/cba';
 $Site = '/site-cba/';
 //Chemin des fichiers
 $fcActionPhp 	= $_SERVER['DOCUMENT_ROOT'].$Site.'controller/actions.php';
+$fcUserView		= $_SERVER['DOCUMENT_ROOT'].$Site.'controller.php';
 
 $fmConnect 		= $_SERVER["DOCUMENT_ROOT"].$Site.'model/connect.php';
 $fmEscape		= $_SERVER['DOCUMENT_ROOT'].$Site.'model/escape.php';
+$fmSql			= $_SERVER['DOCUMENT_ROOT'].$Site.'model/sql.php';
 
 $fvLayout		= $_SERVER['DOCUMENT_ROOT'].$Site.'view/layout.php';
 $fvInscription	= $_SERVER['DOCUMENT_ROOT'].$Site.'view/inscription.php';
