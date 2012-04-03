@@ -118,7 +118,7 @@
    */
    function sql_user_status($idUser)
    {
-      $row = mysql_fetch_assoc(mysql_query("select user_status from stul_users where user_id='".$idUser."'"));
+      $row = mysql_fetch_assoc(mysql_query("select user_status from STUL_USERS where user_id='".$idUser."'"));
       return $row['user_status'];
    }
    /* test si l'idUser proposé existe dans la bdd

@@ -1,8 +1,10 @@
 <?php
 	session_start();
-	include_once "user_view.php";
-	include_once "articles.php";
-	include_once "includes/admin/stul_fonctions.php";
+	include_once "stul_config.php";
+	include_once $a_fcUserView;
+	include_once $a_fcArticle;
+	include_once $a_fAdminFonct;
+	include_once $a_fmSql;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
