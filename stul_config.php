@@ -8,7 +8,7 @@ $vTheme			= 'themes/cba';
 
 
 $Site = '/site-cba/';
-$rootSite = $_SERVER['DOCUMENT_ROOT'].$Site;
+$rootSite = $_SERVER['DOCUMENT_ROOT'].'/INFO/labordna'.$Site;
 //Chemin des fichiers relatifs
 $fcAction	 	= "controller/actions.php";
 $fcUserView		= "user_view.php";
@@ -54,16 +54,16 @@ $a_fAdminAction		= $rootSite."includes/admin/stul_actions.php";
 
 /** Nom de la base de données de Stul. */
 if(!defined('DB_NAME'))
-	define('DB_NAME', 'iut');
+	define('DB_NAME', 'labordna');
 
 
 /** Utilisateur de la base de données MySQL. */
 if(!defined('DB_USER'))
-	define('DB_USER', 'root');
+	define('DB_USER', 'labordna');
 
 /** Mot de passe de la base de données MySQL. */
 if(!defined('DB_PASSWORD'))
-	define('DB_PASSWORD', '');
+	define('DB_PASSWORD', 'iTpBji');
 
 /** Adresse de l'hébergement MySQL. */
 if(!defined('DB_HOST'))
