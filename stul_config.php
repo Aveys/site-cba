@@ -7,15 +7,25 @@ $vTheme			= 'themes/cba';
 
 
 
-$Site = 'site-cba/';
+$Site = '/site-cba/';
 //Chemin des fichiers
-$fActionPhp 	= 'actions.php';
-$fAdminFonct 	= 'includes/admin/stul_fonctions.php';
+$fcActionPhp 	= $_SERVER['DOCUMENT_ROOT'].$Site.'controller/actions.php';
+
+$fmConnect 		= $_SERVER["DOCUMENT_ROOT"].$Site.'model/connect.php';
+$fmEscape		= $_SERVER['DOCUMENT_ROOT'].$Site.'model/escape.php';
+$fmSql			= $_SERVER['DOCUMENT_ROOT'].$Site.'sql.php';
+
+$fvLayout		= $_SERVER['DOCUMENT_ROOT'].$Site.'view/layout.php';
+$fvInscription	= $_SERVER['DOCUMENT_ROOT'].$Site.'view/inscription.php';
+$fvInstall		= $_SERVER['DOCUMENT_ROOT'].$Site.'install.php';
+
+$fAdmin 		= $_SERVER["DOCUMENT_ROOT"].$Site.'stul_admin.php';
+$fViewerAdmin	= $_SERVER['DOCUMENT_ROOT'].$Site.'includes/admin/viewer/index.php';
+$fLanguage		= $_SERVER['DOCUMENT_ROOT'].$Site.'includes/stul_language.php';
+$fAdminFonct 	= $_SERVER['DOCUMENT_ROOT'].$Site.'includes/admin/stul_fonctions.php';
 $fAdminAction	= 'includes/admin/stul_actions.php';
-$fAdmin 		= $_SERVER["DOCUMENT_ROOT"].''.$Site.'stul_admin.php';
-$fLanguage		= 'includes/stul_language.php';
-$fConnect 		= $_SERVER["DOCUMENT_ROOT"].''.$Site.'model/connect.php';
-$fViewerAdmin	= 'includes/admin/viewer/index.php';
+
+
 
 /** Nom de la base de données de Stul. */
 if(!defined('DB_NAME'))
