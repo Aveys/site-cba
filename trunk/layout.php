@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-include_once "connect.php";
+include_once $fConnect;
 include_once "sql.php";
 include_once "user_view.php";
 include_once "includes/admin/stul_fonctions.php";
@@ -12,10 +12,10 @@ date_default_timezone_set('Europe/Paris');
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>CBA Website</title>
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<script type="text/javascript" src="verification.js"></script>
-<script type="text/javascript" src="calendrier.js"></script>
-<script type="text/javascript" src="apercu_profil.js"></script>
+<link rel="stylesheet" type="text/css" href="view/css/style.css" />
+<script type="text/javascript" src="view/verification.js"></script>
+<script type="text/javascript" src="view/calendrier.js"></script>
+<script type="text/javascript" src="view/apercu_profil.js"></script>
 </head>
 <body>
 

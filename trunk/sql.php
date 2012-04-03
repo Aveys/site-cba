@@ -1,5 +1,5 @@
 <?php
-   include_once "connect.php";
+   include_once $fConnect;
    /* fonction sql d'insertion dans la bdd d'un nouveau post
    */
    function addArticle($texte, $pseudo, $categorie){
