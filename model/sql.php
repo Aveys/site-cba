@@ -1,12 +1,10 @@
 <?php
+   require_once($a_fmConnect);
    /* fonction sql d'insertion dans la bdd d'un nouveau post
    */
-   function addArticle($texte, $pseudo, $categorie){
-      include_once "connect.php";
-      $query="insert into STUL_POST(post_content, user_id, post_category, post_date) values ('".$texte."','".$pseudo."','".$categorie."',now())";
-      mysql_query($query) or die(mysql_error());
-      //$query="insert into synchro_jaime_log(id_log, id_article, jaime) values ('".$pseudo."','".mysql_insert_id()."',0)";
-      //mysql_query($query) or die(mysql_error());
+   function addArticle($texte, $pseudo){
+      mysql_query("insert into STUL_POST(post_content, user_id, post_date) values ('".$texte."','".$pseudo."',now())");
+      //mysql_query("insert into synchro_jaime_log(id_log, id_article, jaime) values ('".$pseudo."','".mysql_insert_id()."',0)");
    }
    /* fonction sql d'insertion dans la bdd d'un nouveau commentaire avec un lien sur un post
    */
@@ -50,12 +48,10 @@
    /* fonction qui insert un nouveau login avec son pass dans la bdd 
    */
    function addPseudo($pseudo, $mdp,$mail){
-      include_once "connect.php";
-         $query="insert into STUL_USERS(USER_LOGIN, user_pass,user_mail) 
+         mysql_query("insert into STUL_USERS(USER_LOGIN, user_pass,user_mail) 
                               values ('".$pseudo."',
                                     '".$mdp."',
-                                    '".$mail."')";
-         mysql_query($query) or die(mysql_error());
+                                    '".$mail."')");
    }
    /* test si l'utilisateur a rentrer le bon mot de pass et le bon login pour se connecte
    */
@@ -77,10 +73,8 @@
    */
    function sql_edit_user($_POST)
    {
-      $query = "update STUL_USERS set mail = '".$_POST["mail"]."' where user_id='".$_POST["id"]."'";
-      mysql_query($query) or die(mysql_error());
-      /*$query = "update log set date_naissance = '".$_POST["naissance"]."' where login='".$_POST["id"]."'";
-      mysql_query($query) or die(mysql_error());*/
+      mysql_query("update STUL_USERS set mail = '".$_POST["mail"]."' where user_id='".$_POST["id"]."'");
+      // mysql_query("update log set date_naissance = '".$_POST["naissance"]."' where login='".$_POST["id"]."'");
       echo "<script language='Javascript'>document.location.replace('profil.php?id=".$_POST["id"]."');</script>";
    }
    /* fonction qui renvoie l'id de l'utilisateur ayant poster 
@@ -140,8 +134,7 @@
    */
    function sql_delete_com($idCom)
    {
-      $query="delete from STUL_COMMENT where com_id='".$idCom."'";
-      mysql_query($query) or die(mysql_error());
+      mysql_query("delete from STUL_COMMENT where com_id='".$idCom."'");
       $result=sql_com_of_com_post_with_log($idCom);
       while ($row = mysql_fetch_assoc($result)) {
          sql_delete_com($row['com_id']);
@@ -151,10 +144,21 @@
    */
    function sql_delete_post($idPost)
    {
-      $query="delete from STUL_POST where post_id='".$idPost."'";
-      mysql_query($query) or die(mysql_error());
+      mysql_query("delete from STUL_POST where post_id='".$idPost."'");
       $result=sql_com_of_post_with_log($idPost);
       while ($row = mysql_fetch_assoc($result)) {
          sql_delete_com($row['com_id']);
       }
+   }
+   function sql_post_of_idPost($postId)
+   {
+      return mysql_query("select * from STUL_POST p where p.post_id=".$postId); 
+   }
+   function sql_post_exist($postId)
+   {
+      $result = sql_post_of_idPost($postId);
+      if(mysql_num_rows($result) > 0)
+         return true;
+      else
+         return false;
    }

@@ -15,6 +15,7 @@ date_default_timezone_set('Europe/Paris');
 <script type="text/javascript" src="verification.js"></script>
 <script type="text/javascript" src="calendrier.js"></script>
 <script type="text/javascript" src="apercu_profil.js"></script>
+<script type="text/javascript" src="view/apercu_equipe.js"></script>
 </head>
 <body>
 
@@ -27,7 +28,20 @@ displayAddFormLog($fcAction);
 <h1>CBA Website</h1>
 </div>
 <div id="content">
-
+<div id="menuBar">
+	<a class="itemMenuBar" id="blog" href=<?php echo $Site ?>>Blog</a>
+	<a class="itemMenuBar" id="tutoriel" href=<?php echo $Site."tuto/" ?>>Tutoriel</a>
+	<span class="itemMenuBar" id="equipe" onMouseOver='survole_equipe_apercu(this,event)' onMouseOut='quitte_equipe_apercu(this)'>Equipe
+		<span id="equipeListe">
+			<span class="teamName"><a href=<?php echo $Site."team.php?id=1" ?>>Arthur Veys</a></span></br>
+			<span class="teamName"><a href=<?php echo $Site."team.php?id=2" ?>>Mathieu Martin</a></span></br>
+			<span class="teamName"><a href=<?php echo $Site."team.php?id=3" ?>>Nathanaël Couret</a></span></br>
+			<span class="teamName"><a href=<?php echo $Site."team.php?id=4" ?>>Natacha Laborde</a></span></br>
+			<span class="teamName"><a href=<?php echo $Site."team.php?id=5" ?>>Thomas Rovayaz</a></span></br>
+		</span>
+	</span>
+	<a class="itemMenuBar" id="contact" href=<?php echo $Site."contact/" ?>>Contact</a>
+</div>
 <div id="articles">
 <h2>Tous les articles</h2>
 <?php 

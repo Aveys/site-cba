@@ -68,6 +68,4 @@ if(!defined('DB_PASSWORD'))
 /** Adresse de l'hébergement MySQL. */
 if(!defined('DB_HOST'))
 	define('DB_HOST', 'localhost');
-
-
 ?>
