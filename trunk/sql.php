@@ -59,12 +59,8 @@ drop table if exists STUL_USERS;",
 					
 					alter table STUL_POST add constraint FK_EST_L_AUTEUR foreign key (USER_ID)
 						  references STUL_USERS (USER_ID) on delete restrict on update restrict;");
-   
-   function deleteArticle($id){
-         $query="delete from STUL_POST where post_id='".$id."'";
-         mysql_query($query) or die(mysql_error());
-   }
-   
+   /* fonction sql d'insertion dans la bdd d'un nouveau post
+   */
    function addArticle($texte, $pseudo, $categorie){
       include_once "connect.php";
       $query="insert into STUL_POST(post_content, user_id, post_category, post_date) values ('".$texte."','".$pseudo."','".$categorie."',now())";
@@ -72,7 +68,8 @@ drop table if exists STUL_USERS;",
       //$query="insert into synchro_jaime_log(id_log, id_article, jaime) values ('".$pseudo."','".mysql_insert_id()."',0)";
       //mysql_query($query) or die(mysql_error());
    }
-
+   /* fonction sql d'insertion dans la bdd d'un nouveau commentaire avec un lien sur un post
+   */
    function sql_commenter($_POST)
    {
       if(isset($_POST['id_parent']))
@@ -81,7 +78,8 @@ drop table if exists STUL_USERS;",
          $query = "insert into STUL_COMMENT(user_id,post_id,com_content,com_date) values('".$_SESSION['id']."','".$_POST['id']."','".htmlspecialchars($_POST['commentaire'])."',now())";
       mysql_query($query) or die(mysql_error());
    }
-
+   /* fonction qui test si on s'est bien connecte (bon pass et login) puis charge l'id et le login dans la variable de session
+   */
    function sql_connexion_user($_POST)
    {
       if ( checkLogin($_POST["pseudo"], $_POST["mdp"])){
@@ -93,7 +91,8 @@ drop table if exists STUL_USERS;",
          $_SESSION["id"] = $row["user_id"];
       }
    }
-
+   /* fonction qui permet d'ajouter un login avec son pass dans la bdd en test si le login n'existe pas deja
+   */
    function sql_inscrire_user($_POST)
    {
       $query = "select * from STUL_USERS where user_login='".$_POST["pseudo"]."'";
@@ -108,7 +107,8 @@ drop table if exists STUL_USERS;",
          echo '<script language="Javascript">document.location.replace("inscription.php");</script>';
       }
    }
-   
+   /* fonction qui insert un nouveau login avec son pass dans la bdd 
+   */
    function addPseudo($pseudo, $mdp,$mail){
       include_once "connect.php";
          $query="insert into STUL_USERS(USER_LOGIN, user_pass,user_mail) 
@@ -117,7 +117,8 @@ drop table if exists STUL_USERS;",
                                     '".$mail."')";
          mysql_query($query) or die(mysql_error());
    }
-   
+   /* test si l'utilisateur a rentrer le bon mot de pass et le bon login pour se connecte
+   */
    function checkLogin( $pseudo, $mdp){
       $result=mysql_query("select * from STUL_USERS");
       while($row=mysql_fetch_assoc($result)){
@@ -132,7 +133,8 @@ drop table if exists STUL_USERS;",
       }
       return false;
    }
-
+   /* fonction qui edite le profil demande
+   */
    function sql_edit_user($_POST)
    {
       $query = "update STUL_USERS set mail = '".$_POST["mail"]."' where user_id='".$_POST["id"]."'";
@@ -141,7 +143,8 @@ drop table if exists STUL_USERS;",
       mysql_query($query) or die(mysql_error());*/
       echo "<script language='Javascript'>document.location.replace('profil.php?id=".$_POST["id"]."');</script>";
    }
-
+   /* fonction qui renvoie l'id de l'utilisateur ayant poster 
+   */
    function sql_user_who_post($postId)
    {
       $rowLog=mysql_fetch_assoc(mysql_query("select u.USER_ID from STUL_POST p join STUL_USERS u on u.USER_ID=p.USER_ID where p.POST_ID='".$postId."'"));
@@ -152,34 +155,40 @@ drop table if exists STUL_USERS;",
    {
       return mysql_query("select * from STUL_POST p");
    }
-
+   /* return tout les commentaires correspond a l'idpost proposé
+   */
    function sql_com_of_post_with_log($idPost)
    {
       return mysql_query("select c.com_id,u.user_login, u.user_id ,c.com_content,c.com_date,c.com_parent,c.post_id from STUL_COMMENT c join STUL_USERS u on c.user_id=u.user_id where c.post_id=".$idPost." order by c.com_date");
    }
-
+   /* return tout les commentaires correspond au commentaire proposé
+   */
    function sql_com_of_com_post_with_log($idComParent)
    {
       return mysql_query("select c.com_id,u.user_login, u.user_id ,c.com_content,c.com_date,c.com_parent from STUL_COMMENT c join STUL_USERS u on c.user_id=u.user_id where c.com_parent=".$idComParent." order by c.com_date");
    }
-
+   /* return le login en fonction de l'iduser
+   */
    function sql_user_of_id($idUser)
    {
       $row = mysql_fetch_assoc(mysql_query("select user_login from STUL_USERS where user_id=".$idUser));
       return $row["user_login"];
    }
-
+   /* renvoie toutes les infos de l'utilisateur proposé
+   */
    function sql_info_user($idUser)
    {
       return mysql_fetch_assoc(mysql_query("select user_mail, user_login from STUL_USERS where user_id=".$idUser));
    }
-
+   /* return le statut de l'utilisateur proposé (admin,visiteur,membre...)
+   */
    function sql_user_status($idUser)
    {
       $row = mysql_fetch_assoc(mysql_query("select user_status from stul_users where user_id='".$idUser."'"));
       return $row['user_status'];
    }
-
+   /* test si l'idUser proposé existe dans la bdd
+   */
    function idUser_exist($idUser)
    {
       if(sql_user_of_id($idUser))
@@ -187,7 +196,8 @@ drop table if exists STUL_USERS;",
       else
          return false;
    }
-
+   /* supprime le commentaire proposé avec suppression de ses commentaires en cascade
+   */
    function sql_delete_com($idCom)
    {
       $query="delete from STUL_COMMENT where com_id='".$idCom."'";
@@ -197,7 +207,8 @@ drop table if exists STUL_USERS;",
          sql_delete_com($row['com_id']);
       }
    }
-
+   /* supprime le post proposé avec suppression de ses commentaires en cascade
+   */
    function sql_delete_post($idPost)
    {
       $query="delete from STUL_POST where post_id='".$idPost."'";

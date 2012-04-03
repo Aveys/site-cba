@@ -1,4 +1,6 @@
 <?php
+/*	fonction qui affiche un formulaire pour ajouter un commentaire soit à un post soit à un autre commentaire
+*/
 function add_commentaire($row,$text_button)
 {
 	if(isset($_SESSION['pseudo']))
@@ -24,6 +26,8 @@ function add_commentaire($row,$text_button)
 		}
 	}
 }
+/*	affiche les commentaires du post proposé avec ajout des formulaires d'ajout et de suppression de ces coms
+*/
 function afficheCom($row)
 {
 	echo "</br>";
@@ -32,27 +36,31 @@ function afficheCom($row)
 		if($row_com['com_parent'] == "")
 		{
 			echo nl2br($row_com['com_content'])." de ";
-			link_profil($row_com['user_id']);
-			dateTimeToTime($row_com['com_date']);
-			button_delete_com($row_com['com_id']);
-			add_commentaire($row_com,'▼');
-			echo "<div id='comOfCom'>";
-			afficheComOfCom($row_com['com_id']);
+			link_profil($row_com['user_id']);		//apercu du profil de l'auteur du com
+			dateTimeToTime($row_com['com_date']);	//affiche la date de publication au format facebook
+			button_delete_com($row_com['com_id']);	//bouton pour supprimer le com
+			add_commentaire($row_com,'▼');			//formulaire d'ajout de com à ce com
+			echo "<div id='comOfCom'>";	
+			afficheComOfCom($row_com['com_id']);	//affiche les commentaires de ce commentaire
 			echo "</div>";
 			echo "</br>";
 		}
 	}
 }
+/*	affiche les commentaires du commentaire proposé avec ajout des formulaires d'ajout et de suppression de ces coms
+*/
 function afficheComOfCom($id_com_parent)
 {
 	$result_com = sql_com_of_com_post_with_log($id_com_parent);
 	while ($row_com = mysql_fetch_assoc($result_com)) {
 		echo nl2br($row_com['com_content'])." de ";
-		link_profil($row_com['user_id']);
-		dateTimeToTime($row_com['com_date']);
-		button_delete_com($row_com['com_id']);
+		link_profil($row_com['user_id']);		//apercu du profil de l'auteur du com
+		dateTimeToTime($row_com['com_date']);	//affiche la date de publication au format facebook
+		button_delete_com($row_com['com_id']); //bouton de suppression de ce com
 	}
 }
+/*	affiche un formulaire de suppression de com seulement si l'utilisateur est admin
+*/
 function button_delete_com($idCom)
 {
 	if(isadmin($_SESSION['id']))

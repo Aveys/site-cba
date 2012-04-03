@@ -6,17 +6,14 @@ include_once "sql.php";
 	if(isset($_POST["action"])){
 		switch($_POST['action'])
 		 {
-			case "ajouter":
+			case "ajouter":		//ajouter un post
 				if(isset($_SESSION["id"]))
 					addArticle($_POST["texte"], $_SESSION["id"], $_POST["categorie"]);
 			break;
-			case "supprimer":
-				deleteArticle($_POST["categorie"]);		
-			break;
-			case "Supprimer com":
+			case "Supprimer com":	//supprimer un com
 				sql_delete_com($_POST["id_com"]);		
 			break;
-			case "Supprimer post":
+			case "Supprimer post": 	//supprimer un post
 				sql_delete_post($_POST["id_post"]);		
 			break;
 			/*case "Jaime":
@@ -31,28 +28,28 @@ include_once "sql.php";
 				$query = "update synchro_jaime_log set jaime = 0 where id_article='".$_POST["id"]."' and id_log='".$_SESSION["pseudo"]."'";
 				mysql_query($query) or die(mysql_error());
 			break;*/
-			case "Commenter":
+			case "Commenter":	//ajoute un commentaire
 				sql_commenter($_POST);
 			break;
-			case "Connexion":
+			case "Connexion":	//se log
 				sql_connexion_user($_POST);
 			break;
-			case "Deconnexion":
+			case "Deconnexion":	//se delog
 				unset($_SESSION["pseudo"]);
 				unset($_SESSION["id"]);
 			break;
-			case "Inscription":
+			case "Inscription":	//redirige vers la page d'inscription
 				echo '<script language="Javascript">document.location.replace("?page=inscription");</script>';
 			break;
-			case "inscrire":
+			case "inscrire":	//inscription du nouvel utilisateur dans la bdd
 				sql_inscrire_user($_POST);
 			break;
-			case "Editer":
+			case "Editer":		//editer le profil de l'utilisateur
 				sql_edit_user($_POST);
 			break;
 			default:
 		}
 
 	}
-	echo '<script language="Javascript">document.location.replace(".");</script>';
+	echo '<script language="Javascript">document.location.replace(".");</script>';	//redirection vers l'index.php
 ?>

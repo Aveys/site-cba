@@ -1,5 +1,9 @@
 <?php
 include_once "view_comment.php";
+
+/*affiche tous les articles de la bdd avec ses infos
+	- nom du posteur, date de création
+*/
 function displayArticles(){
 	$result = sql_all_post();
 	while($row=mysql_fetch_assoc($result)){
@@ -7,18 +11,20 @@ function displayArticles(){
 		echo "<div class='info_article'>Fait par ";
 		link_profil(sql_user_who_post($row['POST_ID']));
 		echo " le ".$row['POST_DATE'].".</div>";
-		button_delete_post($row['POST_ID']);
-		add_commentaire($row,'commenter article');
+		button_delete_post($row['POST_ID']);			//bouton delete pour supprimer le post
+		add_commentaire($row,'commenter article');		//formulaire ajout de commentaire au post
 		/*echo "<div class='nbJaime'>";
 			login_qui_aiment($row);
 		echo "</div>";
 		boutonJaime($row);*/
 		echo "<div id='com'>";
-			afficheCom($row);
+			afficheCom($row);							//affichage des commentaires du post
 		echo "</div>";
 	}
 }
 
+/*	formulaire d'ajout de post seulement si utilisateur connecte
+*/
 function displayAddForm(){
 	if (isset($_SESSION["pseudo"])){
 	?>
@@ -28,15 +34,6 @@ function displayAddForm(){
 		<label for="texte">Texte :</label>
 		<textarea name="texte" cols="50" row="30" onBlur="verifTexte(this)"></textarea> 
 		<br/><br/>
-
-		<!-- categorie -->
-		<label for="categorie">Catégorie :</label>
-		<select name="categorie">
-			<option value="Nonsens">Nom sens</option>
-			<option value="Carambar">Carambar</option>
-			<option value="HumourNoir">Humour Noir</option>
-			<option value="JeuDeMot">Jeu de mot</option>
-		</select>
 		
 		<!-- submit -->
 		<input type="submit" name="action" value="ajouter"/>
@@ -49,6 +46,10 @@ function displayAddForm(){
 		echo "Veuillez vous loger.</br>";
 }
 
+/*	affichage du temps écoulé sous le format facebook
+		- il y a quelques secondes
+		- il y a 3 heures
+*/
 function afficheTempsEcoulee($date)
 {
 	if(date('Y',$date)-1970 != 0)
@@ -62,20 +63,25 @@ function afficheTempsEcoulee($date)
 	else if(date('i',$date) != 0)
 		echo " il y a ".(date('i',$date))." minute(s).";
 	else
-		echo " il y a ".(date('s',$date))." seconde(s).";
+		echo " il y a quelques secondes.";
 }
+
+/*	fonction qui calcule la différence de 2 temps 
+*/
 function dateTimeToTime($date_heure)
 {
 	$d1 = new DateTime($date_heure); 
 	$d2 = new DateTime("now"); 
-	$subtracted_value = $d2->format('U') - $d1->format('U');
-	echo afficheTempsEcoulee($subtracted_value);
+	$subtracted_value = $d2->format('U') - $d1->format('U');	//différence
+	echo afficheTempsEcoulee($subtracted_value);				//affichage format facebook
 	
 }
 
+/*	affichage du pseudo avec un lien vers la page de profil ainsi qu'un apercu du profil en passant le curseur dessus
+*/
 function link_profil($id)
 {
-	if(isset($_SESSION['id']) && $id==$_SESSION['id'])
+	if(isset($_SESSION['id']) && $id==$_SESSION['id'])	//si le profil a affiche et celui de l'utilisateur alors on le nomme "vous"
 		$log='Vous';
 	else
 	{
@@ -85,7 +91,10 @@ function link_profil($id)
 	profil($id);
 	echo "</span>";
 }
-function profil($user_id) //verif les appels de cette fonction pour bien mettre l'id
+
+/*	apercu du profil avec gestion maque/non masque si curseur dessus en javascript
+*/
+function profil($user_id) 
 {
 	echo "<div id='profil_apercu' style='float: left;'>";
 		$row = sql_info_user($user_id);
@@ -95,6 +104,8 @@ function profil($user_id) //verif les appels de cette fonction pour bien mettre 
 	echo "</div>";
 }
 
+/*	affiche le profil et si l'utilisateur est admin ou sur son profil alors il peut l'editer
+*/
 function afficher_info_user($id)
 {
 	if(autorise_edition($id))
@@ -104,6 +115,8 @@ function afficher_info_user($id)
 	//affiche_anni($row['date_naissance'],$login);
 }
 
+/*	formulaire d'edition du profil seulement si l'utilisateur est admin ou sur son profil
+*/
 function editer_info_user($id)
 {
 	if(autorise_edition($id))
