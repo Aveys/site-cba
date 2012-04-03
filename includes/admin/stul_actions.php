@@ -1,11 +1,27 @@
 <?php
+
 	session_start();
 	//Inclusion des fichiers
-	include $_SERVER["DOCUMENT_ROOT"].'/site-cba/stul_config.php';
-	include_once $fConnect;
-	include_once "../../".$fAdminFonct;
+	require_once $_SERVER['DOCUMENT_ROOT'].'/site-cba/stul_config.php';
+	require_once $a_fmConnect;
+	require_once $a_fAdminFonct;
+	require_once $a_fmSql;
 	
 
+	//Reception des GET et traitement
+	if(isset($_GET["mode"]))
+	{
+		switch ($_GET["mode"]) {
+			case 'delArticle':
+				sql_delete_post($_GET["id"]);
+				header('Location:./viewer/index.php?mode=editArticles');
+			break;
+			
+			default:break;
+		}
+	}
+
+	//Reception des POST et traitement
 	if(isset($_POST["action"]))
 	{
 		switch ($_POST["action"]) {
@@ -18,18 +34,21 @@
 					unset($_SESSION["keyAdmin"]);
 					unset($_SESSION["adminAuth"]);
 					
-					header('Location:../../stul_admin.php'); 
+					header('Location:.'); 
 				break;
-			default:
-				
-				break;
+
+			case 'Mettre à jour':
+				sql_edit_post($_POST);
+			break;
+
+
+			case "Ajouter l'article":
+				addArticle($_POST['title'], $_POST['content'], 0, 1);
+				header('Location:./viewer/index.php?mode=editArticles'); 
+			break;
+
+			default:break;
 		}
-
 	}
-
-
-	
-
-
 
 ?>

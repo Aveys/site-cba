@@ -36,6 +36,10 @@ input{
     border: 1px solid #DDDCDC;
     box-shadow: 1px 1px 10px #CBC9C9 inset;
     padding: 5px;
+    -moz-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
 
 }
 
@@ -48,6 +52,9 @@ input[type='submit'] {
   -khtml-border-radius: 3px;
   border-radius: 3px;
   padding: 10px;
+  width: 280px;
+  margin-right: -15px;
+  margin-top: 30px;
 }
 
 input:hover, input:focus{
@@ -67,18 +74,44 @@ input:hover, input:focus{
 #login form {
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #E5E5E5;
-    box-shadow: 0 0px 20px  rgba(200, 200, 200, 1);
+    box-shadow: 0 0px 20px  rgba(140, 140, 140, 1);
     font-weight: normal;   
-    padding: 26px 24px 46px;
+    padding: 10px 25px 10px;
+}
+
+#user_login, #user_password{
+    width:230px;
 }
 
 #login {
-    margin: auto;
-    padding: 150px 0 0;
-    width: 310px;
+   margin: auto;
+   padding: 15%;
+   width: 300px;
 }
 
 .login * {
     margin: 0;
     padding: 0;
+}
+
+.notif{
+  margin: 12px 0 16px;
+  padding: 15px;
+  border-radius: 4px 4px 4px 4px;
+  border-style: solid;
+  border-width: 1px;
+  background-color: #c43c35;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#ee5f5b), to(#c43c35));
+  background-image: -moz-linear-gradient(top, #ee5f5b, #c43c35);
+  background-image: -ms-linear-gradient(top, #ee5f5b, #c43c35);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee5f5b), color-stop(100%, #c43c35));
+  background-image: -webkit-linear-gradient(top, #ee5f5b, #c43c35);
+  background-image: -o-linear-gradient(top, #ee5f5b, #c43c35);
+  background-image: linear-gradient(top, #ee5f5b, #c43c35);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee5f5b', endColorstr='#c43c35', GradientType=0);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: #c43c35 #c43c35 #882a25;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  color: #FFF!important;
 }

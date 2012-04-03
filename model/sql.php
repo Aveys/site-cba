@@ -2,8 +2,8 @@
    require_once($a_fmConnect);
    /* fonction sql d'insertion dans la bdd d'un nouveau post
    */
-   function addArticle($texte, $pseudo){
-      mysql_query("insert into STUL_POST(post_content, user_id, post_date) values ('".$texte."','".$pseudo."',now())");
+   function addArticle($titre, $texte, $categorie, $pseudo){
+      mysql_query("insert into STUL_POST(post_title, post_content, post_category, user_id, post_date) values ('".$titre."','".$texte."','".$categorie."','".$pseudo."',now())");
       //mysql_query("insert into synchro_jaime_log(id_log, id_article, jaime) values ('".$pseudo."','".mysql_insert_id()."',0)");
    }
    /* fonction sql d'insertion dans la bdd d'un nouveau commentaire avec un lien sur un post
