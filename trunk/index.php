@@ -16,6 +16,8 @@
 			case "inscription":
 				require_once($fvInscription);
 			break;
+			case "article":
+				require_once($fvArticle);
 			default:
 				require_once($fvLayout);
 			break;

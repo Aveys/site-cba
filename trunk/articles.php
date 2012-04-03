@@ -1,10 +1,9 @@
 ﻿<?php 
 	/*	fonction qui affiche un formulaire permettant de se loger ou de se deloger
 	*/
-	function displayAddFormLog(){
-	
-		if (isset($_SESSION["pseudo"])){	?>
-			<form name="delogin" action="actions.php" method="POST">
+	function displayAddFormLog($fcAction){
+		if (isset($_SESSION["pseudo"])){	
+			echo '<form name="delogin" action="'.$fcAction.'" method="POST" >'; ?>
 				
 				<!-- Unsubmit -->
 				<input type="submit" name="action" value="Deconnexion"/>
@@ -14,8 +13,8 @@
 <?php 	}
 		else{
 			if(isset($_SESSION['erreur_connect']))
-				echo $_SESSION['erreur_connect']."</br>";	?>
-			<form name="login" action="actions.php" method="POST" >
+				echo $_SESSION['erreur_connect']."</br>";	
+				echo '<form name="login" action="'.$fcAction.'" method="POST" >'; ?>
 
 				<!-- pseudo -->
 				<label for="pseudo">Pseudo :</label>
@@ -45,10 +44,10 @@ function get_is_exist()
 }
 /*	formulaire d'ajout de post seulement si utilisateur connecte
 */
-function displayAddForm(){
+function displayAddForm($fcAction){
 	if (isset($_SESSION["pseudo"])){
-	?>
-		<form name="articles" action="actions.php" method="POST" onSubmit="return valid()">
+	
+		echo '<form name="articles" action="'.$fcAction.'" method="POST" onSubmit="return valid()" >'; ?>
 
 		<!-- texte -->
 		<label for="texte">Texte :</label>
@@ -69,12 +68,12 @@ function displayAddForm(){
 /*affiche tous les articles de la bdd avec ses infos
 	- nom du posteur, date de création
 */
-function displayArticles(){
+function displayArticles($fcAction){
 	
 		$result = sql_all_post();
 		while($row=mysql_fetch_assoc($result)){
 			echo "<div class='article'>";
-				affichage_article($row,1);
+				affichage_article($row,1, $fcAction);
 			echo "</div>";
 			echo "<div class='info_article'>Fait par ";
 			link_profil(sql_user_who_post($row['POST_ID']));
@@ -83,7 +82,7 @@ function displayArticles(){
 			echo "</div>";
 		}
 }
-function affichage_article($row,$masque)
+function affichage_article($row,$masque, $fcAction)
 {
 	$text = explode("<more>", $row['POST_CONTENT']);
 	if($masque)
@@ -91,10 +90,10 @@ function affichage_article($row,$masque)
 		if(!isset($text[1]) && strlen($text[0]) > 100)
 			$text[0] = substr($text[0],0,100);
 		echo $text[0];
-		echo "<form method='post' class='form_lire_la_suite' name='lireLaSuite' id='lireLaSuite' action='article.php?POST_ID=".$row["POST_ID"]."'>";
+		echo "<form method='post' class='form_lire_la_suite' name='lireLaSuite' id='lireLaSuite' action='?page=article&POST_ID=".$row["POST_ID"]."'>";
 			echo "<input type='submit' name='action' value='Lire la suite'/>";
 		echo"</form>";
-		button_delete_post($row['POST_ID']);			//bouton delete pour supprimer le post
+		button_delete_post($row['POST_ID'], $fcAction);			//bouton delete pour supprimer le post
 		echo "</br>";
 	}
 	else
@@ -106,11 +105,11 @@ function affichage_article($row,$masque)
 }
 /*	fonction qui affiche un bouton permettant de supprimer le post
 */
-function button_delete_post($idPost)
+function button_delete_post($idPost, $fcAction)
 {
 	if(isadmin($_SESSION['id']))
 	{
-		echo "<form name='delete_com' style='float:left;' action='actions.php' method='post'>";
+		echo "<form name='delete_com' style='float:left;' action='".$fcAction."' method='post'>";
 			echo "<input name='id_post' type='hidden' value='".$idPost."'/>";
 			echo "<input name='action' value='Supprimer post' type='submit'/>";
 		echo "</form>";
