@@ -35,6 +35,73 @@
 			<!-- submit -->
 		</form>
 <?php }
+
+function get_is_exist()
+{
+	if(isset($_GET['POST_ID']) && sql_post_exist($_GET['POST_ID']))
+		return true;
+	else
+		return false;
+}
+/*	formulaire d'ajout de post seulement si utilisateur connecte
+*/
+function displayAddForm(){
+	if (isset($_SESSION["pseudo"])){
+	?>
+		<form name="articles" action="actions.php" method="POST" onSubmit="return valid()">
+
+		<!-- texte -->
+		<label for="texte">Texte :</label>
+		<textarea name="texte" cols="50" row="30" onBlur="verifTexte(this)"></textarea> 
+		<br/><br/>
+		
+		<!-- submit -->
+		<input type="submit" name="action" value="ajouter"/>
+
+		</form>
+	
+	<?php
+	}
+	else
+		echo "Veuillez vous loger.</br>";
+}
+
+/*affiche tous les articles de la bdd avec ses infos
+	- nom du posteur, date de création
+*/
+function displayArticles(){
+	
+		$result = sql_all_post();
+		while($row=mysql_fetch_assoc($result)){
+			echo "<div class='article'>";
+				affichage_article($row,1);
+			echo "</div>";
+			echo "<div class='info_article'>Fait par ";
+			link_profil(sql_user_who_post($row['POST_ID']));
+			echo " le ".$row['POST_DATE'].".</div>";
+		}
+}
+function affichage_article($row,$masque)
+{
+	$text = explode("<more>", $row['POST_CONTENT']);
+	if($masque)
+	{
+		if(!isset($text[1]) && strlen($text[0]) > 100)
+			$text[0] = substr($text[0],0,100);
+		echo $text[0];
+		echo "<form method='post' class='form_lire_la_suite' name='lireLaSuite' id='lireLaSuite' action='article.php?POST_ID=".$row["POST_ID"]."'>";
+			echo "<input type='submit' name='action' value='Lire la suite'/>";
+		echo"</form>";
+		button_delete_post($row['POST_ID']);			//bouton delete pour supprimer le post
+		echo "</br>";
+	}
+	else
+	{
+		foreach ($text as $key => $value) {
+			echo $value;
+		}
+	}
+}
 /*	fonction qui affiche un bouton permettant de supprimer le post
 */
 function button_delete_post($idPost)

@@ -8,7 +8,7 @@ include_once "sql.php";
 		 {
 			case "ajouter":		//ajouter un post
 				if(isset($_SESSION["id"]))
-					addArticle($_POST["texte"], $_SESSION["id"], $_POST["categorie"]);
+					addArticle($_POST["texte"], $_SESSION["id"]);
 			break;
 			case "Supprimer com":	//supprimer un com
 				sql_delete_com($_POST["id_com"]);		
