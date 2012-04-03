@@ -7,7 +7,7 @@ $vTheme			= 'themes/cba';
 
 
 
-$Site = 'site-cba/';
+$Site = '/site-cba/';
 //Chemin des fichiers
 $fcActionPhp 	= $_SERVER['DOCUMENT_ROOT'].$Site.'controller/actions.php';
 
@@ -34,7 +34,7 @@ if(!defined('DB_USER'))
 	define('DB_USER', 'votre_utilisateur_de_bdd');
 
 /** Mot de passe de la base de données MySQL. */
-if(!defined('DB_USER'))
+if(!defined('DB_PASSWORD'))
 	define('DB_PASSWORD', 'votre_mdp_de_bdd');
 
 /** Adresse de l'hébergement MySQL. */
