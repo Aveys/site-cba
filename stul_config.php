@@ -12,9 +12,9 @@ $Site = 'site-cba/';
 $fActionPhp 	= 'actions.php';
 $fAdminFonct 	= 'includes/admin/stul_fonctions.php';
 $fAdminAction	= 'includes/admin/stul_actions.php';
-$fAdmin 		= $_SERVER["DOCUMENT_ROOT"].'/'.$Site.'/stul_admin.php';
+$fAdmin 		= $_SERVER["DOCUMENT_ROOT"].''.$Site.'stul_admin.php';
 $fLanguage		= 'includes/stul_language.php';
-$fConnect 		= $_SERVER["DOCUMENT_ROOT"].'/'.$Site.'/model/connect.php';
+$fConnect 		= $_SERVER["DOCUMENT_ROOT"].''.$Site.'model/connect.php';
 $fViewerAdmin	= 'includes/admin/viewer/index.php';
 
 /** Nom de la base de données de Stul. */

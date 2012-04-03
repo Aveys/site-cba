@@ -1,6 +1,7 @@
 <?php
 	require_once("stul_config.php");
-	require_once("connect.php");
+	var_dump($fConnect);
+	require_once($fConnect);
 	
 	if(isset($_GET['page']))
 	{
