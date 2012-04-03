@@ -1,4 +1,5 @@
 <?php
+include_once "sql.php";
 	session_start();
 	error_reporting(E_ALL | E_STRICT );
 	ini_set('display_errors', true);
@@ -11,6 +12,12 @@
 			break;
 			case "supprimer":
 				deleteArticle($_POST["categorie"]);		
+			break;
+			case "Supprimer com":
+				sql_delete_com($_POST["id_com"]);		
+			break;
+			case "Supprimer post":
+				sql_delete_post($_POST["id_post"]);		
 			break;
 			/*case "Jaime":
 				$query = "update stul_post set nbJaime = nbJaime+1 where id='".$_POST["id"]."'";

@@ -69,7 +69,6 @@ function isadmin($id) //verif les appels de cette fonction pour bien mettre l'id
 	else
 		return false;
 }
-
 //Fonction pour un petit formulaire de logout
 function addFormAdminLogout()
 {
