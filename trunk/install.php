@@ -107,18 +107,22 @@ switch($step){
 				foreach($createtable as $c)
 					mysql_query($c);
 				foreach ($configFile as $line_num => $line) {
-
+					//echo(substr($line,1,16))."/n";
 					switch (substr($line,1,16)) {
 						case "define('DB_NAME'":
+							//echo "1";
 							$configFile[$line_num] = str_replace("votre_nom_de_bdd", $dbname, $line);
 						break;
 						case "define('DB_USER'":
+							//echo "2";
 							$configFile[$line_num] = str_replace("'votre_utilisateur_de_bdd'", "'".$uname."'", $line);
 					 	break;
 						case "define('DB_PASSW":
+							//echo "3";
 							$configFile[$line_num] = str_replace("'votre_mdp_de_bdd'", "'".$passwrd."'", $line);
 						break;
 						case "define('DB_HOST'":
+							//echo "4";
 							$configFile[$line_num] = str_replace("localhost", $dbhost, $line);
 						break;
 
@@ -126,6 +130,7 @@ switch($step){
 				}
 
 								if(is_writable(ABSPATH)){
+									//echo "ok";
 								$handle = fopen('stul_config.php', 'w');
 								foreach( $configFile as $line ) {
 									fwrite($handle, $line);
