@@ -54,5 +54,10 @@
 		}
 
 	}
-	echo '<script language="Javascript">document.location.replace("../.");</script>';	//redirection vers l'index.php
+	if(isset($_POST['url']))
+	{
+		header("Location:../".$_POST['url']);	//redirection vers l'index.php
+	}
+	else
+		echo '<script language="Javascript">document.location.replace("../.");</script>';	//redirection vers l'index.php
 ?>
