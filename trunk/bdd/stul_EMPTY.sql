@@ -33,6 +33,7 @@ create table STUL_POST
    POST_CATEGORY        int,
    POST_STATUS          smallint,
    POST_TYPE            smallint,
+   POST_TITLE           text,
    POST_CONTENT         text,
    POST_TAG             text,
    primary key (POST_ID)
