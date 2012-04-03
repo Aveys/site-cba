@@ -2,10 +2,12 @@
 	/*	fonction qui affiche un formulaire permettant de se loger ou de se deloger
 	*/
 	function displayAddFormLog($fcAction){
-		if (isset($_SESSION["pseudo"])){	
+		if (isset($_SESSION["pseudo"])){
+			echo "<h2>".$_SESSION["pseudo"]."</h2>";	
 			echo '<form name="delogin" action="'.$fcAction.'" method="POST" >'; ?>
 				
 				<!-- Unsubmit -->
+				
 				<input type="submit" name="action" value="Deconnexion"/>
 				<!-- submit -->
 
