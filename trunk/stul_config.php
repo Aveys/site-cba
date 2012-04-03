@@ -9,24 +9,29 @@ $vTheme			= 'themes/cba';
 
 $Site = 'site-cba';
 //Chemin des fichiers
-$fActionPhp 	= 'actions.php';
-$fAdminFonct 	= 'includes/admin/stul_fonctions.php';
-$fAdminAction	= 'includes/admin/stul_actions.php';
-$fAdmin 		= ABSROOT.'/stul_admin.php';
-$fLanguage		= 'includes/stul_language.php';
-$fConnect 		= ABSROOT.'/connect.php';
-$fViewerAdmin	= 'includes/admin/viewer/index.php';
+$fActionPhp 	= ABSROOT.'actions.php';
+$fAdminFonct 	= ABSROOT.'includes/admin/stul_fonctions.php';
+$fAdminAction	= ABSROOT.'includes/admin/stul_actions.php';
+$fAdmin 		= ABSROOT.'stul_admin.php';
+$fLanguage		= ABSROOT.'includes/stul_language.php';
+$fConnect 		= ABSROOT.'connect.php';
+$fViewerAdmin	= ABSROOT.'includes/admin/viewer/index.php';
 /** Nom de la base de données de Stul. */
-define('DB_NAME', 'votre_nom_de_bdd');
+if(!defined('DB_NAME'))
+	define('DB_NAME', 'votre_nom_de_bdd');
+
 
 /** Utilisateur de la base de données MySQL. */
-define('DB_USER', 'votre_utilisateur_de_bdd');
+if(!defined('DB_USER'))
+	define('DB_USER', 'votre_utilisateur_de_bdd');
 
 /** Mot de passe de la base de données MySQL. */
-define('DB_PASSWORD', 'votre_mdp_de_bdd');
+if(!defined('DB_USER'))
+	define('DB_PASSWORD', 'votre_mdp_de_bdd');
 
 /** Adresse de l'hébergement MySQL. */
-define('DB_HOST', 'localhost');
+if(!defined('DB_HOST'))
+	define('DB_HOST', 'localhost');
 
 
 ?>
