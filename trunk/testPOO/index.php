@@ -4,22 +4,18 @@
 	mysql_connect("localhost", "root", "");
 	mysql_select_db("iut");
 	mysql_query("set names 'UTF8'");
-	function chargerClasse($class)
-	{
-		require_once $class.'.class.php';
-	}
-	spl_autoload_register('chargerClasse');
+	require_once("../controller/chargerClass.php");
 	function logMembre(array $data)
 	{
 		$req = mysql_query("SELECT * FROM stul_users");
 		while(($r = mysql_fetch_assoc($req)) != false)
 		{
-			if($data['pseudo'] == $r['user_login'])
+			if($data['pseudo'] == $r['USER_LOGIN'])
 			{
-				if($r['admin'] == 1)
-					$_SESSION['user'] = new Admin($data['user_displayname'], $r['ID']);
-				else
-					$_SESSION['user'] = new Membre($data['user_displayname'], $r['ID']);
+				if($r['USER_STATUS'] == 2)
+					$_SESSION['user'] = new Admin($r['USER_DISPLAYNAME'], $r['USER_ID']);
+				else if($r['USER_STATUS'] == 1)
+					$_SESSION['user'] = new Membre($r['USER_DISPLAYNAME'], $r['USER_ID']);
 				if($_SESSION['user'] != NULL)
 					return true;
 			}
@@ -32,7 +28,7 @@
 		if($_POST['action'] == "connexion")
 		{
 			if(logMembre($_POST))
-				$_SESSION['msg'] = "inscription réussie";
+				$_SESSION['msg'] = "inscription r&eacute;ussie";
 			else
 				$_SESSION['user'] = new User();
 		}
@@ -66,7 +62,7 @@
 	?>
     <form method="post" action=".">
     	<input type="hidden" name="action" value="deconnexion" />
-        <input type="submit" value="déconnexion" />
+        <input type="submit" value="d&eacute;connexion" />
     </form>
     <?php
 	}
