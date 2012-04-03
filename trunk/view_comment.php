@@ -69,7 +69,7 @@ function button_delete_com($idCom)
 	{
 	if(isadmin($_SESSION['id']))
 	{
-		echo "<form name='delete_com' action='actions.php' method='post'>";
+		echo "<form name='delete_com' action='controller/actions.php' method='post'>";
 			echo "<input name='id_com' type='hidden' value='".$idCom."'/>";
 			echo "<input name='action' value='Supprimer com' type='submit'/>";
 		echo "</form>";
