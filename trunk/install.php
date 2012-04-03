@@ -107,29 +107,19 @@ switch($step){
 					switch (substr($line,0,16)) {
 						case "define('DB_NAME'":
 							$configFile[$line_num] = str_replace("votre_nom_de_bdd", $dbname, $line);
-							break;
-							case "define('DB_USER'":
-								$configFile[$line_num] = str_replace("'votre_utilisateur_de_bdd'", "'$uname'", $line);
-								break;
-								case "define('DB_PASSW":
-									$configFile[$line_num] = str_replace("'votre_mdp_de_bdd'", "'$passwrd'", $line);
-									break;
-									case "define('DB_HOST'":
-										$configFile[$line_num] = str_replace("localhost", $dbhost, $line);
-										break;
+						break;
+						case "define('DB_USER'":
+							$configFile[$line_num] = str_replace("'votre_utilisateur_de_bdd'", "'$uname'", $line);
+					 	break;
+						case "define('DB_PASSW":
+							$configFile[$line_num] = str_replace("'votre_mdp_de_bdd'", "'$passwrd'", $line);
+						break;
+						case "define('DB_HOST'":
+							$configFile[$line_num] = str_replace("localhost", $dbhost, $line);
+						break;
 
 									}
 								}
-								$fp = fopen("stul_config.php","a");
-								$txt="<?php define('DB_NAME','".$dbname."');";
-								fputs($fp,$txt);
-								$txt="define('DB_USER','".$uname."');";
-								fputs($fp,$txt);
-								$txt="define('DB_PASSW','".$passwrd."');";
-								fputs($fp,$txt);
-								$txt="define('DB_HOST','".$dbhost."');?>";
-								fputs($fp,$txt);
-								fclose($fp);
 							}
 						}
 
