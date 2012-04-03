@@ -14,6 +14,7 @@ function add_commentaire($row,$text_button)
 				echo "<input type='submit' name='action' value='Commenter'/>";
 				echo "<input type='hidden' name='id' value='".$row["post_id"]."'/>";
 				echo "<input type='hidden' name='id_parent' value='".$row["com_id"]."'/>";
+				echo "<input type='hidden' name='url' value='?page=article&POST_ID=".$row["post_id"]."'/>";
 			echo"</form>";
 		}
 		else
@@ -23,6 +24,7 @@ function add_commentaire($row,$text_button)
 				echo "<textarea name='commentaire' cols='50' row='30'></textarea></br>";
 				echo "<input type='submit' name='action' value='Commenter'/>";
 				echo "<input type='hidden' name='id' value='".$row["POST_ID"]."'/>";
+				echo "<input type='hidden' name='url' value='?page=article&POST_ID=".$row["post_id"]."'/>";
 			echo"</form>";
 		}
 	}
@@ -39,7 +41,7 @@ function afficheCom($row)
 			echo nl2br($row_com['com_content'])." de ";
 			link_profil($row_com['user_id']);		//apercu du profil de l'auteur du com
 			dateTimeToTime($row_com['com_date']);	//affiche la date de publication au format facebook
-			button_delete_com($row_com['com_id']);	//bouton pour supprimer le com
+			button_delete_com($row_com['com_id'],$row['POST_ID']);	//bouton pour supprimer le com
 			add_commentaire($row_com,'▼');			//formulaire d'ajout de com à ce com
 			echo "<div id='comOfCom'>";	
 			afficheComOfCom($row_com['com_id']);	//affiche les commentaires de ce commentaire
@@ -57,13 +59,13 @@ function afficheComOfCom($id_com_parent)
 		echo nl2br($row_com['com_content'])." de ";
 		link_profil($row_com['user_id']);		//apercu du profil de l'auteur du com
 		dateTimeToTime($row_com['com_date']);	//affiche la date de publication au format facebook
-		button_delete_com($row_com['com_id']); //bouton de suppression de ce com
+		button_delete_com($row_com['com_id'],$row_com['post_id']); //bouton de suppression de ce com
 		echo "</br>";
 	}
 }
 /*	affiche un formulaire de suppression de com seulement si l'utilisateur est admin
 */
-function button_delete_com($idCom)
+function button_delete_com($idCom,$idPost)
 {
 	if(isset($_SESSION['id']))
 	{
@@ -72,6 +74,7 @@ function button_delete_com($idCom)
 		echo "<form name='delete_com' action='controller/actions.php' method='post'>";
 			echo "<input name='id_com' type='hidden' value='".$idCom."'/>";
 			echo "<input name='action' value='Supprimer com' type='submit'/>";
+			echo "<input type='hidden' name='url' value='?page=article&POST_ID=".$idPost."'/>";
 		echo "</form>";
 	}
 	}
