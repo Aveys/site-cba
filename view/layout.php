@@ -11,7 +11,7 @@ date_default_timezone_set('Europe/Paris');
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>CBA Website</title>
-<link rel="stylesheet" type="text/css" href="view/css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 <script type="text/javascript" src="view/verification.js"></script>
 <script type="text/javascript" src="view/calendrier.js"></script>
 <script type="text/javascript" src="view/apercu_profil.js"></script>
