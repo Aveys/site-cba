@@ -87,6 +87,8 @@
 				$user = $_SESSION['user'];
 				echo $user->getPseudo();
 			} ?></p>
+            
+    <p><?php echo Membre::getNbMembre(); ?></p>
 
 </body>
 </html>
