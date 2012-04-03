@@ -33,7 +33,9 @@
 			<input type="submit" name="action" value="Inscription"/>
 			<!-- submit -->
 		</form>
-<?php }
+<?php 
+		unset($_SESSION['erreur_connect']);
+		}
 
 function get_is_exist()
 {

@@ -42,7 +42,7 @@
       else
       {
          $_SESSION["erreur_inscrip"] = "Ce pseudo existe deja";
-         echo '<script language="Javascript">document.location.replace("inscription.php");</script>';
+         echo '<script language="Javascript">document.location.replace("../?page=inscription");</script>';
       }
    }
    /* fonction qui insert un nouveau login avec son pass dans la bdd 
