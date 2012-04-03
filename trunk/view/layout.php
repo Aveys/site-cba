@@ -1,9 +1,9 @@
 <?php
 session_start(); 
-include_once $fConnect;
+include_once $fmConnect;
 include_once "sql.php";
 include_once "user_view.php";
-include_once "includes/admin/stul_fonctions.php";
+include_once $fAdminFonct;
 include_once "articles.php";
 date_default_timezone_set('Europe/Paris');
 ?>
