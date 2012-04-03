@@ -7,15 +7,16 @@ $vTheme			= 'themes/cba';
 
 
 
-$Site = 'site-cba';
+$Site = 'site-cba/';
 //Chemin des fichiers
-$fActionPhp 	= ABSROOT.'actions.php';
-$fAdminFonct 	= ABSROOT.'includes/admin/stul_fonctions.php';
-$fAdminAction	= ABSROOT.'includes/admin/stul_actions.php';
-$fAdmin 		= ABSROOT.'stul_admin.php';
-$fLanguage		= ABSROOT.'includes/stul_language.php';
-$fConnect 		= ABSROOT.'connect.php';
-$fViewerAdmin	= ABSROOT.'includes/admin/viewer/index.php';
+$fActionPhp 	= 'actions.php';
+$fAdminFonct 	= 'includes/admin/stul_fonctions.php';
+$fAdminAction	= 'includes/admin/stul_actions.php';
+$fAdmin 		= $_SERVER["DOCUMENT_ROOT"].'/'.$Site.'/stul_admin.php';
+$fLanguage		= 'includes/stul_language.php';
+$fConnect 		= $_SERVER["DOCUMENT_ROOT"].'/'.$Site.'/connect.php';
+$fViewerAdmin	= 'includes/admin/viewer/index.php';
+
 /** Nom de la base de données de Stul. */
 if(!defined('DB_NAME'))
 	define('DB_NAME', 'votre_nom_de_bdd');
