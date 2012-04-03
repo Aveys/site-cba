@@ -7,7 +7,7 @@
 * effectuer
 */
 
-	include_once("user.class.php");
+	require_once("user.class.php");
 	class Membre extends User
 	{
 		protected $email;
@@ -41,5 +41,9 @@
 		public function setEmail($new)
 		{
 			$this->email = $new;
+		}
+		public static function getNbMembre()
+		{
+			return (self::$_compteur - Admin::getNbAdmin());
 		}
 	}
