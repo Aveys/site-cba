@@ -9,6 +9,7 @@ if (isset($_GET['step']))
 	$step = $_GET['step'];
 else
 	$step = 1;
+$configfile= file('stul_config.php');
 
 
 switch($step){
@@ -85,139 +86,158 @@ switch($step){
 
 	case 3:
 	if (isset($_POST)){
-		print_r($_POST);
+		//print_r($_POST);
 		require_once("sql.php");
 		$dbname  = trim($_POST['BDD']);
 		$uname   = trim($_POST['user']);
 		$passwrd = trim($_POST['mdp']);
 		$dbhost  = trim($_POST['host']);
-		$link=mysql_connect($dbhost,$uname,$passwrd) or die(mysql_error()); //or die(erreur_SQL());
-		mysql_select_db($dbname) or die(mysql_error()); //or die(erreur_SQL());
-		mysql_query("set names 'UTF8'");
-		foreach($createtable as $c)
-			mysql_query($c);
-		$fp = fopen("stul_config.php","a");
-		$txt="define('DB_NAME','".$dbname."');";
-		fputs($fp,$txt);
-		$txt="define('DB_USER','".$uname."');";
-		fputs($fp,$txt);
-		$txt="define('DB_PASSWORD','".$passwrd."');";
-		fputs($fp,$txt);
-		$txt="define('DB_HOST','".$dbhost."');";
-		fputs($fp,$txt);
-		fclose($fp);
+		$link=mysql_connect($dbhost,$uname,$passwrd) or die(erreur_SQL());
+		if(!$link){
+			erreur_SQL();
+		}else{
+			$db=mysql_select_db($dbname) or die(erreur_SQL());
+			if(!$db){
+				erreur_SQL();
+			}else{
+				mysql_query("set names 'UTF8'");
+				foreach($createtable as $c)
+					mysql_query($c);
+				foreach ($configFile as $line_num => $line) {
+					switch (substr($line,0,16)) {
+						case "define('DB_NAME'":
+							$configFile[$line_num] = str_replace("votre_nom_de_bdd", $dbname, $line);
+							break;
+							case "define('DB_USER'":
+								$configFile[$line_num] = str_replace("'votre_utilisateur_de_bdd'", "'$uname'", $line);
+								break;
+								case "define('DB_PASSW":
+									$configFile[$line_num] = str_replace("'votre_mdp_de_bdd'", "'$passwrd'", $line);
+									break;
+									case "define('DB_HOST'":
+										$configFile[$line_num] = str_replace("localhost", $dbhost, $line);
+										break;
+
+									}
+								}
+								$fp = fopen("stul_config.php","a");
+								$txt="<?php define('DB_NAME','".$dbname."');";
+								fputs($fp,$txt);
+								$txt="define('DB_USER','".$uname."');";
+								fputs($fp,$txt);
+								$txt="define('DB_PASSW','".$passwrd."');";
+								fputs($fp,$txt);
+								$txt="define('DB_HOST','".$dbhost."');?>";
+								fputs($fp,$txt);
+								fclose($fp);
+							}
+						}
 
 
-	}
-	else
-		header("location:install.php?step=2");
-	displayHeader();?>
-	<body>
-		<div id="all">
-			<div id="content">
-				<div id="header" class="box">
-					<div id="logo"><img alt="Stul" src="images/install/logo.png" /></div>
-					<div id="titre">INSTALLATION</div>
-					<div id="sous-titre"> Etape 3 : Creation du compte administrateur</div>
-				</div>
-				<div id="text" class="box">
-					<p> La connexion à la base de donnée s'est bien déroulée, nous allons maintenant configurer votre compte administrateur</p>
-					<p class="box">Informations du compte</p>
-					<div id="formulaire">
-						<form action="install.php?step=4" method="POST" name="addAdmin" onSubmit="return valid_compte(this)">
-							<input type='text' name='login' value='admin' onFocus='init(this)' onBlur='notEmpty(this)'/>
-							<label for="login">Login du compte</label>
-							<input type='password' name='mdp' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
-							<label for="mdp">Mot de passe du compte.</label><br/>
-							<input type='password' name='mdp_verf' value=''  onBlur='verif(this)'/>
-							<label for="mdp_verf">Verifcation du mot de passe.</label><br/>
-							<input type='text' name='mail' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
-							<label for="mail">Entrez une adresse mail valide.</label><br/>
-
-
+					}
+					else
+						header("location:install.php?step=2");
+					displayHeader();?>
+					<body>
+						<div id="all">
+							<div id="content">
+								<div id="header" class="box">
+									<div id="logo"><img alt="Stul" src="images/install/logo.png" /></div>
+									<div id="titre">INSTALLATION</div>
+									<div id="sous-titre"> Etape 3 : Creation du compte administrateur</div>
+								</div>
+								<div id="text" class="box">
+									<p> La connexion à la base de donnée s'est bien déroulée, nous allons maintenant configurer votre compte administrateur</p>
+									<p class="box">Informations du compte</p>
+									<div id="formulaire">
+										<form action="install.php?step=4" method="POST" name="addAdmin" onSubmit="return valid_compte(this)">
+											<input type='text' name='login' value='admin' onFocus='init(this)' onBlur='notEmpty(this)'/>
+											<label for="login">Login du compte</label><br/>
+											<input type='password' name='mdp' value='' onFocus='init(this)' onKeyUp="verify.check()"/>
+											<label for="mdp">Mot de passe du compte.</label><br/>
+											<input type='password' name='mdp_verf' value='' onKeyUp="verify.check()"/>
+											<label for="mdp_verf">Verifcation du mot de passe.</label><br/>
+											<DIV ID="password_result">&nbsp;<br/></DIV>
+											<input type='text' name='mail' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
+											<label for="mail">Entrez une adresse mail valide.</label><br/>
+										</div>
+									</div>
+									<div id="footer">
+										<input type="reset" class="button" value="reset"/><input class="button" type="submit" value="Continuer" />
+										<input type="hidden" name="action" value="envoyer"/>
+									</form><br/>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div id="footer">
-						<input type="reset" class="button" value="reset"/><input class="button" type="submit" value="Continuer" />
-						<input type="hidden" name="action" value="envoyer"/>
-					</form><br/>
 
 
-
-				</div>
-				<div id="footer">
-					<div id="tryagain" class="button"><a href="install.php?step=2">Continuer</div>
-
-			</div>
-
-		</div>
-	</div>
-
-
-</body>
-</html>
-<?php
-break;
-case 4:
-if (isset($_POST)){
-		print_r($_POST);
-		mysql_query("INSERT INTO STUL_USERS('USERL_LOGIN','USER_PASS',USER_DISPLAYNAME,USER_MAIL,USER_REGISTERED,USER_STATUS) VALUES ('".$_POST["login"]."'")
-	}
-	else
-		header("location:install.php?step=4");
-	displayHeader();break;
+					</body>
+					</html>
+					<?php
+					break;
+					case 4:
+					if (isset($_POST)){
+						print_r($_POST);
+						mysql_query("INSERT INTO STUL_USERS(USER_LOGIN,USER_PASS,USER_DISPLAYNAME,USER_MAIL,USER_REGISTERED,USER_STATUS) VALUES ('".$_POST["login"]."','".sha1($_POST["mdp"])."','".$_POST["login"]."','".$_POST["mail"]."',now(),2");
+					}
+					else
+						header("location:install.php?step=4");*/
+					displayHeader();break;
 
 
-}
+				}
 
 
 
 //}
 //}
-function displayHeader(){
-	?>
-	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-	<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Stul - Installation</title>
-		<link rel="stylesheet" type="text/css" href="css/install.css" />
-		<script type="text/javascript" src="script.js"></script>
+				function displayHeader(){
+					?>
+					<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+					<html xmlns="http://www.w3.org/1999/xhtml">
+					<head>
+						<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+						<title>Stul - Installation</title>
+						<link rel="stylesheet" type="text/css" href="css/install.css" />
+						<script type="text/javascript" src="script.js"></script>
 
-	</head>
-	<?php
-}
-function erreur_SQL(){
-	displayHeader();?>
-	<body>
-		<div id="all">
-			<div id="content">
-				<div id="header" class="box">
-					<div id="logo"><img alt="Stul" src="images/install/logo.png" /></div>
-					<div id="titre">INSTALLATION</div>
-					<div id="sous-titre"> Erreur lors de l’établissement de la connexion à la base de données</div>
-				</div>
-				<div id="text" class="box">
-					<p>Cela signifie soit que l&rsquo;identifiant et/ou le mot de passe indiqué(s) sont incorrects, ou que le serveur de base de données à l&rsquo;adresse <code><?php echo $_POST["host"] ?></code> est inaccessible - cela peut indiquer que le serveur de base de données de votre hébergeur est défaillant.</p>
-					<ul>
-						<li>Êtes-vous certain(e) d&rsquo;avoir correctement indiqué votre identifiant et votre mot de passe&nbsp;?</li>
-						<li>Êtes-vous certain(e) d&rsquo;avoir entré le bon serveur de base de données&nbsp;?</li>
-						<li>Êtes-vous certain(e) que le serveur de base de données fonctionne correctement&nbsp;?</li>
-					</ul>
-					<p>Si vous n&rsquo;êtes pas sûr(e) de bien comprendre les mots de cette liste, vous devriez sans doute prendre contact avec votre hébergeur.</p>
-				</div>
-				<div id="footer">
-					<div id="tryagain" class="button"><a href="install.php?step=2">Réessayez</div>
+					</head>
+					<?php
+				}
+				function erreur_SQL(){
+					displayHeader();?>
+					<body>
+						<div id="all">
+							<div id="content">
+								<div id="header" class="box">
+									<div id="logo"><img alt="Stul" src="images/install/logo.png" /></div>
+									<div id="titre">INSTALLATION</div>
+									<div id="sous-titre"> Erreur lors de l’établissement de la connexion à la base de données</div>
+								</div>
+								<div id="text" class="box">
+									<p>Cela signifie soit que l&rsquo;identifiant et/ou le mot de passe indiqué(s) sont incorrects, ou que le serveur de base de données à l&rsquo;adresse <code><?php echo $_POST["host"] ?></code> est inaccessible - cela peut indiquer que le serveur de base de données de votre hébergeur est défaillant.</p>
+									<ul>
+										<li>Êtes-vous certain(e) d&rsquo;avoir correctement indiqué votre identifiant et votre mot de passe&nbsp;?</li>
+										<li>Êtes-vous certain(e) d&rsquo;avoir entré le bon serveur de base de données&nbsp;?</li>
+										<li>Êtes-vous certain(e) que le serveur de base de données fonctionne correctement&nbsp;?</li>
+									</ul>
+									<p>Si vous n&rsquo;êtes pas sûr(e) de bien comprendre les mots de cette liste, vous devriez sans doute prendre contact avec votre hébergeur.</p>
+								</div>
+								<div id="footer">
+									<div id="tryagain" class="button"><a href="install.php?step=2">Réessayez</div>
 
-			</div>
+								</div>
 
-		</div>
-	</div>
+							</div>
+						</div>
 
 
-</body>
-</html>
-<?php
+					</body>
+					</html>
+					<?php
 
-}
-?>
+				}
+				function check_admin(){
+
+				}
+				?>
