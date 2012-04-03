@@ -28,7 +28,7 @@ drop table if exists STUL_CATEGORY;",
 			   POST_ID              int not null auto_increment,
 			   USER_ID              int,
 			   POST_DATE            datetime,
-			   POST_CATEGORY        int,
+			   CATEGORY_ID	        int,
 			   POST_STATUS          smallint,
 			   POST_TYPE            smallint,
 			   POST_TITLE           text,
@@ -46,6 +46,13 @@ drop table if exists STUL_CATEGORY;",
 				   USER_REGISTERED      datetime,
 				   USER_STATUS          smallint,
 				   primary key (USER_ID)
+				);
+				create table STUL_CATEGORY
+				(
+  				 CATEGORY_ID          int not null auto_increment,
+   				 CATEGORY_NAME        varchar(100),
+   				 CATEGORY_DESC        text,
+   				 primary key (CATEGORY_ID)      
 				);",
 					"ALTER TABLE  STUL_USERS ADD UNIQUE (USER_DISPLAYNAME);
 					
