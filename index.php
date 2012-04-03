@@ -8,19 +8,19 @@
 		switch($_GET['page'])
 		{
 			case "home":
-				require_once("layout.php");
+				require_once($fvLayout);
 			break;
 			case "install":
-				require_once("install.php");
+				require_once($fvInstall);
 			break;
 			case "inscription":
-				require_once("inscription.php");
+				require_once($fvInscription);
 			break;
 			default:
-				require_once("layout.php");
+				require_once($fvLayout);
 			break;
 		}
 	}
 	else
-		require_once("layout.php");
+		require_once($fvLayout);
 	
