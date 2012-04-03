@@ -23,7 +23,7 @@ date_default_timezone_set('Europe/Paris');
 		$result = sql_post_of_idPost($_GET['POST_ID']);
 		while($row=mysql_fetch_assoc($result)){
 			echo "<div class='article'>";
-				affichage_article($row,0,$fcAction);
+				affichage_article($row,0, $fcAction);
 			echo "</div>";
 			echo "<div class='info_article'>Fait par ";
 			link_profil(sql_user_who_post($row['POST_ID']));
