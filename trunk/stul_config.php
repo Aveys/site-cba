@@ -9,25 +9,46 @@ $vTheme			= 'themes/cba';
 
 $Site = '/site-cba/';
 $rootSite = $_SERVER['DOCUMENT_ROOT'].$Site;
-//Chemin des fichiers
+//Chemin des fichiers relatifs
 $fcAction	 	= "controller/actions.php";
-$fcUserView		= $rootSite."user_view.php";
-$fcArticle		= $rootSite."articles.php";
+$fcUserView		= "user_view.php";
+$fcArticle		= "articles.php";
 
-$fmConnect 		= $rootSite."model/connect.php";
-$fmEscape		= $rootSite."model/escape.php";
-$fmSql			= $rootSite."model/sql.php";
+$fmConnect 		= "model/connect.php";
+$fmEscape		= "model/escape.php";
+$fmSql			= "model/sql.php";
 
-$fvLayout		= $rootSite."view/layout.php";
-$fvInscription	= $rootSite."view/inscription.php";
-$fvInstall		= $rootSite."install.php";
-$fvArticle		= $rootSite."article.php";
+$fvLayout		= "view/layout.php";
+$fvInscription	= "view/inscription.php";
+$fvInstall		= "install.php";
+$fvArticle		= "article.php";
 
-$fAdmin 		= $rootSite."stul_admin.php";
-$fViewerAdmin	= $rootSite."includes/admin/viewer/index.php";
-$fLanguage		= $rootSite."includes/stul_language.php";
-$fAdminFonct 	= $rootSite."includes/admin/stul_fonctions.php";
+$fAdmin 		= "stul_admin.php";
+$fViewerAdmin	= "includes/admin/viewer/index.php";
+$fLanguage		= "includes/stul_language.php";
+$fAdminFonct 	= "includes/admin/stul_fonctions.php";
 $fAdminAction	= "includes/admin/stul_actions.php";
+
+
+//chemin des fichiers absolus
+$a_fcAction	 		= $rootSite."controller/actions.php";
+$a_fcUserView		= $rootSite."user_view.php";
+$a_fcArticle		= $rootSite."articles.php";
+
+$a_fmConnect 		= $rootSite."model/connect.php";
+$a_fmEscape			= $rootSite."model/escape.php";
+$a_fmSql			= $rootSite."model/sql.php";
+
+$a_fvLayout			= $rootSite."view/layout.php";
+$a_fvInscription	= $rootSite."view/inscription.php";
+$a_fvInstall		= $rootSite."install.php";
+$a_fvArticle		= $rootSite."article.php";
+
+$a_fAdmin 			= $rootSite."stul_admin.php";
+$a_fViewerAdmin		= $rootSite."includes/admin/viewer/index.php";
+$a_fLanguage		= $rootSite."includes/stul_language.php";
+$a_fAdminFonct 		= $rootSite."includes/admin/stul_fonctions.php";
+$a_fAdminAction		= $rootSite."includes/admin/stul_actions.php";
 
 
 
