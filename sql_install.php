@@ -30,6 +30,7 @@ drop table if exists STUL_USERS;",
 			   POST_CATEGORY        int,
 			   POST_STATUS          smallint,
 			   POST_TYPE            smallint,
+			   POST_TITLE           text,
 			   POST_CONTENT         text,
 			   POST_TAG             text,
 			   primary key (POST_ID)
