@@ -6,6 +6,8 @@ drop table if exists STUL_POST;
 
 drop table if exists STUL_USERS;
 
+drop table if exists STUL_CATEGORY;
+
 create table STUL_COMMENT
 (
    COM_ID               int not null auto_increment,
