@@ -28,6 +28,11 @@ body{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
 
 }
+#facebook,#twitter,#google_plus{
+	float: left;
+	width: 5px;
+	height: 5px;
+}
 .form_comment
 {
 	visibility: hidden;

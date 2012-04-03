@@ -15,6 +15,9 @@ date_default_timezone_set('Europe/Paris');
 <script type="text/javascript" src="verification.js"></script>
 <script type="text/javascript" src="calendrier.js"></script>
 <script type="text/javascript" src="apercu_profil.js"></script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+  {lang: 'fr'}
+</script>
 </head>
 <body>
 	<?php
@@ -34,6 +37,7 @@ date_default_timezone_set('Europe/Paris');
 				button_edit_post($row['POST_ID']);
 			button_delete_post($row['POST_ID'],$fcAction);			//bouton delete pour supprimer le post
 			add_commentaire($row,'commenter article');		//formulaire ajout de commentaire au post
+			affiche_button_reseausociaux("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 			/*echo "<div class='nbJaime'>";
 				login_qui_aiment($row);
 			echo "</div>";
