@@ -17,8 +17,6 @@ create table STUL_COMMENT
    primary key (COM_ID)
 );
 
-alter table STUL_COMMENT comment 'table de commentaire';
-
 create table STUL_OPTIONS
 (
    OP_ID                int not null auto_increment,
@@ -51,8 +49,6 @@ create table STUL_USERS
    USER_STATUS          smallint,
    primary key (USER_ID)
 );
-
-alter table STUL_USERS comment 'table des utilisateurs';
 
 ALTER TABLE  STUL_USERS ADD UNIQUE (USER_DISPLAYNAME);
 

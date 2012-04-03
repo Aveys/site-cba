@@ -165,7 +165,7 @@ if (isset($_POST)){
 	}
 	else
 		header("location:install.php?step=4");
-	displayHeader();break;?>
+	displayHeader();break;
 
 
 }
