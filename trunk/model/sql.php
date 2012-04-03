@@ -75,7 +75,7 @@
    {
       mysql_query("update STUL_USERS set mail = '".$_POST["mail"]."' where user_id='".$_POST["id"]."'");
       // mysql_query("update log set date_naissance = '".$_POST["naissance"]."' where login='".$_POST["id"]."'");
-      echo "<script language='Javascript'>document.location.replace('profil.php?id=".$_POST["id"]."');</script>";
+      echo "<script language='Javascript'>document.location.replace('../profil.php?id=".$_POST["id"]."');</script>";
    }
    /* fonction qui renvoie l'id de l'utilisateur ayant poster 
    */
