@@ -1,8 +1,7 @@
 <?php
-session_start(); 
 require_once($fmConnect);
 require_once($fmSql);
-require_once($fcViewUser);
+require_once($fcUserView);
 require_once($fAdminFonct);
 require_once("articles.php");
 date_default_timezone_set('Europe/Paris');
