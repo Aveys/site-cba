@@ -57,16 +57,16 @@ $a_fAdminAction		= $rootSite."includes/admin/stul_actions.php";
 
 /** Nom de la base de données de Stul. */
 if(!defined('DB_NAME'))
-	define('DB_NAME', 'iut');
+	define('DB_NAME', 'votre_nom_de_bdd');
 
 
 /** Utilisateur de la base de données MySQL. */
 if(!defined('DB_USER'))
-	define('DB_USER', 'root');
+	define('DB_USER', 'votre_utilisateur_de_bdd');
 
 /** Mot de passe de la base de données MySQL. */
 if(!defined('DB_PASSWORD'))
-	define('DB_PASSWORD', 'root');
+	define('DB_PASSWORD', 'votre_mdp_de_bdd');
 
 /** Adresse de l'hébergement MySQL. */
 if(!defined('DB_HOST'))
