@@ -18,6 +18,7 @@
 			break;
 			case "article":
 				require_once($fvArticle);
+			break;
 			default:
 				require_once($fvLayout);
 			break;
