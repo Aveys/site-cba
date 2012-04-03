@@ -3,7 +3,8 @@ $createtable= array("
 drop table if exists STUL_COMMENT;
 drop table if exists STUL_OPTIONS;
 drop table if exists STUL_POST;
-drop table if exists STUL_USERS;",
+drop table if exists STUL_USERS;
+drop table if exists STUL_CATEGORY;",
 	"create table STUL_COMMENT
 	(
 	   COM_ID               int not null auto_increment,
@@ -58,5 +59,8 @@ drop table if exists STUL_USERS;",
 						  references STUL_COMMENT (COM_ID) on delete restrict on update restrict;
 					
 					alter table STUL_POST add constraint FK_EST_L_AUTEUR foreign key (USER_ID)
-						  references STUL_USERS (USER_ID) on delete restrict on update restrict;");
+						  references STUL_USERS (USER_ID) on delete restrict on update restrict;
+						  
+					alter table STUL_POST add constraint FK_APPARTIENT foreign key (CATEGORY_ID)
+     					 references STUL_CATEGORY (CATEGORY_ID) on delete restrict on update restrict;");
 ?>

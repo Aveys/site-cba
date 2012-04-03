@@ -1,0 +1,107 @@
+@font-face
+{
+    font-family: roboto;
+    src: url('polices/Roboto-Bold.ttf');
+}
+
+
+.button {
+			text-align: center;
+			font-family: sans-serif;
+			text-decoration: none;
+			font-size: 14px !important;
+			line-height: 16px;
+			padding: 6px 12px;
+			cursor: pointer;
+			border: 1px solid #bbb;
+			color: #464646;
+			-webkit-border-radius: 15px;
+			border-radius: 15px;
+			-moz-box-sizing: content-box;
+			-webkit-box-sizing: content-box;
+			box-sizing: content-box;
+			background-color: #f5f5f5;
+			background-image: -ms-linear-gradient(top, #ffffff, #f2f2f2);
+			background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
+			background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
+			background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f2f2f2));
+			background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
+			background-image: linear-gradient(top, #ffffff, #f2f2f2);
+		}
+
+		.button:hover {
+			color: #000;
+			border-color: #666;
+		}
+
+		.button:active {
+			background-image: -ms-linear-gradient(top, #f2f2f2, #ffffff);
+			background-image: -moz-linear-gradient(top, #f2f2f2, #ffffff);
+			background-image: -o-linear-gradient(top, #f2f2f2, #ffffff);
+			background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#ffffff));
+			background-image: -webkit-linear-gradient(top, #f2f2f2, #ffffff);
+			background-image: linear-gradient(top, #f2f2f2, #ffffff);
+		}
+		html {
+			background-image:url('images/bg.jpg');
+		}
+		body{
+
+		}
+		input{
+			-webkit-border-radius: 3px;
+			border-radius: 3px;
+		}
+		#content {			
+			background-color: #FBF9F5;
+			color: #333;
+			font-family: helvetica,sans-serif;
+			margin: 2em auto;
+			padding: 1em 2em;
+			-webkit-border-radius: 12px;
+			border-radius: 12px;
+			border: 1px solid #3B3E3E;
+			max-width: 700px;
+			-moz-box-shadow: 12px 12px 12px #101010; 
+  			-webkit-box-shadow: 12px 12px 12px #101010; 
+  			box-shadow: 12px 12px 12px #555; 
+		}
+		ul li {
+			margin-bottom: 10px;
+			font-size: 14px ;
+		}
+		a {
+			color: #21759B;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #D54E21;
+		}
+		.box{
+			border-bottom: 1px solid #999;
+			margin-bottom: 20px;
+		}
+		#continuer{
+			padding-left:0%;
+		}
+		#header{
+			font-family: roboto,'Droid Sans',Arial,Verdana,sans-serif;
+			text-align:center;
+		}
+		#titre{
+
+			font-size:32px;
+		}
+		#sous-titre{
+
+		}
+		#formulaire{
+			margin-bottom: 20px;
+			text-align: justify;
+			}	
+		#w3c{
+			padding-left: 45%;
+		}	
+		label {
+			font-size:12px;
+		}
