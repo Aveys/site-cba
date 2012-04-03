@@ -1,6 +1,6 @@
 <?php
+	session_start();
 	require_once("stul_config.php");
-	var_dump($fmConnect);
 	require_once($fmConnect);
 	
 	if(isset($_GET['page']))
