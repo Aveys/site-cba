@@ -1,5 +1,6 @@
 <?php
-   require_once($fConnect);
+	require_once("stul_config.php");
+   require_once($fmConnect);
    /* fonction sql d'insertion dans la bdd d'un nouveau post
    */
    function addArticle($texte, $pseudo, $categorie){
