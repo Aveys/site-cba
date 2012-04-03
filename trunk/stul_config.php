@@ -3,13 +3,14 @@
 if(!defined('ABSROOT'))
 	define('ABSROOT', dirname(__FILE__).'/');
 //Une variable qui commence par $f sera un fichier
-$vTheme			= 'themes/cba';
+
 
 
 
 $Site = '/site-cba/';
 $rootSite = $_SERVER['DOCUMENT_ROOT'].$Site;
 //Chemin des fichiers relatifs
+$vTheme			= 'themes/cba';
 $fcAction	 	= "controller/actions.php";
 $fcUserView		= "user_view.php";
 $fcArticle		= "articles.php";
@@ -17,6 +18,7 @@ $fcArticle		= "articles.php";
 $fmConnect 		= "model/connect.php";
 $fmEscape		= "model/escape.php";
 $fmSql			= "model/sql.php";
+$fmAdmin		= $Site.'stul_admin.php';
 
 $fvLayout		= "view/layout.php";
 $fvInscription	= "view/inscription.php";
@@ -31,6 +33,7 @@ $fAdminAction	= "includes/admin/stul_actions.php";
 
 
 //chemin des fichiers absolus
+$a_vTheme			= $rootSite.'themes/cba';
 $a_fcAction	 		= $rootSite."controller/actions.php";
 $a_fcUserView		= $rootSite."user_view.php";
 $a_fcArticle		= $rootSite."articles.php";
@@ -63,7 +66,7 @@ if(!defined('DB_USER'))
 
 /** Mot de passe de la base de données MySQL. */
 if(!defined('DB_PASSWORD'))
-	define('DB_PASSWORD', '');
+	define('DB_PASSWORD', 'root');
 
 /** Adresse de l'hébergement MySQL. */
 if(!defined('DB_HOST'))
