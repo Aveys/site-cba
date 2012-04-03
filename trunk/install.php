@@ -292,7 +292,7 @@ switch($step){
 					<?php
 				}
 				function erreur_SQL(){
-					header("location:install/error.php?id=1");
+					header("location:install/error.php?id=1&host=".$_POST["host"]);
 
 				}
 				function erreur_ecriture(){
