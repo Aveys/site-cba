@@ -15,7 +15,7 @@
                     </p>
                     <p>
                         <label for="category">Categorie</label>
-                        <input type="text"  name="category" value=""/>
+                        <input type="text"  name="category" value="1" readonly/>
                     </p>
                     <p>
                         <label for="tags">Tags</label>
@@ -26,10 +26,8 @@
                         <textarea name="content" id="test" rows="7" class="wysiwyg" cols="4"></textarea>
                     </p>
                     </div>
-                    <div class="input">
-                       
-                            <input type="submit" id="submit" value="Salut" name="action"/>
-                      
+                    <div class="input">                       
+                            <input type="submit" id="submit" value="Ajouter article" name="action"/>                      
                     </div>
                   </form>
                 </div>
