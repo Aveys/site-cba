@@ -35,6 +35,10 @@
                                             default:break;
                                         }
                                     }
+                                    else
+                                    {
+                                        $status="unknown";
+                                    }
                                     //On remplit la table des comptes
                                     echo "<tr>";
                                         echo "<td>".$row["USER_LOGIN"]."</td>";                               
