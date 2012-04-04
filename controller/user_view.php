@@ -80,7 +80,7 @@ function editer_info_user($id)
 		$row = sql_info_user($id);
 		echo "</br></br><form method='post' name='editer_user' action='controller/actions.php'>";
 			echo "<label for='mail'>Mail :</label>";
-			echo "<input name='mail' value='".$row['USER_MAIL']."'/></br></br>";
+			echo "<input type='email' name='mail' class='email mailcheck' value='".$row['USER_MAIL']."'/></br></br>";
 			//echo "<label for='naissance'>Date de naissance :</label>";
 			//echo "<input type='text' name='naissance' class='calendrier' size='8' value='".$row['date_naissance']."'/></br></br>";
 			echo "<input type='submit' name='action' value='Editer'/>";
