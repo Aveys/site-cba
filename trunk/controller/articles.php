@@ -83,25 +83,30 @@ function displayArticles(){
 	
 		$result = sql_all_post();
 		if(mysql_num_rows($result) == 0)
-			echo "Aucun article disponible";
+		{
+			echo "<img src='themes/cba/images/sep_menu_top.png' />";
+			echo "<div id='no-article'>Aucun article disponible</div>";
+			echo "<img src='themes/cba/images/sep_menu_bottom.png' />";
+		}
 		while($row=mysql_fetch_assoc($result)){
 			$nomCat=getCategory($row["CATEGORY_ID"]);
 			if(!isset($nomCat)){
 				$row["CATEGORY_ID"]="default";
 				$nomCat="Aucune";
-				echo $nomCat;
 			}
 			echo "<div class='article'>";
+				echo "<div class='category' id='category-".$row["CATEGORY_ID"]."'>".$nomCat."</div>";
 				echo "<div id='titre-article'><h3>".$row["POST_TITLE"]."</h3></div>";
-				echo "<div id='category-".$row["CATEGORY_ID"]."'>".$nomCat."</div>";
-				echo "<div id='contenu-article'>";
+				echo "<div id='article-image'><img src='themes/cba/images/imageArticle1.jpg' /></div>";
+				echo "<div class='contenu-article'>";
 				affichage_article($row,1);
 
-			echo "</div><div class='info_article'><div id='auteur'>Fait par ";
+			echo "</div><div class='info_article'><span id='auteur'>Fait par ";
 			link_profil(sql_user_who_post($row['POST_ID']));
-			echo " </div>le ";
+			echo " </span>";
 			dateTimeToTime($row['POST_DATE']);
 			echo "</div>";
+			echo "<img id='bottom-article' src='themes/cba/images/sep_menu_bottom.png' />";
 			echo "</div>";
 		}
 }
