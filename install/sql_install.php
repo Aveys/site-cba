@@ -45,6 +45,8 @@ drop table if exists STUL_CATEGORY;",
 				   USER_MAIL            varchar(100),
 				   USER_REGISTERED      datetime,
 				   USER_STATUS          smallint,
+				   USER_IP				varchar(16),
+				   USER_BAN				tinyint,
 				   primary key (USER_ID)
 				);",
 				"create table STUL_CATEGORY
