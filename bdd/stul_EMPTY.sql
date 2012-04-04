@@ -8,6 +8,8 @@ drop table if exists STUL_USERS;
 
 drop table if exists STUL_CATEGORY;
 
+drop table if exists STUL_LOG;
+
 create table STUL_COMMENT
 (
    COM_ID               int not null auto_increment,
@@ -68,6 +70,15 @@ create table STUL_VISITES
 	primary key(ID)
 );
 
+create table STUL_LOG
+(
+   ID             int not null auto_increment,
+   USER_ID        int not null,
+   date_connexion   datetime not null,
+   date_deconnexion datetime,
+   primary key(ID)
+);
+
 ALTER TABLE  STUL_USERS ADD UNIQUE (USER_DISPLAYNAME);
 
 alter table STUL_COMMENT add constraint FK_A foreign key (POST_ID)
@@ -84,4 +95,7 @@ alter table STUL_POST add constraint FK_EST_L_AUTEUR foreign key (USER_ID)
 
 alter table STUL_POST add constraint FK_APPARTIENT foreign key (CATEGORY_ID)
       references STUL_CATEGORY (CATEGORY_ID) on delete restrict on update restrict;
+
+alter table STUL_LOG add constraint FK_LOG foreign key (USER_ID)
+      references STUL_USERS (USER_ID) on delete restrict on update restrict;
 
