@@ -6,7 +6,6 @@
 	require_once("../stul_config.php");
 	require_once($a_fmSql);
 	require_once($a_fmConnect);
-	require_once($a_fcSearch);
 	if(isset($_POST["action"])){
 		switch($_POST['action'])
 		 {
