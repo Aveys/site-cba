@@ -58,9 +58,9 @@
 			break;
 
 
-			case "Ajouter l'article":
+			case "Ajouter l\'article":
 				addArticle($_POST['content'], $_SESSION["idUser"],$_POST['title'], $_POST['tags'], $_POST['category']);	
-				echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
+				//echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
 			break;
 
 			default:break;
