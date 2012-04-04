@@ -11,6 +11,15 @@ else
 $configFile= file('stul_config_init.php');
 //print_r($configFile);
 	
+function execute_file_sql($file)
+{
+  $content = file_get_contents($file);
+  $requetes = explode(";", $content);
+  foreach ($requetes as $key => $value) {
+     if($value != "")
+        mysql_query($value);
+  }
+}
 
 switch($step){
 	case 1 : 
@@ -91,7 +100,6 @@ switch($step){
 	case 3:
 	if (isset($_POST)){
 		//print_r($_POST);
-		require_once("install/sql_install.php");
 		$dbname  = trim($_POST['BDD']);
 		$uname   = trim($_POST['user']);
 		$passwrd = trim($_POST['mdp']);
@@ -106,8 +114,7 @@ switch($step){
 			else{
 				mysql_query("set names 'UTF8'");
 
-				foreach($createtable as $c){
-					mysql_query($c);}
+				execute_file_sql("bdd/stul_EMPTY.sql");
 				foreach ($configFile as $line_num => $line) {
 					//echo(substr($line,1,16))."/n";
 					switch (substr($line,1,16)) {

@@ -7,8 +7,8 @@ if(!defined('ABSROOT'))
 
 
 
-$Site = '/site-cba/';
-$Title = 'CBA Website';
+$Site = '/nom-site/';
+$Title = 'titre';
 
 $rootSite = $_SERVER['DOCUMENT_ROOT'].$Site;
 //Chemin des fichiers relatifs
