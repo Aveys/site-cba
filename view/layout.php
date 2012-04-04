@@ -11,8 +11,8 @@ require_once($fcSearch);
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>CBA Website</title>
-	<link rel="stylesheet" type="text/css" href="themes/cba/commun.css" />
-	<link rel="stylesheet" type="text/css" href="themes/cba/layout.css" />
+<link rel="stylesheet" type="text/css" href="themes/cba/commun.css" />
+ <link rel="stylesheet" type="text/css" href="themes/cba/layout.css" />
 	<script type="text/javascript" src="js/verification.js"></script>
 	<script type="text/javascript" src="js/calendrier.js"></script>
 	<script type="text/javascript" src="js/apercu_profil.js"></script>
@@ -32,6 +32,7 @@ require_once($fcSearch);
 					//displayAddFormLog($fcAction);
 					form_search();
 					?>
+					<br/>
 				</div>
 					<div id="articles">
 						<?php 
