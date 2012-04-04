@@ -28,7 +28,7 @@
                     </div>
                     <div class="input">
                        
-                            <input type="submit" id="submit" value="Ajouter l'article" onSubmit="validForm()" name="action"/>
+                            <input type="submit" id="submit" value="Salut" name="action"/>
                       
                     </div>
                   </form>
