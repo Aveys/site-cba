@@ -12,6 +12,11 @@
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <script type="text/javascript" src="verification.js"></script>
 <script type="text/javascript" src="calendrier.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="jquery.mailcheck.min.js"></script>
+
+
 </head>
 <h1>
 	<?php
