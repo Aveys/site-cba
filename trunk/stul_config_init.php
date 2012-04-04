@@ -14,7 +14,7 @@ $rootSite = $_SERVER['DOCUMENT_ROOT'].$Site;
 //Chemin des fichiers relatifs
 $vTheme			= 'themes/cba';
 $fcAction	 	= "controller/actions.php";
-$fcUserView		= "user_view.php";
+$fcUserView		= "controller/user_view.php";
 $fcArticle		= "articles.php";
 $fcSearch		= "search.php";
 
@@ -39,7 +39,7 @@ $fAdminAction	= "includes/admin/stul_actions.php";
 //chemin des fichiers absolus
 $a_vTheme			= $rootSite.'themes/cba';
 $a_fcAction	 		= $rootSite."controller/actions.php";
-$a_fcUserView		= $rootSite."user_view.php";
+$a_fcUserView		= $rootSite."controller/user_view.php";
 $a_fcArticle		= $rootSite."articles.php";
 $a_fcSearch			= $rootSite."search.php";
 

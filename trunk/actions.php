@@ -39,7 +39,7 @@ require_once $fmSql;
 				unset($_SESSION["id"]);
 			break;
 			case "Inscription":	//redirige vers la page d'inscription
-				echo '<script language="Javascript">document.location.replace("?page=inscription");</script>';
+				echo '<script language="Javascript">document.location.replace("../?page=inscription");</script>';
 			break;
 			case "inscrire":	//inscription du nouvel utilisateur dans la bdd
 				sql_inscrire_user($_POST);
@@ -51,5 +51,5 @@ require_once $fmSql;
 		}
 
 	}
-	//echo '<script language="Javascript">document.location.replace(".");</script>';	//redirection vers l'index.php
+	echo '<script language="Javascript">document.location.replace(".");</script>';	//redirection vers l'index.php
 ?>
