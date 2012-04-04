@@ -15,7 +15,7 @@ $rootSite = $_SERVER['DOCUMENT_ROOT'].$Site;
 $vTheme			= 'themes/cba';
 $fcAction	 	= "controller/actions.php";
 $fcUserView		= "controller/user_view.php";
-$fcArticle		= "articles.php";
+$fcArticle		= "controller/articles.php";
 $fcSearch		= "controller/search.php";
 
 $fmConnect 		= "model/connect.php";
@@ -40,7 +40,7 @@ $fAdminAction	= "includes/admin/stul_actions.php";
 $a_vTheme			= $rootSite.'themes/cba';
 $a_fcAction	 		= $rootSite."controller/actions.php";
 $a_fcUserView		= $rootSite."controller/user_view.php";
-$a_fcArticle		= $rootSite."articles.php";
+$a_fcArticle		= $rootSite."controller/articles.php";
 $a_fcSearch			= $rootSite."controller/search.php";
 
 $a_fmConnect 		= $rootSite."model/connect.php";

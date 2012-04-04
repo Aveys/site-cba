@@ -15,7 +15,7 @@ require_once($fcSearch);
 <script type="text/javascript" src="verification.js"></script>
 <script type="text/javascript" src="calendrier.js"></script>
 <script type="text/javascript" src="apercu_profil.js"></script>
-<script type="text/javascript" src="view/apercu_equipe.js"></script>
+<script type="text/javascript" src="apercu_equipe.js"></script>
 </head>
 <body>
 	<div id="connexion">
