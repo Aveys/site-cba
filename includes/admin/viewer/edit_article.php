@@ -23,7 +23,7 @@ $row = mysql_fetch_assoc($result);
                     </p>
                      <p>
                         <label for="category">Categorie</label>
-                        <input type="text"  name="category" value="<?php echo $row["POST_CATEGORY"];?>"/>
+                        <input type="text"  name="category" value="<?php echo $row["CATEGORY_ID"];?>"/>
                     </p>
                     <p>
                         <label for="tags">Tags</label>
