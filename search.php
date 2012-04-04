@@ -5,29 +5,20 @@
 		echo "<form name='search' action='.?recherche=1' method='GET' >";
 			// Recherche
 			echo "<label for='Recherche'>Recherche :</label>";
-			echo "<input name='recherche' onBlur='verifRecherche(this)'/>";
+			echo "<input name='recherche' onBlur='verifRecherche(this)'/></br>";
+			echo '<input type="radio" checked="checked" name="type_search" value="quick_search"> Rapide recherche';
+			echo '<input type="radio" name="type_search" value="all_words"> Rechercher tous les mots';
 			// submit
-			echo "<input type='submit' name='action' value='Rechercher'/>";
+			echo "</br><input type='submit' name='action' value='Rechercher'/>";
 		echo "</form>";
 	}
 	function search($text)
 	{
 		$mot_recherche = explode(" ", $text);
-		foreach ($mot_recherche as $key => $value) {
-			$result = sql_recherche($value);
-			foreach ($result as $key => $res) {
-				while($row = mysql_fetch_assoc($res))
-				{
-					$tmp = 0;
-					if(isset($post_trouve[$row['POST_ID']]['nb']))
-						$tmp = $post_trouve[$row['POST_ID']]['nb'];
-					else
-						$post_trouve[$row['POST_ID']]['nb'] = 0;
-					$post_trouve[$row['POST_ID']] = $row;
-					$post_trouve[$row['POST_ID']]['nb'] = $tmp+1;
-				}
-			}
-		}
+		if($_GET['type_search'] == "all_words")
+			$post_trouve = all_possibility($mot_recherche);
+		else
+			$post_trouve = quick_search($mot_recherche);
 		usort($post_trouve, "cmp");
 		foreach ($post_trouve as $key => $value) {
 			echo "<div class='article'>";
@@ -63,12 +54,44 @@
 				$chaine_finale = '';
 				foreach ($tabl_indice_encours as $element) {
 					$chaine_finale .= " ".$mots[$element];
+					$result = sql_recherche(trim($chaine_finale));
+					foreach ($result as $key => $res) {
+						while($row = mysql_fetch_assoc($res))
+						{
+							$tmp = 0;
+							if(isset($post_trouve[$row['POST_ID']]['nb']))
+								$tmp = $post_trouve[$row['POST_ID']]['nb'];
+							else
+								$post_trouve[$row['POST_ID']]['nb'] = 0;
+							$post_trouve[$row['POST_ID']] = $row;
+							$post_trouve[$row['POST_ID']]['nb'] = $tmp+1;
+						}
+					}
 				}
 				$tableau_index_possibles[] = $chaine_finale;
 			}
 		}
-		print_r($tableau_index_possibles);
-		return array_unique($tableau_index_possibles);
+		return $post_trouve;
+	}
+	function quick_search($mots)
+	{
+		foreach ($mots as $key => $value) {
+			
+			$result = sql_recherche(trim($value));
+			foreach ($result as $key => $res) {
+				while($row = mysql_fetch_assoc($res))
+				{
+					$tmp = 0;
+					if(isset($post_trouve[$row['POST_ID']]['nb']))
+						$tmp = $post_trouve[$row['POST_ID']]['nb'];
+					else
+						$post_trouve[$row['POST_ID']]['nb'] = 0;
+					$post_trouve[$row['POST_ID']] = $row;
+					$post_trouve[$row['POST_ID']]['nb'] = $tmp+1;
+				}
+			}
+		}
+		return $post_trouve;
 	}
 
 ?>
