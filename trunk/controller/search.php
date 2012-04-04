@@ -8,15 +8,16 @@
 														<input type="image" src="http://elegantthemes.com/preview/Evolution/wp-content/themes/Evolution/images/search_btn.png" id="searchsubmit" />
 
 						</form>*/
-
-		echo "<form name='search' id='searchform' action='.?recherche=1' method='GET' >";
+		echo "<form class='demo' name='search' id='searchform' action='.?recherche=1' method='GET' >";
 			// Recherche
 			echo "<div id='search_div'>";
 			echo "<input type='text' name='recherche' id='searchinput' value ='Rechercher' onBlur='verifRecherche(this)'/>";
 			echo "<input type='submit' value='' id='searchsubmit'><img src='themes/cba/images/icons/search.png'></img></input>";
 			echo "</div>";
-			echo '<div id="searchradio"><input type="radio" checked="checked" name="type_search" value="quick_search"> Recherche Rapide';
-			echo '<input type="radio" name="type_search" value="all_words"> Rechercher tous les mots</div>';
+			echo '<div id="searchradio">';
+			echo '<label><input type="radio" checked="checked" name="type_search" value="quick_search"/> Rapide</label>';
+			echo '<label><input type="radio" name="type_search" value="all_words"> Mots </input></label>';
+			echo '</div>';
 		echo "</form>";
 	}
 	function search($text)

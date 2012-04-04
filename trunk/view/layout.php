@@ -16,8 +16,10 @@ require_once($fcSearch);
 	<script type="text/javascript" src="js/calendrier.js"></script>
 	<script type="text/javascript" src="js/apercu_profil.js"></script>
 	<script type="text/javascript" src="js/apercu_equipe.js"></script>
+	<script src="js/mootools.js" type="text/javascript"></script>
+	<script src="js/moocheck.js" type="text/javascript"></script>
 </head>
-<body>	
+<body>		
 	<div id="all">
 		<div id="wrapper">
 			<div id="header">
@@ -50,10 +52,9 @@ require_once($fcSearch);
 				</div>
 				</div>
 			</div>
+
 			<div id="central">
 				<div id="content">
-					<div id="search">
-
 					<?php
 					//displayAddFormLog($fcAction);
 					form_search();

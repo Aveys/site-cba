@@ -94,8 +94,10 @@ body{
 }
 
 /* CSS DU MODULE DE RECHERCHE */
-#searchform{float:right}
-
+#searchform{
+	text-align:right;
+	margin-right: 15px;
+}
 #searchform #searchinput{
 	font-family:robotoI;
 	font-size:15pt;
@@ -122,7 +124,7 @@ body{
  top:0px
  left:0px;
  padding: 10px 20px;
- height:41px;
+ height:41.5px;
  width:20px;
  border:1px solid #a5a5a5;
  -webkit-border-top-right-radius: 15px;
@@ -142,9 +144,31 @@ body{
 	height: 24px;
 	margin-left: 8px;
 }
-#search_div{
-	margin-left: 200px;
+#searchradio {
+	width:200px;
+	padding-left: 5px;
+	text-align:right;
 }
+#searchradio label{
+	display:inline-block;
+	padding:0.5em;
+	padding-left:32px;
+	background-position:8px center;
+	background-repeat:no-repeat;	
+	cursor:pointer;
+}
+
+#searchradio .selected{
+	background-color:#FFF;
+	background-image:url('images/icons/radio_on.png');
+}
+
+#searchradio .deselected{
+	background-color:#FFF;
+	background-image:url('images/icons/radio_off.png');
+}
+
+
 /* GESTION PARTIE CENTRALE INCOMPLETE */
 #profil_apercu{
 	z-index:106;
