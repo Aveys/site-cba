@@ -33,7 +33,6 @@ require_once($a_fcArticle);
 			echo "</h3></div>";
 			echo "<div class='info_article'>Fait par ";
 			link_profil(sql_user_who_post($row['POST_ID']));
-			echo " le ";
 			dateTimeToTime($row['POST_DATE']);
 			echo "</div>";
 			echo "<table>";
