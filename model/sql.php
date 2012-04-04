@@ -123,6 +123,10 @@
    {
       return mysql_query("select * from STUL_USERS");
    }
+   function sql_all_coms()
+   {
+      return mysql_query("select * from STUL_COMMENT");
+   }
    /* return tout les commentaires correspond a l'idpost proposé
    */
    function sql_com_of_post_with_log($idPost)
@@ -133,7 +137,7 @@
    */
    function sql_com_of_com_post_with_log($idComParent)
    {
-      return mysql_query("select c.com_id,u.user_login, u.user_id ,c.com_content,c.com_date,c.com_parent,c.post_id from STUL_COMMENT c join STUL_USERS u on c.user_id=u.user_id where c.com_parent='".escape($idComParent)."' order by c.com_date");
+      return mysql_query("select * from STUL_COMMENT c join STUL_USERS u on c.user_id=u.user_id where c.com_parent='".escape($idComParent)."' order by c.com_date");
    }
    /* return le login en fonction de l'iduser
    */
@@ -178,7 +182,11 @@
    */
    function sql_edit_com($post)
    {
-      mysql_query("update STUL_COMMENT set com_content = '".escape($post['commentaire'])."' where com_id='".escape($post['id_com'])."'");
+      if(!isset($post['commentaire']))
+         $post['commentaire'] = $post['content'];
+      else
+         $post['commentaire'] = escape($post['commentaire']);
+      mysql_query("update STUL_COMMENT set com_content = '".$post['commentaire']."' where com_id='".escape($post['id_com'])."'");
    }
    /* edite le post proposé
    */
@@ -199,6 +207,10 @@
    function sql_post_of_idPost($postId)
    {
       return mysql_query("select * from STUL_POST p where p.post_id='".escape($postId)."'"); 
+   }
+   function sql_com_of_idCom($comId)
+   {
+      return mysql_query("select * from STUL_COMMENT c where c.com_id='".escape($comId)."'"); 
    }
    function sql_post_exist($postId)
    {

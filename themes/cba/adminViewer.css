@@ -3051,6 +3051,10 @@ ageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#afceed',
 	padding: 10px;
 }
 
+#content .coms td{
+	padding: 5px;
+}
+
 .errorInput{
 	border:1px solid #F74F4F !important;
 	-moz-box-shadow: inset 0px 0px 5px #F74F4F, 0px 0px 5px #F74F4F !important;
@@ -3065,4 +3069,11 @@ ageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#afceed',
 	-webkit-box-shadow: inset 0px 5px 5px #ADF4C5, 0px 0px 5px #ADF4C5 !important;
 	-o-box-shadow: inset 0px 0px 5px #ADF4C5, 0px 0px 5px #ADF4C5 !important;
 	box-shadow: inset 0px 0px 5px #ADF4C5, 0px 0px 5px #ADF4C5 !important;
+}
+#comOfCom
+{
+	margin-left: 50px;
+}
+td{
+	min-width: 150px;
 }
