@@ -30,7 +30,7 @@
                 <li>
                     <a href="#"><img src="img/icons/menu/list.png" alt="" /> Historique</a>
                     <ul>
-                        <li><a href="#">Gestion des connexions</a></li>
+                        <li><a href="?mode=viewConnect">Gestion des connexions</a></li>
                     </ul>
                 </li>
 

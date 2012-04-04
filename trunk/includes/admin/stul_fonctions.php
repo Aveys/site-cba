@@ -110,6 +110,7 @@ function checkLoginAdmin( $login, $pass){
 		$_SESSION["pass"] = $passwordF;
 		$_SESSION["keyAdmin"] = md5($passwordF*$loginF);
 		$_SESSION["adminAuth"] = 1;
+        sql_log_connexion();
 		echo '<script language="Javascript">document.location.replace("'.$fmAdmin.'");</script>';	//redirection vers l'index.php
 	}
 	else
