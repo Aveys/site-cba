@@ -1,226 +1,40 @@
 *{
+	position: relative;
 	margin:0px;
 	padding:0px;
-	position:relative;
 }
-
-#all{
-	width:950px;
-	position:relative;
-	margin:auto;
-	background-color:#FFFFFF;
-	-moz-box-shadow: 0px 0px 5px #888;
-	-webkit-box-shadow: 0px 0px 5px #888;
-	box-shadow: 0px 0px 5px #888;
-	min-height:1000px;
-	padding:10px;
-		
-}
-
 body{
-	background: rgb(255,255,255);
-	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(237,237,237,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(0%,rgba(237,237,237,1)), color-stop(47%,rgba(246,246,246,1)), color-stop(100%,rgba(237,237,237,1)));
-	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
-	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
-	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
-	background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
-
-}
-#content,#menuBar,#articles,#addArticle{
-	margin: 20px;
-}
-#addArticle label{
-	display: block;
-	width: 175px;
-	float: left;
-}
-#facebook,#twitter,#google_plus{
-	float: left;
-	width: 5px;
-	height: 5px;
-}
-.form_comment
-{
-	visibility: hidden;
-	height: 0px;
-	width: 0px;
-}
-#com{
-	position: relative;
-	left: 50px;
-}
-#comOfCom{
-	position: relative;
-	margin-left: 50px;
-}
-#menuBar{
-	border: solid 1px black;
-}
-.itemMenuBar{
-	position: relative;
-	margin: 0px 10%;
-}
-#contentArticle{
-	padding: 20px;
-}
-#header h1,#headerArticle h1{
-	text-align: center;
-}
-#connexion{
-	position: fixed;
-}
-#connexion label{
-	display: block;
-}
-#connexion input{
-	display: block;
-	float: left;
-}
-#comOfCom input,.article input{
-	position: relative;
-	display: block;
-	float: left;
-}
-#ligne_bouton_post{
-	position: relative;
-	margin-top: -3%;
-}
-#liste_personnes_caches{
-	background-color: orange;
-	visibility: hidden;
-	width: 0px;
-	height: 0px;
-	z-index: 1;
-}
-#profil_apercu{
-	margin: 0px;
-	padding: 0px;
-	background-color: orange;
-	visibility: hidden;
-	width: 0px;
-	height: 0px;
-	z-index: 2;
-}
-#equipeListe{
-	z-index: 10;
-	position: absolute;
-	visibility: hidden;
-	height: 0px;
-	width: 0px;
-}
-.calendar
-{
-	background-color:#f7f6f3;
-	position:absolute;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:12px;
-	border:1px solid #0099cc;
-	-moz-opacity:0;
-	filter:alpha(opacity=0);
-	
+		background-color: #E6E6E6;
 }
 
-.calendar a
-{
-	text-decoration:none;
-	color:#ffffff;
-	font-weight:bold;
-}
-
-.ListeDate
-{
-	background-color:#FFFFFF;
-}
-
-#Contenant_Calendar
-{
-	float:left;
+/*#header-bg{
+	postion:absolute;
+	top:0px;
+	left:0px;
 	width:100%;
-	overflow:hidden;
+	height:300px;
+	background-color: #0B0C11;
+}*/
+#header-txt{
 	position:relative;
+	background-image: url('../theme/cba/images/header.png');
+	height:300px;
+	margin:auto;
+	width:1200px;
+	color: #FFF;
 }
+#central{
+	postion:relative;
+	margin:auto;
+  	width:1200px;
+  	background-color: #FFF;
+  	box-shadow: 0px 0px 30px #000; 
+}
+#title{
 
-#Contenant_Calendar span
-{
-	float:left;
-	display:block;
-	width:30px;
-	height:30px;
-	line-height:30px;
-	text-align:center;
 }
-
-.DayDate:hover
-{
-	background-color:#8CD1EC;
-	cursor:pointer;
-}
-
-#curentDateString
-{
-	width:100%;
-	text-align:center;
-}
-
-.titleMonth
-{
-	width:100%;
-	background-color:#08a1d4;
-	color:#FFFFFF;
-	text-align:center;
-	border-bottom:1px solid #666;
-	margin:0px;
-	padding:0px;
-	padding-bottom:2px;
-	margin-top:0px;
-	margin-bottom:0px;
-	font-weight:bold;
-}
-
-.separator
-{
-	float:left;
-	display:block;
-	width:25px;
-}
-
-.currentDay
-{
-	font-weight:bold;
-	background-color:#FFB0B0;
-}
-#search_div { 
-	float: right; 
-	height: 35px; 
-	margin-right: 44px; 
-	border:1px solid #e2e2e2; 
-	background-color:#fafafa;
-	 -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.1);
-	  -moz-box-shadow: inset 0 0 2px rgba(0,0,0,0.1);
-	   box-shadow: inset 0 0 2px rgba(0,0,0,0.1);  
-	}
-#search_div #searchinput { 
-	background-color: rgba(0,0,0,0);
-	 border: 0px;
-	  float: left; 
-	  margin: 8px 14px 0 7px;
-	   width: 110px; 
-	   padding-left: 9px;
-	    font-size: 11px; 
-	    color: #c5c5c5; 
-	    font-family: Georgia, serif;
-	     font-style: italic;
-	      text-shadow: 1px -1px 0 #fff;
-	       -webkit-appearance: none; 
-	   }
-#search_div #searchsubmit {
- margin-top: 11px;
-  margin-right: 12px; 
-}
-#search_div #searchradio {
-display: block;
-float: left;
-font-size:10px;
+#header-bg{
+	background-image: url('/cba/images/header.png');
+	height:300px;
+	width:1200px;
 }

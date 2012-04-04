@@ -73,7 +73,7 @@ function displayAddForm(){
 	<?php
 	}
 	else
-		echo "Veuillez vous loguer.</br>";
+		echo "Veuillez vous loger.</br>";
 }
 
 /*affiche tous les articles de la bdd avec ses infos
@@ -83,16 +83,16 @@ function displayArticles(){
 	
 		$result = sql_all_post();
 		if(mysql_num_rows($result) == 0)
-			echo "Aucun article disponible";
+			echo "<div id='no-article'>Aucun article disponible</div>";
 		while($row=mysql_fetch_assoc($result)){
 			echo "<div class='article'>";
 				affichage_article($row,1);
 			echo "</div>";
-			echo "<div class='info_article'>Fait par ";
+			echo "<div class='info_article'>Fait par <div class='author'>";
 			link_profil(sql_user_who_post($row['POST_ID']));
-			echo " le ";
+			echo " </div>le <div class='post_time>'";
 			dateTimeToTime($row['POST_DATE']);
-			echo "</div>";
+			echo "</div></div>";
 		}
 }
 function affichage_article($row,$masque)
@@ -104,7 +104,7 @@ function affichage_article($row,$masque)
 			$text[0] = substr($text[0],0,100);
 		echo $text[0];
 		echo "<form method='post' class='form_lire_la_suite' name='lireLaSuite' id='lireLaSuite' action='?page=article&POST_ID=".$row["POST_ID"]."'>";
-			echo "<input type='submit' name='action' value='Lire la suite'/>";
+			echo "<input class='read_more' type='submit' name='action' value='Lire la suite'/>";
 		echo"</form>";
 		//button_delete_post($row['POST_ID']);			//bouton delete pour supprimer le post
 		echo "</br>";
