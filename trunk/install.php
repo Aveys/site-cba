@@ -10,6 +10,7 @@ else
 	$step = 1;
 $configFile= file('stul_config_init.php');
 //print_r($configFile);
+	require_once("stul_config.php");
 
 switch($step){
 	case 1 : 
