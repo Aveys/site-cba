@@ -21,19 +21,20 @@
                 ?>
 
 
-                 <form method="POST" action='../../../<?php echo $fAdminAction;?>'> 
+                 <form method="POST" action='../../../<?php echo $fAdminAction;?>' onSubmit="return validLogin(this)"> 
                     <div class="input textarea">
                     <p>
                         <label for="login">Login</label>
-                        <input type="text" name="login" value=''/>
+                        <input type="text" name="login" class="login "value=''/>
                     </p>
                     <p>
                         <label for="password">Mots de passe</label>
-                        <input type="text" name="password" value=''/>
+                        <input type="text" name="password" value='' class="mdp"/>
+                        <span class="help-inline"></span>
                     </p> 
                     <p>
                         <label for="pseudo">Pseudo</label>
-                        <input type="text" name="pseudo" value=''/>
+                        <input type="text" name="pseudo" value='' class='pseudo'/>
                     </p>
                     <p>
                         <label for="email">E-mail</label>
