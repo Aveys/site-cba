@@ -10,6 +10,10 @@
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <script type="text/javascript" src="verification.js"></script>
 <script type="text/javascript" src="calendrier.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="jquery.mailcheck.min.js"></script>
+
 </head>
 <form name="inscription_form" action="<?php echo $fcAction; ?>" method="post" onSubmit="return validLogin(this)">
 
@@ -22,8 +26,9 @@
 	<input type="password" name="mdp" onBlur="verifMdp(this)"/><br/><br/>
 
 	<!-- mail -->
-	<label for="mail">Mail :</label>
-	<input name="mail"/><br/><br/>
+    <label for="email">E-mail </label>
+    <input type="email" name="email" class="email mailcheck" value=''/>
+	<span class="help-inline"></span><br/><br/>
 
 	<!-- date de naissance -->
 	<!--
