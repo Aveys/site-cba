@@ -100,4 +100,6 @@ alter table STUL_POST add constraint FK_APPARTIENT foreign key (CATEGORY_ID)
 
 alter table STUL_LOG add constraint FK_LOG foreign key (USER_ID)
       references STUL_USERS (USER_ID) on delete restrict on update restrict;
+	  
+INSERT INTO STUL_CATEGORY(CATEGORY_ID) VALUES(0);
 
