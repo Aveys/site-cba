@@ -27,7 +27,7 @@
 
 	<!-- mail -->
     <label for="email">E-mail </label>
-    <input type="email" name="email" class="email mailcheck" value=''/>
+    <input type="email" name="mail" class="email mailcheck" value=''/>
 	<span class="help-inline"></span><br/><br/>
 
 	<!-- date de naissance -->
