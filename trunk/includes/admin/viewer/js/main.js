@@ -190,10 +190,28 @@ jQuery(function($){
         $(this).parents('table:first').find('input').attr('checked', $(this).is(':checked')); 
     });
     
+	 
     /** 
-     * Mailchek
-     * Vérifie si le nom de domaine entré est valide, et propose une suggestion
-     * */	
+     * Vérifications
+     * Vérification des champs
+     * */ 
+  $('input').blur(function(){
+    var input= $(this);
+    if(input.val() == '')
+    {
+       input.next('span').remove();
+       $('<span class="help-inline"/>').insertAfter(input).append('Le champ ne doit pas être vide !');
+    }
+    else
+    {
+      input.next('span').remove();
+    }
+  });
+	 
+   /** 
+   * Mailchek
+   * Vérifie si le nom de domaine entré est valide, et propose une suggestion
+    * */ 
   var domains = ['hotmail.com', 'gmail.com', 'wanadoo.fr', 'hotmail.fr', 'laposte.net'];
   $('.mailcheck').blur(function(){
     var input= $(this);
@@ -212,8 +230,6 @@ jQuery(function($){
     }
     });
   });
-	 
-	 
 	 
     /** 
      * Sidebar menus
