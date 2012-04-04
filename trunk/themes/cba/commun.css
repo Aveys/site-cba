@@ -95,6 +95,29 @@ body{
 	background-color: rgba(0,0,0,0.6);
 
 }
+
+/* CSS DU MODULE DE RECHERCHE */
+#searchform #searchinput{
+	font-family:robotoI;
+	font-size:15pt;
+	color:#787878;	
+	background-color:#eae9e9;
+	padding: 10px 20px;
+	width:120px;
+	height:20px;
+	border:1px solid #a5a5a5;
+	-moz-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+  	-webkit-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+  	-o-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+  	box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+    -webkit-border-top-left-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-moz-border-radius-topleft: 15px;
+	-moz-border-radius-bottomleft: 15px;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
 #searchform #searchsubmit{
  position: absolute;
  top:0px
@@ -113,11 +136,12 @@ body{
  text-align:center;
 }
 
+
 #searchform img{
- width: 24px;
- margin-bottom: -5px;
- height: 24px;
- margin-left: 8px;
+	width: 24px;
+	margin-bottom: -5px;
+	height: 24px;
+	margin-left: 8px;
 }
 /* GESTION PARTIE CENTRALE INCOMPLETE */
 
