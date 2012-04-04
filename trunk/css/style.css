@@ -191,3 +191,31 @@ body{
 	font-weight:bold;
 	background-color:#FFB0B0;
 }
+#search_div { 
+	float: right; 
+	height: 35px; 
+	margin-right: 44px; 
+	border:1px solid #e2e2e2; 
+	background-color:#fafafa;
+	 -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.1);
+	  -moz-box-shadow: inset 0 0 2px rgba(0,0,0,0.1);
+	   box-shadow: inset 0 0 2px rgba(0,0,0,0.1);  
+	}
+#search_div #searchinput { 
+	background-color: rgba(0,0,0,0);
+	 border: 0px;
+	  float: left; 
+	  margin: 8px 14px 0 7px;
+	   width: 110px; 
+	   padding-left: 9px;
+	    font-size: 11px; 
+	    color: #c5c5c5; 
+	    font-family: Georgia, serif;
+	     font-style: italic;
+	      text-shadow: 1px -1px 0 #fff;
+	       -webkit-appearance: none; 
+	   }
+#search_div #searchsubmit {
+ margin-top: 11px;
+  margin-right: 12px; 
+}
