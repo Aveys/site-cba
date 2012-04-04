@@ -85,6 +85,8 @@ function displayArticles(){
 		if(mysql_num_rows($result) == 0)
 			echo "Aucun article disponible";
 		while($row=mysql_fetch_assoc($result)){
+			$nomCat=getCategory($row["CATEGORY_ID"]);
+			var_dump($nomCat);
 			echo "<div class='article'>";
 				echo "<div id='titre-article'><h3>".$row["POST_TITLE"]."</h3></div><div id='contenu-article'>";
 				affichage_article($row,1);
