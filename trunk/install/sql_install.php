@@ -76,5 +76,7 @@ drop table if exists STUL_CATEGORY;",
 						  references STUL_USERS (USER_ID) on delete restrict on update restrict;
 						  
 					alter table STUL_POST add constraint FK_APPARTIENT foreign key (CATEGORY_ID)
-     					 references STUL_CATEGORY (CATEGORY_ID) on delete restrict on update restrict;");
+     					 references STUL_CATEGORY (CATEGORY_ID) on delete restrict on update restrict;",
+						 	"INSERT INTO STUL_CATEGORY(CATEGORY_ID) VALUES(0);"
+							);
 ?>
