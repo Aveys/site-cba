@@ -8,11 +8,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>CBA Website</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<script type="text/javascript" src="verification.js"></script>
-<script type="text/javascript" src="calendrier.js"></script>
+<script type="text/javascript" src="js/verification.js"></script>
+<script type="text/javascript" src="js/calendrier.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
-<script type="text/javascript" src="main.js"></script>
-<script type="text/javascript" src="jquery.mailcheck.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/jquery.mailcheck.min.js"></script>
 
 </head>
 <form name="inscription_form" action="<?php echo $fcAction; ?>" method="post" onSubmit="return validLogin(this)">
