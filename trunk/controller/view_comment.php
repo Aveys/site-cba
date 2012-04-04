@@ -70,15 +70,15 @@ function afficheComOfCom($id_com_parent)
 {
 	$result_com = sql_com_of_com_post_with_log($id_com_parent);
 	while ($row_com = mysql_fetch_assoc($result_com)) {
-		if(isset($_GET['edit']) && $row_com['com_id'] == $_GET['edit'])
-			affiche_form_edition(nl2br($row_com['com_content']),$row_com['com_id'],$row_com['post_id']);
+		if(isset($_GET['edit']) && $row_com['COM_ID'] == $_GET['edit'])
+			affiche_form_edition(nl2br($row_com['COM_CONTENT']),$row_com['COM_ID'],$row_com['POST_ID']);
 		else
-			echo nl2br($row_com['com_content']);
+			echo nl2br($row_com['COM_CONTENT']);
 		echo " de ";
-		link_profil($row_com['user_id']);		//apercu du profil de l'auteur du com
-		dateTimeToTime($row_com['com_date']);	//affiche la date de publication au format facebook
-				button_edit_com($row_com['com_id'],$row_com['post_id']); //bouton de suppression de ce com
-				button_delete_com($row_com['com_id'],$row_com['post_id']); //bouton de suppression de ce com
+		link_profil($row_com['USER_ID']);		//apercu du profil de l'auteur du com
+		dateTimeToTime($row_com['COM_DATE']);	//affiche la date de publication au format facebook
+				button_edit_com($row_com['COM_ID'],$row_com['POST_ID']); //bouton de suppression de ce com
+				button_delete_com($row_com['COM_ID'],$row_com['POST_ID']); //bouton de suppression de ce com
 		echo "</br>";
 	}
 }
