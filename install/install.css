@@ -87,12 +87,17 @@
 		#header{
 			font-family: roboto,'Droid Sans',Arial,Verdana,sans-serif;
 			text-align:center;
+			padding-bottom: 10px;
+			padding-top: -40px;
 		}
 		#titre{
 
 			font-size:32px;
 		}
-		#sous-titre{
+		#logo{
+			padding-bottom: -20px;
+			margin-top: 10px;
+			margin-bottom: -25px;
 
 		}
 		#formulaire{

@@ -233,6 +233,7 @@ switch($step){
 					<?php
 					break;
 					case 5:
+
 					$configFile= file('stul_config.php');
 					if (isset($_POST["nom"])){
 						$nom=$_POST["nom"];
@@ -344,24 +345,22 @@ switch($step){
 					unlink('install.php');
 					unlink('stul_config_init.php');
 					
-					unlink('/install/images/bg.jpg');
-					unlink('/install/images/button.png');
-					unlink('/install/images/carbon.gif');
-					unlink('/install/images/logo.png');
-					rmdir('/install/images');
+					unlink('install/images/bg.jpg');
+					unlink('install/images/button.png');
+					unlink('install/images/carbon.gif');
+					unlink('install/images/logo.png');
+					rmdir('install/images');
 
-					unlink('/install/polices/Roboto-Bold.ttf');
-					unlink('/install/polices/Robot-Regular.ttf');
-					unlink('/install/polices/Roboto-Thin.ttf');
-					rmdir('/install/polices');
+					unlink('install/polices/Roboto-Bold.ttf');
+					unlink('install/polices/Roboto-Regular.ttf');
+					unlink('install/polices/Roboto-Thin.ttf');
+					rmdir('install/polices');
 
-					unlink('/install/error.php');
-					unlink('/install/install.css');
-					unlink('/install/script.js');
-					unlink('/install/sql_install.php');
-					rmdir('/install/');
-
-					unlink(dirname(__FILE__).'\css\install.css');
+					unlink('install/error.php');
+					unlink('install/install.css');
+					unlink('install/script.js');
+					unlink('install/sql_install.php');
+					rmdir('install');
 				}//unlink pour supprimer un fichier
 				?>
 

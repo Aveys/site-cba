@@ -22,8 +22,8 @@ function survole_equipe_apercu(content)
 		} while (element2 = element2.offsetParent);
 	}
 	element.style.position = 'fixed';
-	element.style.left = curleft-scroll[0]+"px";
-	element.style.top = curtop-scroll[1]+15+"px";
+	element.style.left = curleft-scroll[0]-50+"px";
+	element.style.top = curtop-scroll[1]+30+"px";
 	element.style.visibility='visible';
 	element.style.height='auto';
 	element.style.width='auto';

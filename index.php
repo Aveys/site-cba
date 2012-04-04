@@ -7,13 +7,13 @@ if (file_exists('stul_config.php'))
 	require_once("stul_config.php");
 	require_once($fmConnect);
 	
-	if(!isset($_SESSION['visited']) || $_SESSION['visited'] == false)
+	/*if(!isset($_SESSION['visited']) || $_SESSION['visited'] == false)
 	{
 		$now = date("Y-m-d");
 		$query = "INSERT INTO stul_visites(jour) VALUES('$now')";
 		mysql_query($query) or die(mysql_query());
 		$_SESSION['visited'] = true;
-	}
+	}*/
 	
 	if(isset($_GET['page']))
 	{
