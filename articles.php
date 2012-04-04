@@ -82,6 +82,8 @@ function displayAddForm(){
 function displayArticles(){
 	
 		$result = sql_all_post();
+		if(mysql_num_rows($result) == 0)
+			echo "Aucun article disponible";
 		while($row=mysql_fetch_assoc($result)){
 			echo "<div class='article'>";
 				affichage_article($row,1);
@@ -285,7 +287,6 @@ function button_delete_post($idPost)
 	function affiche_anni($date_naissance,$login)
 	{
 		list($date_anni['annee'],$date_anni['jour'],$date_anni['mois']) = explode("-", $date_naissance);
-		date_default_timezone_set('Europe/Paris');
 		if(isset($_SESSION['pseudo']) && $login == $_SESSION['pseudo'])
 			echo "Vous avez ";
 		else
