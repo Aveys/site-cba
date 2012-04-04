@@ -31,7 +31,7 @@ date_default_timezone_set('Europe/Paris');
 			echo " le ";
 			dateTimeToTime($row['POST_DATE']);
 			echo "</div>";
-			button_delete_post($row['POST_ID']);			//bouton delete pour supprimer le post
+			//button_delete_post($row['POST_ID']);			//bouton delete pour supprimer le post
 			add_commentaire($row,'commenter article');		//formulaire ajout de commentaire au post
 			/*echo "<div class='nbJaime'>";
 				login_qui_aiment($row);
