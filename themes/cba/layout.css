@@ -1,79 +1,177 @@
-/*
-Syntax error: Undefined mixin 'text-shadow'.
-        on line 2 of C:/xampp/htdocs/site-cba/themes/cba/layout.scss, in `text-shadow'
-        from line 2 of C:/xampp/htdocs/site-cba/themes/cba/layout.scss
+@font-face
+{
+    font-family: roboto;
+    src: url('font/Roboto-Light.ttf');
+}
+@font-face
+{
+    font-family: robotoI;
+    src: url('font/Roboto-LightItalic.ttf');
+}
 
-1: C:/xampp/htdocs/site-cba/themes/cba/layout.scss
+/* TAGS GENERAUX */
+*{
+	position: relative;
+	margin:0px;
+	padding:0px;
+}
+body{
+		background-color: #E6E6E6;
+}
 
-Backtrace:
-C:/xampp/htdocs/site-cba/themes/cba/layout.scss:2:in `text-shadow'
-C:/xampp/htdocs/site-cba/themes/cba/layout.scss:2
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:170:in `visit_mixin'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:37:in `visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:18:in `visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `map'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:238:in `visit_rule'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:37:in `visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:18:in `visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `map'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:47:in `visit_root'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/base.rb:37:in `visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:18:in `visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/visitors/perform.rb:7:in `visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/tree/root_node.rb:20:in `render'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/engine.rb:299:in `_render'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.1.15/lib/sass/engine.rb:246:in `render'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/compiler.rb:140:in `block (2 levels) in compile'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/compiler.rb:126:in `timed'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/compiler.rb:139:in `block in compile'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/logger.rb:45:in `red'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/compiler.rb:138:in `compile'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/compiler.rb:118:in `compile_if_required'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/compiler.rb:103:in `block (2 levels) in run'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/compiler.rb:101:in `each'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/compiler.rb:101:in `block in run'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/compiler.rb:126:in `timed'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/compiler.rb:100:in `run'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/commands/watch_project.rb:147:in `recompile'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.8.1/lib/fssm/path.rb:73:in `call'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.8.1/lib/fssm/path.rb:73:in `run_callback'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.8.1/lib/fssm/path.rb:55:in `callback_action'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.8.1/lib/fssm/path.rb:35:in `update'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.8.1/lib/fssm/state/directory.rb:39:in `block in modified'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.8.1/lib/fssm/state/directory.rb:37:in `each'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.8.1/lib/fssm/state/directory.rb:37:in `modified'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.8.1/lib/fssm/state/directory.rb:18:in `refresh'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.8.1/lib/fssm/backends/polling.rb:17:in `block (2 levels) in run'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.8.1/lib/fssm/backends/polling.rb:17:in `each'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.8.1/lib/fssm/backends/polling.rb:17:in `block in run'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.8.1/lib/fssm/backends/polling.rb:15:in `loop'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.8.1/lib/fssm/backends/polling.rb:15:in `run'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.8.1/lib/fssm/monitor.rb:26:in `run'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/fssm-0.2.8.1/lib/fssm.rb:70:in `monitor'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/commands/watch_project.rb:87:in `perform'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/commands/base.rb:18:in `execute'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/commands/project_base.rb:19:in `execute'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/bin/compass:29:in `block in <top (required)>'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/bin/compass:43:in `call'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.1/bin/compass:43:in `<top (required)>'
-C:/Ruby193/bin/compass:19:in `load'
-C:/Ruby193/bin/compass:19:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Undefined mixin 'text-shadow'.\A         on line 2 of C:/xampp/htdocs/site-cba/themes/cba/layout.scss, in `text-shadow'\A         from line 2 of C:/xampp/htdocs/site-cba/themes/cba/layout.scss\A \A 1: C:/xampp/htdocs/site-cba/themes/cba/layout.scss"; }
+/*GESTION HEADER */
+
+#header-bg{
+	z-index:101;
+	postion:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:300px;
+	background-color: #13161C;
+	box-shadow: 0px 0px 40px black !important;
+	border-bottom: 1px solid white;
+}
+#header{
+	box-shadow: 0px 0px 40px black !important;
+}
+#header-txt{
+	z-index:100;
+	text-decoration : none;
+	font-family:robotoI;
+	position:relative;
+	background-image: url('images/header.png');
+	height:300px;
+	margin:auto;
+	width:1200px;
+	color: #FFF;
+	box-shadow: 0px 0px 40px black !important;
+}
+#menuBar{
+	position:absolute;
+	-webkit-border-top-image:url('images/sep_menu_top.png');
+	-webkit-border-bottom-image:url('images/sep_menu_bottom.png');
+	margin-top: 228px;
+	text-align: center;
+}
+#title, #logo{
+	display: none;
+}
+.itemMenuBar{
+	text-decoration:none;
+	margin: 20px 60px 20px 60px;
+	font-size:19pt;
+	text-decoration : none;
+	font-family:roboto;
+
+}
+#menuBar a{
+	color:#FFF;
+	text-decoration:none;
+}
+
+#menuBar a:hover{
+	color:#128CCC !important;
+	text-shadow: 0px 4px 5px black;
+}
+#equipe:hover{
+	color:#128CCC;
+	text-shadow: 0px 4px 5px black;/* A préfixer !!*/
+}
+#equipeListe{
+	text-align:left;
+	z-index:105;
+	-webkit-border-bottom-right-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-moz-border-radius-bottomright: 15px;
+	-moz-border-radius-bottomleft: 15px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	position: absolute;
+	visibility: hidden;
+	padding:10px;
+	height:0px;
+	width:0px;
+	background-color: rgba(0,0,0,0.6);
+
+}
+#searchform #searchsubmit{
+ position: absolute;
+ top:0px
+ left:0px;
+ padding: 10px 20px;
+ height:41px;
+ width:20px;
+ border:1px solid #a5a5a5;
+ -webkit-border-top-right-radius: 15px;
+ -webkit-border-bottom-right-radius: 15px;
+ -moz-border-radius-topright: 15px;
+ -moz-border-radius-bottomright: 15px;
+ border-top-right-radius: 15px;
+ border-bottom-right-radius: 15px;
+ vertical-align: center;
+ text-align:center;
+}
+
+#searchform img{
+ width: 24px;
+ margin-bottom: -5px;
+ height: 24px;
+ margin-left: 8px;
+}
+/* GESTION PARTIE CENTRALE INCOMPLETE */
+
+#central{
+	z-index:4;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	font-family:roboto;
+	font-weight:normal;
+	postion:relative;
+	margin:auto;
+  	width:1200px;
+  	background-color: #FFF;
+  	box-shadow: 0px 0px 40px #000; 
+}
+.article{
+	position:relative;
+	margin:auto;
+	width:900px;
+	text-align:center;
+}
+#titre-article{
+	font-family:robotoI;
+	padding-right: 490px;
+
+}
+
+/* GESTION FOOTER */
+
+#footer{
+	border-top:1px solid white;
+	box-shadow:0px 20px 20px rgba(0,0,0, 0.7) inset;
+	position:relative;
+	font-family:roboto;
+	z-index:1;
+	width:100%;
+	font-size:15px;
+	height:70px;
+	background-color: #13161C;
+	background: -moz-linear-gradient(top, #323b44, #0b0e12);
+	background : -webkit-gradient(linear, 0 0, 0 100%, from(#323b44), to(#0b0e12));
+}
+
+#powered{
+	text-align:center;
+	position: relative;
+	width:100%;
+	padding-top: 30px;
+	padding-right: auto;
+	color:#828282;
+
+}
+.nom{
+	color: #c2c1c2;
+}
+
+
