@@ -16,7 +16,7 @@ $vTheme			= 'themes/cba';
 $fcAction	 	= "controller/actions.php";
 $fcUserView		= "controller/user_view.php";
 $fcArticle		= "articles.php";
-$fcSearch		= "search.php";
+$fcSearch		= "controller/search.php";
 
 $fmConnect 		= "model/connect.php";
 $fmEscape		= "model/escape.php";
@@ -41,7 +41,7 @@ $a_vTheme			= $rootSite.'themes/cba';
 $a_fcAction	 		= $rootSite."controller/actions.php";
 $a_fcUserView		= $rootSite."controller/user_view.php";
 $a_fcArticle		= $rootSite."articles.php";
-$a_fcSearch			= $rootSite."search.php";
+$a_fcSearch			= $rootSite."controller/search.php";
 
 $a_fmConnect 		= $rootSite."model/connect.php";
 $a_fmEscape			= $rootSite."model/escape.php";
