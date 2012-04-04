@@ -61,6 +61,13 @@ create table STUL_CATEGORY
    primary key (CATEGORY_ID)      
 );
 
+create table STUL_VISITES
+(
+	ID					int not null auto_increment,
+	jour				date not null,
+	primary key(ID)
+);
+
 ALTER TABLE  STUL_USERS ADD UNIQUE (USER_DISPLAYNAME);
 
 alter table STUL_COMMENT add constraint FK_A foreign key (POST_ID)
