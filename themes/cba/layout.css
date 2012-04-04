@@ -96,8 +96,9 @@ body{
 /* CSS DU MODULE DE RECHERCHE */
 #searchform{
 	text-align:right;
-	margin-right: 15px;
+	margin-right: 40px;
 }
+
 #searchform #searchinput{
 	font-family:robotoI;
 	font-size:15pt;
@@ -146,8 +147,7 @@ body{
 }
 #searchradio {
 	width:200px;
-	padding-left: 5px;
-	text-align:right;
+	margin-left: 965px;
 }
 #searchradio label{
 	display:inline-block;
