@@ -191,6 +191,26 @@ jQuery(function($){
     });
     
     /** 
+     * Mailchek
+     * Vérifie si le nom de domaine entré est valide, et propose une suggestion
+     * */	
+	var domains = ['hotmail.com', 'gmail.com', 'wanadoo.fr', 'hotmail.fr', 'laposte.net'];
+	$('.mailcheck').blur(function(){
+		var input= $(this);
+		input.mailcheck({
+		domains: domains,
+		suggested: function(element, suggestion){
+			input.next('span').remove();
+			$('<span class="help-inline"/>').insertAfter(input).append('Vouliez-vous ecrire '+suggestion.full);
+		},
+		empty: function(element){
+		}
+		});
+	});
+	 
+	 
+	 
+    /** 
      * Sidebar menus
      * Slidetoggle for menu list
      * */
