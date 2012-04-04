@@ -23,7 +23,6 @@ body{
 
 #header-bg{
 	z-index:101;
-	postion:absolute;
 	top:0px;
 	left:0px;
 	width:100%;
@@ -49,8 +48,6 @@ body{
 }
 #menuBar{
 	position:absolute;
-	-webkit-border-top-image:url('images/sep_menu_top.png');
-	-webkit-border-bottom-image:url('images/sep_menu_bottom.png');
 	margin-top: 228px;
 	text-align: center;
 }
@@ -95,6 +92,31 @@ body{
 	background-color: rgba(0,0,0,0.6);
 
 }
+
+/* CSS DU MODULE DE RECHERCHE */
+#searchform{float:right}
+
+#searchform #searchinput{
+	font-family:robotoI;
+	font-size:15pt;
+	color:#787878;	
+	background-color:#eae9e9;
+	padding: 10px 20px;
+	width:120px;
+	height:20px;
+	border:1px solid #a5a5a5;
+	-moz-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+  	-webkit-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+  	-o-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+  	box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+    -webkit-border-top-left-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-moz-border-radius-topleft: 15px;
+	-moz-border-radius-bottomleft: 15px;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
 #searchform #searchsubmit{
  position: absolute;
  top:0px
@@ -113,13 +135,30 @@ body{
  text-align:center;
 }
 
+
 #searchform img{
- width: 24px;
- margin-bottom: -5px;
- height: 24px;
- margin-left: 8px;
+	width: 24px;
+	margin-bottom: -5px;
+	height: 24px;
+	margin-left: 8px;
+}
+#search_div{
+	margin-left: 200px;
 }
 /* GESTION PARTIE CENTRALE INCOMPLETE */
+#profil_apercu{
+	z-index:106;
+	-webkit-border-radius:6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	position: absolute;
+	visibility: hidden;
+	padding: 5px;
+	height:0px;
+	width:0px;
+	background-color: rgba(0,0,0,0.8);
+	color:white;
+}
 
 #central{
 	z-index:4;
@@ -127,7 +166,7 @@ body{
 	padding-bottom: 40px;
 	font-family:roboto;
 	font-weight:normal;
-	postion:relative;
+	font-size:15pt;
 	margin:auto;
   	width:1200px;
   	background-color: #FFF;

@@ -276,6 +276,5 @@
    }
    function getCategory($num){
       $result=mysql_fetch_assoc(mysql_query('select CATEGORY_NAME as "nom" from STUL_CATEGORY WHERE CATEGORY_ID = "'.$num.'";'));
-      print_r($result);
       return $result["nom"];
    }
