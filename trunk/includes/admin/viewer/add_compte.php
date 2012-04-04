@@ -37,7 +37,8 @@
                     </p>
                     <p>
                         <label for="email">E-mail</label>
-                        <input type="text" name="email" value=''/>
+                        <input type="email" name="email" class="email mailcheck" value=''/>
+						<span class="help-inline"></span>
                     </p>
                     <p>
                         <label for="dateReg">Date d'enregistrement</label>
