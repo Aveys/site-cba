@@ -1,5 +1,6 @@
 <?php
-include_once "view_comment.php";
+	
+	require_once("view_comment.php");
 
 /*	affichage du temps écoulé sous le format facebook
 		- il y a quelques secondes

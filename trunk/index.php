@@ -31,6 +31,9 @@ if (file_exists('stul_config.php'))
 			case "article":
 			require_once($fvArticle);
 			break;
+			case "profil":
+				require_once($fvProfil);
+			break;
 			default:
 			require_once($fvLayout);
 			break;

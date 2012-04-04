@@ -1,7 +1,6 @@
 <?php
 /*	fonction qui affiche un formulaire pour ajouter un commentaire soit à un post soit à un autre commentaire
 */
-require_once("stul_config.php");
 function add_commentaire($row,$text_button)
 {
 	if(isset($_SESSION['pseudo']))
