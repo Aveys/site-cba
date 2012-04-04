@@ -1,5 +1,7 @@
 <?php
-	session_start();
+session_start();
+if (file_exists('stul_config.php'))
+{
 	require_once("stul_config.php");
 	require_once($fmConnect);
 	
@@ -8,22 +10,25 @@
 		switch($_GET['page'])
 		{
 			case "home":
-				require_once($fvLayout);
+			require_once($fvLayout);
 			break;
 			case "install":
-				require_once($fvInstall);
+			require_once($fvInstall);
 			break;
 			case "inscription":
-				require_once($fvInscription);
+			require_once($fvInscription);
 			break;
 			case "article":
-				require_once($fvArticle);
+			require_once($fvArticle);
 			break;
 			default:
-				require_once($fvLayout);
+			require_once($fvLayout);
 			break;
 		}
 	}
 	else
 		require_once($fvLayout);
-	
+}
+else
+	echo '<script language="Javascript">document.location.replace("install.php");</script>';
+

@@ -52,7 +52,6 @@ date_default_timezone_set('Europe/Paris');
 <div id="articles">
 <h2>Tous les articles</h2>
 <?php 
-print_r($_GET);
 if(!isset($_GET['recherche']))
 	displayArticles($fcAction);
 else

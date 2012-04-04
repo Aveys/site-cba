@@ -7,7 +7,9 @@ if(!defined('ABSROOT'))
 
 
 
-$Site = '/site-cba/';
+$Site = '/nom-site/';
+$Title = 'titre';
+
 $rootSite = $_SERVER['DOCUMENT_ROOT'].$Site;
 //Chemin des fichiers relatifs
 $vTheme			= 'themes/cba';
@@ -37,7 +39,6 @@ $fAdminAction	= "includes/admin/stul_actions.php";
 $a_vTheme			= $rootSite.'themes/cba';
 $a_fcAction	 		= $rootSite."controller/actions.php";
 $a_fcUserView		= $rootSite."user_view.php";
-$a_fcSearch			= $rootSite."search.php";
 $a_fcArticle		= $rootSite."articles.php";
 
 $a_fmConnect 		= $rootSite."model/connect.php";

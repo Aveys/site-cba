@@ -7,7 +7,9 @@ if(!defined('ABSROOT'))
 
 
 
-$Site = '/site-cba/';
+$Site = '/nom-site/';
+$Title = 'titre';
+
 $rootSite = $_SERVER['DOCUMENT_ROOT'].$Site;
 //Chemin des fichiers relatifs
 $vTheme			= 'themes/cba';
