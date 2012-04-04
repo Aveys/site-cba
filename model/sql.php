@@ -38,12 +38,12 @@
       {
          mysql_query("insert into STUL_USERS (USER_LOGIN, USER_PASS, USER_DISPLAYNAME, USER_MAIL, USER_REGISTERED, USER_STATUS  ) 
                               values ('".$login."','".$pass."','".$pseudo."','".$email."','".$dateReg."', '".$status."')"); 
-         header("Location:../../includes/admin/viewer/index.php?mode=editComptes");
+         echo '<script language="Javascript">document.location.replace("../../includes/admin/viewer/index.php?mode=editComptes");</script>';
       }
       else
       {
          $_SESSION["erreur_inscrip"] = "Ce login existe deja"; 
-          header("Location:../../includes/admin/viewer/index.php?mode=addCompte");
+         echo '<script language="Javascript">document.location.replace("../../includes/admin/viewer/index.php?mode=addCompte");</script>';
       }
    }
    /* fonction qui permet d'ajouter un login avec son pass dans la bdd en test si le login n'existe pas deja

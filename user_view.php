@@ -53,8 +53,8 @@ function profil($user_id)
 {
 	echo "<div id='profil_apercu' style='float: left;'>";
 		$row = sql_info_user($user_id);
-		echo "<h3>".$row['user_login']."</h3>";
-		echo "Mail: ".$row['user_mail']."</br>";
+		echo "<h3>".$row['USER_LOGIN']."</h3>";
+		echo "Mail: ".$row['USER_MAIL']."</br>";
 		//affiche_anni($row['date_naissance'],$log);
 	echo "</div>";
 }

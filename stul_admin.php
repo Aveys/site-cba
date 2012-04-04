@@ -23,7 +23,7 @@ require_once $fAdminFonct;
 			<?php
 			//Connexion de l'administrateur verification avec SESSION
 			if((isset($_SESSION["keyAdmin"]) == (isset($_SESSION["pass"])*isset($_SESSION["login"])) && isset($_SESSION["adminAuth"]) == 1))
-				header('Location:'.$fViewerAdmin.'?mode=board');
+				echo '<script language="Javascript">document.location.replace("'.$fViewerAdmin.'?mode=board");</script>';	//redirection vers l'index.php
 				//Debug
 				//echo "Ok page admin";
 			else
