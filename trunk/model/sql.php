@@ -1,5 +1,6 @@
 <?php
    require_once($a_fmConnect);
+   require_once($a_fmEscape);
    /* fonction sql d'insertion dans la bdd d'un nouveau post
    */
    function addArticle($texte, $pseudo,$title,$tag,$category){
