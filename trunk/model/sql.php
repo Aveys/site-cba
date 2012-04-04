@@ -28,6 +28,8 @@
          $result = mysql_query($query) or die(mysql_error());
          $row = mysql_fetch_assoc($result);
          $_SESSION["id"] = $row["user_id"];
+         $query = "insert into STUL_LOG(user_id,date_connexion) values('".escape($_SESSION['id'])."',now())";
+         $result = mysql_query($query) or die(mysql_error());
       }
    }
    /* fonction admin qui permet d'ajouter un utilisateur en verifiant qu'il est pas deja le meme login dans la BDDD*/
@@ -87,7 +89,10 @@
       }
       return false;
    }
-
+   function sql_add_log_deconnexion()
+   {
+      mysql_query("update STUL_LOG set date_deconnexion=now() where USER_ID='".$_SESSION['id']."' and date_deconnexion IS NULL");
+   }
    /*Fonction pour editer completement le compte user*/
    function sql_allEdit_user($idUser, $login, $pass, $pseudo, $email, $status)
    {

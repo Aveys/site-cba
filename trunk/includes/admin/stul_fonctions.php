@@ -99,7 +99,7 @@ function checkLoginAdmin( $login, $pass){
 	$passwordF = htmlspecialchars($pass);
 
 	//Execution des requete pour savoir si il y le bon login, passowrd et qu'il appartient au statut admin = 2
-	$query = "SELECT * FROM stul_users WHERE USER_LOGIN='".$loginF."' AND USER_PASS='".$passwordF."' AND USER_STATUS='2' ";
+	$query = "SELECT * FROM stul_users WHERE USER_LOGIN='".$loginF."' AND USER_PASS='".sha1($passwordF)."' AND USER_STATUS='2' ";
 	$row = mysql_fetch_assoc(mysql_query($query));
 	$ligne = mysql_num_rows(mysql_query($query));
     //Vérification 

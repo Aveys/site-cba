@@ -45,6 +45,7 @@
 				sql_connexion_user($_POST);
 			break;
 			case "Deconnexion":	//se delog
+				sql_add_log_deconnexion();
 				unset($_SESSION["pseudo"]);
 				unset($_SESSION["id"]);
 			break;
