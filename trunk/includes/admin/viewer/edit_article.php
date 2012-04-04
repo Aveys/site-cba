@@ -21,9 +21,17 @@ $row = mysql_fetch_assoc($result);
                         <label for="textTitle">Titre</label>
                         <input type="text" name="title" value='<?php echo $row["POST_TITLE"];?>'/>
                     </p>
+                     <p>
+                        <label for="category">Categorie</label>
+                        <input type="text"  name="category" value="<?php echo $row["POST_CATEGORY"];?>"/>
+                    </p>
                     <p>
-                        <label for="textarea2">Editer le texte</label>
-                        <textarea name="article" rows="7" class="wysiwyg" cols="4">
+                        <label for="tags">Tags</label>
+                        <input type="text"  name="tags" value="<?php echo $row["POST_TAG"];?>"/>
+                    </p>
+                    <p>
+                        <label for="content">Editer le texte</label>
+                        <textarea name="content" rows="7" class="wysiwyg" cols="4">
                             <?php echo $row["POST_CONTENT"];?>
                         </textarea>
                     </p>

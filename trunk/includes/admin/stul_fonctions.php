@@ -49,15 +49,6 @@ function addFormAdmin()
 }
 	
 
-function adminLogout(){
-	unset($_SESSION["login"]);
-	unset($_SESSION["pass"]);
-	unset($_SESSION["keyAdmin"]);
-	unset($_SESSION["adminAuth"]);
-					
-	header('Location:../../../stul_admin.php'); 
-}
-
 function displayDeleteForm(){		
 	if (isset($_SESSION["pseudo"])){
 		if(isadmin($_SESSION["pseudo"]) == 1)
@@ -109,10 +100,12 @@ function checkLoginAdmin( $login, $pass){
 
 	//Execution des requete pour savoir si il y le bon login, passowrd et qu'il appartient au statut admin = 2
 	$query = "SELECT * FROM stul_users WHERE USER_LOGIN='".$loginF."' AND USER_PASS='".$passwordF."' AND USER_STATUS='2' ";
+	$row = mysql_fetch_assoc(mysql_query($query));
 	$ligne = mysql_num_rows(mysql_query($query));
     //Vérification 
 	if($ligne == 1)
 	{
+		$_SESSION["idUser"] = $row['USER_ID'];
 		$_SESSION["login"] = $loginF;
 		$_SESSION["pass"] = $passwordF;
 		$_SESSION["keyAdmin"] = md5($passwordF*$loginF);
