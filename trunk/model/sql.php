@@ -237,3 +237,23 @@
       $result[] = sql_recherche_com_content($search);
       return $result;
    }
+   /* fonction qui retourne le nombre de connexion à la date $date
+   */
+   function sql_number_of_connexion_date($date)
+   {
+      $result = mysql_fetch_assoc(mysql_query('select count(*) as "nb" from STUL_VISITES where jour="'.escape($date).'"'));
+      return $result['nb'];
+   }
+   /* fonction qui retourne le nombre de connexion durant la periode allant de $dateDebut à $dateFin
+   */
+   function sql_number_of_connexion_period($dateDebut,$dateFin)
+   {
+      if($dateDebut > $dateFin)
+      {
+         $tmp = $dateFin;
+         $dateFin = $dateDebut;
+         $dateDebut = $tmp;
+      }
+      $result = mysql_fetch_assoc(mysql_query('select count(*) as "nb" from STUL_VISITES where jour >= "'.escape($dateDebut).'" and jour <= "'.$dateFin.'"'));
+      return $result['nb'];
+   }

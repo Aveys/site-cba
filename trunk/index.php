@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('Europe/Paris');
 
 if (file_exists('stul_config.php'))
 {
