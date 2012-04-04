@@ -44,7 +44,9 @@
         <!-- Uniform - http://uniformjs.com/ -->
         <script type="text/javascript" src="js/jquery.uniform.js"></script>
         
-        
+        <!-- Mailchek : permet de vérifier si le nom de domaine de l'email est valide -->
+		<script type="text/javascript" src="js/jquery.mailcheck.min.js"></script>
+		
         <!-- Main Javascript that do the magic part (EDIT THIS ONE) -->
         <script type="text/javascript" src="js/main.js"></script>
 <title>Stul Admin</title>
