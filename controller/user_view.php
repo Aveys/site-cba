@@ -43,7 +43,7 @@ function link_profil($id)
 	{
 		$log = sql_user_of_id($id);
  	}
-	echo "<span id='profil".$log."' onMouseOver='survole_profil_apercu(this,event)' onMouseOut='quitte_profil_apercu(this)'><a href='profil.php?id=".$id."'>".$log."</a>";
+	echo "<span id='profil".$log."' onMouseOver='survole_profil_apercu(this,event)' onMouseOut='quitte_profil_apercu(this)'><a href='?page=profil&id=".$id."'>".$log."</a>";
 	profil($id);
 	echo "</span>";
 }
@@ -65,9 +65,9 @@ function profil($user_id)
 function afficher_info_user($id)
 {
 	if(autorise_edition($id))
-		echo "<a href="."profil.php?id=".$id."&editer=1>editer</a></br>";
+		echo "<a href="."./?page=profil&id=".$id."&editer=1>editer</a></br>";
 	$row = sql_info_user($id);
-	echo "Mail: ".$row['user_mail']."</br>";
+	echo "Mail: ".$row['USER_MAIL']."</br>";
 	//affiche_anni($row['date_naissance'],$login);
 }
 
@@ -80,7 +80,7 @@ function editer_info_user($id)
 		$row = sql_info_user($id);
 		echo "</br></br><form method='post' name='editer_user' action='controller/actions.php'>";
 			echo "<label for='mail'>Mail :</label>";
-			echo "<input name='mail' value='".$row['user_mail']."'/></br></br>";
+			echo "<input name='mail' value='".$row['USER_MAIL']."'/></br></br>";
 			//echo "<label for='naissance'>Date de naissance :</label>";
 			//echo "<input type='text' name='naissance' class='calendrier' size='8' value='".$row['date_naissance']."'/></br></br>";
 			echo "<input type='submit' name='action' value='Editer'/>";

@@ -99,7 +99,7 @@
    {
       mysql_query("update STUL_USERS set mail = '".escape($_POST["mail"])."' where user_id='".escape($_POST["id"])."'");
       // mysql_query("update log set date_naissance = '".$_POST["naissance"]."' where login='".$_POST["id"]."'");
-      echo "<script language='Javascript'>document.location.replace('../profil.php?id=".$_POST["id"]."');</script>";
+      echo "<script language='Javascript'>document.location.replace('./?page=profil&id=".$_POST["id"]."');</script>";
    }
    /* supprime le compte d'un utilisateur par sont ID
    */
