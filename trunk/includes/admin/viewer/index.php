@@ -119,6 +119,10 @@
                 case 'addCompte':
                     include_once("add_compte.php");
                 break;
+
+                case 'editOptions':
+                    include_once("edit_options.php");
+                break;
                 
                 default:
                    

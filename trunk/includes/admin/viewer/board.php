@@ -77,7 +77,7 @@
                 </div>
                 <div class="content">
                     <div class="center">
-                         <a href="#" class="shortcut">
+                         <a href="?mode=editOptions" class="shortcut">
                             <img src="img/icons/window.png" alt="" width="48" height="48" />
                             Gérer les options
                         </a>

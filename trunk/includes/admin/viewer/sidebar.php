@@ -35,7 +35,7 @@
                 </li>
 
                 <li>
-                    <a href="#"><img src="img/icons/menu/settings.png" alt="" /> Options</a>
+                    <a href="?mode=editOptions"><img src="img/icons/menu/settings.png" alt="" /> Options</a>
                 </li>
 
                
