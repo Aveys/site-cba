@@ -219,3 +219,8 @@ body{
  margin-top: 11px;
   margin-right: 12px; 
 }
+#search_div #searchradio {
+display: block;
+float: left;
+font-size:10px;
+}

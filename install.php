@@ -10,7 +10,7 @@ else
 	$step = 1;
 $configFile= file('stul_config_init.php');
 //print_r($configFile);
-	require_once("stul_config.php");
+	
 
 switch($step){
 	case 1 : 
@@ -91,7 +91,7 @@ switch($step){
 	case 3:
 	if (isset($_POST)){
 		//print_r($_POST);
-		require_once("/install/sql_install.php");
+		require_once("install/sql_install.php");
 		$dbname  = trim($_POST['BDD']);
 		$uname   = trim($_POST['user']);
 		$passwrd = trim($_POST['mdp']);
@@ -105,8 +105,10 @@ switch($step){
 				erreur_SQL();
 			else{
 				mysql_query("set names 'UTF8'");
-				foreach($createtable as $c)
-					mysql_query($c);
+
+				foreach($createtable as $c){
+					echo $c."<br/>";
+					mysql_query($c);}
 				foreach ($configFile as $line_num => $line) {
 					//echo(substr($line,1,16))."/n";
 					switch (substr($line,1,16)) {
@@ -143,7 +145,7 @@ switch($step){
 						}
 	}//else
 		//echo '<script language="Javascript">document.location.replace("install.php?step=2");</script>';
-	displayHeader();unset($_POST);?>
+	displayHeader();unset($_POST);unset($configFile)?>
 		<body>
 			<div id="all">
 				<div id="content">
@@ -185,6 +187,7 @@ switch($step){
 					case 4:
 
 					if (isset($_POST["login"]) && check_admin()){
+						require_once("stul_config.php");
 						require_once("model/connect.php");
 						$query=mysql_query("INSERT INTO STUL_USERS (USER_LOGIN,USER_PASS,USER_DISPLAYNAME,USER_MAIL,USER_REGISTERED,USER_STATUS) VALUES ('".$_POST["login"]."','".sha1($_POST["mdp"])."','".$_POST["login"]."','".$_POST["mail"]."',now(),2);");
 					}
@@ -205,6 +208,8 @@ switch($step){
 									<div id="formulaire">
 										<form action="install.php?step=5" method="POST" name="site">
 											<input type='text' name='nom' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
+											<label for="nom">Nom du répertoire parent du site</label><br/>
+											<input type='text' name='site' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
 											<label for="nom">Nom du site</label><br/>
 										</div>
 									</div>
@@ -222,13 +227,23 @@ switch($step){
 					<?php
 					break;
 					case 5:
+					print_r($_POST);
+					$configFile= file('stul_config.php');
 					if (isset($_POST["nom"])){
 						$nom=$_POST["nom"];
+						$site=$_POST["site"];
+						//print_r($configFile);
 						foreach ($configFile as $line_num => $line) {
-							switch (substr($line,0,6)) {
-								case '$Site ':
+							//echo $nom;
+							//echo substr($line,1,6)."<br/>";
+							switch (substr($line,1,6)) {
+								case 'Site =':
 									$configFile[$line_num] = str_replace("nom-site", $nom, $line);
 								break;
+								case 'Title ':
+									$configFile[$line_num] = str_replace("titre", $site, $line);
+								break;
+
 						
 							}
 						}
