@@ -1,5 +1,4 @@
 <?php
-	include_once "stul_config.php";
 	function form_search()
 	{
 		/*<form method="get" id="searchform" action="http://elegantthemes.com/preview/Evolution/">
