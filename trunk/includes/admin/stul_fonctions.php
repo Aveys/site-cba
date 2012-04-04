@@ -110,12 +110,12 @@ function checkLoginAdmin( $login, $pass){
 		$_SESSION["pass"] = $passwordF;
 		$_SESSION["keyAdmin"] = md5($passwordF*$loginF);
 		$_SESSION["adminAuth"] = 1;
-	    header('Location:'.$fmAdmin);           
+		echo '<script language="Javascript">document.location.replace("'.$fmAdmin.'");</script>';	//redirection vers l'index.php
 	}
 	else
 	{
 		$_SESSION["error_loginAdmin_message"] = "Ce login ou mots de passe n'existe pas";
-		header('Location:'.$fmAdmin);      
+		echo '<script language="Javascript">document.location.replace("'.$fmAdmin.'");</script>';	//redirection vers l'index.php
 	}
 }
 

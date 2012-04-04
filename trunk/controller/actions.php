@@ -63,7 +63,7 @@
 	}
 	if(isset($_POST['url']))
 	{
-		header("Location:../".$_POST['url']);	//redirection vers l'index.php
+		echo '<script language="Javascript">document.location.replace("../'.$_POST['url'].'");</script>';	//redirection vers l'index.php
 	}
 	else
 		echo '<script language="Javascript">document.location.replace("../.");</script>';	//redirection vers l'index.php

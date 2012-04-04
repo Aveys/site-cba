@@ -142,8 +142,7 @@ switch($step){
 							}
 						}
 	}//else
-		//header("location:install.php?step=2");
-
+		//echo '<script language="Javascript">document.location.replace("install.php?step=2");</script>';
 	displayHeader();unset($_POST);?>
 		<body>
 			<div id="all">
@@ -190,7 +189,7 @@ switch($step){
 						$query=mysql_query("INSERT INTO STUL_USERS (USER_LOGIN,USER_PASS,USER_DISPLAYNAME,USER_MAIL,USER_REGISTERED,USER_STATUS) VALUES ('".$_POST["login"]."','".sha1($_POST["mdp"])."','".$_POST["login"]."','".$_POST["mail"]."',now(),2);");
 					}
 					//else
-						//header("location:install.php?step=4");
+						//echo '<script language="Javascript">document.location.replace("install.php?step=4");</script>';
 					displayHeader();?>
 					<body>
 						<div id="all">
@@ -244,7 +243,7 @@ switch($step){
 							erreur_ecriture();
 					}
 					else
-						header("location:install.php?step=5");
+						echo '<script language="Javascript">document.location.replace("install.php?step=5");</script>';
 					displayHeader();//delete_file();
 					?>
 					<body>
@@ -298,11 +297,10 @@ switch($step){
 					<?php
 				}
 				function erreur_SQL(){
-					header("location:install/error.php?id=1&host=".$_POST["host"]);
-
+					echo '<script language="Javascript">document.location.replace("'."install/error.php?id=1&host=".$_POST["host"].'");</script>';
 				}
 				function erreur_ecriture(){
-					header("location:install/error.php?id=2");
+					echo '<script language="Javascript">document.location.replace("install/error.php?id=2");</script>';
 
 				}
 				function check_admin(){

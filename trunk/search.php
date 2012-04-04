@@ -15,21 +15,28 @@
 	function search($text)
 	{
 		$mot_recherche = explode(" ", $text);
-		if($_GET['type_search'] == "all_words")
+		if($_GET['type_search'] == "all_words" && count($mot_recherche) > 1)
 			$post_trouve = all_possibility($mot_recherche);
 		else
 			$post_trouve = quick_search($mot_recherche);
-		usort($post_trouve, "cmp");
-		foreach ($post_trouve as $key => $value) {
-			echo "<div class='article'>";
-				affichage_article($value,1);
-			echo "</div>";
-			echo "<div class='info_article'>Fait par ";
-			link_profil(sql_user_who_post($value['POST_ID']));
-			echo " le ";
-			dateTimeToTime($value['POST_DATE']);
-			echo $value['nb'];
-			echo "</div>";
+		if(isset($post_trouve))
+		{
+			usort($post_trouve, "cmp");
+			foreach ($post_trouve as $key => $value) {
+				echo "<div class='article'>";
+					affichage_article($value,1);
+				echo "</div>";
+				echo "<div class='info_article'>Fait par ";
+				link_profil(sql_user_who_post($value['POST_ID']));
+				echo " le ";
+				dateTimeToTime($value['POST_DATE']);
+				echo $value['nb'];
+				echo "</div>";
+			}
+		}
+		else
+		{
+			echo "Aucun résultat trouvé";
 		}
 	}
 	function cmp($a,$b)
@@ -71,12 +78,12 @@
 				$tableau_index_possibles[] = $chaine_finale;
 			}
 		}
-		return $post_trouve;
+		if(isset($post_trouve))
+			return $post_trouve;
 	}
 	function quick_search($mots)
 	{
 		foreach ($mots as $key => $value) {
-			
 			$result = sql_recherche(trim($value));
 			foreach ($result as $key => $res) {
 				while($row = mysql_fetch_assoc($res))
@@ -91,7 +98,8 @@
 				}
 			}
 		}
-		return $post_trouve;
+		if(isset($post_trouve))
+			return $post_trouve;
 	}
 
 ?>

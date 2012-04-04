@@ -53,7 +53,7 @@
     <body class="white">
         <?php 
             if(!(isset($_SESSION["keyAdmin"]) == (isset($_SESSION["pass"])*isset($_SESSION["login"])) && isset($_SESSION["adminAuth"]) == 1))
-                header('Location:../../../stul_admin.php');
+                echo '<script language="Javascript">document.location.replace("../../../stul_admin.php");</script>';
 
             if(isset($_GET["action"]) == "logout")
             {
@@ -61,8 +61,7 @@
                     unset($_SESSION["pass"]);
                     unset($_SESSION["keyAdmin"]);
                     unset($_SESSION["adminAuth"]);
-                    
-                    header('Location:../../../stul_admin.php');
+                    echo '<script language="Javascript">document.location.replace("../../../stul_admin.php");</script>';
             }
             ?>
 

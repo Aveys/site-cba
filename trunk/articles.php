@@ -104,7 +104,7 @@ function affichage_article($row,$masque)
 		echo "<form method='post' class='form_lire_la_suite' name='lireLaSuite' id='lireLaSuite' action='?page=article&POST_ID=".$row["POST_ID"]."'>";
 			echo "<input type='submit' name='action' value='Lire la suite'/>";
 		echo"</form>";
-		button_delete_post($row['POST_ID']);			//bouton delete pour supprimer le post
+		//button_delete_post($row['POST_ID']);			//bouton delete pour supprimer le post
 		echo "</br>";
 	}
 	else

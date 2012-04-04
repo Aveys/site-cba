@@ -3,7 +3,6 @@
 $idArticle = $_GET["id"];  
 
 sql_delete_post($idArticle);
-
-header('Location:./viewer/index.php?mode=editArticles'); 
+echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
 ?>
 

@@ -84,7 +84,7 @@ if (isset($_GET["id"])){
 			break;
 		
 		default:
-			header("location:install.php");
+			echo '<script language="Javascript">document.location.replace("install.php");</script>';
 			break;
 	}
 }
