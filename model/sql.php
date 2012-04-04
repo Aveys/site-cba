@@ -28,9 +28,13 @@
          $result = mysql_query($query) or die(mysql_error());
          $row = mysql_fetch_assoc($result);
          $_SESSION["id"] = $row["user_id"];
-         $query = "insert into STUL_LOG(user_id,date_connexion) values('".escape($_SESSION['id'])."',now())";
-         $result = mysql_query($query) or die(mysql_error());
+         sql_log_connexion();
       }
+   }
+   function sql_log_connexion()
+   {
+      $query = "insert into STUL_LOG(user_id,date_connexion) values('".escape($_SESSION['id'])."',now())";
+      $result = mysql_query($query) or die(mysql_error());
    }
    /* fonction admin qui permet d'ajouter un utilisateur en verifiant qu'il est pas deja le meme login dans la BDDD*/
    function sql_inscrire_user_by_admin($login, $pass, $pseudo, $email, $dateReg, $status)
@@ -273,6 +277,10 @@
       }
       $result = mysql_fetch_assoc(mysql_query('select count(*) as "nb" from STUL_VISITES where jour >= "'.escape($dateDebut).'" and jour <= "'.$dateFin.'"'));
       return $result['nb'];
+   }
+   function affiche_100_last_connexion()
+   {
+      return mysql_query("select * from STUL_LOG order by ID desc LIMIT 100");
    }
    function getCategory($num){
       $result=mysql_fetch_assoc(mysql_query('select CATEGORY_NAME as "nom" from STUL_CATEGORY WHERE CATEGORY_ID = "'.$num.'";'));

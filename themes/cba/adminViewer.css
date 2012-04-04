@@ -3052,7 +3052,11 @@ ageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#afceed',
 }
 
 #content .coms td{
-	padding: 5px;
+	min-width: 100px;
+}
+
+#content .connexion td{
+	padding:0px 50px;
 }
 
 .errorInput{
