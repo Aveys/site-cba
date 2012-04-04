@@ -1,0 +1,8 @@
+<?php 
+
+$idCom = $_GET["id"];  
+
+sql_delete_com($idCom);
+echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editComs");</script>';
+?>
+

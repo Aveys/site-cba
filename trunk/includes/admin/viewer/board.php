@@ -29,7 +29,7 @@
                 </div>
                 <div class="content">
                     <div class="center">
-                         <a href="#" class="shortcut">
+                         <a href="?mode=editComs" class="shortcut">
                             <img src="img/icons/note-sticky.png" alt="" width="48" height="48" />
                             Gérer les commentaires
                         </a>

@@ -21,6 +21,10 @@
 				sql_delete_user($_GET["id"]);
 				echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editComptes");</script>';
 			break;
+			case 'delCom':
+				sql_delete_com($_GET["id"]);
+				echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editComs");</script>';
+			break;
 			
 			default:break;
 		}
@@ -45,6 +49,11 @@
 			case 'Mettre à jour':
 				sql_edit_post($_POST);
 				echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
+			break;
+
+			case 'Mettre à jour le commentaire':
+				sql_edit_com($_POST);
+				echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editComs");</script>';
 			break;
 
 			case 'Mettre à jour le compte':

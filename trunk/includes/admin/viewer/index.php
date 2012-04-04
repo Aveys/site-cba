@@ -93,6 +93,14 @@
                     include_once("edit_article.php");
                 break;
 
+                case 'editComs':
+                    include_once("edit_coms.php");
+                break;
+
+                case 'editCom':
+                    include_once("edit_com.php");
+                break;
+
                 case 'delArticle':
                     include_once("del_article.php");
                 break;

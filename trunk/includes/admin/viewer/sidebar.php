@@ -15,7 +15,7 @@
                 <li>
                     <a href="#"><img src="img/icons/menu/comments.png" alt="" /> Commentaires</a>
                     <ul>
-                        <li><a href="#">Gérer les Commentaires</a></li>
+                        <li><a href="?mode=editComs">Gérer les Commentaires</a></li>
                     </ul>
                 </li>
 
