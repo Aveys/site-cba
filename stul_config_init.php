@@ -14,6 +14,7 @@ $vTheme			= 'themes/cba';
 $fcAction	 	= "controller/actions.php";
 $fcUserView		= "user_view.php";
 $fcArticle		= "articles.php";
+$fcSearch		= "search.php";
 
 $fmConnect 		= "model/connect.php";
 $fmEscape		= "model/escape.php";

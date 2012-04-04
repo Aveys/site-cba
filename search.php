@@ -2,14 +2,22 @@
 	include_once "stul_config.php";
 	function form_search()
 	{
-		echo "<form name='search' action='.?recherche=1' method='GET' >";
+		/*<form method="get" id="searchform" action="http://elegantthemes.com/preview/Evolution/">
+
+							<input type="text" value="Search this site..." name="s" id="searchinput" />
+
+														<input type="image" src="http://elegantthemes.com/preview/Evolution/wp-content/themes/Evolution/images/search_btn.png" id="searchsubmit" />
+
+						</form>*/
+
+		echo "<form name='search' id='searchform' action='.?recherche=1' method='GET' >";
 			// Recherche
-			echo "<label for='Recherche'>Recherche :</label>";
-			echo "<input name='recherche' onBlur='verifRecherche(this)'/></br>";
-			echo '<input type="radio" checked="checked" name="type_search" value="quick_search"> Rapide recherche';
+			echo "<div id='search_div'>";
+			echo "<input type='text' name='recherche' id='searchinput' value ='Rechercher' onBlur='verifRecherche(this)'/>";
+			echo "<input type='image' src='http://elegantthemes.com/preview/Evolution/wp-content/themes/Evolution/images/search_btn.png' id='searchsubmit' />";
+			echo "</div>";
+			echo '<input type="radio" checked="checked" name="type_search" value="quick_search"> Recherche Rapide';
 			echo '<input type="radio" name="type_search" value="all_words"> Rechercher tous les mots';
-			// submit
-			echo "</br><input type='submit' name='action' value='Rechercher'/>";
 		echo "</form>";
 	}
 	function search($text)
