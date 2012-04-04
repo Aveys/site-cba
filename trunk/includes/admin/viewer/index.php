@@ -85,6 +85,9 @@
                 case 'editArticles':
                     include_once("edit_articles.php");
                 break; 
+                case 'viewConnect':
+                    include_once("view_connect.php");
+                break; 
 
                 case 'board':
                     include_once("board.php");

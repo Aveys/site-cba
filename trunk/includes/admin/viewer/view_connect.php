@@ -1,8 +1,5 @@
 
 <div id="content" class="black">
-                      
-            
-                    
             <!--Bloc pour le mode Articles-->        
             <div class="bloc">
                 <div class="title">
