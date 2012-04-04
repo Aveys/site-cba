@@ -12,7 +12,7 @@
                     <div class="center" >
                          <table>
                             <thead>
-                                <th>Titre</th><th>Auteur</th><th>Catégories</th><th>Commentaires</th><th>Date</th><th>Edit</th><th>Supprimer</th>
+                                <th>Titre</th><th>Auteur</th><th>Catégories</th><th>Tags</th><th>Commentaires</th><th>Date</th><th>Edit</th><th>Supprimer</th>
                             </thead>
                             <tbody>
                             <?php
@@ -23,8 +23,9 @@
                                     //On remplit la table des articles
                                     echo "<tr>";
                                         echo "<td>".$row["POST_TITLE"]."</td>";                               
-                                        echo "<td>".$infoUser['user_login']."</td>";
-                                        echo "<td>".$row["POST_CATEGORY"]."</td>";
+                                        echo "<td>".$infoUser["USER_LOGIN"]."</td>";
+                                        echo "<td>".$row["CATEGORY_ID"]."</td>";
+                                        echo "<td>".$row["POST_TAG"]."</td>";
                                         echo "<td>0</th>";
                                         echo "<td>".$row["POST_DATE"]."</td>";
                                         echo "<td><a href='?mode=editArticle&id=".$row["POST_ID"]."'><img src='img/icons/pencil.png' width='24' height='24'/></a></td>";

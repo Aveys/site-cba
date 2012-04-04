@@ -2,8 +2,8 @@
    require_once($a_fmConnect);
    /* fonction sql d'insertion dans la bdd d'un nouveau post
    */
-   function addArticle($texte, $pseudo,$title,$tag){
-      mysql_query("insert into STUL_POST(post_content, user_id, post_date,post_title,post_tag) values ('".$texte."','".$pseudo."',now(),'".$title."','".$tag."')");
+   function addArticle($texte, $pseudo,$title,$tag,$category){
+      mysql_query("insert into STUL_POST(post_content, user_id, post_date,post_title,post_tag,category_id) values ('".$texte."','".$pseudo."',now(),'".$title."','".$tag."','".$category."')");
       //mysql_query("insert into synchro_jaime_log(id_log, id_article, jaime) values ('".$pseudo."','".mysql_insert_id()."',0)");
    }
    /* fonction sql d'insertion dans la bdd d'un nouveau commentaire avec un lien sur un post
@@ -183,7 +183,7 @@
    */
    function sql_edit_post($post)
    {//post_content = '".$post['article']."'
-      mysql_query("update STUL_POST set post_content='".$post['content']."', post_title='".$post['title']."' where post_id=".$post['id_post']."");
+      mysql_query("update STUL_POST set post_content='".$post['content']."', post_title='".$post['title']."', post_tag='".$post["tags"]."', post_category='".$post["category"]."' where post_id=".$post['id_post']."");
    }
    /* supprime le post proposé avec suppression de ses commentaires en cascade
    */

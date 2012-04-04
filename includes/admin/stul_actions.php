@@ -37,6 +37,7 @@
 					unset($_SESSION["pass"]);
 					unset($_SESSION["keyAdmin"]);
 					unset($_SESSION["adminAuth"]);
+					unset($_SESSION["idUser"]);
 					
 					header('Location:.'); 
 				break;
@@ -53,12 +54,13 @@
 
 			case 'Ajouter ce compte':
 				sql_inscrire_user_by_admin($_POST["login"], $_POST["password"], $_POST["pseudo"], $_POST["email"], $_POST["dateReg"], $_POST["status"]);
+				//La redirection ce fera dans action, si oui ou non le login et valide
 				//header('Location:./viewer/index.php?mode=editComptes'); 
 			break;
 
 
 			case "Ajouter l'article":
-				addArticle($_POST['title'], $_POST['content'], 0, 1);
+				addArticle($_POST['content'], $_SESSION["idUser"],$_POST['title'], $_POST['tags'], $_POST['category']);				
 				header('Location:./viewer/index.php?mode=editArticles'); 
 			break;
 

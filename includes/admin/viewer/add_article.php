@@ -10,12 +10,20 @@
                  <form method="POST" action='../../../<?php echo $fAdminAction;?>'> 
                     <div class="input textarea">
                     <p>
-                        <label for="textTitle">Titre</label>
-                        <input type="text" id="title" name="title" class="." onFocus="empty(this)" onBlur="empty(this)" value=""/>
+                        <label for="title">Titre</label>
+                        <input type="text"  name="title"  value=""/>
                     </p>
                     <p>
-                        <label for="textarea2">Ajouter du texte</label>
-                        <textarea name="content" id="test" rows="7" class="wysiwyg" cols="4">.</textarea>
+                        <label for="category">Categorie</label>
+                        <input type="text"  name="category" value=""/>
+                    </p>
+                    <p>
+                        <label for="tags">Tags</label>
+                        <input type="text"  name="tags" value=""/>
+                    </p>
+                    <p>
+                        <label for="content">Ajouter du texte</label>
+                        <textarea name="content" id="test" rows="7" class="wysiwyg" cols="4"></textarea>
                     </p>
                     </div>
                     <div class="input">
