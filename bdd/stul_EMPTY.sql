@@ -10,6 +10,8 @@ drop table if exists STUL_CATEGORY;
 
 drop table if exists STUL_LOG;
 
+drop table if exists STUl_VISITES;
+
 create table STUL_COMMENT
 (
    COM_ID               int not null auto_increment,
