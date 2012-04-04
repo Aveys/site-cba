@@ -57,13 +57,12 @@
 				//La redirection ce fera dans action, si oui ou non le login et valide
 				//echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editComptes");</script>';
 			break;
-
-
 			case "Salut":
 				//print_r($_POST);
 				//addArticle($_POST['content'], $_SESSION["idUser"],$_POST['title'], $_POST['tags'], $_POST['category']) or die(mysql_error());	
 				addArticle(escape($_POST['content']), $_SESSION["idUser"], escape($_POST['title']), escape($_POST['tags']), $_POST['category']);				
-				header('Location:./viewer/index.php?mode=editArticles');
+				echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
+				//header('Location:./viewer/index.php?mode=editArticles');
 			break;
 
 			default:break;

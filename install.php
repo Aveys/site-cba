@@ -107,7 +107,6 @@ switch($step){
 				mysql_query("set names 'UTF8'");
 
 				foreach($createtable as $c){
-					echo $c."<br/>";
 					mysql_query($c);}
 				foreach ($configFile as $line_num => $line) {
 					//echo(substr($line,1,16))."/n";
@@ -227,7 +226,6 @@ switch($step){
 					<?php
 					break;
 					case 5:
-					print_r($_POST);
 					$configFile= file('stul_config.php');
 					if (isset($_POST["nom"])){
 						$nom=$_POST["nom"];
