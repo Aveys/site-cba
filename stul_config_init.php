@@ -27,6 +27,7 @@ $fvLayout		= "view/layout.php";
 $fvInscription	= "view/inscription.php";
 $fvInstall		= "install.php";
 $fvArticle		= "view/article.php";
+$fvProfil		= "view/profil.php";
 
 $fAdmin 		= "stul_admin.php";
 $fViewerAdmin	= "includes/admin/viewer/index.php";
@@ -50,6 +51,7 @@ $a_fvLayout			= $rootSite."view/layout.php";
 $a_fvInscription	= $rootSite."view/inscription.php";
 $a_fvInstall		= $rootSite."install.php";
 $a_fvArticle		= $rootSite."view/article.php";
+$a_fvProfil			= $rootSite."view/profil.php";
 
 $a_fAdmin 			= $rootSite."stul_admin.php";
 $a_fViewerAdmin		= $rootSite."includes/admin/viewer/index.php";

@@ -2,7 +2,7 @@
 session_start(); 
 include_once "connect.php";
 include_once "sql.php";
-include_once "user_view.php";
+include_once($a_fcUserView);
 include_once "includes/admin/stul_fonctions.php";
 include_once "articles.php";
 ?>
