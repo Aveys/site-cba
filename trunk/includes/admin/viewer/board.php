@@ -56,6 +56,20 @@
                 </div>
             </div>
 
+            <!--Bloc pour le mode Historique--> 
+            <div class="bloc">
+                <div class="title">
+                    Historique
+                </div>
+                <div class="content">
+                    <div class="center">
+                        <a href="#" class="shortcut">
+                            <img src="img/icons/document-2.png" alt="" width="48" height="48"/>
+                            Gestion des connexions
+                        </a>
+                    </div>
+                </div>
+            </div>
             <!--Bloc pour le mode Options--> 
             <div class="bloc">
                 <div class="title">
