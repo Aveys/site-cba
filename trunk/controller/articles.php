@@ -86,12 +86,14 @@ function displayArticles(){
 			echo "Aucun article disponible";
 		while($row=mysql_fetch_assoc($result)){
 			echo "<div class='article'>";
+				echo "<div id='titre-article'><h3>".$row["POST_TITLE"]."</h3></div><div id='contenu-article'>";
 				affichage_article($row,1);
-			echo "</div>";
-			echo "<div class='info_article'>Fait par ";
+
+			echo "</div><div class='info_article'><div id='auteur'>Fait par ";
 			link_profil(sql_user_who_post($row['POST_ID']));
-			echo " le ";
+			echo " </div>le ";
 			dateTimeToTime($row['POST_DATE']);
+			echo "</div>";
 			echo "</div>";
 		}
 }
