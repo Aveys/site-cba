@@ -1,0 +1,419 @@
+/*
+CSS Bois-Nature
+Autheur : Mathieu MARTIN
+Data : 15/02/2012
+*/
+/*ON EXPLOSE TOUT :D*/
+* {
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+/*Page*/
+/*---------------------------------------*/
+body {
+  color: #FFFFFF;
+  background: url("images/wood.jpg") repeat;
+  font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
+  cursor: pointer;
+}
+
+#all {
+  width: 900px;
+  z-index: 1000;
+  margin: auto;
+  padding-top: 40px;
+}
+
+#header {
+  top: 20px;
+  height: 300px;
+  background: url("images/bonsai.png") no-repeat;
+  left: -150px;
+  width: 1200px;
+  background-position: 850px 0px;
+  padding-bottom: 50px;
+}
+
+#header h1 {
+  position: relative;
+  font-size: 100px;
+  margin-left: 60px;
+  padding-top: 80px;
+  margin-right: 366px;
+  color: #F4BC6D;
+  text-shadow: 0px 0px 10px black;
+  -moz-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+#header h1:hover {
+  font-size: 101px;
+  margin-left: 55px;
+  text-shadow: 0px 0px 30px black;
+}
+
+#header #headright {
+  margin-left: 684px;
+  margin-top: -15px;
+  margin-bottom: 10px;
+  color: #F4BC6D;
+}
+
+#wrapper {
+  -moz-box-shadow: 0px 0px 50px black;
+  -webkit-box-shadow: 0px 0px 50px black;
+  -o-box-shadow: 0px 0px 50px black;
+  box-shadow: 0px 0px 50px black;
+  margin: auto;
+  width: 1200px;
+  z-index: 800;
+}
+
+#footer {
+  text-align: center;
+  position: relative;
+  width: 1200px;
+  height: 100px;
+  background-color: #060606;
+  font-size: 0.5em;
+  margin-left: -150px;
+  margin-top: 50px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+}
+
+#footer p:hover {
+  font-size: 14pt;
+}
+
+#footer p {
+  font-size: 12pt;
+  color: #FFFFFF;
+  text-align: center;
+    -moz-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+#footer a {
+  text-decoration: none;
+  color: #b5ff1a;
+}
+
+#footer a:hover {
+  text-shadow: 0px 0px 15px #8ebc23;
+}
+
+#footer #droits {
+  padding: 20px 0px 10px 0px;
+}
+
+/*---------------------------------------*/
+/*Barre de connexion*/
+/*---------------------------------------*/
+/*==Barre==*/
+#auth {
+  /*Degrader*/
+  background-color: #000000;
+  z-index: 1000;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+  /*Position*/
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  padding: 5px;
+  /*Taille*/
+  width: 100%;
+}
+
+#auth:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.7;
+}
+
+#auth P {
+  z-index: 1;
+  text-align: right;
+  margin-right: 10px;
+}
+
+/*==Bouton==*/
+#auth input {
+  border: 1px solid #AAAAAA;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+#auth input[name='login'] {
+  background-color: #808080;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+}
+
+#auth input[name='password'] {
+  background-color: #808080;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+}
+
+#auth input[type='submit'] {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+}
+
+#auth input:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  -moz-box-shadow: 0px 0px 10px #8ebc23;
+  -webkit-box-shadow: 0px 0px 10px #8ebc23;
+  -o-box-shadow: 0px 0px 10px #8ebc23;
+  box-shadow: 0px 0px 10px #8ebc23;
+}
+
+#auth input:focus {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  -moz-box-shadow: 0px 0px 10px #8ebc23;
+  -webkit-box-shadow: 0px 0px 10px #8ebc23;
+  -o-box-shadow: 0px 0px 10px #8ebc23;
+  box-shadow: 0px 0px 10px #8ebc23;
+}
+
+/*---------------------------------------*/
+/*Mutli div*/
+#fichier, #lots, #criteres, #rules, #soumission {
+  margin: 30px 0px;
+  padding: 10px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -o-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#AA000000,endColorstr=#AA000000);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#AA000000,endColorstr=#AA000000);
+  -moz-box-shadow: 0px 0px 10px black;
+  -webkit-box-shadow: 0px 0px 10px black;
+  -o-box-shadow: 0px 0px 10px black;
+  box-shadow: 0px 0px 10px black;
+  -moz-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#fichier:hover, #lots:hover, #criteres:hover, #rules:hover, #soumission:hover {
+  -moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  margin: 40px 0px;
+}
+
+#fichier h1, #lots h1, #criteres h1, #rules h1, #soumission h1 {
+  color: #8EBC23;
+  font-size: 18pt;
+  text-align: left;
+  padding-left: 20px;
+  background: url("images/banbou2.png") repeat-x;
+  background-position: bottom;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  text-shadow: 0px 0px 15px black;
+}
+
+#fichier h1:hover, #lots h1:hover, #criteres h1:hover, #rules h1:hover, #soumission h1:hover {
+  text-shadow: 0px 0px 15px #8ebc23;
+}
+
+/*Block des objectifs*/
+#objectifs {
+  position: inherit;
+  top: -90px;
+  left: -86px;
+}
+
+#objectifs H1 {
+  color: #F4BC6D;
+  text-shadow: 0px 0px 5px black;
+  font-size: 25px;
+}
+
+#objectifs P {
+  color: #FFFFFF;
+  opacity: 0.8;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+/*Block des lots*/
+#lots TABLE {
+  border-collapse: collapse;
+  margin: 20px;
+  width: 95%;
+  font-family: 'Cambria';
+  font-size: 13pt;
+}
+
+#lots TD {
+  padding: 5px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+#lots li {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+#lots TR {
+  -moz-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+#lots TH {
+  padding: 20px 0px;
+  color: #f4bc6d;
+  font-size: 18pt;
+  background-color: rgba(244, 188, 109, 0.2);
+  text-shadow: 0px 0px 15px black;
+}
+
+#lots TR:Hover {
+  background-color: rgba(244, 188, 109, 0.2);
+  text-align: center;
+}
+
+#lots p {
+  font-family: 'Cambria';
+  width: 100%;
+  font-size: 14pt;
+  text-align: center;
+  padding: 10px;
+}
+
+#lots p a {
+  color: #8EBC23;
+  text-decoration: none;
+}
+
+#lots p a:hover {
+  text-shadow: 0px 0px 15px #8ebc23;
+}
+
+/*Block du fichier*/
+#fichier p {
+  font-family: 'Cambria';
+  width: 100%;
+  font-size: 14pt;
+  text-align: left;
+  padding: 10px;
+}
+
+/*Block des criteres*/
+#criteres p {
+  font-family: 'Cambria';
+  width: 100%;
+  font-size: 14pt;
+  text-align: left;
+  padding: 10px;
+}
+
+#criteres ul {
+  font-family: 'Cambria';
+  width: 100%;
+  font-size: 14pt;
+  text-align: left;
+  margin-left: 60px;
+  list-style-type: none;
+}
+
+#criteres li:hover {
+  color: #f4bc6d;
+  list-style-type: circle;
+  list-style-image: url("images/fleche.gif");
+  list-style-position: inside;
+}
+
+#criteres a {
+  text-decoration: none;
+  color: #8EBC23;
+}
+
+#criteres a:hover {
+  text-shadow: 0px 0px 15px #8ebc23;
+}
+
+/*Block des regles*/
+#rules ul {
+  font-family: 'Cambria';
+  width: 100%;
+  font-size: 14pt;
+  text-align: left;
+  padding: 10px;
+  list-style-type: none;
+}
+
+#rules li p {
+  margin-left: 30px;
+}
+
+#rules a {
+  text-decoration: none;
+  color: #8EBC23;
+}
+
+#rules a:hover {
+  text-shadow: 0px 0px 15px #8ebc23;
+}
+
+#rules li:hover {
+  color: #f4bc6d;
+  list-style-type: circle;
+  list-style-image: url("images/fleche.gif");
+  list-style-position: inside;
+}
+
+/*Block soumission*/
+#soumission ul {
+  font-family: 'Cambria';
+  width: 100%;
+  font-size: 14pt;
+  text-align: left;
+  padding: 10px;
+  list-style-type: none;
+}
+
+#soumission a {
+  text-decoration: none;
+  color: #8EBC23;
+}
+
+#soumission a:hover {
+  text-shadow: 0px 0px 15px #8ebc23;
+}
+
+#soumission li:hover {
+  color: #f4bc6d;
+  list-style-type: circle;
+  list-style-image: url("images/fleche.gif");
+  list-style-position: inside;
+}
