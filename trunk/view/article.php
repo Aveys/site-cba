@@ -35,15 +35,7 @@ require_once($a_fcArticle);
 			link_profil(sql_user_who_post($row['POST_ID']));
 			dateTimeToTime($row['POST_DATE']);
 			echo "</div>";
-			echo "<table>";
-				echo "<tr>";
-					echo "<td colspan='3'>";
-						affiche_button_reseausociaux("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-					echo "</td>";
-				echo "</tr>";
-			echo "</table>";
-			echo "<table id='ligne_bouton_post'>";
-			echo "<tr>";
+			affiche_button_reseausociaux("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 					/*if(!(isset($_GET['edit']) && $_GET['edit'] == 1))
 					{
 						echo "<td>";
@@ -53,12 +45,7 @@ require_once($a_fcArticle);
 					echo "<td>";
 						button_delete_post($row['POST_ID'],$fcAction);			//bouton delete pour supprimer le post
 					echo "</td>*/
-					echo "<td>";
-						add_commentaire($row,'▼');		//formulaire ajout de commentaire au post
-					echo "</td>";
-				echo "</tr>";
-			echo "</table>";
-			echo "</br>";
+			add_commentaire($row,'▼');		//formulaire ajout de commentaire au post
 			/*echo "<div class='nbJaime'>";
 				login_qui_aiment($row);
 			echo "</div>";

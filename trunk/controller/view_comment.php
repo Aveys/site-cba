@@ -8,7 +8,7 @@ function add_commentaire($row,$text_button)
 		if(isset($row['com_content']))
 		{
 			echo "<input type='button' onClick=debloque_comment('comOfCom".$row['com_id']."') value='".$text_button."'/>";
-			echo "<form method='post' class='form_comment' name='comOfCom".$row["com_id"]."' id='comOfCom".$row['com_id']."' action='controller/actions.php'>";
+			echo "<form method='post' class='form_comment comOfCom' name='comOfCom".$row["com_id"]."' id='comOfCom".$row['com_id']."' action='controller/actions.php'>";
 				echo "<textarea name='commentaire' cols='50' row='30'></textarea></br>";
 				echo "<input type='submit' name='action' value='Commenter'/>";
 				echo "<input type='hidden' name='id' value='".$row["post_id"]."'/>";
@@ -44,19 +44,12 @@ function afficheCom($row)
 			echo " de ";
 			link_profil($row_com['user_id']);		//apercu du profil de l'auteur du com
 			dateTimeToTime($row_com['com_date']);	//affiche la date de publication au format facebook
-			echo "<table>";
-				if(!(isset($_GET['edit']) && $row_com['com_id'] == $_GET['edit']))
-				{
-					echo "<tr><td>";
-						button_edit_com($row_com['com_id'],$row['POST_ID']);	//bouton pour supprimer le com
-					echo "</td>";
-				}
-				echo "<td>";
-					button_delete_com($row_com['com_id'],$row['POST_ID']);	//bouton pour supprimer le com
-				echo "</td><td>";
-					add_commentaire($row_com,'▼');			//formulaire d'ajout de com à ce com
-				echo "</td></tr>";
-			echo "<table>";
+			if(!(isset($_GET['edit']) && $row_com['com_id'] == $_GET['edit']))
+			{
+				button_edit_com($row_com['com_id'],$row['POST_ID']);	//bouton pour supprimer le com
+			}
+			button_delete_com($row_com['com_id'],$row['POST_ID']);	//bouton pour supprimer le com
+			add_commentaire($row_com,'▼');			//formulaire d'ajout de com à ce com
 			echo "<div id='comOfCom'>";	
 			afficheComOfCom($row_com['com_id']);	//affiche les commentaires de ce commentaire
 			echo "</div>";
@@ -76,9 +69,10 @@ function afficheComOfCom($id_com_parent)
 		echo " de ";
 		link_profil($row_com['USER_ID']);		//apercu du profil de l'auteur du com
 		dateTimeToTime($row_com['COM_DATE']);	//affiche la date de publication au format facebook
+		echo "<div>";
 		button_edit_com($row_com['COM_ID'],$row_com['POST_ID']); //bouton de suppression de ce com
 		button_delete_com($row_com['COM_ID'],$row_com['POST_ID']); //bouton de suppression de ce com
-		echo "</br>";
+		echo "</div></br>";
 	}
 }
 /*	affiche un formulaire de suppression de com seulement si l'utilisateur est admin
@@ -91,7 +85,7 @@ function button_delete_com($idCom,$idPost)
 		{
 			echo "<form name='delete_com' action='controller/actions.php' method='post'>";
 				echo "<input name='id_com' type='hidden' value='".$idCom."'/>";
-				echo "<input name='action' value='Supprimer com' type='submit'/>";
+				echo "<input class='button_com'name='action' value='Supprimer com' type='submit'/>";
 				echo "<input type='hidden' name='url' value='?page=article&POST_ID=".$idPost."'/>";
 			echo "</form>";
 		}
@@ -124,7 +118,7 @@ function button_edit_com($idCom,$idPost)
 		{
 			echo "<form name='edit_com_button' action='?page=article&POST_ID=".$idPost."&edit=".$idCom."' method='post'>";
 				echo "<input name='id_com' type='hidden' value='".$idCom."'/>";
-				echo "<input name='action' value='Editer com' type='submit'/>";
+				echo "<input class='button_com'name='action' value='Editer com' type='submit'/>";
 				echo "<input type='hidden' name='url' value='?page=article&POST_ID=".$idPost."'/>";
 			echo "</form>";
 		}
