@@ -1,7 +1,7 @@
 <?php
     //Auteur : Mathieu MARTIN
     //Date : 02/04/2012    
-    require_once $_SERVER['DOCUMENT_ROOT'].'/INFO/labordna/site-cba/stul_config.php';
+    require_once '../../../stul_config.php';
     require_once $a_fmConnect;
     require_once $a_fAdminAction;
     require_once $a_fmSql;
