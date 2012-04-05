@@ -13,7 +13,7 @@
 		 {
 		 	case "Deconnexion":	//se delog
 				sql_add_log_deconnexion();
-				unset($_SESSION["pseudo"]);
+				unset($_SESSION["login"]);
 				unset($_SESSION["id"]);
 			break;
 		 }
@@ -42,13 +42,13 @@
 			/*case "Jaime":
 				$query = "update stul_post set nbJaime = nbJaime+1 where id='".$_POST["id"]."'";
 				mysql_query($query) or die(mysql_error());
-				$query = "update synchro_jaime_log set jaime = 1 where id_article='".$_POST["id"]."' and id_log='".$_SESSION["pseudo"]."'";
+				$query = "update synchro_jaime_log set jaime = 1 where id_article='".$_POST["id"]."' and id_log='".$_SESSION["login"]."'";
 				$result = mysql_query($query) or die(mysql_error());
 			break;
 			case "J\'aime plus":
 				$query = "update articles set nbJaime = nbJaime-1 where id='".$_POST["id"]."'";
 				mysql_query($query) or die(mysql_error());
-				$query = "update synchro_jaime_log set jaime = 0 where id_article='".$_POST["id"]."' and id_log='".$_SESSION["pseudo"]."'";
+				$query = "update synchro_jaime_log set jaime = 0 where id_article='".$_POST["id"]."' and id_log='".$_SESSION["login"]."'";
 				mysql_query($query) or die(mysql_error());
 			break;*/
 			case "Commenter":	//ajoute un commentaire
@@ -60,7 +60,7 @@
 			break;
 			case "Deconnexion":	//se delog
 				sql_add_log_deconnexion();
-				unset($_SESSION["pseudo"]);
+				unset($_SESSION["login"]);
 				unset($_SESSION["id"]);
 			break;
 			case "Inscription":	//redirige vers la page d'inscription

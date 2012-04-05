@@ -3,7 +3,7 @@
 */
 function add_commentaire($row,$text_button)
 {
-	if(isset($_SESSION['pseudo']))
+	if(isset($_SESSION['login']))
 	{
 		if(isset($row['com_content']))
 		{

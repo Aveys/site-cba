@@ -23,7 +23,7 @@
    {
       if ( checkLogin($_POST["pseudo"], $_POST["mdp"])){
          unset($_SESSION['erreur_connect']);
-         $_SESSION["pseudo"] = $_POST["pseudo"];
+         $_SESSION["login"] = $_POST["pseudo"];
          $query = "select user_id from STUL_USERS where user_login='".escape($_POST["pseudo"])."' and user_pass='".escape(sha1($_POST["mdp"]))."'";
          $result = mysql_query($query) or die(mysql_error());
          $row = mysql_fetch_assoc($result);
