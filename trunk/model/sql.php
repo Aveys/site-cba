@@ -33,7 +33,7 @@
    }
    function sql_log_connexion()
    {
-      $query = "insert into STUL_LOG(user_id,date_connexion) values('".escape($_SESSION['id'])."',now())";
+      $query = "insert into STUL_LOG(user_id,date_connexion) values('".escape($_SESSION['idUser'])."',now())";
       $result = mysql_query($query) or die(mysql_error());
    }
    /* fonction admin qui permet d'ajouter un utilisateur en verifiant qu'il est pas deja le meme login dans la BDDD*/
