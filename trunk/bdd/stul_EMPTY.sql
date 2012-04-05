@@ -55,6 +55,8 @@ create table STUL_USERS
    USER_MAIL            varchar(100),
    USER_REGISTERED      datetime,
    USER_STATUS          smallint,
+   USER_IP              varchar(16),
+   USER_BAN             tinyint,
    primary key (USER_ID)
 );
 
@@ -102,5 +104,6 @@ alter table STUL_POST add constraint FK_APPARTIENT foreign key (CATEGORY_ID)
 alter table STUL_LOG add constraint FK_LOG foreign key (USER_ID)
       references STUL_USERS (USER_ID) on delete restrict on update restrict;
 	  
-INSERT INTO STUL_CATEGORY(CATEGORY_ID) VALUES(0);
+INSERT INTO STUL_CATEGORY(CATEGORY_NAME,CATEGORY_DESC) VALUES('Blog','catégorie news du site'),('News','news du blog');
+
 
