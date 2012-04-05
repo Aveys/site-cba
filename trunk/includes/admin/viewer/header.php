@@ -1,6 +1,6 @@
 <div id="head">
             <div class="right">
-                <a href="#" class="button profile"><img src="img/icons/top/huser.png" alt="" /></a>
+                <a href="#" class="button profile"><img alt='Stul' src="img/icons/top/huser.png" alt="" /></a>
                 Bonjour, 
                 <a href="#"><?php echo $_SESSION["login"];?></a>
                 |

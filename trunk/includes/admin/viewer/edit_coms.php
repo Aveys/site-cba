@@ -29,8 +29,8 @@
                                             echo "<td>".$infoPost["POST_TITLE"]."</td>";
                                             echo "<td>".$row["COM_CONTENT"]."</td>";
                                             echo "<td>".$row["COM_DATE"]."</td>";
-                                            echo "<td><a href='?mode=editCom&id=".$row["COM_ID"]."'><img src='img/icons/pencil.png' width='24' height='24'/></a></td>";
-                                            echo "<td><a href='../stul_actions.php?mode=delCom&id=".$row["COM_ID"]."'><img src='img/icons/trash.png' width='24' height='24'/></a></td>";
+                                            echo "<td><a href='?mode=editCom&id=".$row["COM_ID"]."'><img alt='Stul' src='img/icons/pencil.png' width='24' height='24'/></a></td>";
+                                            echo "<td><a href='../stul_actions.php?mode=delCom&id=".$row["COM_ID"]."'><img alt='Stul' src='img/icons/trash.png' width='24' height='24'/></a></td>";
                                         echo "</tr>";
                                         afficheComOfComAdmin($row["COM_ID"]);
                                     }                                                                
@@ -69,8 +69,8 @@ function afficheComOfComAdmin($id_com_parent)
                     echo "<td style='background-color: white;'>".$infoPost["POST_TITLE"]."</td>";
                     echo "<td style='background-color: white;'>".$row["COM_CONTENT"]."</td>";
                     echo "<td style='background-color: white;'>".$row["COM_DATE"]."</td>";
-                    echo "<td style='background-color: white;'><a href='?mode=editCom&id=".$row["COM_ID"]."'><img src='img/icons/pencil.png' width='24' height='24'/></a></td>";
-                    echo "<td style='background-color: white;'><a href='../stul_actions.php?mode=delCom&id=".$row["COM_ID"]."'><img src='img/icons/trash.png' width='24' height='24'/></a></td>";
+                    echo "<td style='background-color: white;'><a href='?mode=editCom&id=".$row["COM_ID"]."'><img alt='Stul' src='img/icons/pencil.png' width='24' height='24'/></a></td>";
+                    echo "<td style='background-color: white;'><a href='../stul_actions.php?mode=delCom&id=".$row["COM_ID"]."'><img alt='Stul' src='img/icons/trash.png' width='24' height='24'/></a></td>";
                 echo "</tr>";                                                     
             }
             echo "</tbody></table>";

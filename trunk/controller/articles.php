@@ -84,9 +84,9 @@ function displayArticle($idPost){
 		$result = sql_post_of_idPost($idPost);
 		if(mysql_num_rows($result) == 0)
 		{
-			echo "<img src='themes/cba/images/sep_menu_top.png' />";
+			echo "<img alt='Stul' src='themes/cba/images/sep_menu_top.png' />";
 			echo "<div id='no-article'>Aucun article disponible</div>";
-			echo "<img src='themes/cba/images/sep_menu_bottom.png' />";
+			echo "<img alt='Stul' src='themes/cba/images/sep_menu_bottom.png' />";
 		}
 		while($row=mysql_fetch_assoc($result)){
 			$nomCat=getCategory($row["CATEGORY_ID"]);
@@ -97,7 +97,7 @@ function displayArticle($idPost){
 			echo "<div class='article'>";
 				echo "<div class='category' id='category-".$row["CATEGORY_ID"]."'>".$nomCat."</div>";
 				echo "<div id='titre-article'><h3>".$row["POST_TITLE"]."</h3></div>";
-				echo "<div id='article-image'><img src='themes/cba/images/imageArticle1.jpg'/></div>";
+				echo "<div id='article-image'><img alt='Stul' src='themes/cba/images/imageArticle1.jpg'/></div>";
 				echo "<div class='contenu-article'>";
 				affichage_article($row,0);
 			echo "</div><div class='info_article'><span id='auteur'>Fait par ";
@@ -105,7 +105,7 @@ function displayArticle($idPost){
 			echo " </span>";
 			dateTimeToTime($row['POST_DATE']);
 			echo "</div>";
-			echo "<img id='bottom-article' src='themes/cba/images/sep_article_bottom.png' />";
+			echo "<img alt='Stul' id='bottom-article' src='themes/cba/images/sep_article_bottom.png' />";
 			echo "</div>";
 			echo "<table>";
 				echo "<tr>";
@@ -148,9 +148,9 @@ function displayArticles(){
 		$result = sql_all_post();
 		if(mysql_num_rows($result) == 0)
 		{
-			echo "<img src='themes/cba/images/sep_menu_top.png' />";
+			echo "<img alt='Stul' src='themes/cba/images/sep_menu_top.png' />";
 			echo "<div id='no-article'>Aucun article disponible</div>";
-			echo "<img src='themes/cba/images/sep_menu_bottom.png' />";
+			echo "<img alt='Stul' src='themes/cba/images/sep_menu_bottom.png' />";
 		}
 		while($row=mysql_fetch_assoc($result)){
 			$nomCat=getCategory($row["CATEGORY_ID"]);
@@ -161,7 +161,7 @@ function displayArticles(){
 			echo "<div class='article'>";
 				echo "<div class='category' id='category-".$row["CATEGORY_ID"]."'>".$nomCat."</div>";
 				echo "<div id='titre-article'><h3>".$row["POST_TITLE"]."</h3></div>";
-				echo "<div id='article-image'><img src='themes/cba/images/imageArticle1.jpg' /></div>";
+				echo "<div alt='Stul' id='article-image'><img src='themes/cba/images/imageArticle1.jpg' /></div>";
 				echo "<div class='contenu-article'>";
 				affichage_article($row,1);
 
@@ -170,7 +170,7 @@ function displayArticles(){
 			echo " </span>";
 			dateTimeToTime($row['POST_DATE']);
 			echo "</div>";
-			echo "<img id='bottom-article' src='themes/cba/images/sep_article_bottom.png' />";
+			echo "<img alt='Stul' id='bottom-article' src='themes/cba/images/sep_article_bottom.png' />";
 			echo "</div>";
 		}
 }
