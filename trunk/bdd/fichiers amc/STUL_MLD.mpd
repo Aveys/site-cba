@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{EC958332-62F5-4422-95D3-F4ED6A7786B6}" Label="" LastModificationDate="1333365695" Name="Données logiques_1" Objects="117" Symbols="14" Target="MySQL 5.0" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" signature="PDM_DATA_MODEL_XML" version="15.2.0.3042"?>
+<?PowerDesigner AppLocale="UTF16" ID="{EC958332-62F5-4422-95D3-F4ED6A7786B6}" Label="" LastModificationDate="1333608739" Name="Données logiques_1" Objects="145" Symbols="14" Target="MySQL 5.0" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" signature="PDM_DATA_MODEL_XML" version="15.2.0.3042"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -12,11 +12,17 @@
 <a:Code>DONNEES_LOGIQUES_1</a:Code>
 <a:CreationDate>1333364843</a:CreationDate>
 <a:Creator>veysa</a:Creator>
-<a:ModificationDate>1333365247</a:ModificationDate>
+<a:ModificationDate>1333608344</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <a:History>ORG {2A00A3C3-1E4A-4745-B120-1C100F5A19E2}
 DAT 1333365247
-ATT FOPT</a:History>
+ATT FOPT
+DLD {E223DA8D-4E81-4CE7-986A-FD5003B189B6}
+DLD {93D71AC1-C84D-452A-8B3C-20A04087FCD4}
+DLD {5B8D9E95-B10C-4AD4-95A9-6909720F2B4A}
+DLD {2A4C3FDD-B794-470D-8C2E-58854DE625A8}
+DLD {E327C2F0-25BF-4319-88DF-298F35659717}
+ATT MOPT</a:History>
 <a:PackageOptionsText>[FolderOptions]
 
 [FolderOptions\Physical Objects]
@@ -2455,6 +2461,7 @@ CheckModel=Yes
 SaveLinks=Yes
 NameToCode=No
 Notation=2
+PreserveMode=Yes
 
 [ModelOptions\Generate\Oom]
 CheckModel=Yes
@@ -2508,8 +2515,22 @@ PhysOpts=
 
 [ModelOptions\Default Opts\JIDX]
 PhysOpts=</a:ModelOptionsText>
-<c:GenerationOrigins>
+<c:GeneratedModels>
 <o:Shortcut Id="o3">
+<a:ObjectID>B9DD7786-1365-44D7-99DA-F2686F11EAE4</a:ObjectID>
+<a:Name>STUL_MCD</a:Name>
+<a:Code>STUL_MCD</a:Code>
+<a:CreationDate>1333608590</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333608590</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<a:TargetStereotype/>
+<a:TargetID>D0786A53-2DD2-49B4-BAD3-010C40E8617C</a:TargetID>
+<a:TargetClassID>1E597170-9350-11D1-AB3C-0020AF71E433</a:TargetClassID>
+</o:Shortcut>
+</c:GeneratedModels>
+<c:GenerationOrigins>
+<o:Shortcut Id="o4">
 <a:ObjectID>3C8462E3-A79E-4756-AFC3-A232F8E3073A</a:ObjectID>
 <a:Name>Données logiques_1</a:Name>
 <a:Code>DONNEES_LOGIQUES_1</a:Code>
@@ -2523,7 +2544,7 @@ PhysOpts=</a:ModelOptionsText>
 </o:Shortcut>
 </c:GenerationOrigins>
 <c:DBMS>
-<o:Shortcut Id="o4">
+<o:Shortcut Id="o5">
 <a:ObjectID>97DB35BC-D590-4005-AF86-099447CD0213</a:ObjectID>
 <a:Name>MySQL 5.0</a:Name>
 <a:Code>MYSQL50</a:Code>
@@ -2537,13 +2558,13 @@ PhysOpts=</a:ModelOptionsText>
 </o:Shortcut>
 </c:DBMS>
 <c:PhysicalDiagrams>
-<o:PhysicalDiagram Id="o5">
+<o:PhysicalDiagram Id="o6">
 <a:ObjectID>25D5E298-B9D2-4B5B-A20E-0A7E026A7C3A</a:ObjectID>
 <a:Name>Diagramme_1</a:Name>
 <a:Code>DIAGRAMME_1</a:Code>
 <a:CreationDate>1333364851</a:CreationDate>
 <a:Creator>veysa</a:Creator>
-<a:ModificationDate>1333365656</a:ModificationDate>
+<a:ModificationDate>1333608344</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <a:History>ORG {6F6DAAB8-20B7-4BC0-BDC6-66BE684EBF92}
 DAT 1333364852
@@ -3310,14 +3331,14 @@ Shadow=0
 <a:PageOrientation>1</a:PageOrientation>
 <a:PaperSource>15</a:PaperSource>
 <c:Symbols>
-<o:TextSymbol Id="o6">
+<o:TextSymbol Id="o7">
 <a:Text>{\rtf1\ansi\ansicpg1252\deff0\deflang1036{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
 {\*\generator Msftedit 5.41.15.1515;}\viewkind4\uc1\pard\qc\b\f0\fs20 MLD STUL\b0\par
 }
 </a:Text>
 <a:CreationDate>1333365656</a:CreationDate>
-<a:ModificationDate>1333365695</a:ModificationDate>
-<a:Rect>((-1273,28801), (3526,32400))</a:Rect>
+<a:ModificationDate>1333608438</a:ModificationDate>
+<a:Rect>((18452,32551), (23251,36150))</a:Rect>
 <a:TextStyle>4130</a:TextStyle>
 <a:LineColor>0</a:LineColor>
 <a:DashStyle>7</a:DashStyle>
@@ -3325,11 +3346,11 @@ Shadow=0
 <a:ShadowColor>12632256</a:ShadowColor>
 <a:FontName>Arial,8,N</a:FontName>
 </o:TextSymbol>
-<o:ReferenceSymbol Id="o7">
-<a:ModificationDate>1333365539</a:ModificationDate>
-<a:CenterTextOffset>(-1125, -2925)</a:CenterTextOffset>
-<a:Rect>((-15977,19384), (17924,23287))</a:Rect>
-<a:ListOfPoints>((17924,23287),(1379,23287),(1379,21187),(-15977,21187))</a:ListOfPoints>
+<o:ReferenceSymbol Id="o8">
+<a:ModificationDate>1333606942</a:ModificationDate>
+<a:CenterTextOffset>(-2550, -2925)</a:CenterTextOffset>
+<a:Rect>((-15977,19721), (10649,23962))</a:Rect>
+<a:ListOfPoints>((10649,23962),(1379,23962),(1379,21187),(-15977,21187))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
@@ -3338,62 +3359,62 @@ Shadow=0
 SOURCE 0 Arial,8,N
 DESTINATION 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:TableSymbol Ref="o8"/>
+<o:TableSymbol Ref="o9"/>
+</c:SourceSymbol>
+<c:DestinationSymbol>
+<o:TableSymbol Ref="o10"/>
+</c:DestinationSymbol>
+<c:Object>
+<o:Reference Ref="o11"/>
+</c:Object>
+</o:ReferenceSymbol>
+<o:ReferenceSymbol Id="o12">
+<a:ModificationDate>1333608098</a:ModificationDate>
+<a:Rect>((-15864,2821), (2136,21187))</a:Rect>
+<a:ListOfPoints>((2136,4067),(-12302,4067),(-12302,21187))</a:ListOfPoints>
+<a:CornerStyle>2</a:CornerStyle>
+<a:ArrowStyle>1</a:ArrowStyle>
+<a:LineColor>16744576</a:LineColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>CENTER 0 Arial,8,N
+SOURCE 0 Arial,8,N
+DESTINATION 0 Arial,8,N</a:FontList>
+<c:SourceSymbol>
+<o:TableSymbol Ref="o13"/>
+</c:SourceSymbol>
+<c:DestinationSymbol>
+<o:TableSymbol Ref="o10"/>
+</c:DestinationSymbol>
+<c:Object>
+<o:Reference Ref="o14"/>
+</c:Object>
+</o:ReferenceSymbol>
+<o:ReferenceSymbol Id="o15">
+<a:ModificationDate>1333607987</a:ModificationDate>
+<a:Rect>((2269,2987), (12334,24112))</a:Rect>
+<a:ListOfPoints>((2269,4233),(10797,4233),(10797,24112))</a:ListOfPoints>
+<a:CornerStyle>2</a:CornerStyle>
+<a:ArrowStyle>1</a:ArrowStyle>
+<a:LineColor>16744576</a:LineColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>CENTER 0 Arial,8,N
+SOURCE 0 Arial,8,N
+DESTINATION 0 Arial,8,N</a:FontList>
+<c:SourceSymbol>
+<o:TableSymbol Ref="o13"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
 <o:TableSymbol Ref="o9"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:Reference Ref="o10"/>
+<o:Reference Ref="o16"/>
 </c:Object>
 </o:ReferenceSymbol>
-<o:ReferenceSymbol Id="o11">
-<a:ModificationDate>1333365247</a:ModificationDate>
-<a:Rect>((-19539,3143), (2324,21187))</a:Rect>
-<a:ListOfPoints>((2324,4389),(-15977,4389),(-15977,21187))</a:ListOfPoints>
-<a:CornerStyle>2</a:CornerStyle>
-<a:ArrowStyle>1</a:ArrowStyle>
-<a:LineColor>16744576</a:LineColor>
-<a:ShadowColor>12632256</a:ShadowColor>
-<a:FontList>CENTER 0 Arial,8,N
-SOURCE 0 Arial,8,N
-DESTINATION 0 Arial,8,N</a:FontList>
-<c:SourceSymbol>
-<o:TableSymbol Ref="o12"/>
-</c:SourceSymbol>
-<c:DestinationSymbol>
-<o:TableSymbol Ref="o9"/>
-</c:DestinationSymbol>
-<c:Object>
-<o:Reference Ref="o13"/>
-</c:Object>
-</o:ReferenceSymbol>
-<o:ReferenceSymbol Id="o14">
-<a:ModificationDate>1333365247</a:ModificationDate>
-<a:Rect>((2462,3293), (19611,23437))</a:Rect>
-<a:ListOfPoints>((2462,4539),(18074,4539),(18074,23437))</a:ListOfPoints>
-<a:CornerStyle>2</a:CornerStyle>
-<a:ArrowStyle>1</a:ArrowStyle>
-<a:LineColor>16744576</a:LineColor>
-<a:ShadowColor>12632256</a:ShadowColor>
-<a:FontList>CENTER 0 Arial,8,N
-SOURCE 0 Arial,8,N
-DESTINATION 0 Arial,8,N</a:FontList>
-<c:SourceSymbol>
-<o:TableSymbol Ref="o12"/>
-</c:SourceSymbol>
-<c:DestinationSymbol>
-<o:TableSymbol Ref="o8"/>
-</c:DestinationSymbol>
-<c:Object>
-<o:Reference Ref="o15"/>
-</c:Object>
-</o:ReferenceSymbol>
-<o:ReferenceSymbol Id="o16">
-<a:ModificationDate>1333365247</a:ModificationDate>
+<o:ReferenceSymbol Id="o17">
+<a:ModificationDate>1333606963</a:ModificationDate>
 <a:CenterTextOffset>(-5100, 4275)</a:CenterTextOffset>
-<a:Rect>((388,4689), (9350,13613))</a:Rect>
-<a:ListOfPoints>((2600,4689),(9350,4689),(9350,9410),(2600,9410),(2600,4689))</a:ListOfPoints>
+<a:Rect>((388,4397), (9350,13613))</a:Rect>
+<a:ListOfPoints>((2401,4397),(9350,4397),(9350,9410),(2401,9410),(2401,4397))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
@@ -3402,17 +3423,61 @@ DESTINATION 0 Arial,8,N</a:FontList>
 SOURCE 0 Arial,8,N
 DESTINATION 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:TableSymbol Ref="o12"/>
+<o:TableSymbol Ref="o13"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:TableSymbol Ref="o12"/>
+<o:TableSymbol Ref="o13"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:Reference Ref="o17"/>
+<o:Reference Ref="o18"/>
 </c:Object>
 </o:ReferenceSymbol>
-<o:TableSymbol Id="o9">
-<a:ModificationDate>1333365247</a:ModificationDate>
+<o:ReferenceSymbol Id="o19">
+<a:CreationDate>1333607987</a:CreationDate>
+<a:ModificationDate>1333608030</a:ModificationDate>
+<a:Rect>((-14250,27395), (10050,36082))</a:Rect>
+<a:ListOfPoints>((6300,27395),(6300,35495),(-14250,35495))</a:ListOfPoints>
+<a:CornerStyle>2</a:CornerStyle>
+<a:ArrowStyle>1</a:ArrowStyle>
+<a:LineColor>4194432</a:LineColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>CENTER 0 Arial,8,N
+SOURCE 0 Arial,8,N
+DESTINATION 0 Arial,8,N</a:FontList>
+<c:SourceSymbol>
+<o:TableSymbol Ref="o9"/>
+</c:SourceSymbol>
+<c:DestinationSymbol>
+<o:TableSymbol Ref="o20"/>
+</c:DestinationSymbol>
+<c:Object>
+<o:Reference Ref="o21"/>
+</c:Object>
+</o:ReferenceSymbol>
+<o:ReferenceSymbol Id="o22">
+<a:CreationDate>1333608344</a:CreationDate>
+<a:ModificationDate>1333608344</a:ModificationDate>
+<a:Rect>((-25200,-3260), (-16050,19090))</a:Rect>
+<a:ListOfPoints>((-20625,-3260),(-20625,19090))</a:ListOfPoints>
+<a:CornerStyle>2</a:CornerStyle>
+<a:ArrowStyle>1</a:ArrowStyle>
+<a:LineColor>4194432</a:LineColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>CENTER 0 Arial,8,N
+SOURCE 0 Arial,8,N
+DESTINATION 0 Arial,8,N</a:FontList>
+<c:SourceSymbol>
+<o:TableSymbol Ref="o23"/>
+</c:SourceSymbol>
+<c:DestinationSymbol>
+<o:TableSymbol Ref="o10"/>
+</c:DestinationSymbol>
+<c:Object>
+<o:Reference Ref="o24"/>
+</c:Object>
+</o:ReferenceSymbol>
+<o:TableSymbol Id="o10">
+<a:ModificationDate>1333607654</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
 <a:Rect>((-23211,16992), (-8743,25382))</a:Rect>
 <a:LineColor>16512</a:LineColor>
@@ -3432,13 +3497,13 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Table Ref="o18"/>
+<o:Table Ref="o25"/>
 </c:Object>
 </o:TableSymbol>
-<o:TableSymbol Id="o8">
-<a:ModificationDate>1333365247</a:ModificationDate>
+<o:TableSymbol Id="o9">
+<a:ModificationDate>1333607987</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((12118,18605), (23730,27969))</a:Rect>
+<a:Rect>((4921,19280), (16377,28644))</a:Rect>
 <a:LineColor>16512</a:LineColor>
 <a:FillColor>1422826</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -3456,13 +3521,14 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Table Ref="o19"/>
+<o:Table Ref="o26"/>
 </c:Object>
 </o:TableSymbol>
-<o:TableSymbol Id="o12">
-<a:ModificationDate>1333365247</a:ModificationDate>
+<o:TableSymbol Id="o13">
+<a:ModificationDate>1333606963</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((-2477,1168), (7125,7610))</a:Rect>
+<a:Rect>((-2478,525), (6750,7609))</a:Rect>
+<a:AutoAdjustToText>0</a:AutoAdjustToText>
 <a:LineColor>16512</a:LineColor>
 <a:FillColor>1422826</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -3479,16 +3545,18 @@ LABL 0 Arial,8,N</a:FontList>
 <a:BrushStyle>6</a:BrushStyle>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
+<a:ManuallyResized>1</a:ManuallyResized>
 <c:Object>
-<o:Table Ref="o20"/>
+<o:Table Ref="o27"/>
 </c:Object>
 </o:TableSymbol>
-<o:TableSymbol Id="o21">
-<a:ModificationDate>1333365247</a:ModificationDate>
+<o:TableSymbol Id="o20">
+<a:CreationDate>1333607033</a:CreationDate>
+<a:ModificationDate>1333607982</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((-22076,-6636), (-10774,-2142))</a:Rect>
+<a:Rect>((-22102,32551), (-9100,37045))</a:Rect>
 <a:LineColor>16512</a:LineColor>
-<a:FillColor>1422826</a:FillColor>
+<a:FillColor>166354</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
 <a:FontList>STRN 0 Arial,8,N
 DISPNAME 0 Arial,8,N
@@ -3504,23 +3572,73 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Table Ref="o22"/>
+<o:Table Ref="o28"/>
+</c:Object>
+</o:TableSymbol>
+<o:TableSymbol Id="o29">
+<a:CreationDate>1333608102</a:CreationDate>
+<a:ModificationDate>1333608414</a:ModificationDate>
+<a:IconMode>-1</a:IconMode>
+<a:Rect>((9229,-6682), (18213,-2683))</a:Rect>
+<a:LineColor>16512</a:LineColor>
+<a:FillColor>166354</a:FillColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>STRN 0 Arial,8,N
+DISPNAME 0 Arial,8,N
+OWNRDISPNAME 0 Arial,8,N
+Columns 0 Arial,8,N
+TablePkColumns 0 Arial,8,U
+TableFkColumns 0 Arial,8,N
+Keys 0 Arial,8,N
+Indexes 0 Arial,8,N
+Triggers 0 Arial,8,N
+LABL 0 Arial,8,N</a:FontList>
+<a:BrushStyle>6</a:BrushStyle>
+<a:GradientFillMode>65</a:GradientFillMode>
+<a:GradientEndColor>16777215</a:GradientEndColor>
+<c:Object>
+<o:Table Ref="o30"/>
+</c:Object>
+</o:TableSymbol>
+<o:TableSymbol Id="o23">
+<a:CreationDate>1333608215</a:CreationDate>
+<a:ModificationDate>1333608344</a:ModificationDate>
+<a:IconMode>-1</a:IconMode>
+<a:Rect>((-24081,-7419), (-9071,-1951))</a:Rect>
+<a:LineColor>16512</a:LineColor>
+<a:FillColor>166354</a:FillColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>STRN 0 Arial,8,N
+DISPNAME 0 Arial,8,N
+OWNRDISPNAME 0 Arial,8,N
+Columns 0 Arial,8,N
+TablePkColumns 0 Arial,8,U
+TableFkColumns 0 Arial,8,N
+Keys 0 Arial,8,N
+Indexes 0 Arial,8,N
+Triggers 0 Arial,8,N
+LABL 0 Arial,8,N</a:FontList>
+<a:BrushStyle>6</a:BrushStyle>
+<a:GradientFillMode>65</a:GradientFillMode>
+<a:GradientEndColor>16777215</a:GradientEndColor>
+<c:Object>
+<o:Table Ref="o31"/>
 </c:Object>
 </o:TableSymbol>
 </c:Symbols>
 </o:PhysicalDiagram>
 </c:PhysicalDiagrams>
 <c:DefaultDiagram>
-<o:PhysicalDiagram Ref="o5"/>
+<o:PhysicalDiagram Ref="o6"/>
 </c:DefaultDiagram>
 <c:Tables>
-<o:Table Id="o18">
+<o:Table Id="o25">
 <a:ObjectID>34A2D912-C884-4365-B943-3D00B04635AD</a:ObjectID>
 <a:Name>stul_users</a:Name>
 <a:Code>STUL_USERS</a:Code>
 <a:CreationDate>1333364851</a:CreationDate>
 <a:Creator>veysa</a:Creator>
-<a:ModificationDate>1333365527</a:ModificationDate>
+<a:ModificationDate>1333608405</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <a:Comment>table des utilisateurs</a:Comment>
 <a:History>ORG {01828B6F-72D3-418A-B65D-053FD2B80CD1}
@@ -3529,7 +3647,7 @@ ORG {3C73D580-292F-4F7F-A99F-AA17083C9821}
 DAT 1333363616</a:History>
 <a:TotalSavingCurrency/>
 <c:Columns>
-<o:Column Id="o23">
+<o:Column Id="o32">
 <a:ObjectID>7B86DCA3-C6F1-4F75-9E71-314CCBDDC33B</a:ObjectID>
 <a:Name>user_id</a:Name>
 <a:Code>USER_ID</a:Code>
@@ -3545,7 +3663,7 @@ DAT 1333363616</a:History>
 <a:Identity>1</a:Identity>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o24">
+<o:Column Id="o33">
 <a:ObjectID>16F85394-3EC6-4914-96E4-AEC467353788</a:ObjectID>
 <a:Name>user_login</a:Name>
 <a:Code>USER_LOGIN</a:Code>
@@ -3560,7 +3678,7 @@ DAT 1333363616</a:History>
 <a:DataType>varchar(100)</a:DataType>
 <a:Length>100</a:Length>
 </o:Column>
-<o:Column Id="o25">
+<o:Column Id="o34">
 <a:ObjectID>DD582183-1C0B-429C-9B18-8D02B9AE81B0</a:ObjectID>
 <a:Name>user_pass</a:Name>
 <a:Code>USER_PASS</a:Code>
@@ -3575,7 +3693,7 @@ DAT 1333363616</a:History>
 <a:DataType>varchar(100)</a:DataType>
 <a:Length>100</a:Length>
 </o:Column>
-<o:Column Id="o26">
+<o:Column Id="o35">
 <a:ObjectID>3E3E05BD-EC83-49B3-BDB8-742D36A6F229</a:ObjectID>
 <a:Name>user_displayName</a:Name>
 <a:Code>USER_DISPLAYNAME</a:Code>
@@ -3590,7 +3708,7 @@ DAT 1333363616</a:History>
 <a:DataType>varchar(100)</a:DataType>
 <a:Length>100</a:Length>
 </o:Column>
-<o:Column Id="o27">
+<o:Column Id="o36">
 <a:ObjectID>DF8DBB97-E5A3-4D2F-8407-7910C6BBF919</a:ObjectID>
 <a:Name>user_mail</a:Name>
 <a:Code>USER_MAIL</a:Code>
@@ -3605,7 +3723,7 @@ DAT 1333363616</a:History>
 <a:DataType>varchar(100)</a:DataType>
 <a:Length>100</a:Length>
 </o:Column>
-<o:Column Id="o28">
+<o:Column Id="o37">
 <a:ObjectID>E7C1C816-09E1-4E36-8613-5BFCEFA7F667</a:ObjectID>
 <a:Name>user_registered</a:Name>
 <a:Code>USER_REGISTERED</a:Code>
@@ -3619,7 +3737,7 @@ ORG {D9CCCCA9-67C6-44BA-AB1D-B523ECB606F6}
 DAT 1333363616</a:History>
 <a:DataType>datetime</a:DataType>
 </o:Column>
-<o:Column Id="o29">
+<o:Column Id="o38">
 <a:ObjectID>C2EFF5FD-3AB0-4402-8874-49264B090E1C</a:ObjectID>
 <a:Name>user_status</a:Name>
 <a:Code>USER_STATUS</a:Code>
@@ -3635,7 +3753,7 @@ DAT 1333363616</a:History>
 </o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o30">
+<o:Key Id="o39">
 <a:ObjectID>276B674F-7326-4BB7-9265-2D7DE43CA03F</a:ObjectID>
 <a:Name>Identifiant_1</a:Name>
 <a:Code>IDENTIFIANT_1</a:Code>
@@ -3648,12 +3766,12 @@ DAT 1333364852
 ORG {21E9A6F7-6CED-4FC0-8022-B87642A54786}
 DAT 1333363616</a:History>
 <c:Key.Columns>
-<o:Column Ref="o23"/>
+<o:Column Ref="o32"/>
 </c:Key.Columns>
 </o:Key>
 </c:Keys>
 <c:Indexes>
-<o:Index Id="o31">
+<o:Index Id="o40">
 <a:ObjectID>CB994C9D-45B1-497A-994C-CF44841A7FAC</a:ObjectID>
 <a:Name>STUL_USERS_PK</a:Name>
 <a:Code>STUL_USERS_PK</a:Code>
@@ -3663,33 +3781,33 @@ DAT 1333363616</a:History>
 <a:Modifier>veysa</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:LinkedObject>
-<o:Key Ref="o30"/>
+<o:Key Ref="o39"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o32">
+<o:IndexColumn Id="o41">
 <a:ObjectID>B20EAC0D-408A-4C1A-8C8D-F40930FCB206</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Column>
-<o:Column Ref="o23"/>
+<o:Column Ref="o32"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
 </c:Indexes>
 <c:PrimaryKey>
-<o:Key Ref="o30"/>
+<o:Key Ref="o39"/>
 </c:PrimaryKey>
 </o:Table>
-<o:Table Id="o19">
+<o:Table Id="o26">
 <a:ObjectID>14061CCC-A68F-45E9-B9AF-35346DDAA836</a:ObjectID>
 <a:Name>stul_post</a:Name>
 <a:Code>STUL_POST</a:Code>
 <a:CreationDate>1333364851</a:CreationDate>
 <a:Creator>veysa</a:Creator>
-<a:ModificationDate>1333365596</a:ModificationDate>
+<a:ModificationDate>1333608058</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <a:History>ORG {CB4AF1D6-DE9E-48CE-8B75-4B9FA442606C}
 DAT 1333364852
@@ -3697,7 +3815,7 @@ ORG {EC3017C9-FCC2-4D46-8BAD-61BE6309A069}
 DAT 1333363616</a:History>
 <a:TotalSavingCurrency/>
 <c:Columns>
-<o:Column Id="o33">
+<o:Column Id="o42">
 <a:ObjectID>BD98498A-73E4-45CE-A526-A46D12418B2B</a:ObjectID>
 <a:Name>post_id</a:Name>
 <a:Code>POST_ID</a:Code>
@@ -3713,7 +3831,7 @@ DAT 1333363616</a:History>
 <a:Identity>1</a:Identity>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o34">
+<o:Column Id="o43">
 <a:ObjectID>4E2ED9E6-1D28-45B7-8CB2-3E975AF8727F</a:ObjectID>
 <a:Name>user_id</a:Name>
 <a:Code>USER_ID</a:Code>
@@ -3725,7 +3843,7 @@ DAT 1333363616</a:History>
 DAT 1333364852</a:History>
 <a:DataType>int</a:DataType>
 </o:Column>
-<o:Column Id="o35">
+<o:Column Id="o44">
 <a:ObjectID>BA03FEA3-F3A0-46DF-9567-512230F4BF7B</a:ObjectID>
 <a:Name>post_date</a:Name>
 <a:Code>POST_DATE</a:Code>
@@ -3739,21 +3857,23 @@ ORG {0F00F570-C3EF-4C71-A971-62D2CF73D6DF}
 DAT 1333363616</a:History>
 <a:DataType>datetime</a:DataType>
 </o:Column>
-<o:Column Id="o36">
+<o:Column Id="o45">
 <a:ObjectID>03403EEB-DBAD-44F5-B0EA-F62D501F3C67</a:ObjectID>
-<a:Name>post_category</a:Name>
-<a:Code>POST_CATEGORY</a:Code>
+<a:Name>category_id</a:Name>
+<a:Code>CATEGORY_ID</a:Code>
 <a:CreationDate>1333364851</a:CreationDate>
 <a:Creator>veysa</a:Creator>
-<a:ModificationDate>1333364851</a:ModificationDate>
+<a:ModificationDate>1333607900</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <a:History>ORG {763FFD17-78BE-44D9-A6A8-2C0F7FE7E542}
 DAT 1333364852
 ORG {B92F0879-4119-4BD2-A7E6-FCB915DA092C}
-DAT 1333363616</a:History>
+DAT 1333363616
+ATT NAME
+ATT CODE</a:History>
 <a:DataType>int</a:DataType>
 </o:Column>
-<o:Column Id="o37">
+<o:Column Id="o46">
 <a:ObjectID>01BA09A9-707A-4329-8F33-EB7E1557291F</a:ObjectID>
 <a:Name>post_status</a:Name>
 <a:Code>POST_STATUS</a:Code>
@@ -3767,7 +3887,7 @@ ORG {EF7114C2-1ABE-48B1-B2CD-AE0B30574D09}
 DAT 1333363616</a:History>
 <a:DataType>smallint</a:DataType>
 </o:Column>
-<o:Column Id="o38">
+<o:Column Id="o47">
 <a:ObjectID>8EFF2C0B-D4E4-43F3-8488-2EFA5AB65AC0</a:ObjectID>
 <a:Name>post_type</a:Name>
 <a:Code>POST_TYPE</a:Code>
@@ -3781,7 +3901,7 @@ ORG {1416636F-E152-44F3-9C76-06CDA14C74BB}
 DAT 1333363616</a:History>
 <a:DataType>smallint</a:DataType>
 </o:Column>
-<o:Column Id="o39">
+<o:Column Id="o48">
 <a:ObjectID>87B516BB-4316-4D88-AFE9-0C2FC9C68770</a:ObjectID>
 <a:Name>post_content</a:Name>
 <a:Code>POST_CONTENT</a:Code>
@@ -3795,7 +3915,7 @@ ORG {BD92122F-9830-4700-B662-6633F6A28968}
 DAT 1333363616</a:History>
 <a:DataType>text</a:DataType>
 </o:Column>
-<o:Column Id="o40">
+<o:Column Id="o49">
 <a:ObjectID>F79C6BD4-7507-4536-A5CE-AA2758BF28CA</a:ObjectID>
 <a:Name>post_tag</a:Name>
 <a:Code>POST_TAG</a:Code>
@@ -3811,7 +3931,7 @@ DAT 1333363616</a:History>
 </o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o41">
+<o:Key Id="o50">
 <a:ObjectID>2BE288E7-5461-43DC-89E1-EC4C837C2EF6</a:ObjectID>
 <a:Name>Identifiant_1</a:Name>
 <a:Code>IDENTIFIANT_1</a:Code>
@@ -3824,12 +3944,12 @@ DAT 1333364852
 ORG {A0A3A6E0-09F3-4DF7-9C0F-5F8899C9F59D}
 DAT 1333363616</a:History>
 <c:Key.Columns>
-<o:Column Ref="o33"/>
+<o:Column Ref="o42"/>
 </c:Key.Columns>
 </o:Key>
 </c:Keys>
 <c:Indexes>
-<o:Index Id="o42">
+<o:Index Id="o51">
 <a:ObjectID>125280D4-9EA7-4692-9FB6-DEA0DC601ED1</a:ObjectID>
 <a:Name>STUL_POST_PK</a:Name>
 <a:Code>STUL_POST_PK</a:Code>
@@ -3839,22 +3959,22 @@ DAT 1333363616</a:History>
 <a:Modifier>veysa</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:LinkedObject>
-<o:Key Ref="o41"/>
+<o:Key Ref="o50"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o43">
+<o:IndexColumn Id="o52">
 <a:ObjectID>15F80AB3-C98D-4826-B3C1-274F8B02DE4C</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Column>
-<o:Column Ref="o33"/>
+<o:Column Ref="o42"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o44">
+<o:Index Id="o53">
 <a:ObjectID>6D63EB92-978D-4A5A-BE8A-428644CBDE00</a:ObjectID>
 <a:Name>AUTHOR_POST_FK</a:Name>
 <a:Code>AUTHOR_POST_FK</a:Code>
@@ -3863,27 +3983,27 @@ DAT 1333363616</a:History>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:LinkedObject>
-<o:Reference Ref="o10"/>
+<o:Reference Ref="o11"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o45">
+<o:IndexColumn Id="o54">
 <a:ObjectID>B313A778-F152-43BE-B7E1-0485175D6EB0</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Column>
-<o:Column Ref="o34"/>
+<o:Column Ref="o43"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
 </c:Indexes>
 <c:PrimaryKey>
-<o:Key Ref="o41"/>
+<o:Key Ref="o50"/>
 </c:PrimaryKey>
 </o:Table>
-<o:Table Id="o20">
+<o:Table Id="o27">
 <a:ObjectID>00EAAD05-73BC-4702-B288-598746BA11C2</a:ObjectID>
 <a:Name>stul_comment</a:Name>
 <a:Code>STUL_COMMENT</a:Code>
@@ -3898,7 +4018,7 @@ ORG {D5F4D17A-B6F4-4424-A476-FCE9978A30F2}
 DAT 1333363616</a:History>
 <a:TotalSavingCurrency/>
 <c:Columns>
-<o:Column Id="o46">
+<o:Column Id="o55">
 <a:ObjectID>A55D45B7-6EDF-4646-A5F3-9C91D654D5FF</a:ObjectID>
 <a:Name>com_id</a:Name>
 <a:Code>COM_ID</a:Code>
@@ -3913,7 +4033,7 @@ DAT 1333363616</a:History>
 <a:DataType>int</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o47">
+<o:Column Id="o56">
 <a:ObjectID>2212CEA0-A346-4F2C-81CD-4020B592615F</a:ObjectID>
 <a:Name>user_id</a:Name>
 <a:Code>USER_ID</a:Code>
@@ -3925,7 +4045,7 @@ DAT 1333363616</a:History>
 DAT 1333364852</a:History>
 <a:DataType>int</a:DataType>
 </o:Column>
-<o:Column Id="o48">
+<o:Column Id="o57">
 <a:ObjectID>216D431C-96F5-4A60-AB9D-AC4FB6EFCC16</a:ObjectID>
 <a:Name>post_id</a:Name>
 <a:Code>POST_ID</a:Code>
@@ -3938,7 +4058,7 @@ DAT 1333364852</a:History>
 <a:DataType>int</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o49">
+<o:Column Id="o58">
 <a:ObjectID>C3449F37-17A4-4C08-A97F-E341C25E627C</a:ObjectID>
 <a:Name>com_parent</a:Name>
 <a:Code>COM_PARENT</a:Code>
@@ -3952,7 +4072,7 @@ ATT NAME
 ATT CODE</a:History>
 <a:DataType>int</a:DataType>
 </o:Column>
-<o:Column Id="o50">
+<o:Column Id="o59">
 <a:ObjectID>1603A6C8-2C04-4F5E-99BF-2859DD9EBD55</a:ObjectID>
 <a:Name>com_content</a:Name>
 <a:Code>COM_CONTENT</a:Code>
@@ -3968,7 +4088,7 @@ DAT 1333363616</a:History>
 </o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o51">
+<o:Key Id="o60">
 <a:ObjectID>B978BE77-7451-4BD3-9703-7483FB1D6823</a:ObjectID>
 <a:Name>Identifiant_1</a:Name>
 <a:Code>IDENTIFIANT_1</a:Code>
@@ -3981,12 +4101,12 @@ DAT 1333364852
 ORG {41F6721D-D4F9-4228-869F-D760A6DB6710}
 DAT 1333363616</a:History>
 <c:Key.Columns>
-<o:Column Ref="o46"/>
+<o:Column Ref="o55"/>
 </c:Key.Columns>
 </o:Key>
 </c:Keys>
 <c:Indexes>
-<o:Index Id="o52">
+<o:Index Id="o61">
 <a:ObjectID>1F5BA1AB-0A9E-4895-9172-04576DD0E1DC</a:ObjectID>
 <a:Name>STUL_COMMENT_PK</a:Name>
 <a:Code>STUL_COMMENT_PK</a:Code>
@@ -3996,22 +4116,22 @@ DAT 1333363616</a:History>
 <a:Modifier>veysa</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:LinkedObject>
-<o:Key Ref="o51"/>
+<o:Key Ref="o60"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o53">
+<o:IndexColumn Id="o62">
 <a:ObjectID>EB61B2D3-4C55-4BBB-978F-06D56F3F749E</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Column>
-<o:Column Ref="o46"/>
+<o:Column Ref="o55"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o54">
+<o:Index Id="o63">
 <a:ObjectID>7BEE6C9C-D2AB-40D5-97C1-3C73E4EEF276</a:ObjectID>
 <a:Name>AUTHOR_COM_FK</a:Name>
 <a:Code>AUTHOR_COM_FK</a:Code>
@@ -4020,22 +4140,22 @@ DAT 1333363616</a:History>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:LinkedObject>
-<o:Reference Ref="o13"/>
+<o:Reference Ref="o14"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o55">
+<o:IndexColumn Id="o64">
 <a:ObjectID>F12F5A96-89EA-460E-B9CF-76FEC6E7787D</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Column>
-<o:Column Ref="o47"/>
+<o:Column Ref="o56"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o56">
+<o:Index Id="o65">
 <a:ObjectID>7C032008-0AE0-4453-840E-1EDECA861EAF</a:ObjectID>
 <a:Name>BLOG_PARENT_FK</a:Name>
 <a:Code>BLOG_PARENT_FK</a:Code>
@@ -4044,22 +4164,22 @@ DAT 1333363616</a:History>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:LinkedObject>
-<o:Reference Ref="o15"/>
+<o:Reference Ref="o16"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o57">
+<o:IndexColumn Id="o66">
 <a:ObjectID>3DA723B1-C081-4A65-83CF-4A9B6FCEF64A</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Column>
-<o:Column Ref="o48"/>
+<o:Column Ref="o57"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o58">
+<o:Index Id="o67">
 <a:ObjectID>E0263A2B-FDE5-44E3-949F-9C5198A879FA</a:ObjectID>
 <a:Name>COM_PARENT_FK</a:Name>
 <a:Code>COM_PARENT_FK</a:Code>
@@ -4068,149 +4188,213 @@ DAT 1333363616</a:History>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:LinkedObject>
-<o:Reference Ref="o17"/>
+<o:Reference Ref="o18"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o59">
+<o:IndexColumn Id="o68">
 <a:ObjectID>92957A80-DD2F-4359-A8EC-EA109654FD5E</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Column>
-<o:Column Ref="o49"/>
+<o:Column Ref="o58"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
 </c:Indexes>
 <c:PrimaryKey>
-<o:Key Ref="o51"/>
+<o:Key Ref="o60"/>
 </c:PrimaryKey>
 </o:Table>
-<o:Table Id="o22">
-<a:ObjectID>3F91CB2F-2D44-4183-B18F-82065A25E5DD</a:ObjectID>
-<a:Name>stul_options</a:Name>
-<a:Code>STUL_OPTIONS</a:Code>
-<a:CreationDate>1333364851</a:CreationDate>
+<o:Table Id="o28">
+<a:ObjectID>F562319E-7FBE-4433-93AB-4BF934CE5952</a:ObjectID>
+<a:Name>stul_category</a:Name>
+<a:Code>STUL_CATEGORY</a:Code>
+<a:CreationDate>1333607033</a:CreationDate>
 <a:Creator>veysa</a:Creator>
-<a:ModificationDate>1333364852</a:ModificationDate>
+<a:ModificationDate>1333608058</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
-<a:History>ORG {E223DA8D-4E81-4CE7-986A-FD5003B189B6}
-DAT 1333364852
-ORG {DAF5BA74-34F0-4D20-A939-B78D43812471}
-DAT 1333363616</a:History>
 <a:TotalSavingCurrency/>
 <c:Columns>
-<o:Column Id="o60">
-<a:ObjectID>5319ECE1-0FE4-4E32-BE52-3CF294F897E5</a:ObjectID>
-<a:Name>op_id</a:Name>
-<a:Code>OP_ID</a:Code>
-<a:CreationDate>1333364851</a:CreationDate>
+<o:Column Id="o69">
+<a:ObjectID>ECBD1CD1-EC60-4B42-846B-C17CCB1ABF5A</a:ObjectID>
+<a:Name>category_id</a:Name>
+<a:Code>CATEGORY_ID</a:Code>
+<a:CreationDate>1333607179</a:CreationDate>
 <a:Creator>veysa</a:Creator>
-<a:ModificationDate>1333364851</a:ModificationDate>
+<a:ModificationDate>1333607488</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
-<a:History>ORG {5B8D9E95-B10C-4AD4-95A9-6909720F2B4A}
-DAT 1333364852
-ORG {3299E679-B350-41DE-A1F3-1DB9220CF7BA}
-DAT 1333363616</a:History>
 <a:DataType>int</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o61">
-<a:ObjectID>23EF2B40-66B2-434C-8074-498201A4F716</a:ObjectID>
-<a:Name>op_name</a:Name>
-<a:Code>OP_NAME</a:Code>
-<a:CreationDate>1333364851</a:CreationDate>
+<o:Column Id="o70">
+<a:ObjectID>540B42E6-BFCC-4FDA-996B-A4202A332FA5</a:ObjectID>
+<a:Name>category_name</a:Name>
+<a:Code>CATEGORY_NAME</a:Code>
+<a:CreationDate>1333607179</a:CreationDate>
 <a:Creator>veysa</a:Creator>
-<a:ModificationDate>1333365247</a:ModificationDate>
+<a:ModificationDate>1333607356</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
-<a:History>ORG {2A4C3FDD-B794-470D-8C2E-58854DE625A8}
-DAT 1333364852
-ORG {C9D95BAC-A49F-4A53-A901-9FCDF72223BA}
-DAT 1333363616</a:History>
-<a:DataType>varchar(500)</a:DataType>
-<a:Length>500</a:Length>
-<a:Mandatory>1</a:Mandatory>
+<a:DataType>varchar(25)</a:DataType>
+<a:Length>25</a:Length>
 </o:Column>
-<o:Column Id="o62">
-<a:ObjectID>E4BC68F5-2BED-4295-8E8B-041D48B0C0B4</a:ObjectID>
-<a:Name>op_value</a:Name>
-<a:Code>OP_VALUE</a:Code>
-<a:CreationDate>1333364851</a:CreationDate>
+<o:Column Id="o71">
+<a:ObjectID>BE23156C-5BEA-4571-B06F-4095844DF463</a:ObjectID>
+<a:Name>category_desc</a:Name>
+<a:Code>CATEGORY_DESC</a:Code>
+<a:CreationDate>1333607179</a:CreationDate>
 <a:Creator>veysa</a:Creator>
-<a:ModificationDate>1333364851</a:ModificationDate>
+<a:ModificationDate>1333607307</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
-<a:History>ORG {E327C2F0-25BF-4319-88DF-298F35659717}
-DAT 1333364852
-ORG {9486B50C-4AED-48A8-B763-DDB2D187D717}
-DAT 1333363616</a:History>
 <a:DataType>text</a:DataType>
 </o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o63">
-<a:ObjectID>462DD8DA-75FB-4F4A-9652-D55D3D3E7895</a:ObjectID>
-<a:Name>Identifiant_1</a:Name>
-<a:Code>IDENTIFIANT_1</a:Code>
-<a:CreationDate>1333364851</a:CreationDate>
+<o:Key Id="o72">
+<a:ObjectID>80D5CEBC-82AF-45B6-B5B7-C13C3950CA71</a:ObjectID>
+<a:Name>Cle_1</a:Name>
+<a:Code>CLE_1</a:Code>
+<a:CreationDate>1333607405</a:CreationDate>
 <a:Creator>veysa</a:Creator>
-<a:ModificationDate>1333364851</a:ModificationDate>
+<a:ModificationDate>1333607488</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
-<a:History>ORG {93D71AC1-C84D-452A-8B3C-20A04087FCD4}
-DAT 1333364852
-ORG {431F008A-36D5-45B7-9859-B66BC3E987EF}
-DAT 1333363616</a:History>
 <c:Key.Columns>
-<o:Column Ref="o60"/>
-<o:Column Ref="o61"/>
+<o:Column Ref="o69"/>
 </c:Key.Columns>
 </o:Key>
 </c:Keys>
-<c:Indexes>
-<o:Index Id="o64">
-<a:ObjectID>06735DA2-DB94-4D36-88A0-A5210AF99C26</a:ObjectID>
-<a:Name>STUL_OPTIONS_PK</a:Name>
-<a:Code>STUL_OPTIONS_PK</a:Code>
-<a:CreationDate>1333364852</a:CreationDate>
-<a:Creator>veysa</a:Creator>
-<a:ModificationDate>1333364852</a:ModificationDate>
-<a:Modifier>veysa</a:Modifier>
-<a:Unique>1</a:Unique>
-<c:LinkedObject>
-<o:Key Ref="o63"/>
-</c:LinkedObject>
-<c:IndexColumns>
-<o:IndexColumn Id="o65">
-<a:ObjectID>82EBBA61-D34A-450F-8401-2F89BEEFD28F</a:ObjectID>
-<a:CreationDate>1333364852</a:CreationDate>
-<a:Creator>veysa</a:Creator>
-<a:ModificationDate>1333364852</a:ModificationDate>
-<a:Modifier>veysa</a:Modifier>
-<c:Column>
-<o:Column Ref="o60"/>
-</c:Column>
-</o:IndexColumn>
-<o:IndexColumn Id="o66">
-<a:ObjectID>96485CD3-C98B-4010-8113-030D1DF4B788</a:ObjectID>
-<a:CreationDate>1333364852</a:CreationDate>
-<a:Creator>veysa</a:Creator>
-<a:ModificationDate>1333364852</a:ModificationDate>
-<a:Modifier>veysa</a:Modifier>
-<c:Column>
-<o:Column Ref="o61"/>
-</c:Column>
-</o:IndexColumn>
-</c:IndexColumns>
-</o:Index>
-</c:Indexes>
 <c:PrimaryKey>
-<o:Key Ref="o63"/>
+<o:Key Ref="o72"/>
+</c:PrimaryKey>
+</o:Table>
+<o:Table Id="o30">
+<a:ObjectID>8D36E847-3130-4C6A-A7B2-6760D507F47C</a:ObjectID>
+<a:Name>stul_visites</a:Name>
+<a:Code>STUL_VISITES</a:Code>
+<a:CreationDate>1333608102</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333608204</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<a:TotalSavingCurrency/>
+<c:Columns>
+<o:Column Id="o73">
+<a:ObjectID>A7203825-259F-4C7E-9D81-38F9A312B528</a:ObjectID>
+<a:Name>visites_id</a:Name>
+<a:Code>VISITES_ID</a:Code>
+<a:CreationDate>1333608105</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333608204</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<a:DataType>int</a:DataType>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o74">
+<a:ObjectID>20B61CA8-B66B-4642-90B4-C70749263F2D</a:ObjectID>
+<a:Name>visites_jour</a:Name>
+<a:Code>VISITES_JOUR</a:Code>
+<a:CreationDate>1333608105</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333608204</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<a:DataType>date</a:DataType>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+</c:Columns>
+<c:Keys>
+<o:Key Id="o75">
+<a:ObjectID>244752E5-F7B7-48D3-939D-03D19338A2AC</a:ObjectID>
+<a:Name>Cle_1</a:Name>
+<a:Code>CLE_1</a:Code>
+<a:CreationDate>1333608105</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333608153</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<c:Key.Columns>
+<o:Column Ref="o73"/>
+</c:Key.Columns>
+</o:Key>
+</c:Keys>
+<c:PrimaryKey>
+<o:Key Ref="o75"/>
+</c:PrimaryKey>
+</o:Table>
+<o:Table Id="o31">
+<a:ObjectID>C81475A0-26D3-47EA-B07E-DBCAB01D0102</a:ObjectID>
+<a:Name>stul_log</a:Name>
+<a:Code>STUL_LOG</a:Code>
+<a:CreationDate>1333608215</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333608405</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<a:TotalSavingCurrency/>
+<c:Columns>
+<o:Column Id="o76">
+<a:ObjectID>43452739-3781-4BFC-959B-3740E21C0763</a:ObjectID>
+<a:Name>log_id</a:Name>
+<a:Code>LOG_ID</a:Code>
+<a:CreationDate>1333608218</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333608332</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<a:DataType>int</a:DataType>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o77">
+<a:ObjectID>C8ACA3C6-3DA7-41F3-BFD4-48F391869E25</a:ObjectID>
+<a:Name>user_id</a:Name>
+<a:Code>USER_ID</a:Code>
+<a:CreationDate>1333608218</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333608332</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<a:DataType>int</a:DataType>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o78">
+<a:ObjectID>BABADF0E-30F7-4A02-B4F0-0CD53E6BBECA</a:ObjectID>
+<a:Name>log_date_connexion</a:Name>
+<a:Code>LOG_DATE_CONNEXION</a:Code>
+<a:CreationDate>1333608218</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333608332</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<a:DataType>datetime</a:DataType>
+<a:Mandatory>1</a:Mandatory>
+</o:Column>
+<o:Column Id="o79">
+<a:ObjectID>D20C0F76-1377-4F0D-9606-8E60CB9744C5</a:ObjectID>
+<a:Name>log_date_deconnexion</a:Name>
+<a:Code>LOG_DATE_DECONNEXION</a:Code>
+<a:CreationDate>1333608218</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333608332</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<a:DataType>datetime</a:DataType>
+</o:Column>
+</c:Columns>
+<c:Keys>
+<o:Key Id="o80">
+<a:ObjectID>97913D0D-7690-407D-A931-C830B6A92403</a:ObjectID>
+<a:Name>Cle_1</a:Name>
+<a:Code>CLE_1</a:Code>
+<a:CreationDate>1333608218</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333608332</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<c:Key.Columns>
+<o:Column Ref="o76"/>
+</c:Key.Columns>
+</o:Key>
+</c:Keys>
+<c:PrimaryKey>
+<o:Key Ref="o80"/>
 </c:PrimaryKey>
 </o:Table>
 </c:Tables>
 <c:References>
-<o:Reference Id="o10">
+<o:Reference Id="o11">
 <a:ObjectID>F3CE49A9-BD60-470F-A086-29EFB0E2706C</a:ObjectID>
 <a:Name>est l&#39;auteur</a:Name>
 <a:Code>EST_L_AUTEUR</a:Code>
@@ -4224,31 +4408,31 @@ DAT 1333364852</a:History>
 <a:UpdateConstraint>1</a:UpdateConstraint>
 <a:DeleteConstraint>1</a:DeleteConstraint>
 <c:ParentTable>
-<o:Table Ref="o18"/>
+<o:Table Ref="o25"/>
 </c:ParentTable>
 <c:ChildTable>
-<o:Table Ref="o19"/>
+<o:Table Ref="o26"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o30"/>
+<o:Key Ref="o39"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o67">
+<o:ReferenceJoin Id="o81">
 <a:ObjectID>472369B0-FE33-4D1C-BB92-911D428CEC49</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Object1>
-<o:Column Ref="o23"/>
+<o:Column Ref="o32"/>
 </c:Object1>
 <c:Object2>
-<o:Column Ref="o34"/>
+<o:Column Ref="o43"/>
 </c:Object2>
 </o:ReferenceJoin>
 </c:Joins>
 </o:Reference>
-<o:Reference Id="o13">
+<o:Reference Id="o14">
 <a:ObjectID>2041A6A5-2E87-44D6-B541-504BC57F4355</a:ObjectID>
 <a:Name>commente</a:Name>
 <a:Code>COMMENTE</a:Code>
@@ -4264,31 +4448,31 @@ ATT FKCN</a:History>
 <a:UpdateConstraint>1</a:UpdateConstraint>
 <a:DeleteConstraint>1</a:DeleteConstraint>
 <c:ParentTable>
-<o:Table Ref="o18"/>
+<o:Table Ref="o25"/>
 </c:ParentTable>
 <c:ChildTable>
-<o:Table Ref="o20"/>
+<o:Table Ref="o27"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o30"/>
+<o:Key Ref="o39"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o68">
+<o:ReferenceJoin Id="o82">
 <a:ObjectID>BA957508-2561-4871-95FA-BEFEB9CA4C9F</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Object1>
-<o:Column Ref="o23"/>
+<o:Column Ref="o32"/>
 </c:Object1>
 <c:Object2>
-<o:Column Ref="o47"/>
+<o:Column Ref="o56"/>
 </c:Object2>
 </o:ReferenceJoin>
 </c:Joins>
 </o:Reference>
-<o:Reference Id="o15">
+<o:Reference Id="o16">
 <a:ObjectID>1163253E-D98B-48EA-A203-77844CA61547</a:ObjectID>
 <a:Name>A</a:Name>
 <a:Code>A</a:Code>
@@ -4304,31 +4488,31 @@ ATT FKCN</a:History>
 <a:UpdateConstraint>1</a:UpdateConstraint>
 <a:DeleteConstraint>1</a:DeleteConstraint>
 <c:ParentTable>
-<o:Table Ref="o19"/>
+<o:Table Ref="o26"/>
 </c:ParentTable>
 <c:ChildTable>
-<o:Table Ref="o20"/>
+<o:Table Ref="o27"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o41"/>
+<o:Key Ref="o50"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o69">
+<o:ReferenceJoin Id="o83">
 <a:ObjectID>E4802FE8-F38B-489D-AC96-53CF46CB06E8</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Object1>
-<o:Column Ref="o33"/>
+<o:Column Ref="o42"/>
 </c:Object1>
 <c:Object2>
-<o:Column Ref="o48"/>
+<o:Column Ref="o57"/>
 </c:Object2>
 </o:ReferenceJoin>
 </c:Joins>
 </o:Reference>
-<o:Reference Id="o17">
+<o:Reference Id="o18">
 <a:ObjectID>F515F8DD-74A8-4F45-ACA2-04663F07149D</a:ObjectID>
 <a:Name>est parent</a:Name>
 <a:Code>EST_PARENT</a:Code>
@@ -4344,33 +4528,107 @@ ATT FKCN</a:History>
 <a:UpdateConstraint>1</a:UpdateConstraint>
 <a:DeleteConstraint>1</a:DeleteConstraint>
 <c:ParentTable>
-<o:Table Ref="o20"/>
+<o:Table Ref="o27"/>
 </c:ParentTable>
 <c:ChildTable>
-<o:Table Ref="o20"/>
+<o:Table Ref="o27"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o51"/>
+<o:Key Ref="o60"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o70">
+<o:ReferenceJoin Id="o84">
 <a:ObjectID>2C507466-7012-42A8-A632-AA82AE4F147E</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Object1>
-<o:Column Ref="o46"/>
+<o:Column Ref="o55"/>
 </c:Object1>
 <c:Object2>
-<o:Column Ref="o49"/>
+<o:Column Ref="o58"/>
+</c:Object2>
+</o:ReferenceJoin>
+</c:Joins>
+</o:Reference>
+<o:Reference Id="o21">
+<a:ObjectID>8780558A-7053-473C-9202-3A20544C37CE</a:ObjectID>
+<a:Name>APPARTIENT</a:Name>
+<a:Code>APPARTIENT</a:Code>
+<a:CreationDate>1333607987</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333608058</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<a:ForeignKeyConstraintName>FK2_APPARTIENT</a:ForeignKeyConstraintName>
+<a:Cardinality>0..*</a:Cardinality>
+<a:UpdateConstraint>1</a:UpdateConstraint>
+<a:DeleteConstraint>1</a:DeleteConstraint>
+<c:ParentTable>
+<o:Table Ref="o28"/>
+</c:ParentTable>
+<c:ChildTable>
+<o:Table Ref="o26"/>
+</c:ChildTable>
+<c:ParentKey>
+<o:Key Ref="o72"/>
+</c:ParentKey>
+<c:Joins>
+<o:ReferenceJoin Id="o85">
+<a:ObjectID>886146C1-E2C2-458C-A93E-CD2D02ED91CB</a:ObjectID>
+<a:CreationDate>1333607987</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333607987</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<c:Object1>
+<o:Column Ref="o69"/>
+</c:Object1>
+<c:Object2>
+<o:Column Ref="o45"/>
+</c:Object2>
+</o:ReferenceJoin>
+</c:Joins>
+</o:Reference>
+<o:Reference Id="o24">
+<a:ObjectID>8C3BCB3A-AFE2-4BBC-BB6F-2C7D7B3F4AED</a:ObjectID>
+<a:Name>Reference_6</a:Name>
+<a:Code>REFERENCE_6</a:Code>
+<a:CreationDate>1333608344</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333608405</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<a:ForeignKeyConstraintName>FK_EST_ENREGISTRE</a:ForeignKeyConstraintName>
+<a:Cardinality>0..*</a:Cardinality>
+<a:UpdateConstraint>1</a:UpdateConstraint>
+<a:DeleteConstraint>1</a:DeleteConstraint>
+<c:ParentTable>
+<o:Table Ref="o25"/>
+</c:ParentTable>
+<c:ChildTable>
+<o:Table Ref="o31"/>
+</c:ChildTable>
+<c:ParentKey>
+<o:Key Ref="o39"/>
+</c:ParentKey>
+<c:Joins>
+<o:ReferenceJoin Id="o86">
+<a:ObjectID>5F5DEC91-685A-4411-B7DB-AD29A4F95201</a:ObjectID>
+<a:CreationDate>1333608344</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333608344</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<c:Object1>
+<o:Column Ref="o32"/>
+</c:Object1>
+<c:Object2>
+<o:Column Ref="o77"/>
 </c:Object2>
 </o:ReferenceJoin>
 </c:Joins>
 </o:Reference>
 </c:References>
 <c:DefaultGroups>
-<o:Group Id="o71">
+<o:Group Id="o87">
 <a:ObjectID>1386D234-3C1C-4E79-BA4A-4EFB836CDDAE</a:ObjectID>
 <a:Name>PUBLIC</a:Name>
 <a:Code>PUBLIC</a:Code>
@@ -4381,7 +4639,7 @@ ATT FKCN</a:History>
 </o:Group>
 </c:DefaultGroups>
 <c:TargetModels>
-<o:TargetModel Id="o72">
+<o:TargetModel Id="o88">
 <a:ObjectID>65229317-2C7B-4DD2-B2B7-5B4F6C655C3D</a:ObjectID>
 <a:Name>MySQL 5.0</a:Name>
 <a:Code>MYSQL50</a:Code>
@@ -4393,10 +4651,10 @@ ATT FKCN</a:History>
 <a:TargetModelID>F4F16ECD-F2F1-4006-AF6F-638D5C65F35E</a:TargetModelID>
 <a:TargetModelClassID>4BA9F647-DAB1-11D1-9944-006097355D9B</a:TargetModelClassID>
 <c:SessionShortcuts>
-<o:Shortcut Ref="o4"/>
+<o:Shortcut Ref="o5"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o73">
+<o:TargetModel Id="o89">
 <a:ObjectID>3D1FAF76-B648-4910-A3F8-80C55A28C490</a:ObjectID>
 <a:Name>Données logiques_1</a:Name>
 <a:Code>DONNEES_LOGIQUES_1</a:Code>
@@ -4404,8 +4662,23 @@ ATT FKCN</a:History>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333365215</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
-<a:TargetModelURL>file:///P|/AP3/Semaine spé/STUL MCD.mcd</a:TargetModelURL>
+<a:TargetModelURL>file:///P|/AP3/Semaine spé/site-cba/bdd/Fichiers power AMC/STUL MCD.mcd</a:TargetModelURL>
 <a:TargetModelID>2A00A3C3-1E4A-4745-B120-1C100F5A19E2</a:TargetModelID>
+<a:TargetModelClassID>1E597170-9350-11D1-AB3C-0020AF71E433</a:TargetModelClassID>
+<c:SessionShortcuts>
+<o:Shortcut Ref="o4"/>
+</c:SessionShortcuts>
+</o:TargetModel>
+<o:TargetModel Id="o90">
+<a:ObjectID>F5190664-C66E-460A-9530-AC106C0E8704</a:ObjectID>
+<a:Name>STUL_MCD</a:Name>
+<a:Code>STUL_MCD</a:Code>
+<a:CreationDate>1333608590</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333608739</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<a:TargetModelURL>file:///C|/Documents and Settings/veysa/Bureau/amc/fichiers amc/STUL_MCD.mcd</a:TargetModelURL>
+<a:TargetModelID>D0786A53-2DD2-49B4-BAD3-010C40E8617C</a:TargetModelID>
 <a:TargetModelClassID>1E597170-9350-11D1-AB3C-0020AF71E433</a:TargetModelClassID>
 <c:SessionShortcuts>
 <o:Shortcut Ref="o3"/>
