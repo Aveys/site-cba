@@ -58,3 +58,4 @@ require_once($a_fcArticle);
 ?>
 </div>
 </body>
+</html>
