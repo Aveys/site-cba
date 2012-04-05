@@ -1,0 +1,14 @@
+#formulaire{
+	width:500px;
+	position: relative;
+	margin: auto;
+	font-size:15pt;
+}
+
+#formulaire table, tr,th{
+	border:1px solid black;
+}
+
+#formulaire label{
+	padding-right: 80px;
+}

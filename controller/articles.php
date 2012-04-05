@@ -106,7 +106,7 @@ function displayArticles(){
 			echo " </span>";
 			dateTimeToTime($row['POST_DATE']);
 			echo "</div>";
-			echo "<img id='bottom-article' src='themes/cba/images/sep_menu_bottom.png' />";
+			echo "<img id='bottom-article' src='themes/cba/images/sep_article_bottom.png' />";
 			echo "</div>";
 		}
 }
