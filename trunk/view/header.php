@@ -24,6 +24,7 @@
 						<a class="itemMenuBar" id="contact" href=<?php echo $Site."?page=contact" ?>>Contact</a>
 						<img src="themes/cba/images/sep_menu_bottom.png" />
 					</div>
+				<?php displayAddFormLog($fcAction);?>
 
 				</div>
 				</div>
