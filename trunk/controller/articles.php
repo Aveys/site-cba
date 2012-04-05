@@ -4,7 +4,7 @@
 	function displayAddFormLog($fcAction){
 		if (isset($_SESSION["pseudo"])){
 			echo "<h2>".$_SESSION["pseudo"]."</h2>";	
-			echo '<form id="delogin" action="'.$fcAction.'" method="post" >'; ?>
+			echo '<form id="formLogout" action="'.$fcAction.'" method="post" >'; ?>
 				<!-- Unsubmit -->
 			<div id="deconnexion">
 				<input type="submit" name="action" value="Deconnexion"/>
@@ -15,7 +15,7 @@
 		else{
 			if(isset($_SESSION['erreur_connect']))
 				echo $_SESSION['erreur_connect']."</br>";	?>
-			<form name="login" action=<?php echo "'".$fcAction."'" ?> method="post" >
+			<form id="formLogin" action=<?php echo "'".$fcAction."'" ?> method="post" >
 
 				<!-- pseudo -->
 				<label for="pseudo">Pseudo :</label>
@@ -29,7 +29,7 @@
 
 			</form>
 <?php	}	?>
-		<form name="inscription" action="?page=inscription" method="post">
+		<form id="formInscri" action="?page=inscription" method="post">
 			<!-- Unsubmit -->
 			<input type="submit" name="action" value="Inscription"/>
 			<!-- submit -->
