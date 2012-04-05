@@ -13,9 +13,16 @@
                         <label for="title">Titre</label>
                         <input type="text"  name="title"  value="" onBlur="verifTitre(this)"/>
                     </p>
-                    <p>
+                     <p>
                         <label for="category">Categorie</label>
-                        <input type="text"  name="category" value="1" readonly/>
+                        <?php
+                            $allCat = sql_allCat();
+                            echo '<select name=cat>';
+                                while($rowCat=mysql_fetch_assoc($allCat)){
+                                    echo "<option value='".$rowCat['CATEGORY_ID']."'>".$rowCat['CATEGORY_NAME']."</option>";
+                                }
+                            echo '</select>';
+                        ?>
                     </p>
                     <p>
                         <label for="tags">Tags</label>

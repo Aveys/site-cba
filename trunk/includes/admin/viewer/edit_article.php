@@ -4,6 +4,7 @@ $idArticle = $_GET["id"];
 
 $result = sql_post_of_idPost($idArticle);
 $row = mysql_fetch_assoc($result);
+$allCat = sql_allCat();
 
 ?>
 <div id="content" class="black">
@@ -23,7 +24,17 @@ $row = mysql_fetch_assoc($result);
                     </p>
                      <p>
                         <label for="category">Categorie</label>
-                        <input type="text"  name="category" value="<?php echo $row["CATEGORY_ID"];?>"/>
+                        <?php
+                            echo '<select name=cat>';
+                                while($rowCat=mysql_fetch_assoc($allCat)){
+                                    echo "<option value='".$rowCat['CATEGORY_ID']."' ";
+                                    if ($rowCat['CATEGORY_ID'] == $row["CATEGORY_ID"]) {
+                                        echo "selected='selected'";
+                                    }
+                                    echo ">".$rowCat['CATEGORY_NAME']."</option>";
+                                }
+                            echo '</select>';
+                        ?>
                     </p>
                     <p>
                         <label for="tags">Tags</label>

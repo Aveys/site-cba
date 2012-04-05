@@ -20,12 +20,14 @@
                                 while ($row = mysql_fetch_assoc($result)) {
                                     //Information sur l'utilisateur avec sont ID
                                     $infoUser = sql_info_user($row["USER_ID"]); 
+                                    //Information sur la cat avec sont ID
+                                    $infoCat = mysql_fetch_assoc(sql_allCat_of_idCat($row["CATEGORY_ID"])); 
                                     //On remplit la table des articles
                                     echo "<tr>";
                                         echo "<td>".$row["POST_TITLE"]."</td>";                               
                                         echo "<td>".$infoUser["USER_LOGIN"]."</td>";
-                                        echo "<td>".$row["CATEGORY_ID"]."</td>";
                                         echo "<td>".$row["POST_TAG"]."</td>";
+                                        echo "<td>".$infoCat["CATEGORY_NAME"]."</td>";
                                         echo "<td>0</th>";
                                         echo "<td>".$row["POST_DATE"]."</td>";
                                         echo "<td><a href='?mode=editArticle&id=".$row["POST_ID"]."'><img alt='Stul' src='img/icons/pencil.png' width='24' height='24'/></a></td>";
