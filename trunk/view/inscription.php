@@ -7,7 +7,7 @@ require_once($fcArticle);
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>CBA Website</title>
 <link rel="stylesheet" type="text/css" href="themes/cba/commun.css" />
-<link rel="stylesheet" type="text/css" href="themes/cba/layout.css" />
+<link rel="stylesheet" type="text/css" href="themes/cba/contact.css" />
 	<script type="text/javascript" src="js/verification.js"></script>
 	<script type="text/javascript" src="js/calendrier.js"></script>
 	<script type="text/javascript" src="js/apercu_profil.js"></script>
@@ -17,11 +17,6 @@ require_once($fcArticle);
 	<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
 	  {lang: 'fr'}
 	</script>
-    <style>
-		#central {
-			padding-left : 10px;
-		}
-	</style>
 </head>
 <body>		
 	<div id="all">
@@ -30,6 +25,7 @@ require_once($fcArticle);
 			<?php require_once("view/header.php");?>
 
 			<div id="central">
+            	<div id="formulaire">
 				 <form id="inscription_form" action="<?php echo $fcAction; ?>" method="post" onSubmit="return validLogin(this)">
                         <!-- pseudo -->
                            <p> <label for="pseudo">Pseudo :</label></p>
@@ -49,6 +45,7 @@ require_once($fcArticle);
                         <!-- submit -->
                         <p><input type="submit" name="action" value="inscrire"/></p>
                     </form>
+                   </div>
 				</div><!-- central -->
 			</div><!-- wrapper -->
 
