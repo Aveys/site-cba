@@ -26,16 +26,49 @@ require_once($fcSearch);
 
 			<div id="central">
 				<div id="content">
-				<div id="formulaire">					
-					<table>
-						<form action="envoi.php" method="post" name="contact">
-						<h2>Nous contacter</h2>
+					<!--Message erreur ou d'envoie de SESSSION-->
+					<?php 
+					if(isset($_SESSION["mail_message_ok"]))
+					{			
+						echo "<div class='notif success'>";
+					   		echo $_SESSION["mail_message_ok"];
+						echo "</div>";
+						unset($_SESSION["mail_message_ok"]);
+					}
+					if(isset($_SESSION["mail_message_error"]))
+					{			
+						echo "<div class='notif error'>";
+					    	echo $_SESSION["mail_message_error"];
+						echo "</div>";
+						unset($_SESSION["mail_message_error"]);
+					}
+					?>
 
-						<label for='nom'>Votre nom </label>
-						<input type='text' name='nom' size='45' maxlength='100'/>
-	
+				<div id="formulaire">					
+					<h2>Nous contacter</h2>
+						<form action="model/envoi.php" method="post" name="formulaire">
+						
+						<p>
+							<label for='nom'>Votre nom </label><br/>
+							<input type='text' name='nom' size='30' maxlength='100'/>
+						</p>
+						<p>
+							<label for='mail'>Votre mail </label><br/>
+							<input type='text' name='mail' size='30' maxlength='100'/>
+						</p>
+						<p>
+							<label for='sujet'>Sujet du message </label><br/>
+							<input type='text' name='sujet' size='30' maxlength='100'/>
+						</p>
+						<p>
+							<label for='message'>Votre message </label>
+							<textarea name="message" cols="50" rows="10"></textarea>
+						</p>	
+						<p>
+							<input name="envoyer" value="Envoyer le message" type="submit"/>
+						</p>
 						</form>
-					</table>
+					
 				</div>
 				</div><!-- content -->
 			</div><!-- central -->
