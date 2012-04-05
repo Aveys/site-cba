@@ -8,6 +8,12 @@
     font-family: robotoI;
     src: url('font/Roboto-LightItalic.ttf');
 }
+@font-face
+{
+    font-family: robotoR;
+    src: url('font/Roboto-Regular.ttf');
+}
+
 
 /* TAGS GENERAUX */
 *{
