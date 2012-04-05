@@ -18,6 +18,7 @@
 
 
 </head>
+<body>
 <h1>
 	<?php
 		if(isset($_GET['id']) && idUser_exist($_GET['id']))
@@ -39,3 +40,5 @@
 			return false;
 	}
 ?>
+</body>
+</html>
