@@ -269,7 +269,7 @@ switch($step){
 					}
 					else
 						echo '<script language="Javascript">document.location.replace("install.php?step=5");</script>';
-					displayHeader();//delete_file();
+					displayHeader();delete_file();
 					?>
 					<body>
 						<div id="all">
@@ -346,8 +346,7 @@ switch($step){
 
 				}
 				function delete_file(){
-					unlink('install.php');
-					unlink('stul_config_init.php');
+
 					
 					unlink('install/images/bg.jpg');
 					unlink('install/images/button.png');
@@ -363,8 +362,10 @@ switch($step){
 					unlink('install/error.php');
 					unlink('install/install.css');
 					unlink('install/script.js');
-					unlink('install/sql_install.php');
 					rmdir('install');
+					
+					unlink('install.php');
+					unlink('stul_config_init.php');
 				}//unlink pour supprimer un fichier
 				?>
 
