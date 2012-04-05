@@ -7,11 +7,11 @@
                     Ajouter un article
                 </div>
                 <div class="content"> 
-                 <form method="post" action='../../../<?php echo $fAdminAction;?>'> 
+                 <form method="post" action='../../../<?php echo $fAdminAction;?>' onSubmit="return validArticle(this)"> 
                     <div class="input textarea">
                     <p>
                         <label for="title">Titre</label>
-                        <input type="text"  name="title"  value=""/>
+                        <input type="text"  name="title"  value="" onBlur="verifTitre(this)"/>
                     </p>
                     <p>
                         <label for="category">Categorie</label>
@@ -19,11 +19,11 @@
                     </p>
                     <p>
                         <label for="tags">Tags</label>
-                        <input type="text"  name="tags" value=""/>
+                        <input type="text"  name="tags" value="" onBlur="verifTags(this)"/>
                     </p>
                     <p>
                         <label for="content">Ajouter du texte</label>
-                        <textarea name="content" id="test" rows="7" class="wysiwyg" cols="4"></textarea>
+                        <textarea name="content" id="test" rows="7" class="wysiwyg" cols="4" onBlur="verifText(this)"></textarea>
                     </p>
                     </div>
                     <div class="input">                       
