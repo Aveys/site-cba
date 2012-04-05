@@ -8,7 +8,7 @@
 														<input type="image" src="http://elegantthemes.com/preview/Evolution/wp-content/themes/Evolution/images/search_btn.png" id="searchsubmit" />
 
 						</form>*/
-		echo "<form class='demo' name='search' id='searchform' action='.?recherche=1' method='GET' >";
+		echo "<form class='demo' name='search' id='searchform' action='.?recherche=1' method='get' >";
 			// Recherche
 			echo "<div id='search_div'>";
 			echo "<input type='text' name='recherche' id='searchinput' value ='Rechercher' onBlur='verifRecherche(this)'/>";
