@@ -1,6 +1,7 @@
 function validCompte(field)
 {
-	if(verifLogin(field.pseudo) && verifMail(field.email) && verifPseudo(field.pseudo) && verifMdp(field.password) && verifStatus(field.status))
+
+	if(verifPseudo(field.pseudo) && verifMail(field.mail) && verifMdp(field.password))
 		return true;
 	else
 		return false;
