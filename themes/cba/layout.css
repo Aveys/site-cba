@@ -174,11 +174,7 @@ body{
 #no-article{
 	text-align:center;
 }
-.info_article{
-	font-size:13pt;
-	font-family:robotoRI;
-	margin-left: 480px;
-}
+
 #article-image img{
 	height:200px;
 	width:200px;
@@ -313,4 +309,18 @@ body{
 	padding: 9px 9px 43px;
 	border: 1px solid #C5C5C5;
 	margin-bottom: 12px;
+}
+
+.info_article
+{
+	font-size: 13pt;
+	font-family: robotoRI;
+	color: #918E8E;
+	margin-left: 480px;
+}
+
+#profiladmin A
+{
+	text-decoration: none;
+	color: #161515;
 }
