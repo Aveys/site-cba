@@ -6,7 +6,7 @@
                     Options du site
                 </div>
                 <div class="content"> 
-                 <form method="POST" action='../../../<?php echo $fAdminAction;?>'> 
+                 <form method="post" action='../../../<?php echo $fAdminAction;?>'> 
                     <div class="input textarea">
                     <p>
                         <label for="nameSite">Nom du site</label>

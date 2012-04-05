@@ -68,7 +68,7 @@ switch($step){
 				<div id="text" class="box">
 					<p> Veuillez rentrer les identifiants permettant de se connecter à la base de donnée MySQL</p>
 					<div id="formulaire">
-						<form action="install.php?step=3" method="POST" name="addBDD" onsubmit="return valid_sql(this)">
+						<form action="install.php?step=3" method="post" name="addBDD" onsubmit="return valid_sql(this)">
 							<input type='text' name='host' value='localhost' onFocus='init(this)' onBlur='notEmpty(this)'/>
 							<label for="host">Si localhost ne marche pas, vous devrez demander cette information à votre hébergeur.</label>
 							<input type='text' name='user' value='root' onFocus='init(this)' onBlur='notEmpty(this)'/>
@@ -164,7 +164,7 @@ switch($step){
 									<p> La connexion à la base de donnée s'est bien déroulée, nous allons maintenant configurer votre compte administrateur</p>
 									<p class="box">Informations du compte</p>
 									<div id="formulaire">
-										<form action="install.php?step=4" method="POST" name="addAdmin" onSubmit="return verify()">
+										<form action="install.php?step=4" method="post" name="addAdmin" onSubmit="return verify()">
 											<input type='text' name='login' value='admin' onFocus='init(this)' onBlur='notEmpty(this)'/>
 											<label for="login">Login du compte</label><br/>
 											<input type='password' name='mdp' value='' onFocus='init(this)' onBlur="verify()"/>
@@ -212,7 +212,7 @@ switch($step){
 									<p> Le Compte administrateur a bien été crée.<br/>Nous touchons à la fin de l'installation : Il ne reste qu'a configurer les informations générales du site</p>
 									
 									<div id="formulaire">
-										<form action="install.php?step=5" method="POST" name="site">
+										<form action="install.php?step=5" method="post" name="site">
 											<input type='text' name='nom' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
 											<label for="nom">Nom du répertoire parent du site</label><br/>
 											<input type='text' name='site' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
