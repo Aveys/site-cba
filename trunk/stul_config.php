@@ -58,9 +58,9 @@ $a_fvArticle		= $rootSite."view/article.php";
 $a_fvProfil			= $rootSite."view/profil.php";
 $a_fvEquipe			= $rootSite."view/equipe.php";
 $a_fvContact		= $rootSite."view/contact.php";
-$a_fvHeader			= $rootSite."vew/header.php";
-$a_fvFooter			= $rootSite."view/header.php";
-	
+$a_fvFooter			= $rootSite."view/footer.php";
+$a_fvHeader 		= $rootSite."view/header.php";
+
 $a_fAdmin 			= $rootSite."stul_admin.php";
 $a_fViewerAdmin		= $rootSite."includes/admin/viewer/index.php";
 $a_fLanguage		= $rootSite."includes/stul_language.php";
