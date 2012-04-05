@@ -24,6 +24,27 @@ require_once($fcArticle);
 			<!--On include le header general-->
 			<?php require_once("view/header.php");?>
 
+</head>
+<body>
+<form id="inscription_form" action="<?php echo $fcAction; ?>" method="post" onSubmit="return validCompte(this)">
+	<!-- pseudo -->
+       <p> <label for="pseudo">Pseudo :</label></p>
+        <p><input name="pseudo" onBlur="verifPseudo(this)"/></p>
+	<!-- login -->
+		<p><label for="mdp">Mot de passe :</label></p>
+		<p><input type="password" name="mdp" onBlur="verifMdp(this)"/></p>
+	<!-- mail -->
+    	<p><label for="email">E-mail </label></p>
+    	<p><input type="text" name="mail" class="email mailcheck" value='' onBlur="verifMail(this)"/></p>
+	<p><span class="help-inline"></span></p>
+	<!-- date de naissance -->
+	<!--
+	<label for="naissance">Date de naissance :</label>
+	<input type="text" name="naissance" id="" class="calendrier" size="8" /><br/><br/>
+	-->
+	<!-- submit -->
+	<p><input type="submit" name="action" value="inscrire"/></p>
+</form>
 			<div id="central">
             	<div id="formulaire">
 				 <form id="inscription_form" action="<?php echo $fcAction; ?>" method="post" onSubmit="return validLogin(this)">
