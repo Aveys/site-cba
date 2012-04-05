@@ -79,6 +79,71 @@ function displayAddForm(){
 /*affiche tous les articles de la bdd avec ses infos
 	- nom du posteur, date de création
 */
+function displayArticle($idPost){
+	
+		$result = sql_post_of_idPost($idPost);
+		if(mysql_num_rows($result) == 0)
+		{
+			echo "<img src='themes/cba/images/sep_menu_top.png' />";
+			echo "<div id='no-article'>Aucun article disponible</div>";
+			echo "<img src='themes/cba/images/sep_menu_bottom.png' />";
+		}
+		while($row=mysql_fetch_assoc($result)){
+			$nomCat=getCategory($row["CATEGORY_ID"]);
+			if(!isset($nomCat)){
+				$row["CATEGORY_ID"]="default";
+				$nomCat="Aucune";
+			}
+			echo "<div class='article'>";
+				echo "<div class='category' id='category-".$row["CATEGORY_ID"]."'>".$nomCat."</div>";
+				echo "<div id='titre-article'><h3>".$row["POST_TITLE"]."</h3></div>";
+				echo "<div id='article-image'><img src='themes/cba/images/imageArticle1.jpg' /></div>";
+				echo "<div class='contenu-article'>";
+				affichage_article($row,0);
+
+			echo "</div><div class='info_article'><span id='auteur'>Fait par ";
+			link_profil(sql_user_who_post($row['POST_ID']));
+			echo " </span>";
+			dateTimeToTime($row['POST_DATE']);
+			echo "</div>";
+			echo "<img id='bottom-article' src='themes/cba/images/sep_article_bottom.png' />";
+			echo "</div>";
+			echo "<table>";
+				echo "<tr>";
+					echo "<td colspan='3' id='reseau_sociaux'>";
+						affiche_button_reseausociaux("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+					echo "</td>";
+				echo "</tr>";
+			echo "</table>";
+			echo "<table id='ligne_bouton_post'>";
+			echo "<tr>";
+					/*if(!(isset($_GET['edit']) && $_GET['edit'] == 1))
+					{
+						echo "<td>";
+							button_edit_post($row['POST_ID']);
+						echo "</td>";
+					}
+					echo "<td>";
+						button_delete_post($row['POST_ID'],$fcAction);			//bouton delete pour supprimer le post
+					echo "</td>*/
+					echo "<td>";
+						add_commentaire($row,'▼');		//formulaire ajout de commentaire au post
+					echo "</td>";
+				echo "</tr>";
+			echo "</table>";
+			/*echo "<div class='nbJaime'>";
+				login_qui_aiment($row);
+			echo "</div>";
+			boutonJaime($row);*/
+			echo "<div id='com'>";
+				afficheCom($row);							//affichage des commentaires du post
+			echo "</div>";
+		}
+}
+
+/*affiche tous les articles de la bdd avec ses infos
+	- nom du posteur, date de création
+*/
 function displayArticles(){
 	
 		$result = sql_all_post();
@@ -115,9 +180,17 @@ function affichage_article($row,$masque)
 	$text = explode("<more>", $row['POST_CONTENT']);
 	if($masque)
 	{
-		if(!isset($text[1]) && strlen($text[0]) > 100)
-			$text[0] = substr($text[0],0,100);
-		echo $text[0];
+		if(!isset($text[1]))
+		{
+			$text2 = $text;
+			$text = explode("\n", $text2[0]);
+			foreach ($text as $key => $value) {
+				if($key < 2)
+					echo $value;
+			}
+		}
+		else
+			echo $text[0];
 		echo "<form method='post' class='form_lire_la_suite' name='lireLaSuite' id='lireLaSuite' action='?page=article&POST_ID=".$row["POST_ID"]."'>";
 			echo "<input type='submit' name='action' value='Lire la suite'/>";
 		echo"</form>";
@@ -130,9 +203,7 @@ function affichage_article($row,$masque)
 			affiche_form_edition_post($text,$row['POST_ID']);
 		else
 		{
-			foreach ($text as $key => $value) {
-				echo $value;
-			}
+			$row['POST_CONTENT'];
 		}
 	}
 }

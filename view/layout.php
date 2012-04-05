@@ -19,6 +19,9 @@ require_once($fcSearch);
 	<script type="text/javascript" src="js/apercu_equipe.js"></script>
 	<script src="js/mootools.js" type="text/javascript"></script>
 	<script src="js/moocheck.js" type="text/javascript"></script>
+	<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+	  {lang: 'fr'}
+	</script>
 </head>
 <body>		
 	<div id="all">
@@ -36,9 +39,11 @@ require_once($fcSearch);
 				</div>
 					<div id="articles">
 						<?php 
-						if(!isset($_GET['recherche']))
+						if(isset($_GET['POST_ID']))
+							displayArticle($_GET['POST_ID']);
+						else if(!isset($_GET['recherche']))
 							displayArticles($fcAction);
-						else
+						else if(isset($_GET['recherche']))
 							search($_GET["recherche"]);
 						?>
 					</div>
