@@ -12,7 +12,7 @@
 			// Recherche
 			echo "<div id='search_div'>";
 			echo "<input type='text' name='recherche' id='searchinput' value ='Rechercher' onBlur='verifRecherche(this)'/>";
-			echo "<input type='submit' value='' id='searchsubmit'><img alt='Stul' src='themes/cba/images/icons/search.png'></img></input>";
+			echo "<input type='submit' value='' id='searchsubmit'/><img alt='Stul' src='themes/cba/images/icons/search.png'></img>";
 			echo "</div>";
 			echo '<div id="searchradio">';
 			echo '<label><input type="radio" checked="checked" name="type_search" value="quick_search"/> Rapide</label>';
