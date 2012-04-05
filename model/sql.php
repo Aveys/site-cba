@@ -126,7 +126,7 @@
 
    function sql_all_post()
    {
-      return mysql_query("select * from STUL_POST");
+      return mysql_query("select * from STUL_POST p order by p.post_date DESC");
    }
    function sql_all_users()
    {
@@ -140,13 +140,13 @@
    */
    function sql_com_of_post_with_log($idPost)
    {
-      return mysql_query("select c.com_id,u.user_login, u.user_id ,c.com_content,c.com_date,c.com_parent,c.post_id from STUL_COMMENT c join STUL_USERS u on c.user_id=u.user_id where c.post_id='".escape($idPost)."' order by c.com_date");
+      return mysql_query("select c.com_id,u.user_login, u.user_id ,c.com_content,c.com_date,c.com_parent,c.post_id from STUL_COMMENT c join STUL_USERS u on c.user_id=u.user_id where c.post_id='".escape($idPost)."' order by c.com_date DESC");
    }
    /* return tout les commentaires correspond au commentaire proposé
    */
    function sql_com_of_com_post_with_log($idComParent)
    {
-      return mysql_query("select * from STUL_COMMENT c join STUL_USERS u on c.user_id=u.user_id where c.com_parent='".escape($idComParent)."' order by c.com_date");
+      return mysql_query("select * from STUL_COMMENT c join STUL_USERS u on c.user_id=u.user_id where c.com_parent='".escape($idComParent)."' order by c.com_date DESC");
    }
    /* return le login en fonction de l'iduser
    */
@@ -280,7 +280,7 @@
    }
    function affiche_100_last_connexion()
    {
-      return mysql_query("select * from STUL_LOG order by ID desc LIMIT 100");
+      return mysql_query("select * from STUL_LOG order by DATE_CONNEXION DESC LIMIT 100");
    }
    function getCategory($num){
       $result=mysql_fetch_assoc(mysql_query('select CATEGORY_NAME as "nom" from STUL_CATEGORY WHERE CATEGORY_ID = "'.$num.'";'));

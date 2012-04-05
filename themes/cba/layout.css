@@ -166,8 +166,10 @@ body{
 }
 .contenu-article{
 	text-align:left;
-	margin-left:30px;
-	min-height:250px
+	margin-left:30%;
+	min-height:250px;
+	max-width:50%;
+	word-wrap: break-word;
 }
 #no-article{
 	text-align:center;
@@ -220,16 +222,15 @@ body{
 	display: block;
 	float: left;
 }
+.button_com{
+	display: block;
+	float: left;
+}
 .form_comment{
 	visibility: hidden;
 	width: 0px;
 	height: 0px;
 }
-#comOfCom {
+#comOfCom,.comOfCom{
 	margin-left: 50px;
 }
-#comOfCom input {
-	display: block;
-	float: left;
-}
-
