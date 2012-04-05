@@ -7,23 +7,25 @@ function add_commentaire($row,$text_button)
 	{
 		if(isset($row['com_content']))
 		{
-			echo "<input type='button' onClick=debloque_comment('comOfCom".$row['com_id']."') value='".$text_button."'/>";
+			//echo "<input type='button' onClick=debloque_comment('comOfCom".$row['com_id']."') value='".$text_button."'/>";
 			echo "<form method='post' class='form_comment comOfCom' name='comOfCom".$row["com_id"]."' id='comOfCom".$row['com_id']."' action='controller/actions.php'>";
-				echo "<textarea name='commentaire' cols='50' row='30'></textarea></br>";
+				echo "<p><span class='txtCom'>Ecrivez un sous-commentaire</span></p>";
+				echo "<p><textarea name='commentaire' cols='50' row='30'></textarea></br>";
 				echo "<input type='submit' name='action' value='Commenter'/>";
 				echo "<input type='hidden' name='id' value='".$row["post_id"]."'/>";
 				echo "<input type='hidden' name='id_parent' value='".$row["com_id"]."'/>";
-				echo "<input type='hidden' name='url' value='?page=article&POST_ID=".$row["post_id"]."'/>";
+				echo "<input type='hidden' name='url' value='?page=article&POST_ID=".$row["post_id"]."'/></p>";
 			echo"</form>";
 		}
 		else
 		{
-			echo "<input type='button' onClick=debloque_comment('com".$row['POST_ID']."') value='".$text_button."'/>";
+			//echo "<input type='button' onClick=debloque_comment('com".$row['POST_ID']."') value='".$text_button."'/>";
 			echo "<form method='post' class='form_comment' name='com".$row["POST_ID"]."' id='com".$row['POST_ID']."' action='controller/actions.php'>";
-				echo "<textarea name='commentaire' cols='50' row='30'></textarea></br>";
+				echo "<p><span class='txtCom'>Ecrivez un commentaire</span></p>";
+				echo "<p><textarea name='commentaire' cols='50' row='30'></textarea></br>";
 				echo "<input type='submit' name='action' value='Commenter'/>";
 				echo "<input type='hidden' name='id' value='".$row["POST_ID"]."'/>";
-				echo "<input type='hidden' name='url' value='?page=article&POST_ID=".$row["POST_ID"]."'/>";
+				echo "<input type='hidden' name='url' value='?page=article&POST_ID=".$row["POST_ID"]."'/></p>";
 			echo"</form>";
 		}
 	}
@@ -39,21 +41,32 @@ function afficheCom($row)
 	while ($row_com = mysql_fetch_assoc($result_com)) {
 		if($row_com['com_parent'] == "")
 		{
-			if(isset($_GET['edit']) && $row_com['com_id'] == $_GET['edit'])
-				affiche_form_edition(nl2br($row_com['com_content']),$row_com['com_id'],$row['POST_ID']);
-			else
-				echo nl2br($row_com['com_content']);
-			echo " de ";
-			link_profil($row_com['user_id']);		//apercu du profil de l'auteur du com
-			dateTimeToTime($row_com['com_date']);	//affiche la date de publication au format facebook
-			if(!(isset($_GET['edit']) && $row_com['com_id'] == $_GET['edit']))
-			{
-				button_edit_com($row_com['com_id'],$row['POST_ID']);	//bouton pour supprimer le com
-			}
-			button_delete_com($row_com['com_id'],$row['POST_ID']);	//bouton pour supprimer le com
-			add_commentaire($row_com,'▼');			//formulaire d'ajout de com à ce com
-			echo "<div id='comOfCom'>";	
-			afficheComOfCom($row_com['com_id']);	//affiche les commentaires de ce commentaire
+			//Le texte du commentaire
+			echo "<div class='comArticle'>";
+				echo "<div class='contentCom'>";
+					echo "<p class='comText'>";
+					if(isset($_GET['edit']) && $row_com['com_id'] == $_GET['edit'])
+						affiche_form_edition(nl2br($row_com['com_content']),$row_com['com_id'],$row['POST_ID']);
+					else
+						echo nl2br($row_com['com_content']);
+					echo "</p>";
+					//Information sur le commetaire
+					echo "<p class='infoCom'>";
+					echo " de ";
+					link_profil($row_com['user_id']);		//apercu du profil de l'auteur du com
+					dateTimeToTime($row_com['com_date']);	//affiche la date de publication au format facebook
+					if(!(isset($_GET['edit']) && $row_com['com_id'] == $_GET['edit']))
+					{
+						button_edit_com($row_com['com_id'],$row['POST_ID']);	//bouton pour supprimer le com
+					}
+					button_delete_com($row_com['com_id'],$row['POST_ID']);	//bouton pour supprimer le com
+				echo "</div>";
+				echo "</p>";
+				//Commentaire de commentaire
+				add_commentaire($row_com,'▼');			//formulaire d'ajout de com à ce com
+				echo "<div id='comOfCom'>";	
+				afficheComOfCom($row_com['com_id']);	//affiche les commentaires de ce commentaire
+				echo "</div>";
 			echo "</div>";
 		}
 	}
