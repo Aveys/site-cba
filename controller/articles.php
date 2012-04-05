@@ -4,7 +4,7 @@
 	function displayAddFormLog($fcAction){
 		if (isset($_SESSION["pseudo"])){
 			echo "<h2>".$_SESSION["pseudo"]."</h2>";	
-			echo '<form name="delogin" action="'.$fcAction.'" method="post" >'; ?>
+			echo '<form id="delogin" action="'.$fcAction.'" method="post" >'; ?>
 				<!-- Unsubmit -->
 			<div id="deconnexion">
 				<input type="submit" name="action" value="Deconnexion"/>
