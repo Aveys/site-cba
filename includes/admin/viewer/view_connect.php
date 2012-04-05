@@ -34,12 +34,12 @@
                     </div>
                 </div>
             </div>
-
             <div class="bloc">
                 <div class="title">
                      Graphique des historiques de connexions
                 </div>
                 <div>
+                <div id="graphique">
                     <div class="content" id="line">
                         <table class="graph type-line dots tips">
                         <!--<caption>Historique</caption>-->
@@ -77,8 +77,7 @@
                         </table>
                                 <?php echo "$date_debut" ?>
                     </div>
-                   
-     
+                </div>
                 </div>
             </div>  
 

@@ -3096,6 +3096,6 @@ ageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#afceed',
 {
 	margin-left: 50px;
 }
-td{
+.center td{
 	min-width: 150px;
 }
