@@ -27,7 +27,7 @@ require_once($fcSearch);
 	<div id="all">
 		<div id="wrapper">
 			<!--On include le header general-->
-			<?php include_once("header.php");?>
+			<?php require_once("view/header.php");?>
 
 			<div id="central">
 				<div id="content">
