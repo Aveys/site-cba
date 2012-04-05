@@ -13,6 +13,11 @@
     font-family: robotoR;
     src: url('font/Roboto-Regular.ttf');
 }
+@font-face
+{
+    font-family: robotoRI;
+    src: url('font/Roboto-Italic.ttf');
+}
 
 
 /* TAGS GENERAUX */
