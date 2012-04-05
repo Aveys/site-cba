@@ -1,16 +1,16 @@
-drop table if exists STUL_COMMENT;
+drop table if exists STUL_COMMENT CASCADE;
 
-drop table if exists STUL_OPTIONS;
+drop table if exists STUL_OPTIONS CASCADE;
 
-drop table if exists STUL_POST;
+drop table if exists STUL_POST CASCADE;
 
-drop table if exists STUL_USERS;
+drop table if exists STUL_CATEGORY CASCADE;
 
-drop table if exists STUL_CATEGORY;
+drop table if exists STUL_LOG CASCADE;
 
-drop table if exists STUL_LOG;
+drop table if exists STUl_VISITES CASCADE;
 
-drop table if exists STUl_VISITES;
+drop table if exists STUL_USERS CASCADE;
 
 create table STUL_COMMENT
 (
