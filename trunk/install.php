@@ -68,7 +68,11 @@ switch($step){
 				<div id="text" class="box">
 					<p> Veuillez rentrer les identifiants permettant de se connecter à la base de donnée MySQL</p>
 					<div id="formulaire">
-						<form action="install.php?step=3" method="post" name="addBDD" onsubmit="return valid_sql(this)">
+<<<<<<< .mine
+						<form action="install.php?step=3" method="POST" name="addBDD" onSubmit="return valid_sql(this)">
+=======
+						<form action="install.php?step=3" method="post" name="addBDD" onSubmit="return valid_sql(this)">
+>>>>>>> .r236
 							<input type='text' name='host' value='localhost' onFocus='init(this)' onBlur='notEmpty(this)'/>
 							<label for="host">Si localhost ne marche pas, vous devrez demander cette information à votre hébergeur.</label>
 							<input type='text' name='user' value='root' onFocus='init(this)' onBlur='notEmpty(this)'/>
