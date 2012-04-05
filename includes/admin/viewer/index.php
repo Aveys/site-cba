@@ -1,7 +1,7 @@
 <?php
     //Auteur : Mathieu MARTIN
     //Date : 02/04/2012    
-    require_once '../../../stul_config.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/INFO/labordna/site-cba/stul_config.php';
     require_once $a_fmConnect;
     require_once $a_fAdminAction;
     require_once $a_fmSql;
@@ -51,13 +51,14 @@
 		
         <!-- Main Javascript that do the magic part (EDIT THIS ONE) -->
         <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/verifications.js"></script>
 <title>Stul Admin</title>
 
 </head>
     <body class="white">
         <?php 
             if(!(isset($_SESSION["keyAdmin"]) == (isset($_SESSION["pass"])*isset($_SESSION["login"])) && isset($_SESSION["adminAuth"]) == 1))
-                echo '<script language="Javascript">document.location.replace("../../../stul_admin.php");</script>';
+               echo '<script language="Javascript">document.location.replace("../../../stul_admin.php");</script>';
 
             if(isset($_GET["action"]) == "logout")
             {
@@ -65,7 +66,7 @@
                     unset($_SESSION["pass"]);
                     unset($_SESSION["keyAdmin"]);
                     unset($_SESSION["adminAuth"]);
-                    echo '<script language="Javascript">document.location.replace("../../../stul_admin.php");</script>';
+                   echo '<script language="Javascript">document.location.replace("../../../stul_admin.php");</script>';
             }
             ?>
 
