@@ -63,7 +63,7 @@
                 </div>
                 <div class="content">
                     <div class="center">
-                        <a href="#" class="shortcut">
+                        <a href="?mode=viewConnect" class="shortcut">
                             <img src="img/icons/document-2.png" alt="" width="48" height="48"/>
                             Gestion des connexions
                         </a>

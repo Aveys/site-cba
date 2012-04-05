@@ -201,7 +201,7 @@
    */
    function sql_edit_post($post)
    {//post_content = '".$post['article']."'
-      mysql_query("update STUL_POST set post_content='".escape($post['content'])."', post_title='".escape($post['title'])."', post_tag='".escape($post["tags"])."', post_category='".escape($post["category"])."' where post_id='".escape($post['id_post'])."'");
+      mysql_query("update STUL_POST set post_content='".escape($post['content'])."', post_title='".escape($post['title'])."', post_tag='".escape($post["tags"])."', category_id='".escape($post["category"])."' where post_id='".escape($post['id_post'])."'");
    }
    /* supprime le post proposé avec suppression de ses commentaires en cascade
    */
