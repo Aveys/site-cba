@@ -10,7 +10,7 @@
 					<div id="menuBar">
 						<img alt='Stul' src="themes/cba/images/sep_menu_top.png" />
 						<a class="itemMenuBar" id="blog" href=<?php echo "'".$Site."'" ?>>Blog</a>
-						<a class="itemMenuBar" id="tutoriel" href=<?php echo "'".$Site."tuto/'" ?>>Tutoriel</a>
+						<a class="itemMenuBar" id="tutoriel" href="?page=tuto">Tutoriel</a>
 						<span class="itemMenuBar" id="equipe" onMouseOver='survole_equipe_apercu(this)' onMouseOut='quitte_equipe_apercu(this)'>Equipe
 							<span id="equipeListe">
 								<span class="teamName"><a href=<?php echo "'".$Site."?page=equipe&amp;id=1'" ?> >Arthur Veys</a></span>
@@ -25,7 +25,7 @@
 								<br />
 							</span>
 						</span>
-						<a class="itemMenuBar" id="port" href=<?php echo "'".$Site."port/'" ?>>Portfolio</a>
+						<a class="itemMenuBar" id="port" href="?page=tuto">Portfolio</a>
 						<a class="itemMenuBar" id="contact" href=<?php echo "'".$Site."?page=contact'" ?>>Contact</a>
 						<img alt='Stul' src="themes/cba/images/sep_menu_bottom.png" />
 					</div>

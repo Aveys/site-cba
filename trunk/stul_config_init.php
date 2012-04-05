@@ -31,6 +31,8 @@ $fvArticle		= "view/article.php";
 $fvProfil		= "view/profil.php";
 $fvEquipe		= "view/equipe.php";
 $fvContact		= "view/contact.php";
+$fvTuto			= "view/tuto.php";
+$fvPortfolio	= "view/port.php";
 
 $fAdmin 		= "stul_admin.php";
 $fViewerAdmin	= "includes/admin/viewer/index.php";
@@ -60,6 +62,9 @@ $a_fvEquipe			= $rootSite."view/equipe.php";
 $a_fvContact		= $rootSite."view/contact.php";
 $a_fvFooter			= $rootSite."view/footer.php";
 $a_fvHeader 		= $rootSite."view/header.php";
+$a_fvPortfolio		= $rootSite."view/port.php";
+$a_fvTuto			= $rootSite."view/tuto.php";
+
 
 $a_fAdmin 			= $rootSite."stul_admin.php";
 $a_fViewerAdmin		= $rootSite."includes/admin/viewer/index.php";

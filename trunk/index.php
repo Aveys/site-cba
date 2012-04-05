@@ -40,6 +40,12 @@ if (file_exists('stul_config.php'))
 			case "equipe":
 				require_once($fvEquipe);
 			break;
+			case "tuto":
+				require_once($fvTuto);
+			break;
+			case "portfolio":
+				require_once($fvPortfolio);
+			break;
 			default:
 			require_once($fvLayout);
 			break;
