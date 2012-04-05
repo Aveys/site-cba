@@ -50,8 +50,8 @@ function addFormAdmin()
 	
 
 function displayDeleteForm(){		
-	if (isset($_SESSION["pseudo"])){
-		if(isadmin($_SESSION["pseudo"]) == 1)
+	if (isset($_SESSION["login"])){
+		if(isadmin($_SESSION["login"]) == 1)
 		{
 	?>
 			<form name="deleteArticles" action="actions.php" method="post">

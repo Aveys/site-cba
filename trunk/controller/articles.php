@@ -5,10 +5,10 @@
 
 	function displayAddFormLog($fcAction){
 
-		if (isset($_SESSION["pseudo"])){
+		if (isset($_SESSION["login"])){
 			
 
-			echo "<div id='connecter'>Bonjour, <span class='blanc'>".$_SESSION["pseudo"]."</span> | <a href='".$fcAction."?action=Deconnexion'>Se déconnecter</a></div>";	
+			echo "<div id='connecter'>Bonjour, <span class='blanc'>".$_SESSION["login"]."</span> | <a href='".$fcAction."?action=Deconnexion'>Se déconnecter</a></div>";	
 
 
 	}
@@ -55,7 +55,7 @@ function get_is_exist()
 /*	formulaire d'ajout de post seulement si utilisateur connecte
 */
 function displayAddForm(){
-	if (isset($_SESSION["pseudo"])){
+	if (isset($_SESSION["login"])){
 	?>
 		<form name="articles" action="controller/actions.php" method="post" onSubmit="return valid()">
 
@@ -310,9 +310,9 @@ function affiche_num_page()
 	/*
 	function boutonJaime($row)
 	{
-		if(isset($_SESSION['pseudo']))
+		if(isset($_SESSION['login']))
 		{
-			$result_a_deja_like=mysql_query("select s.jaime from articles b join synchro_jaime_log s on b.id=s.id_article join log l on l.login=s.id_log where l.login='".$_SESSION['pseudo']."' and b.id='".$row['id']."'");
+			$result_a_deja_like=mysql_query("select s.jaime from articles b join synchro_jaime_log s on b.id=s.id_article join log l on l.login=s.id_log where l.login='".$_SESSION['login']."' and b.id='".$row['id']."'");
 			$row_a_deja_like=mysql_fetch_assoc($result_a_deja_like);
 			echo "<form method='post' name='Like' action='actions.php'>";
 				if($row_a_deja_like['jaime'] == 0)
@@ -335,7 +335,7 @@ function affiche_num_page()
 		$result_log_aime=mysql_query("select l.login from articles b join synchro_jaime_log s on b.id=s.id_article join log l on l.login=s.id_log where s.jaime=1 and b.id='".$row['id']."'");		
 		while ($row_log_aime=mysql_fetch_assoc($result_log_aime)) {
 			$i++;
-			if(!isset($_SESSION['pseudo']) || $row_log_aime['login'] != $_SESSION['pseudo'])
+			if(!isset($_SESSION['login']) || $row_log_aime['login'] != $_SESSION['login'])
 				$tab_log_aime[$i]['login'] = $row_log_aime['login'];
 			else
 			{
@@ -401,7 +401,7 @@ function affiche_num_page()
 	function affiche_anni($date_naissance,$login)
 	{
 		list($date_anni['annee'],$date_anni['jour'],$date_anni['mois']) = explode("-", $date_naissance);
-		if(isset($_SESSION['pseudo']) && $login == $_SESSION['pseudo'])
+		if(isset($_SESSION['login']) && $login == $_SESSION['login'])
 			echo "Vous avez ";
 		else
 			echo $login." a ";
