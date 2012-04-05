@@ -23,17 +23,18 @@
 				<input type='text' name="mdp" onFocus="modifMdp(this)" onBlur="verifMdp(this)" value="Mot de passe"/></br>
 				<!-- submit -->
 				<input type="submit" name="action" value="Connexion"/>
+				
+				<!--Bouton d'inscription-->
+				<form id="formInscri" action="?page=inscription" method="post">
+					<!-- Unsubmit -->
+					<p>
+						<input type="submit" name="action" value="Inscription"/>
+					</p>
+					<!-- submit -->
+				</form>
 
 			</form>
-<?php	}	?>
-		<form id="formInscri" action="?page=inscription" method="post">
-			<!-- Unsubmit -->
-			<p>
-				<input type="submit" name="action" value="Inscription"/>
-			</p>
-			<!-- submit -->
-		</form>
-<?php 
+<?php	}	
 		unset($_SESSION['erreur_connect']);
 		}
 
