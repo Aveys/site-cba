@@ -3062,6 +3062,9 @@ ageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#afceed',
 	min-width: 100px;
 }
 
+#content .comptes td{
+	padding:0px 5px;
+}
 #content .connexion th{
 	padding:0px 50px;
 }

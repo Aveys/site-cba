@@ -25,6 +25,10 @@
 				sql_delete_com($_GET["id"]);
 				echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editComs");</script>';
 			break;
+			case 'delCat':
+				sql_delete_cat($_GET["id"]);
+				echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editCats");</script>';
+			break;
 			
 			default:break;
 		}
@@ -59,6 +63,11 @@
 			case 'Mettre à jour le compte':
 				sql_allEdit_user($_POST["id_user"], $_POST["login"], $_POST["password"], $_POST["pseudo"], $_POST["email"], $_POST["status"]);
 				echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editComptes");</script>';
+			break;
+
+			case 'Mettre à jour la categorie':
+				sql_edit_cat_of_idCat($_POST["id_cat"], $_POST["content"], $_POST["title"]);
+				echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editCats");</script>';
 			break;
 
 			case 'Ajouter ce compte':

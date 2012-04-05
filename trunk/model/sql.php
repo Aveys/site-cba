@@ -293,3 +293,18 @@
       $result=mysql_fetch_assoc(mysql_query('select CATEGORY_NAME as "nom" from STUL_CATEGORY WHERE CATEGORY_ID = "'.$num.'";'));
       return $result["nom"];
    }
+   function sql_allCat(){
+      return mysql_query('select * from STUL_CATEGORY'); 
+   }
+   function sql_allCat_of_idCat($idCat){
+      return mysql_query('select * from STUL_CATEGORY where CATEGORY_ID="'.$idCat.'"'); 
+   }
+   function sql_edit_cat_of_idCat($idCat,$content,$name){
+      mysql_query("update STUL_CATEGORY set CATEGORY_DESC='".($content)."', CATEGORY_NAME='".($name)."' where CATEGORY_ID='".($idCat)."'");
+   }
+   /* supprime la categorie par sont ID
+   */
+   function sql_delete_cat($idCat)
+   {
+      mysql_query("delete from STUL_CATEGORY where CATEGORY_ID='".($idCat)."'");
+   }
