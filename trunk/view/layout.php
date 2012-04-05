@@ -16,10 +16,11 @@ require_once($fcSearch);
 	
 	<script type="text/javascript" src="js/apercu_profil.js"></script>
 	<script type="text/javascript" src="js/apercu_equipe.js"></script>
-	<script src="js/mootools.js" type="text/javascript"></script>
-	<script src="js/moocheck.js" type="text/javascript"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+    <!--Crée un conflit avec Jquery-->
+    <!--<script src="js/mootools.js" type="text/javascript"></script>
+    <script src="js/moocheck.js" type="text/javascript"></script>-->
     <script type="text/javascript" src="js/verification.js"></script>
         
 	<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
