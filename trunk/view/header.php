@@ -14,15 +14,15 @@
 						<span class="itemMenuBar" id="equipe" onMouseOver='survole_equipe_apercu(this)' onMouseOut='quitte_equipe_apercu(this)'>Equipe
 							<span id="equipeListe">
 								<span class="teamName"><a href=<?php echo "'".$Site."?page=equipe&amp;id=1'" ?> >Arthur Veys</a></span>
-								</br>
+								<br />
 								<span class="teamName"><a href=<?php echo "'".$Site."?page=equipe&amp;id=2'" ?> >Mathieu Martin</a></span>
-								</br>
+								<br />
 								<span class="teamName"><a href=<?php echo "'".$Site."?page=equipe&amp;id=3'" ?> >Nathanaël Couret</a></span>
-								</br>
+								<br />
 								<span class="teamName"><a href=<?php echo "'".$Site."?page=equipe&amp;id=4'" ?> >Natacha Laborde</a></span>
-								</br>
+								<br />
 								<span class="teamName"><a href=<?php echo "'".$Site."?page=equipe&amp;id=5'" ?> >Thomas Rovayaz</a></span>
-								</br>
+								<br />
 							</span>
 						</span>
 						<a class="itemMenuBar" id="port" href=<?php echo "'".$Site."port/'" ?>>Portfolio</a>
