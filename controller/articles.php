@@ -28,7 +28,9 @@
 <?php	}	?>
 		<form id="formInscri" action="?page=inscription" method="post">
 			<!-- Unsubmit -->
-			<input type="submit" name="action" value="Inscription"/>
+			<p>
+				<input type="submit" name="action" value="Inscription"/>
+			</p>
 			<!-- submit -->
 		</form>
 <?php 
