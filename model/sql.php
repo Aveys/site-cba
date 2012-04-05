@@ -308,3 +308,9 @@
    {
       mysql_query("delete from STUL_CATEGORY where CATEGORY_ID='".($idCat)."'");
    }
+   /* fonction qui insert une nouvelle categorie dans la bdd 
+   */
+   function sql_add_cat($name, $desc){
+         mysql_query("insert into STUL_CATEGORY(CATEGORY_NAME, CATEGORY_DESC) values ('".($name)."','".($desc)."')");
+         echo '<script language="Javascript">document.location.replace("../../includes/admin/viewer/index.php?mode=editCats");</script>';
+   }

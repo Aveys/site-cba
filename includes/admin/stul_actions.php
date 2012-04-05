@@ -75,6 +75,12 @@
 				//La redirection ce fera dans action, si oui ou non le login et valide
 				//echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editComptes");</script>';
 			break;
+
+			case 'Ajouter cette categorie':
+				sql_add_cat($_POST["name"], $_POST["desc"]);
+				//La redirection ce fera dans action, si oui ou non le login et valide
+				//echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editComptes");</script>';
+			break;
 			case "Ajouter article":
 				//print_r($_POST);
 				//addArticle($_POST['content'], $_SESSION["idUser"],$_POST['title'], $_POST['tags'], $_POST['category']) or die(mysql_error());	
