@@ -160,14 +160,17 @@ body{
 .nom{
 	color: #c2c1c2;
 }
-
+#formLogin, #formInscri{
+	text-align:right;
+}
 #formLogin input{
-	font-family:robotoI;
-	font-size:15pt;
-	color:#787878;	
+	margin: 5px 0px;
+	font-family:robotoRI;
+	font-size:11pt;
+	color:#d2d2d2;	
 	background-color:#3d4752;
 	padding: 10px 20px;
-	width:100px;
+	width:150px;
 	height:15px;
 	border:1px solid #282f37;
 	-moz-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
@@ -179,14 +182,15 @@ body{
 	border-radius: 15px;
 }
 
-#formLogin input[type='submit'],#formInscri input[type='submit']{
-	font-family:robotoI;
-	font-size:13pt;
+#formLogin input[type='submit']{
+	z-index:500;
+	font-family:robotoR;
+	font-size:11pt;
 	color:#d2d2d2;	
-	background-color:#3d4752;
-	padding: 10px 20px;
-	width:200px;
+	background-color:#3d4752;	
+	width:90px;
 	height:30px;
+	text-align:center;
 	border:1px solid #282f37;
 	-moz-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
   	-webkit-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
@@ -195,5 +199,54 @@ body{
     -webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
+	padding:0px;
+	background: #3d4752;
+	background: -moz-linear-gradient(top,  #3d4752 1%, #22282e 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#3d4752), color-stop(100%,#22282e));
+	background: -webkit-linear-gradient(top,  #3d4752 1%,#22282e 100%);
+	background: -o-linear-gradient(top,  #3d4752 1%,#22282e 100%);
+	background: -ms-linear-gradient(top,  #3d4752 1%,#22282e 100%);
+	background: linear-gradient(top,  #3d4752 1%,#22282e 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d4752', endColorstr='#22282e',GradientType=0 );
 }
 
+
+
+#formInscri input[type='submit']{
+	z-index:1000;
+	font-family:robotoR;
+	font-size:11pt;
+	color:#d2d2d2;	
+	width:90px;
+	height:30px;
+	text-align:center;
+	border:1px solid #282f37;
+	-moz-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+  	-webkit-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+  	-o-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+  	box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+    -webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	padding:0px;
+	position: relative;
+	left: -98px;
+	top: -35px;
+	background: #3d4752;
+	background: -moz-linear-gradient(top,  #3d4752 1%, #22282e 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#3d4752), color-stop(100%,#22282e));
+	background: -webkit-linear-gradient(top,  #3d4752 1%,#22282e 100%);
+	background: -o-linear-gradient(top,  #3d4752 1%,#22282e 100%);
+	background: -ms-linear-gradient(top,  #3d4752 1%,#22282e 100%);
+	background: linear-gradient(top,  #3d4752 1%,#22282e 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d4752', endColorstr='#22282e',GradientType=0 );
+}
+
+#formLogin input:hover, #formInscri input:hover{
+	border:1px solid #33B5E5 !important;
+	-moz-box-shadow: 0px 0px 10px #33B5E5;
+  	-webkit-box-shadow: 0px 0px 10px #33B5E5;
+  	-o-box-shadow: 0px 0px 10px #33B5E5;
+  	box-shadow: 0px 0px 10px #33B5E5;
+  	outline:none;
+}
