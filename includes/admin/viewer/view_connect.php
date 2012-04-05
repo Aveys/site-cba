@@ -35,5 +35,90 @@
                 </div>
             </div>
 
+            <div class="bloc">
+                <div class="title">
+                     Graphique des historique de connexions
+                </div>
+                <div>
+                    <div class="content" id="line">
+                        <table class="graph type-line dots tips">
+                        <!--<caption>Historique</caption>-->
+                        <thead>
+                        <tr>
+                            <td>
+                            </td>
+                            <th scope="col">
+                                00h00
+                            </th>
+                            <th scope="col">
+                                01h00
+                            </th>
+                            <th scope="col">
+                                02h00
+                            </th>
+                            <th scope="col">
+                                03h00
+                            </th>
+                            <th scope="col">
+                                04h00
+                            </th>
+                            <th scope="col">
+                                05h00
+                            </th>
+                            <th scope="col">
+                                05h00
+                            </th>
+                            <th scope="col">
+                                05h00
+                            </th>
+                            <th scope="col">
+                                06h00
+                            </th>
+                            <th scope="col">
+                                07h00
+                            </th>
+                            <th scope="col">
+                                08h00
+                            </th>
+                            <th scope="col">
+                                09h00
+                            </th>
+                            <th scope="col">
+                                10h00
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">
+                                Nombre de connexion
+                            </th>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                0
+                            </td>
+                            <td>
+                                5
+                            </td>
+                            <td>
+                                10
+                            </td>
+                            <td>
+                                50
+                            </td>
+                            <td>
+                                2
+                            </td>
+                        </tr>                        
+                        </tbody>
+                        </table>
+                    </div>
+                   
+     
+                </div>
+            </div>  
+
            
 </div>
