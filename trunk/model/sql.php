@@ -320,3 +320,9 @@
       $row = mysql_fetch_assoc(mysql_query("select count(*) as nb from STUL_COMMENT where POST_ID='".$idPost."'"));
       return $row["nb"];
    }
+
+   function sql_count_post()
+   {
+      $row = mysql_fetch_assoc(mysql_query("select count(*) as nb from STUL_POST"));
+      return $row["nb"];
+   }

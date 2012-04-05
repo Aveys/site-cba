@@ -27,6 +27,8 @@ function add_commentaire($row,$text_button)
 			echo"</form>";
 		}
 	}
+	else
+		echo "Vous devez être connecté pour commenté l'article.";
 }
 /*	affiche les commentaires du post proposé avec ajout des formulaires d'ajout et de suppression de ces coms
 */
