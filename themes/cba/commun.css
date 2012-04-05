@@ -211,7 +211,9 @@ body{
 }
 
 
-
+#formInscri{
+	display: inline;
+}
 #formInscri input[type='submit']{
 	z-index:1000;
 	font-family:robotoR;
@@ -288,7 +290,23 @@ body{
 	color:#33B5E5;
 }
 
-.grisClair{
+.blanc{
 	color:#FFFFFF;
 	font-family:robotoRI;
 }
+
+#btConnexion{
+	text-align:right;
+	padding: 6px 16px;
+}
+#btConnexion a{
+	text-decoration:none;
+	color:#FFFFFF;
+	font-family:roboto;
+	font-size:16pt;
+}
+
+#btConnexion a:hover, #btConnexion a:focus{
+	color:#33B5E5;
+}
+

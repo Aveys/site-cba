@@ -4,10 +4,11 @@
 	*/
 
 	function displayAddFormLog($fcAction){
+
 		if (isset($_SESSION["pseudo"])){
 			
 
-			echo "<div id='connecter'>Bonjour, <span class='grisClair'>".$_SESSION["pseudo"]."</span> | <a href='".$fcAction."?action=Deconnexion'>Se déconnecter</a></div>";	
+			echo "<div id='connecter'>Bonjour, <span class='blanc'>".$_SESSION["pseudo"]."</span> | <a href='".$fcAction."?action=Deconnexion'>Se déconnecter</a></div>";	
 
 
 	}
@@ -16,7 +17,7 @@
 			<?php
 			if(isset($_SESSION['erreur_connect']))
 				echo $_SESSION['erreur_connect']."</br>";	?>
-		
+		<div id="formConnexion">
 			<form id="formLogin" action=<?php echo "'".$fcAction."'" ?> method="post" >
 
 				<!-- pseudo -->				
@@ -35,7 +36,10 @@
 					</p>
 					<!-- submit -->
 				</form>
-			<a href="#" onclick="$('#formLogin').slideToggle('slow')">Connexion</a>
+		</div>
+		<div id='btConnexion'>
+			<a href="#" onclick="$('#formConnexion').slideToggle('slow')">Connexion</a>
+		</div>
 		
 <?php	}	
 		unset($_SESSION['erreur_connect']);
