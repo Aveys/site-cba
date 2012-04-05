@@ -213,5 +213,23 @@ body{
 	padding-bottom: 40px;
 
 }
-
+#com{
+	margin: 20px;
+}
+#reseau_sociaux *{
+	display: block;
+	float: left;
+}
+.form_comment{
+	visibility: hidden;
+	width: 0px;
+	height: 0px;
+}
+#comOfCom {
+	margin-left: 50px;
+}
+#comOfCom input {
+	display: block;
+	float: left;
+}
 

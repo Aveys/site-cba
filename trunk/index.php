@@ -29,7 +29,7 @@ if (file_exists('stul_config.php'))
 			require_once($fvInscription);
 			break;
 			case "article":
-			require_once($fvArticle);
+			require_once($fvLayout);
 			break;
 			case "profil":
 				require_once($fvProfil);

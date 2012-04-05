@@ -7,7 +7,7 @@ function add_commentaire($row,$text_button)
 	{
 		if(isset($row['com_content']))
 		{
-			echo "<input type='button' style='float:left;' onClick=debloque_comment('comOfCom".$row['com_id']."') value='".$text_button."'/>";
+			echo "<input type='button' onClick=debloque_comment('comOfCom".$row['com_id']."') value='".$text_button."'/>";
 			echo "<form method='post' class='form_comment' name='comOfCom".$row["com_id"]."' id='comOfCom".$row['com_id']."' action='controller/actions.php'>";
 				echo "<textarea name='commentaire' cols='50' row='30'></textarea></br>";
 				echo "<input type='submit' name='action' value='Commenter'/>";
@@ -60,7 +60,6 @@ function afficheCom($row)
 			echo "<div id='comOfCom'>";	
 			afficheComOfCom($row_com['com_id']);	//affiche les commentaires de ce commentaire
 			echo "</div>";
-			echo "</br>";
 		}
 	}
 }
@@ -77,8 +76,8 @@ function afficheComOfCom($id_com_parent)
 		echo " de ";
 		link_profil($row_com['USER_ID']);		//apercu du profil de l'auteur du com
 		dateTimeToTime($row_com['COM_DATE']);	//affiche la date de publication au format facebook
-				button_edit_com($row_com['COM_ID'],$row_com['POST_ID']); //bouton de suppression de ce com
-				button_delete_com($row_com['COM_ID'],$row_com['POST_ID']); //bouton de suppression de ce com
+		button_edit_com($row_com['COM_ID'],$row_com['POST_ID']); //bouton de suppression de ce com
+		button_delete_com($row_com['COM_ID'],$row_com['POST_ID']); //bouton de suppression de ce com
 		echo "</br>";
 	}
 }
