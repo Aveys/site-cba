@@ -12,8 +12,6 @@
                         <label for="nameSite">Nom du site</label>
                         <input type="text" name="nameSite" value='TEST'/>
                     </p>
-                     
-                    <input type="hidden" name="id_post" value='<?php echo $idArticle;?>'/>
                     <div class="input">
                        
                             <input type="submit" value="Mettre à jour" name="action"/>
