@@ -58,7 +58,52 @@ function verifStatus(field)
 	}
 }
 
-function valid(field)
+function verifTitre(field)
+{
+	if(field.value == '')
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+function verifTags(field)
+{
+	if(field.value == '')
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+function verifText(field)
+{
+	if(field.value == '')
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+
+function validArticle(field)
+{
+	if(verifTitre(field.title) && verifTags(field.tags) && verifText(field.content))
+		return true;
+	else
+		return false;
+}
+
+function validCompte(field)
 {
 	if(verifLogin(field.pseudo) && verifMail(field.email) && verifPseudo(field.pseudo) && verifMdp(field.password) && verifStatus(field.status))
 		return true;
