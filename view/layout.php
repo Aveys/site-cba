@@ -44,7 +44,13 @@ require_once($fcSearch);
 						if(isset($_GET['POST_ID']))
 							displayArticle($_GET['POST_ID']);
 						else if(!isset($_GET['recherche']))
-							displayArticles($fcAction);
+						{
+							if(isset($_GET['num_page']))
+								displayArticles($fcAction,$_GET['num_page']);
+							else
+								displayArticles($fcAction,0);
+							affiche_num_page();
+						}
 						else if(isset($_GET['recherche']))
 							search($_GET["recherche"]);
 						?>

@@ -234,3 +234,7 @@ body{
 #comOfCom,.comOfCom{
 	margin-left: 50px;
 }
+
+#num_pages{
+	margin-left: 50%; 
+}

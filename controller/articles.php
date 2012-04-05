@@ -83,7 +83,6 @@ function displayAddForm(){
 	- nom du posteur, date de création
 */
 function displayArticle($idPost){
-	
 		$result = sql_post_of_idPost($idPost);
 		if(mysql_num_rows($result) == 0)
 		{
@@ -91,7 +90,8 @@ function displayArticle($idPost){
 			echo "<div id='no-article'>Aucun article disponible</div>";
 			echo "<img alt='Stul' src='themes/cba/images/sep_menu_bottom.png' />";
 		}
-		while($row=mysql_fetch_assoc($result)){
+		while($row=mysql_fetch_assoc($result))
+		{
 			$nomCat=getCategory($row["CATEGORY_ID"]);
 			if(!isset($nomCat)){
 				$row["CATEGORY_ID"]="default";
@@ -146,8 +146,9 @@ function displayArticle($idPost){
 /*affiche tous les articles de la bdd avec ses infos
 	- nom du posteur, date de création
 */
-function displayArticles(){
-	
+function displayArticles($Action,$page){
+		$nb_article_by_page = 3;
+		$i = 0;
 		$result = sql_all_post();
 		if(mysql_num_rows($result) == 0)
 		{
@@ -156,25 +157,29 @@ function displayArticles(){
 			echo "<img alt='Stul' src='themes/cba/images/sep_menu_bottom.png' />";
 		}
 		while($row=mysql_fetch_assoc($result)){
-			$nomCat=getCategory($row["CATEGORY_ID"]);
-			if(!isset($nomCat)){
-				$row["CATEGORY_ID"]="default";
-				$nomCat="Aucune";
-			}
-			echo "<div class='article'>";
-				echo "<div class='category' id='category-".$row["CATEGORY_ID"]."'>".$nomCat."</div>";
-				echo "<div id='titre-article'><h3>".$row["POST_TITLE"]."</h3></div>";
-				echo "<div alt='Stul' id='article-image'><img src='themes/cba/images/imageArticle1.jpg' /></div>";
-				echo "<div class='contenu-article'>";
-				affichage_article($row,1);
+			if($i >= $page*$nb_article_by_page && $i < ($page+1)*$nb_article_by_page)
+			{
+				$nomCat=getCategory($row["CATEGORY_ID"]);
+				if(!isset($nomCat)){
+					$row["CATEGORY_ID"]="default";
+					$nomCat="Aucune";
+				}
+				echo "<div class='article'>";
+					echo "<div class='category' id='category-".$row["CATEGORY_ID"]."'>".$nomCat."</div>";
+					echo "<div id='titre-article'><h3>".$row["POST_TITLE"]."</h3></div>";
+					echo "<div alt='Stul' id='article-image'><img src='themes/cba/images/imageArticle1.jpg' /></div>";
+					echo "<div class='contenu-article'>";
+					affichage_article($row,1);
 
-			echo "</div><div class='info_article'><span id='auteur'>Fait par ";
-			link_profil(sql_user_who_post($row['POST_ID']));
-			echo " </span>";
-			dateTimeToTime($row['POST_DATE']);
-			echo "</div>";
-			echo "<img alt='Stul' id='bottom-article' src='themes/cba/images/sep_article_bottom.png' />";
-			echo "</div>";
+				echo "</div><div class='info_article'><span id='auteur'>Fait par ";
+				link_profil(sql_user_who_post($row['POST_ID']));
+				echo " </span>";
+				dateTimeToTime($row['POST_DATE']);
+				echo "</div>";
+				echo "<img alt='Stul' id='bottom-article' src='themes/cba/images/sep_article_bottom.png' />";
+				echo "</div>";
+			}
+			$i++;
 		}
 }
 function affichage_article($row,$masque)
@@ -280,6 +285,20 @@ function button_delete_post($idPost)
 			echo "<input name='action' value='Supprimer post' type='submit'/>";
 		echo "</form>";
 	}
+}
+
+function affiche_num_page()
+{
+	$nb_post = sql_count_post();
+	$nb_post = intval($nb_post/3);
+	echo "<div id='num_pages'>";
+		if($nb_post >= 1)
+		{
+			for ($i=0; $i <= $nb_post; $i++) { 
+				echo "<a href='?num_page=".$i."'>".($i+1)."</a> ";
+			}
+		}
+	echo "</div>";
 }
 	/*
 	function boutonJaime($row)
