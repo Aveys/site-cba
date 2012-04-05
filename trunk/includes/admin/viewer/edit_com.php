@@ -15,7 +15,7 @@ $row = mysql_fetch_assoc($result);
                     Editer le commentaire
                 </div>
                 <div class="content"> 
-                 <form method="POST" action='../../../<?php echo $fAdminAction;?>'> 
+                 <form method="post" action='../../../<?php echo $fAdminAction;?>'> 
                     <div class="input textarea">
                     <p>
                         <label for="content">Editer le texte</label>

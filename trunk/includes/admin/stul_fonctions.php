@@ -26,7 +26,7 @@ function addFormAdmin()
 		?>
 
 		<!--Formulaire de l'admin-->
-		<form id="loginAdmin" method="POST" action='<?php echo $fAdminAction;?>' name="loginAdmin">
+		<form id="loginAdmin" method="post" action='<?php echo $fAdminAction;?>' name="loginAdmin">
 			<p>
 				<label for="pseudo">
 					<?php echo $vmLoginAdmin;?><br/>
@@ -54,7 +54,7 @@ function displayDeleteForm(){
 		if(isadmin($_SESSION["pseudo"]) == 1)
 		{
 	?>
-			<form name="deleteArticles" action="actions.php" method="POST">
+			<form name="deleteArticles" action="actions.php" method="post">
 			
 			<!-- choix Article -->
 			<label for="categorie">Quelle article ?</label>

@@ -14,7 +14,7 @@ $row = sql_info_user($idUser);
                     Editer le compte de "<?php echo $row["USER_LOGIN"];?>"
                 </div>
                 <div class="content"> 
-                 <form method="POST" action='../../../<?php echo $fAdminAction;?>'> 
+                 <form method="post" action='../../../<?php echo $fAdminAction;?>'> 
                     <div class="input textarea">
                     <p>
                         <label for="login">Login</label>

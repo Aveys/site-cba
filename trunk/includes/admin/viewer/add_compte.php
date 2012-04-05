@@ -21,7 +21,7 @@
                 ?>
 
 
-                 <form method="POST" action='../../../<?php echo $fAdminAction;?>' onSubmit="return validLogin(this)"> 
+                 <form method="post" action='../../../<?php echo $fAdminAction;?>' onSubmit="return validLogin(this)"> 
                     <div class="input textarea">
                     <p>
                         <label for="login">Login</label>

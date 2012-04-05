@@ -15,7 +15,7 @@ $row = mysql_fetch_assoc($result);
                     Editer l'article "<?php echo $row["POST_TITLE"];?>"
                 </div>
                 <div class="content"> 
-                 <form method="POST" action='../../../<?php echo $fAdminAction;?>'> 
+                 <form method="post" action='../../../<?php echo $fAdminAction;?>'> 
                     <div class="input textarea">
                     <p>
                         <label for="textTitle">Titre</label>
