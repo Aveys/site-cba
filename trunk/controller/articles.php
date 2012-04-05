@@ -1,6 +1,8 @@
-﻿<?php 
+﻿
+<?php 
 	/*	fonction qui affiche un formulaire permettant de se loger ou de se deloger
 	*/
+
 	function displayAddFormLog($fcAction){
 		if (isset($_SESSION["pseudo"])){
 			
@@ -10,8 +12,11 @@
 
 	}
 		else{
+			?>			
+			<?php
 			if(isset($_SESSION['erreur_connect']))
 				echo $_SESSION['erreur_connect']."</br>";	?>
+		
 			<form id="formLogin" action=<?php echo "'".$fcAction."'" ?> method="post" >
 
 				<!-- pseudo -->				
@@ -30,6 +35,8 @@
 					</p>
 					<!-- submit -->
 				</form>
+			<a href="#" onclick="$('#formLogin').slideToggle('slow')">Connexion</a>
+		
 <?php	}	
 		unset($_SESSION['erreur_connect']);
 		}

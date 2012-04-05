@@ -35,6 +35,15 @@ jQuery(function($){
 		}
 		});
 	});
+<<<<<<< .mine
+});
+
+$('#clickme').click(function() {
+  $('#formLogin').slideUp('slow', function() {
+    // Animation complete.
+  });
+=======
 	
 	
+>>>>>>> .r280
 });

@@ -30,7 +30,7 @@
 						<img alt='Stul' src="themes/cba/images/sep_menu_bottom.png" />
 					</div>
 				<?php displayAddFormLog($fcAction);?>
-
+				
 				</div>
 				</div>
 			</div>
