@@ -76,3 +76,6 @@ function validCompte(field)
 		return false;
 }
 //BLABLA kk
+$(document).ready(function(){
+	$('#formConnexion').hide()
+});
