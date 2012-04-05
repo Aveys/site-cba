@@ -46,7 +46,7 @@ require_once($fcSearch);
 
 				<div id="formulaire">					
 					<h2>Nous contacter</h2>
-						<form action="model/envoi.php" method="post" name="formulaire">
+						<form action="controller/envoi.php" method="post" name="formulaire">
 						
 						<p>
 							<label for='nom'>Votre nom </label><br/>

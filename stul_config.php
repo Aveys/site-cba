@@ -17,6 +17,7 @@ $fcAction	 	= "controller/actions.php";
 $fcUserView		= "controller/user_view.php";
 $fcArticle		= "controller/articles.php";
 $fcSearch		= "controller/search.php";
+$fcEnvoi		= "controller/envoi.php";
 
 $fmConnect 		= "model/connect.php";
 $fmEscape		= "model/escape.php";
@@ -44,6 +45,7 @@ $a_fcAction	 		= $rootSite."controller/actions.php";
 $a_fcUserView		= $rootSite."controller/user_view.php";
 $a_fcArticle		= $rootSite."controller/articles.php";
 $a_fcSearch			= $rootSite."controller/search.php";
+$a_fcEnvoi			= $rootSite."controller/envoie.php";
 
 $a_fmConnect 		= $rootSite."model/connect.php";
 $a_fmEscape			= $rootSite."model/escape.php";
