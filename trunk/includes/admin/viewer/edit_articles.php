@@ -28,7 +28,7 @@
                                         echo "<td>".$infoUser["USER_LOGIN"]."</td>";
                                         echo "<td>".$row["POST_TAG"]."</td>";
                                         echo "<td>".$infoCat["CATEGORY_NAME"]."</td>";
-                                        echo "<td>0</th>";
+                                        echo "<td>".sql_count_com($row["POST_ID"])."</td>";
                                         echo "<td>".$row["POST_DATE"]."</td>";
                                         echo "<td><a href='?mode=editArticle&id=".$row["POST_ID"]."'><img alt='Stul' src='img/icons/pencil.png' width='24' height='24'/></a></td>";
                                         echo "<td><a href='../stul_actions.php?mode=delArticle&id=".$row["POST_ID"]."'><img alt='Stul' src='img/icons/trash.png' width='24' height='24'/></a></td>";

@@ -314,3 +314,9 @@
          mysql_query("insert into STUL_CATEGORY(CATEGORY_NAME, CATEGORY_DESC) values ('".($name)."','".($desc)."')");
          echo '<script language="Javascript">document.location.replace("../../includes/admin/viewer/index.php?mode=editCats");</script>';
    }
+
+   function sql_count_com($idPost)
+   {
+      $row = mysql_fetch_assoc(mysql_query("select count(*) as nb from STUL_COMMENT where POST_ID='".$idPost."'"));
+      return $row["nb"];
+   }
