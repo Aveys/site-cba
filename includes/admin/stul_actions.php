@@ -42,7 +42,7 @@
 					unset($_SESSION["pass"]);
 					unset($_SESSION["keyAdmin"]);
 					unset($_SESSION["adminAuth"]);
-					unset($_SESSION["idUser"]);
+					unset($_SESSION["id"]);
 					echo '<script language="Javascript">document.location.replace(".");</script>';
 				break;
 
@@ -71,7 +71,7 @@
 				//addArticle($_POST['content'], $_SESSION["idUser"],$_POST['title'], $_POST['tags'], $_POST['category']) or die(mysql_error());	
 				//MatHack: Il faudra rajouter le champs de la categorie plus tard
 				//$_POST['category']
-				addArticle($_POST['content'], $_SESSION["idUser"], $_POST['title'], $_POST['tags'], $_POST['category']);				
+				addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category']);				
 				echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
 				//header('Location:./viewer/index.php?mode=editArticles');
 			break;

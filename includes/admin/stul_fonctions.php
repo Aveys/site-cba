@@ -105,7 +105,7 @@ function checkLoginAdmin( $login, $pass){
     //Vérification 
 	if($ligne == 1)
 	{
-		$_SESSION["idUser"] = $row['USER_ID'];
+		$_SESSION["id"] = $row['USER_ID'];
 		$_SESSION["login"] = $loginF;
 		$_SESSION["pass"] = $passwordF;
 		$_SESSION["keyAdmin"] = md5($passwordF*$loginF);
