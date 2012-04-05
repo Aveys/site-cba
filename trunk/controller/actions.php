@@ -6,6 +6,20 @@
 	require_once("../stul_config.php");
 	require_once($a_fmSql);
 	require_once($a_fmConnect);
+
+	//Methode par GET
+	if(isset($_GET["action"])){
+		switch($_GET['action'])
+		 {
+		 	case "Deconnexion":	//se delog
+				sql_add_log_deconnexion();
+				unset($_SESSION["pseudo"]);
+				unset($_SESSION["id"]);
+			break;
+		 }
+	}
+	//Methode par POST
+
 	if(isset($_POST["action"])){
 		switch($_POST['action'])
 		 {

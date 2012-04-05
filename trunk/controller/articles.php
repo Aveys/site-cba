@@ -3,15 +3,12 @@
 	*/
 	function displayAddFormLog($fcAction){
 		if (isset($_SESSION["pseudo"])){
-			echo "<h2>".$_SESSION["pseudo"]."</h2>";	
-			echo '<form id="formLogout" action="'.$fcAction.'" method="post" >'; ?>
-				<!-- Unsubmit -->
-			<div id="deconnexion">
-				<input type="submit" name="action" value="Deconnexion"/>
-				<!-- submit -->
-			</div>
-			</form>	
-<?php 	}
+			
+
+			echo "<div id='connecter'>Bonjour, <span class='grisClair'>".$_SESSION["pseudo"]."</span> | <a href='".$fcAction."?action=Deconnexion'>Se déconnecter</a></div>";	
+
+
+	}
 		else{
 			if(isset($_SESSION['erreur_connect']))
 				echo $_SESSION['erreur_connect']."</br>";	?>
@@ -23,8 +20,9 @@
 				<input type='text' name="mdp" onFocus="modifMdp(this)" onBlur="verifMdp(this)" value="Mot de passe"/></br>
 				<!-- submit -->
 				<input type="submit" name="action" value="Connexion"/>
-				
-				<!--Bouton d'inscription-->
+
+			</form>
+			<!--Bouton d'inscription-->
 				<form id="formInscri" action="?page=inscription" method="post">
 					<!-- Unsubmit -->
 					<p>
@@ -32,8 +30,6 @@
 					</p>
 					<!-- submit -->
 				</form>
-
-			</form>
 <?php	}	
 		unset($_SESSION['erreur_connect']);
 		}
