@@ -213,7 +213,7 @@ jQuery(function($){
    * Mailchek
    * Vérifie si le nom de domaine entré est valide, et propose une suggestion
     * */ 
-  var domains = ['hotmail.com', 'gmail.com', 'wanadoo.fr', 'hotmail.fr', 'laposte.net'];
+  var domains = ['hotmail.com', 'gmail.com', 'wanadoo.fr', 'hotmail.fr', 'laposte.net', 'msn.com','etu.univ-savoie.fr', 'univ-savoie.fr'];
   $('.mailcheck').blur(function(){
     var input= $(this);
     input.mailcheck({
