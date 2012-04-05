@@ -1,22 +1,22 @@
 
 function verifTexte(field){
 	if(field.value==""){
-		field.className ="valid";
+		field.className ="erreur";
 		return false;
 	}
 	else{
-		field.className ="error";
+		field.className ="valid";
 		return true;	
 	}
 }
 function verifPseudo(field){
 	if(field.value==""){
-		field.className ="valid";
+		field.className ="erreur";
 		field.value = "Login";
 		return false;
 	}
 	else{
-		field.className ="error";
+		field.className ="valid";
 		return true;	
 	}
 }
@@ -25,13 +25,13 @@ function modifPseudo(field){
 }
 function verifMdp(field){
 	if(field.value == ""){
-		field.className ="valid";
+		field.className ="erreur";
 		field.value = "Mots de passe";
 		field.type = "text";
 		return false;
 	}
 	else{
-		field.className ="error";
+		field.className ="valid";
 		return true;	
 	}
 }
