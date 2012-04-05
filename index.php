@@ -37,6 +37,9 @@ if (file_exists('stul_config.php'))
 			case "contact":
 				require_once($fvContact);
 			break;
+			case "equipe":
+				require_once($fvEquipe);
+			break;
 			default:
 			require_once($fvLayout);
 			break;
