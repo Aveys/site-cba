@@ -51,7 +51,7 @@ require_once($fcSearch);
 						}
 						echo "</h1></br>";
 					?>
-				</div>
+				</div><!-- content -->
 					<div id="articles">
 						<?php 
 							echo "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -61,18 +61,14 @@ require_once($fcSearch);
 							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 						?>
-					</div>
-				</div><!-- content -->
-			</div><!-- central -->
+					</div><!-- article -->
+				</div><!-- central -->
+			</div><!-- wrapper -->
 
 			<!--On include le footer general-->
 			<?php include_once("footer.php");?>
 			
 
-		</div><!-- Wrapper -->
-	</div> <!-- header-bg -->
-
-</div><!-- all -->
-
+		</div><!-- all -->
 </body>
 </html>

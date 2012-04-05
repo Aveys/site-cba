@@ -36,7 +36,7 @@ require_once($fcSearch);
 					form_search();
 					?>
 					<br/>
-				</div>
+				</div><!-- content -->
 					<div id="articles">
 						<?php 
 						if(isset($_GET['POST_ID']))
@@ -47,17 +47,15 @@ require_once($fcSearch);
 							search($_GET["recherche"]);
 						?>
 					</div>
-				</div><!-- content -->
-			</div><!-- central -->
+				</div><!-- central -->
+			</div><!-- wrapper -->
 
 			<!--On include le footer general-->
 			<?php include_once("footer.php");?>
 			
 
-		</div><!-- Wrapper -->
-	</div> <!-- header-bg -->
+		</div><!-- All -->
 
-</div><!-- all -->
 
 </body>
 </html>
