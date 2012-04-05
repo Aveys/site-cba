@@ -10,10 +10,15 @@ require_once($fcArticle);
 <link rel="stylesheet" type="text/css" href="themes/cba/contact.css" />
 	<script type="text/javascript" src="js/verification.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
+
 	<script type="text/javascript" src="js/apercu_profil.js"></script>
 	<script type="text/javascript" src="js/apercu_equipe.js"></script>
 	<script src="js/mootools.js" type="text/javascript"></script>
 	<script src="js/moocheck.js" type="text/javascript"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+	 <!-- Mailchek : permet de vérifier si le nom de domaine de l'email est valide -->
+	<script type="text/javascript" src="js/jquery.mailcheck.min.js"></script>
+	 <script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
 	  {lang: 'fr'}
 	</script>
@@ -28,16 +33,16 @@ require_once($fcArticle);
 <body>
 			<div id="central">
             	<div id="formulaire">
-				 <form id="inscription_form" action="<?php echo $fcAction; ?>" method="post" onSubmit="return validLogin(this)">
+				 <form id="inscription_form" action="<?php echo $fcAction; ?>" method="post" onSubmit="return validCompte(this)">
                         <!-- pseudo -->
                            <p> <label for="pseudo">Pseudo :</label></p>
-                            <p><input name="pseudo" onBlur="verifPseudo(this)" id="pseudo" /></p>
+                            <p><input name="pseudo" onBlur="verifPseudo(this)"/></p>
                         <!-- login -->
                             <p><label for="mdp">Mot de passe :</label></p>
-                            <p><input type="password" name="mdp" onBlur="verifMdp(this)" id="mdp" /></p>
+                            <p><input type="password" name="mdp" onBlur="verifMdp(this)"/></p>
                         <!-- mail -->
                             <p><label for="email">E-mail </label></p>
-                            <p><input type="text" name="mail" class="email mailcheck" value='' id="email" /></p>
+                            <p><input type="text" name="mail" class="email mailcheck" value='' onBlur="verifMail(this)"/></p>
                         <p><span class="help-inline"></span></p>
                         <!-- date de naissance -->
                         <!--
