@@ -18,7 +18,7 @@
 			<form id="formLogin" action=<?php echo "'".$fcAction."'" ?> method="post" >
 
 				<!-- pseudo -->				
-				<input name="pseudo" onBlur="verifPseudo(this)" value="Login"/></br>
+				<input name="pseudo" onBlur="verifPseudo(this)" onFocus="modifPseudo(this)" value="Login"/></br>
 				<!-- login -->
 				<input type='text' name="mdp" onFocus="modifMdp(this)" onBlur="verifMdp(this)" value="Mot de passe"/></br>
 				<!-- submit -->
