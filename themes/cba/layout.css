@@ -131,10 +131,9 @@ body{
 .article{
 	position:relative;
 	margin:auto;
-	margin-top:20px;
+	margin-top: 40px;
 	width:900px;
 	text-align:center;
-
 }
 .category{
 	float: right;

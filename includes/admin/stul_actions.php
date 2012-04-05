@@ -71,7 +71,7 @@
 				//addArticle($_POST['content'], $_SESSION["idUser"],$_POST['title'], $_POST['tags'], $_POST['category']) or die(mysql_error());	
 				//MatHack: Il faudra rajouter le champs de la categorie plus tard
 				//$_POST['category']
-				addArticle($_POST['content'], $_SESSION["idUser"], $_POST['title'], $_POST['tags'], 1);				
+				addArticle($_POST['content'], $_SESSION["idUser"], $_POST['title'], $_POST['tags'], $_POST['category']);				
 				echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
 				//header('Location:./viewer/index.php?mode=editArticles');
 			break;
