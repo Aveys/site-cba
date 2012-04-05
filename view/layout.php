@@ -14,7 +14,6 @@ require_once($fcSearch);
 <link rel="stylesheet" type="text/css" href="themes/cba/commun.css" />
  <link rel="stylesheet" type="text/css" href="themes/cba/layout.css" />
 	<script type="text/javascript" src="js/verification.js"></script>
-	
 	<script type="text/javascript" src="js/apercu_profil.js"></script>
 	<script type="text/javascript" src="js/apercu_equipe.js"></script>
 	<script src="js/mootools.js" type="text/javascript"></script>
