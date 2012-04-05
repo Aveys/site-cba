@@ -307,3 +307,10 @@ body{
 	border: 1px solid #C7C7C7;
 	padding: 9px;
 }
+
+.comArticle .contentCom
+{
+	padding: 9px 9px 43px;
+	border: 1px solid #C5C5C5;
+	margin-bottom: 12px;
+}
