@@ -10,7 +10,7 @@ require_once($a_fcArticle);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>CBA Website</title>
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="themes/cba/article.css" />
 <script type="text/javascript" src="js/verification.js"></script>
 
 <script type="text/javascript" src="js/apercu_profil.js"></script>

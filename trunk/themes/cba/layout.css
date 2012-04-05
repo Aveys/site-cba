@@ -219,9 +219,13 @@ body{
 	padding-bottom: 40px;
 
 }
-#com{
-	margin: 20px;
+#com
+{
+	position: relative;
+	margin: auto;
+	width: 500px;
 }
+
 #reseau_sociaux *{
 	display: block;
 	float: left;
@@ -231,9 +235,9 @@ body{
 	float: left;
 }
 .form_comment{
-	visibility: hidden;
+	/*visibility: hidden;
 	width: 0px;
-	height: 0px;
+	height: 0px;*/
 }
 #comOfCom,.comOfCom{
 	margin-left: 50px;
@@ -241,4 +245,65 @@ body{
 
 #num_pages{
 	margin-left: 50%; 
+}
+
+.comArticle
+{
+	background-color: #EAEAEA;
+	margin-top: 12px;
+	padding: 12px;
+}
+
+.form_comment INPUT
+{
+	border: 1px solid #C7C7C7;
+	padding: 9px;
+}
+.form_comment TEXTAREA
+{
+	resize: none;
+	height: 93px;
+}
+
+.contentCom INPUT
+{
+	border: 1px solid #ADADAD;
+	padding: 6px;
+	margin-bottom: 0px;
+	margin-right: 10px;
+	margin-top: 4px;
+}
+
+.form_comment INPUT
+{
+	border: 1px solid #C7C7C7;
+	padding: 9px;
+}
+
+
+.contentCom .comText
+{
+	padding: 9px;
+	background-color: #D8D6D6;
+}
+
+.contentCom .infoCom
+{
+	font-size: 10.8pt;
+	padding-top: 19px;
+}
+
+.contentCom INPUT
+{
+	border: 1px solid #ADADAD;
+	padding: 6px;
+	margin-bottom: 0px;
+	margin-right: 10px;
+	margin-top: 4px;
+}
+
+.form_comment INPUT
+{
+	border: 1px solid #C7C7C7;
+	padding: 9px;
 }

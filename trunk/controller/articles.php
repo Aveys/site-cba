@@ -87,6 +87,9 @@ function displayAddForm(){
 	- nom du posteur, date de création
 */
 function displayArticle($idPost){
+	?>
+	<link rel="stylesheet" type="text/css" href="themes/cba/article.css" />
+	<?php
 		$result = sql_post_of_idPost($idPost);
 		if(mysql_num_rows($result) == 0)
 		{
