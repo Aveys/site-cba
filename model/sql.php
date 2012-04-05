@@ -33,7 +33,7 @@
    }
    function sql_log_connexion()
    {
-      $query = "insert into STUL_LOG(user_id,date_connexion) values('".escape($_SESSION['idUser'])."',now())";
+      $query = "insert into STUL_LOG(user_id,date_connexion) values('".escape($_SESSION['id'])."',now())";
       $result = mysql_query($query) or die(mysql_error());
    }
    /* fonction admin qui permet d'ajouter un utilisateur en verifiant qu'il est pas deja le meme login dans la BDDD*/
@@ -257,12 +257,6 @@
       $result[] = sql_recherche_post_tag($search);
       $result[] = sql_recherche_com_content($search);
       return $result;
-   }
-   /* fonction qui retourne le nombre de connexion à la date $date
-   */
-   function sql_new_connexion()
-   {
-      mysql_query('insert into STUL_VISITES(jour) values(now())');
    }
    /* fonction qui retourne le nombre de connexion à la date $date
    */
