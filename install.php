@@ -68,11 +68,8 @@ switch($step){
 				<div id="text" class="box">
 					<p> Veuillez rentrer les identifiants permettant de se connecter à la base de donnée MySQL</p>
 					<div id="formulaire">
-<<<<<<< .mine
-						<form action="install.php?step=3" method="POST" name="addBDD" onSubmit="return valid_sql(this)">
-=======
+
 						<form action="install.php?step=3" method="post" name="addBDD" onSubmit="return valid_sql(this)">
->>>>>>> .r236
 							<input type='text' name='host' value='localhost' onFocus='init(this)' onBlur='notEmpty(this)'/>
 							<label for="host">Si localhost ne marche pas, vous devrez demander cette information à votre hébergeur.</label>
 							<input type='text' name='user' value='root' onFocus='init(this)' onBlur='notEmpty(this)'/>
@@ -200,7 +197,10 @@ switch($step){
 						require_once("stul_config.php");
 						require_once("model/connect.php");
 						$query=mysql_query("INSERT INTO STUL_USERS (USER_LOGIN,USER_PASS,USER_DISPLAYNAME,USER_MAIL,USER_REGISTERED,USER_STATUS) VALUES ('".$_POST["login"]."','".sha1($_POST["mdp"])."','".$_POST["login"]."','".$_POST["mail"]."',now(),2);");
-					}
+						$query=mysql_query("INSERT INTO STUL_POST(USER_ID,POST_DATE,CATEGORY_ID,POST_STATUS,POST_TYPE,POST_TITLE,POST_CONTENT,POST_TAG) VALUES (1,now(),1,1,1,'Bienvenue sur Stul','Ceci est votre premier article sur stul. N\'hesitez pas à le modifier ou l\'editer pour prendre en main Stul','article');");
+						$query=mysql_query("INSERT INTO STUL_POST(USER_ID,POST_DATE,CATEGORY_ID,POST_STATUS,POST_TYPE,POST_TITLE,POST_CONTENT,POST_TAG) VALUES (1,now(),2,1,1,'News','Ceci est votre premiere news eur stul. N\'hesitez pas à la modifier ou l\'editer pour prendre en main Stul','news');");
+						}
+
 					//else
 						//echo '<script language="Javascript">document.location.replace("install.php?step=4");</script>';
 					displayHeader();?>
