@@ -70,7 +70,6 @@ function validLogin(field){
 
 function validCompte(field)
 {
-	alert(verifPseudo(field.pseudo) && verifMail(field.mail) && verifMdp(field.password));
 	if(verifPseudo(field.pseudo) && verifMail(field.mail) && verifMdp(field.password))
 		return true;
 	else
