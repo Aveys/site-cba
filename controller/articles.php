@@ -17,13 +17,10 @@
 				echo $_SESSION['erreur_connect']."</br>";	?>
 			<form id="formLogin" action=<?php echo "'".$fcAction."'" ?> method="post" >
 
-				<!-- pseudo -->
-				<label for="pseudo">Pseudo :</label>
-				<input name="pseudo" onBlur="verifPseudo(this)"/></br>
-
+				<!-- pseudo -->				
+				<input name="pseudo" onBlur="verifPseudo(this)" value="Login"/></br>
 				<!-- login -->
-				<label for="mdp">Mot de passe :</label>
-				<input type=password name="mdp" onBlur="verifMdp(this)"/></br>
+				<input type='text' name="mdp" onFocus="modifMdp(this)" onBlur="verifMdp(this)" value="Mot de passe"/></br>
 				<!-- submit -->
 				<input type="submit" name="action" value="Connexion"/>
 

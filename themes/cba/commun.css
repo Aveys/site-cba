@@ -150,3 +150,39 @@ body{
 	color: #c2c1c2;
 }
 
+#formLogin input{
+	font-family:robotoI;
+	font-size:15pt;
+	color:#787878;	
+	background-color:#3d4752;
+	padding: 10px 20px;
+	width:100px;
+	height:15px;
+	border:1px solid #282f37;
+	-moz-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+  	-webkit-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+  	-o-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+  	box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+    -webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+#formLogin input[type='submit'],#formInscri input[type='submit']{
+	font-family:robotoI;
+	font-size:13pt;
+	color:#d2d2d2;	
+	background-color:#3d4752;
+	padding: 10px 20px;
+	width:200px;
+	height:30px;
+	border:1px solid #282f37;
+	-moz-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+  	-webkit-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+  	-o-box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+  	box-shadow: inset 0px 0px 10px rgba(0,0,0, 0.3);
+    -webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+

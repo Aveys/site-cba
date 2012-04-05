@@ -12,6 +12,7 @@ function verifTexte(field){
 function verifPseudo(field){
 	if(field.value==""){
 		field.style.backgroundColor="red";
+		field.value = "Login";
 		return false;
 	}
 	else{
@@ -19,15 +20,25 @@ function verifPseudo(field){
 		return true;	
 	}
 }
+function modifPseudo(field){
+	field.value = "";
+}
 function verifMdp(field){
 	if(field.value == ""){
 		field.style.backgroundColor="red";
+		field.value = "Mots de passe";
+		field.type = "text";
 		return false;
 	}
 	else{
 		field.style.backgroundColor="green";
 		return true;	
 	}
+}
+function modifMdp(field){
+	if(field.type == "text")
+		field.type = "password";
+	field.value = "";
 }
 
 function valid(){
