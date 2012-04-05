@@ -37,7 +37,7 @@
 
             <div class="bloc">
                 <div class="title">
-                     Graphique des historique de connexions
+                     Graphique des historiques de connexions
                 </div>
                 <div>
                     <div class="content" id="line">
@@ -47,45 +47,12 @@
                         <tr>
                             <td>
                             </td>
-                            <th scope="col">
-                                00h00
-                            </th>
-                            <th scope="col">
-                                01h00
-                            </th>
-                            <th scope="col">
-                                02h00
-                            </th>
-                            <th scope="col">
-                                03h00
-                            </th>
-                            <th scope="col">
-                                04h00
-                            </th>
-                            <th scope="col">
-                                05h00
-                            </th>
-                            <th scope="col">
-                                05h00
-                            </th>
-                            <th scope="col">
-                                05h00
-                            </th>
-                            <th scope="col">
-                                06h00
-                            </th>
-                            <th scope="col">
-                                07h00
-                            </th>
-                            <th scope="col">
-                                08h00
-                            </th>
-                            <th scope="col">
-                                09h00
-                            </th>
-                            <th scope="col">
-                                10h00
-                            </th>
+                            <?php
+                                $nb_col=24;
+                                for ($i=0; $i <= $nb_col; $i++) { 
+                                   echo "<th scope='col'>".$i."</th>";
+                                }
+                            ?>
                         </tr>
                         </thead>
                         <tbody>
@@ -93,27 +60,22 @@
                             <th scope="row">
                                 Nombre de connexion
                             </th>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                0
-                            </td>
-                            <td>
-                                5
-                            </td>
-                            <td>
-                                10
-                            </td>
-                            <td>
-                                50
-                            </td>
-                            <td>
-                                2
-                            </td>
+                            <?php
+                                $nb_col=24;
+                                $date_debut=date('Y-m-d 00:i:s');
+                                $date_fin=date('Y-m-d 00:i:s');
+                                for ($i=0; $i <= $nb_col; $i++) { 
+                                    $tmp = $date_debut;
+                                    $tmp = str_replace(" 00:", " ".$i.":", $tmp);
+                                    $tmp2 = $date_fin;
+                                    $tmp2 = str_replace(" 00:", " ".($i+1).":", $tmp2);
+                                    echo "<td>".sql_number_of_connexion_period($tmp,$tmp2)."</td>";
+                                }
+                            ?>
                         </tr>                        
                         </tbody>
                         </table>
+                                <?php echo "$date_debut" ?>
                     </div>
                    
      

@@ -42,6 +42,7 @@
 			break;
 			case "Connexion":	//se log
 				sql_connexion_user($_POST);
+				sql_new_connexion();
 			break;
 			case "Deconnexion":	//se delog
 				sql_add_log_deconnexion();

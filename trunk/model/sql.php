@@ -260,6 +260,12 @@
    }
    /* fonction qui retourne le nombre de connexion à la date $date
    */
+   function sql_new_connexion()
+   {
+      mysql_query('insert into STUL_VISITES(jour) values(now())');
+   }
+   /* fonction qui retourne le nombre de connexion à la date $date
+   */
    function sql_number_of_connexion_date($date)
    {
       $result = mysql_fetch_assoc(mysql_query('select count(*) as "nb" from STUL_VISITES where jour="'.escape($date).'"'));

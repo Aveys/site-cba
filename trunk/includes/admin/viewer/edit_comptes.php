@@ -8,7 +8,7 @@
                 <div class="title">
                     Comptes
                 </div>
-                <div class="content articles">
+                <div class="content comptes">
                     <div class="center" >
                          <table>
                             <thead>
