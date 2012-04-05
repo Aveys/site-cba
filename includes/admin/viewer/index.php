@@ -99,6 +99,14 @@
                     include_once("edit_article.php");
                 break;
 
+                case 'editCats':
+                    include_once("edit_cats.php");
+                break;
+
+                case 'editCat':
+                    include_once("edit_cat.php");
+                break;
+
                 case 'editComs':
                     include_once("edit_coms.php");
                 break;
@@ -109,6 +117,10 @@
 
                 case 'delArticle':
                     include_once("del_article.php");
+                break;
+
+                case 'delCat':
+                    include_once("del_cat.php");
                 break;
 
                 case 'addArticle':

@@ -9,6 +9,7 @@
                     <ul>
                         <li><a href="?mode=addArticle">Ecrire un Article</a></li>
                         <li><a href="?mode=editArticles">Gérer les Articles</a></li>
+                        <li><a href="?mode=editCats">Gérer les Catégories</a></li>
                     </ul>
                 </li>
 
