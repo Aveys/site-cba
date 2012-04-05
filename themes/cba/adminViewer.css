@@ -3037,7 +3037,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 	display:block;
 }
 
-#content .articles th{
+#content th{
 height:30px;
 vertical-align:center;
 padding:10px;
@@ -3053,16 +3053,25 @@ ageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#afceed',
 
 }
 
-#content .articles td{
-	padding: 10px;
+#content table{
+	margin-left: 0px;
+	margin-right: 5px;
 }
 
-#content .coms td{
+#content .coms th{
 	min-width: 100px;
 }
 
-#content .connexion td{
+#content .connexion th{
 	padding:0px 50px;
+}
+.articles .center td,.articles .center th{
+	max-width: 110px;
+	overflow: hidden;
+}
+.center td,.center th{
+	max-width: 50px;
+	overflow: hidden;
 }
 
 .errorInput{
