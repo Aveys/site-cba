@@ -47,7 +47,8 @@ jQuery(function($){
          var options = {
              height:'300px',
              width : parseInt($(this).width())-100,
-             colors :['#c21c1c','#f1dc2b','#9ccc0a','#0accaa','#0a93cc','#8734c8','#26a4ed','#f45a90','#e9e744']
+             //colors :['#c21c1c','#f1dc2b','#9ccc0a','#0accaa','#0a93cc','#8734c8','#26a4ed','#f45a90','#e9e744']
+             colors :['#33B5E5','#c21c1c','#f1dc2b','#9ccc0a','#0accaa','#0a93cc','#8734c8','#26a4ed','#f45a90','#e9e744']
          };
          if(matches[1] != undefined){
              options.type = matches[1];
