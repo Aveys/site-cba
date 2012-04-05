@@ -42,6 +42,7 @@ create table STUL_POST
    POST_TITLE           text,
    POST_CONTENT         text,
    POST_TAG             text,
+   POST_MINIATURE       varchar(100),
    primary key (POST_ID)
 );
 
@@ -68,7 +69,7 @@ create table STUL_CATEGORY
 create table STUL_VISITES
 (
 	ID					int not null auto_increment,
-	jour				date not null,
+	jour				datetime not null,
 	primary key(ID)
 );
 

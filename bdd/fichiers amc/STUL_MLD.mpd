@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{EC958332-62F5-4422-95D3-F4ED6A7786B6}" Label="" LastModificationDate="1333608739" Name="Données logiques_1" Objects="145" Symbols="14" Target="MySQL 5.0" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" signature="PDM_DATA_MODEL_XML" version="15.2.0.3042"?>
+<?PowerDesigner AppLocale="UTF16" ID="{EC958332-62F5-4422-95D3-F4ED6A7786B6}" Label="" LastModificationDate="1333617147" Name="Données logiques_1" Objects="146" Symbols="14" Target="MySQL 5.0" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" signature="PDM_DATA_MODEL_XML" version="15.2.0.3042"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -3390,9 +3390,10 @@ DESTINATION 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:ReferenceSymbol>
 <o:ReferenceSymbol Id="o15">
-<a:ModificationDate>1333607987</a:ModificationDate>
-<a:Rect>((2269,2987), (12334,24112))</a:Rect>
-<a:ListOfPoints>((2269,4233),(10797,4233),(10797,24112))</a:ListOfPoints>
+<a:ModificationDate>1333617145</a:ModificationDate>
+<a:CenterTextOffset>(2250, 9375)</a:CenterTextOffset>
+<a:Rect>((2269,4233), (14610,24128))</a:Rect>
+<a:ListOfPoints>((2269,4233),(10823,4233),(10823,24128))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
@@ -3411,9 +3412,9 @@ DESTINATION 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:ReferenceSymbol>
 <o:ReferenceSymbol Id="o17">
-<a:ModificationDate>1333606963</a:ModificationDate>
-<a:CenterTextOffset>(-5100, 4275)</a:CenterTextOffset>
-<a:Rect>((388,4397), (9350,13613))</a:Rect>
+<a:ModificationDate>1333617147</a:ModificationDate>
+<a:CenterTextOffset>(-4275, 1500)</a:CenterTextOffset>
+<a:Rect>((1213,4397), (9350,10838))</a:Rect>
 <a:ListOfPoints>((2401,4397),(9350,4397),(9350,9410),(2401,9410),(2401,4397))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
@@ -3435,8 +3436,8 @@ DESTINATION 0 Arial,8,N</a:FontList>
 <o:ReferenceSymbol Id="o19">
 <a:CreationDate>1333607987</a:CreationDate>
 <a:ModificationDate>1333608030</a:ModificationDate>
-<a:Rect>((-14250,27395), (10050,36082))</a:Rect>
-<a:ListOfPoints>((6300,27395),(6300,35495),(-14250,35495))</a:ListOfPoints>
+<a:Rect>((-14250,27752), (9288,36082))</a:Rect>
+<a:ListOfPoints>((5538,27752),(5538,35495),(-14250,35495))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>4194432</a:LineColor>
@@ -3503,7 +3504,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:TableSymbol Id="o9">
 <a:ModificationDate>1333607987</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((4921,19280), (16377,28644))</a:Rect>
+<a:Rect>((3917,18793), (17381,29131))</a:Rect>
 <a:LineColor>16512</a:LineColor>
 <a:FillColor>1422826</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -3579,7 +3580,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:CreationDate>1333608102</a:CreationDate>
 <a:ModificationDate>1333608414</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((9229,-6682), (18213,-2683))</a:Rect>
+<a:Rect>((8418,-6681), (19024,-2682))</a:Rect>
 <a:LineColor>16512</a:LineColor>
 <a:FillColor>166354</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -3807,7 +3808,7 @@ DAT 1333363616</a:History>
 <a:Code>STUL_POST</a:Code>
 <a:CreationDate>1333364851</a:CreationDate>
 <a:Creator>veysa</a:Creator>
-<a:ModificationDate>1333608058</a:ModificationDate>
+<a:ModificationDate>1333617138</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <a:History>ORG {CB4AF1D6-DE9E-48CE-8B75-4B9FA442606C}
 DAT 1333364852
@@ -3929,9 +3930,20 @@ ORG {D2CFFEEA-931F-4807-BE66-7477E2D0E68A}
 DAT 1333363616</a:History>
 <a:DataType>text</a:DataType>
 </o:Column>
+<o:Column Id="o50">
+<a:ObjectID>BF4C7FD4-CAB5-4137-B52C-B90B7AB1A520</a:ObjectID>
+<a:Name>post_miniature</a:Name>
+<a:Code>POST_MINIATURE</a:Code>
+<a:CreationDate>1333617119</a:CreationDate>
+<a:Creator>veysa</a:Creator>
+<a:ModificationDate>1333617138</a:ModificationDate>
+<a:Modifier>veysa</a:Modifier>
+<a:DataType>varchar(100)</a:DataType>
+<a:Length>100</a:Length>
+</o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o50">
+<o:Key Id="o51">
 <a:ObjectID>2BE288E7-5461-43DC-89E1-EC4C837C2EF6</a:ObjectID>
 <a:Name>Identifiant_1</a:Name>
 <a:Code>IDENTIFIANT_1</a:Code>
@@ -3949,7 +3961,7 @@ DAT 1333363616</a:History>
 </o:Key>
 </c:Keys>
 <c:Indexes>
-<o:Index Id="o51">
+<o:Index Id="o52">
 <a:ObjectID>125280D4-9EA7-4692-9FB6-DEA0DC601ED1</a:ObjectID>
 <a:Name>STUL_POST_PK</a:Name>
 <a:Code>STUL_POST_PK</a:Code>
@@ -3959,10 +3971,10 @@ DAT 1333363616</a:History>
 <a:Modifier>veysa</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:LinkedObject>
-<o:Key Ref="o50"/>
+<o:Key Ref="o51"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o52">
+<o:IndexColumn Id="o53">
 <a:ObjectID>15F80AB3-C98D-4826-B3C1-274F8B02DE4C</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
@@ -3974,7 +3986,7 @@ DAT 1333363616</a:History>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o53">
+<o:Index Id="o54">
 <a:ObjectID>6D63EB92-978D-4A5A-BE8A-428644CBDE00</a:ObjectID>
 <a:Name>AUTHOR_POST_FK</a:Name>
 <a:Code>AUTHOR_POST_FK</a:Code>
@@ -3986,7 +3998,7 @@ DAT 1333363616</a:History>
 <o:Reference Ref="o11"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o54">
+<o:IndexColumn Id="o55">
 <a:ObjectID>B313A778-F152-43BE-B7E1-0485175D6EB0</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
@@ -4000,7 +4012,7 @@ DAT 1333363616</a:History>
 </o:Index>
 </c:Indexes>
 <c:PrimaryKey>
-<o:Key Ref="o50"/>
+<o:Key Ref="o51"/>
 </c:PrimaryKey>
 </o:Table>
 <o:Table Id="o27">
@@ -4018,7 +4030,7 @@ ORG {D5F4D17A-B6F4-4424-A476-FCE9978A30F2}
 DAT 1333363616</a:History>
 <a:TotalSavingCurrency/>
 <c:Columns>
-<o:Column Id="o55">
+<o:Column Id="o56">
 <a:ObjectID>A55D45B7-6EDF-4646-A5F3-9C91D654D5FF</a:ObjectID>
 <a:Name>com_id</a:Name>
 <a:Code>COM_ID</a:Code>
@@ -4033,7 +4045,7 @@ DAT 1333363616</a:History>
 <a:DataType>int</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o56">
+<o:Column Id="o57">
 <a:ObjectID>2212CEA0-A346-4F2C-81CD-4020B592615F</a:ObjectID>
 <a:Name>user_id</a:Name>
 <a:Code>USER_ID</a:Code>
@@ -4045,7 +4057,7 @@ DAT 1333363616</a:History>
 DAT 1333364852</a:History>
 <a:DataType>int</a:DataType>
 </o:Column>
-<o:Column Id="o57">
+<o:Column Id="o58">
 <a:ObjectID>216D431C-96F5-4A60-AB9D-AC4FB6EFCC16</a:ObjectID>
 <a:Name>post_id</a:Name>
 <a:Code>POST_ID</a:Code>
@@ -4058,7 +4070,7 @@ DAT 1333364852</a:History>
 <a:DataType>int</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o58">
+<o:Column Id="o59">
 <a:ObjectID>C3449F37-17A4-4C08-A97F-E341C25E627C</a:ObjectID>
 <a:Name>com_parent</a:Name>
 <a:Code>COM_PARENT</a:Code>
@@ -4072,7 +4084,7 @@ ATT NAME
 ATT CODE</a:History>
 <a:DataType>int</a:DataType>
 </o:Column>
-<o:Column Id="o59">
+<o:Column Id="o60">
 <a:ObjectID>1603A6C8-2C04-4F5E-99BF-2859DD9EBD55</a:ObjectID>
 <a:Name>com_content</a:Name>
 <a:Code>COM_CONTENT</a:Code>
@@ -4088,7 +4100,7 @@ DAT 1333363616</a:History>
 </o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o60">
+<o:Key Id="o61">
 <a:ObjectID>B978BE77-7451-4BD3-9703-7483FB1D6823</a:ObjectID>
 <a:Name>Identifiant_1</a:Name>
 <a:Code>IDENTIFIANT_1</a:Code>
@@ -4101,12 +4113,12 @@ DAT 1333364852
 ORG {41F6721D-D4F9-4228-869F-D760A6DB6710}
 DAT 1333363616</a:History>
 <c:Key.Columns>
-<o:Column Ref="o55"/>
+<o:Column Ref="o56"/>
 </c:Key.Columns>
 </o:Key>
 </c:Keys>
 <c:Indexes>
-<o:Index Id="o61">
+<o:Index Id="o62">
 <a:ObjectID>1F5BA1AB-0A9E-4895-9172-04576DD0E1DC</a:ObjectID>
 <a:Name>STUL_COMMENT_PK</a:Name>
 <a:Code>STUL_COMMENT_PK</a:Code>
@@ -4116,22 +4128,22 @@ DAT 1333363616</a:History>
 <a:Modifier>veysa</a:Modifier>
 <a:Unique>1</a:Unique>
 <c:LinkedObject>
-<o:Key Ref="o60"/>
+<o:Key Ref="o61"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o62">
+<o:IndexColumn Id="o63">
 <a:ObjectID>EB61B2D3-4C55-4BBB-978F-06D56F3F749E</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Column>
-<o:Column Ref="o55"/>
+<o:Column Ref="o56"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o63">
+<o:Index Id="o64">
 <a:ObjectID>7BEE6C9C-D2AB-40D5-97C1-3C73E4EEF276</a:ObjectID>
 <a:Name>AUTHOR_COM_FK</a:Name>
 <a:Code>AUTHOR_COM_FK</a:Code>
@@ -4143,19 +4155,19 @@ DAT 1333363616</a:History>
 <o:Reference Ref="o14"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o64">
+<o:IndexColumn Id="o65">
 <a:ObjectID>F12F5A96-89EA-460E-B9CF-76FEC6E7787D</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Column>
-<o:Column Ref="o56"/>
+<o:Column Ref="o57"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o65">
+<o:Index Id="o66">
 <a:ObjectID>7C032008-0AE0-4453-840E-1EDECA861EAF</a:ObjectID>
 <a:Name>BLOG_PARENT_FK</a:Name>
 <a:Code>BLOG_PARENT_FK</a:Code>
@@ -4167,19 +4179,19 @@ DAT 1333363616</a:History>
 <o:Reference Ref="o16"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o66">
+<o:IndexColumn Id="o67">
 <a:ObjectID>3DA723B1-C081-4A65-83CF-4A9B6FCEF64A</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Column>
-<o:Column Ref="o57"/>
+<o:Column Ref="o58"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
-<o:Index Id="o67">
+<o:Index Id="o68">
 <a:ObjectID>E0263A2B-FDE5-44E3-949F-9C5198A879FA</a:ObjectID>
 <a:Name>COM_PARENT_FK</a:Name>
 <a:Code>COM_PARENT_FK</a:Code>
@@ -4191,21 +4203,21 @@ DAT 1333363616</a:History>
 <o:Reference Ref="o18"/>
 </c:LinkedObject>
 <c:IndexColumns>
-<o:IndexColumn Id="o68">
+<o:IndexColumn Id="o69">
 <a:ObjectID>92957A80-DD2F-4359-A8EC-EA109654FD5E</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Column>
-<o:Column Ref="o58"/>
+<o:Column Ref="o59"/>
 </c:Column>
 </o:IndexColumn>
 </c:IndexColumns>
 </o:Index>
 </c:Indexes>
 <c:PrimaryKey>
-<o:Key Ref="o60"/>
+<o:Key Ref="o61"/>
 </c:PrimaryKey>
 </o:Table>
 <o:Table Id="o28">
@@ -4218,7 +4230,7 @@ DAT 1333363616</a:History>
 <a:Modifier>veysa</a:Modifier>
 <a:TotalSavingCurrency/>
 <c:Columns>
-<o:Column Id="o69">
+<o:Column Id="o70">
 <a:ObjectID>ECBD1CD1-EC60-4B42-846B-C17CCB1ABF5A</a:ObjectID>
 <a:Name>category_id</a:Name>
 <a:Code>CATEGORY_ID</a:Code>
@@ -4229,7 +4241,7 @@ DAT 1333363616</a:History>
 <a:DataType>int</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o70">
+<o:Column Id="o71">
 <a:ObjectID>540B42E6-BFCC-4FDA-996B-A4202A332FA5</a:ObjectID>
 <a:Name>category_name</a:Name>
 <a:Code>CATEGORY_NAME</a:Code>
@@ -4240,7 +4252,7 @@ DAT 1333363616</a:History>
 <a:DataType>varchar(25)</a:DataType>
 <a:Length>25</a:Length>
 </o:Column>
-<o:Column Id="o71">
+<o:Column Id="o72">
 <a:ObjectID>BE23156C-5BEA-4571-B06F-4095844DF463</a:ObjectID>
 <a:Name>category_desc</a:Name>
 <a:Code>CATEGORY_DESC</a:Code>
@@ -4252,7 +4264,7 @@ DAT 1333363616</a:History>
 </o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o72">
+<o:Key Id="o73">
 <a:ObjectID>80D5CEBC-82AF-45B6-B5B7-C13C3950CA71</a:ObjectID>
 <a:Name>Cle_1</a:Name>
 <a:Code>CLE_1</a:Code>
@@ -4261,12 +4273,12 @@ DAT 1333363616</a:History>
 <a:ModificationDate>1333607488</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Key.Columns>
-<o:Column Ref="o69"/>
+<o:Column Ref="o70"/>
 </c:Key.Columns>
 </o:Key>
 </c:Keys>
 <c:PrimaryKey>
-<o:Key Ref="o72"/>
+<o:Key Ref="o73"/>
 </c:PrimaryKey>
 </o:Table>
 <o:Table Id="o30">
@@ -4279,7 +4291,7 @@ DAT 1333363616</a:History>
 <a:Modifier>veysa</a:Modifier>
 <a:TotalSavingCurrency/>
 <c:Columns>
-<o:Column Id="o73">
+<o:Column Id="o74">
 <a:ObjectID>A7203825-259F-4C7E-9D81-38F9A312B528</a:ObjectID>
 <a:Name>visites_id</a:Name>
 <a:Code>VISITES_ID</a:Code>
@@ -4290,20 +4302,20 @@ DAT 1333363616</a:History>
 <a:DataType>int</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o74">
+<o:Column Id="o75">
 <a:ObjectID>20B61CA8-B66B-4642-90B4-C70749263F2D</a:ObjectID>
 <a:Name>visites_jour</a:Name>
 <a:Code>VISITES_JOUR</a:Code>
 <a:CreationDate>1333608105</a:CreationDate>
 <a:Creator>veysa</a:Creator>
-<a:ModificationDate>1333608204</a:ModificationDate>
+<a:ModificationDate>1333617115</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
-<a:DataType>date</a:DataType>
+<a:DataType>datetime</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o75">
+<o:Key Id="o76">
 <a:ObjectID>244752E5-F7B7-48D3-939D-03D19338A2AC</a:ObjectID>
 <a:Name>Cle_1</a:Name>
 <a:Code>CLE_1</a:Code>
@@ -4312,12 +4324,12 @@ DAT 1333363616</a:History>
 <a:ModificationDate>1333608153</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Key.Columns>
-<o:Column Ref="o73"/>
+<o:Column Ref="o74"/>
 </c:Key.Columns>
 </o:Key>
 </c:Keys>
 <c:PrimaryKey>
-<o:Key Ref="o75"/>
+<o:Key Ref="o76"/>
 </c:PrimaryKey>
 </o:Table>
 <o:Table Id="o31">
@@ -4330,7 +4342,7 @@ DAT 1333363616</a:History>
 <a:Modifier>veysa</a:Modifier>
 <a:TotalSavingCurrency/>
 <c:Columns>
-<o:Column Id="o76">
+<o:Column Id="o77">
 <a:ObjectID>43452739-3781-4BFC-959B-3740E21C0763</a:ObjectID>
 <a:Name>log_id</a:Name>
 <a:Code>LOG_ID</a:Code>
@@ -4341,7 +4353,7 @@ DAT 1333363616</a:History>
 <a:DataType>int</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o77">
+<o:Column Id="o78">
 <a:ObjectID>C8ACA3C6-3DA7-41F3-BFD4-48F391869E25</a:ObjectID>
 <a:Name>user_id</a:Name>
 <a:Code>USER_ID</a:Code>
@@ -4352,7 +4364,7 @@ DAT 1333363616</a:History>
 <a:DataType>int</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o78">
+<o:Column Id="o79">
 <a:ObjectID>BABADF0E-30F7-4A02-B4F0-0CD53E6BBECA</a:ObjectID>
 <a:Name>log_date_connexion</a:Name>
 <a:Code>LOG_DATE_CONNEXION</a:Code>
@@ -4363,7 +4375,7 @@ DAT 1333363616</a:History>
 <a:DataType>datetime</a:DataType>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
-<o:Column Id="o79">
+<o:Column Id="o80">
 <a:ObjectID>D20C0F76-1377-4F0D-9606-8E60CB9744C5</a:ObjectID>
 <a:Name>log_date_deconnexion</a:Name>
 <a:Code>LOG_DATE_DECONNEXION</a:Code>
@@ -4375,7 +4387,7 @@ DAT 1333363616</a:History>
 </o:Column>
 </c:Columns>
 <c:Keys>
-<o:Key Id="o80">
+<o:Key Id="o81">
 <a:ObjectID>97913D0D-7690-407D-A931-C830B6A92403</a:ObjectID>
 <a:Name>Cle_1</a:Name>
 <a:Code>CLE_1</a:Code>
@@ -4384,12 +4396,12 @@ DAT 1333363616</a:History>
 <a:ModificationDate>1333608332</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Key.Columns>
-<o:Column Ref="o76"/>
+<o:Column Ref="o77"/>
 </c:Key.Columns>
 </o:Key>
 </c:Keys>
 <c:PrimaryKey>
-<o:Key Ref="o80"/>
+<o:Key Ref="o81"/>
 </c:PrimaryKey>
 </o:Table>
 </c:Tables>
@@ -4417,7 +4429,7 @@ DAT 1333364852</a:History>
 <o:Key Ref="o39"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o81">
+<o:ReferenceJoin Id="o82">
 <a:ObjectID>472369B0-FE33-4D1C-BB92-911D428CEC49</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
@@ -4457,7 +4469,7 @@ ATT FKCN</a:History>
 <o:Key Ref="o39"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o82">
+<o:ReferenceJoin Id="o83">
 <a:ObjectID>BA957508-2561-4871-95FA-BEFEB9CA4C9F</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
@@ -4467,7 +4479,7 @@ ATT FKCN</a:History>
 <o:Column Ref="o32"/>
 </c:Object1>
 <c:Object2>
-<o:Column Ref="o56"/>
+<o:Column Ref="o57"/>
 </c:Object2>
 </o:ReferenceJoin>
 </c:Joins>
@@ -4494,10 +4506,10 @@ ATT FKCN</a:History>
 <o:Table Ref="o27"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o50"/>
+<o:Key Ref="o51"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o83">
+<o:ReferenceJoin Id="o84">
 <a:ObjectID>E4802FE8-F38B-489D-AC96-53CF46CB06E8</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
@@ -4507,7 +4519,7 @@ ATT FKCN</a:History>
 <o:Column Ref="o42"/>
 </c:Object1>
 <c:Object2>
-<o:Column Ref="o57"/>
+<o:Column Ref="o58"/>
 </c:Object2>
 </o:ReferenceJoin>
 </c:Joins>
@@ -4534,20 +4546,20 @@ ATT FKCN</a:History>
 <o:Table Ref="o27"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o60"/>
+<o:Key Ref="o61"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o84">
+<o:ReferenceJoin Id="o85">
 <a:ObjectID>2C507466-7012-42A8-A632-AA82AE4F147E</a:ObjectID>
 <a:CreationDate>1333364852</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333364852</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Object1>
-<o:Column Ref="o55"/>
+<o:Column Ref="o56"/>
 </c:Object1>
 <c:Object2>
-<o:Column Ref="o58"/>
+<o:Column Ref="o59"/>
 </c:Object2>
 </o:ReferenceJoin>
 </c:Joins>
@@ -4571,17 +4583,17 @@ ATT FKCN</a:History>
 <o:Table Ref="o26"/>
 </c:ChildTable>
 <c:ParentKey>
-<o:Key Ref="o72"/>
+<o:Key Ref="o73"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o85">
+<o:ReferenceJoin Id="o86">
 <a:ObjectID>886146C1-E2C2-458C-A93E-CD2D02ED91CB</a:ObjectID>
 <a:CreationDate>1333607987</a:CreationDate>
 <a:Creator>veysa</a:Creator>
 <a:ModificationDate>1333607987</a:ModificationDate>
 <a:Modifier>veysa</a:Modifier>
 <c:Object1>
-<o:Column Ref="o69"/>
+<o:Column Ref="o70"/>
 </c:Object1>
 <c:Object2>
 <o:Column Ref="o45"/>
@@ -4611,7 +4623,7 @@ ATT FKCN</a:History>
 <o:Key Ref="o39"/>
 </c:ParentKey>
 <c:Joins>
-<o:ReferenceJoin Id="o86">
+<o:ReferenceJoin Id="o87">
 <a:ObjectID>5F5DEC91-685A-4411-B7DB-AD29A4F95201</a:ObjectID>
 <a:CreationDate>1333608344</a:CreationDate>
 <a:Creator>veysa</a:Creator>
@@ -4621,14 +4633,14 @@ ATT FKCN</a:History>
 <o:Column Ref="o32"/>
 </c:Object1>
 <c:Object2>
-<o:Column Ref="o77"/>
+<o:Column Ref="o78"/>
 </c:Object2>
 </o:ReferenceJoin>
 </c:Joins>
 </o:Reference>
 </c:References>
 <c:DefaultGroups>
-<o:Group Id="o87">
+<o:Group Id="o88">
 <a:ObjectID>1386D234-3C1C-4E79-BA4A-4EFB836CDDAE</a:ObjectID>
 <a:Name>PUBLIC</a:Name>
 <a:Code>PUBLIC</a:Code>
@@ -4639,7 +4651,7 @@ ATT FKCN</a:History>
 </o:Group>
 </c:DefaultGroups>
 <c:TargetModels>
-<o:TargetModel Id="o88">
+<o:TargetModel Id="o89">
 <a:ObjectID>65229317-2C7B-4DD2-B2B7-5B4F6C655C3D</a:ObjectID>
 <a:Name>MySQL 5.0</a:Name>
 <a:Code>MYSQL50</a:Code>
@@ -4654,7 +4666,7 @@ ATT FKCN</a:History>
 <o:Shortcut Ref="o5"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o89">
+<o:TargetModel Id="o90">
 <a:ObjectID>3D1FAF76-B648-4910-A3F8-80C55A28C490</a:ObjectID>
 <a:Name>Données logiques_1</a:Name>
 <a:Code>DONNEES_LOGIQUES_1</a:Code>
@@ -4669,7 +4681,7 @@ ATT FKCN</a:History>
 <o:Shortcut Ref="o4"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o90">
+<o:TargetModel Id="o91">
 <a:ObjectID>F5190664-C66E-460A-9530-AC106C0E8704</a:ObjectID>
 <a:Name>STUL_MCD</a:Name>
 <a:Code>STUL_MCD</a:Code>
