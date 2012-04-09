@@ -3,8 +3,9 @@
    include_once($a_fmEscape);
    /* fonction sql d'insertion dans la bdd d'un nouveau post
    */
-   function addArticle($texte, $pseudo,$title,$tag,$category){
-      mysql_query("insert into STUL_POST(post_content, user_id, post_date,post_title,post_tag,category_id) values ('".escape($texte)."','".escape($pseudo)."',now(),'".escape($title)."','".escape($tag)."','".escape($category)."')");
+   function addArticle($texte, $pseudo,$title,$tag,$category,$file_img){
+      mysql_query("insert into STUL_UPLOAD(upload_filename, upload_dir, upload_date,upload_type) values ('".escape($file_img['filename'])."','".escape($file_img['dir'])."',now(),'".escape($file_img['type'])."')");
+      mysql_query("insert into STUL_POST(post_content, user_id, post_date,post_title,post_tag,category_id,img_id) values ('".escape($texte)."','".escape($pseudo)."',now(),'".escape($title)."','".escape($tag)."','".escape($category)."','".mysql_insert_id()."')");
       //mysql_query("insert into synchro_jaime_log(id_log, id_article, jaime) values ('".$pseudo."','".mysql_insert_id()."',0)");
    }
    /* fonction sql d'insertion dans la bdd d'un nouveau commentaire avec un lien sur un post
@@ -325,4 +326,10 @@
    {
       $row = mysql_fetch_assoc(mysql_query("select count(*) as nb from STUL_POST"));
       return $row["nb"];
+   }
+
+   function img_of_post($idPost)
+   {
+      $result = mysql_fetch_assoc(mysql_query("select up.upload_filename,up.upload_dir from STUL_POST p join STUL_UPLOAD up on p.img_id=up.UPLOAD_ID where p.POST_ID='".$idPost."'"));
+      return $result['upload_dir'].$result['upload_filename'];
    }

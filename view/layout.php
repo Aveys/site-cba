@@ -26,12 +26,47 @@ require_once($fcSearch);
 	<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
 	  {lang: 'fr'}
 	</script>
+	<script language="javascript">
+ 
+      function quitte(requete,methode){ 
+        	if (window.XMLHttpRequest)
+		    {
+		        xhr_object = new XMLHttpRequest();
+		        xhr_object.open(methode, requete, true);
+		        xhr_object.send(null);
+		        xhr_object.onreadystatechange = function() 
+		        { 
+		            if(xhr_object.readyState == 4) 
+		            {
+		                alert(xhr_object.responseText);
+		            }
+		        }
+		    }
+		    else if(window.ActiveXObject)
+		    {
+		        xhr_object = new ActiveXObject("Microsoft.XMLHTTP");
+		        xhr_object.open(methode, requete, true);
+		        xhr_object.send(null);
+		        if(xhr_object.readyState == 4) 
+		        {
+		            alert(xhr_object.responseText);
+		        }
+		    }
+		    else
+		    {
+		        alert('Votre navigateur ne supporte pas les objets XMLHTTPRequest...');
+		        return(false);
+		    }
+		} 
+ 
+    </script>
 </head>
-<body>		
+<body  onunload="quitte('index.php?test=1','GET')">		
 	<div id="all">
 		<div id="wrapper">
 			<!--On include le header general-->
-			<?php require_once("view/header.php");?>
+			<?php 
+			require_once("view/header.php");?>
 
 			<div id="central">
 				<div id="content">

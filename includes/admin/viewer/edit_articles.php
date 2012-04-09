@@ -11,7 +11,7 @@
                 <div class="content articles">
                     <div class="center" >
                          <table>
-                            <thead>
+                            <thead class="head_table">
                                 <th>Titre</th><th>Auteur</th><th>Catégories</th><th>Tags</th><th>Commentaires</th><th>Date</th><th>Edit</th><th>Supprimer</th>
                             </thead>
                             <tbody>

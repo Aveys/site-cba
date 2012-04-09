@@ -1,3 +1,6 @@
+<?php
+    require_once "../../../controller/controle_upload_image.php";
+?>
 <div id="content" class="black">
             
                     
@@ -7,7 +10,7 @@
                     Ajouter un article
                 </div>
                 <div class="content"> 
-                 <form method="post" action='../../../<?php echo $fAdminAction;?>' onSubmit="return validArticle(this)"> 
+                 <form method="post" action='../../../<?php echo $fAdminAction;?>' onSubmit="return validArticle(this)" enctype="multipart/form-data"> 
                     <div class="input textarea">
                     <p>
                         <label for="title">Titre</label>
@@ -31,6 +34,17 @@
                     <p>
                         <label for="content">Ajouter du texte</label>
                         <textarea name="content" id="test" rows="7" class="wysiwyg" cols="4" onBlur="verifText(this)"></textarea>
+                    </p>
+                    <p>
+                        <label for="image">Choisissez une image</label>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" />
+                        <input name="fichier" type="file" id="fichier_a_uploader" />
+                        <?php
+                          if(isset($_SESSION['erreur_upload']) ) 
+                          {
+                            echo $_SESSION['erreur_upload'];
+                          }
+                        ?>
                     </p>
                     </div>
                     <div class="input">                       

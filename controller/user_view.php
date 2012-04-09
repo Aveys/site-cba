@@ -43,7 +43,7 @@ function link_profil($id)
 	{
 		$log = sql_user_of_id($id);
  	}
-	echo "<span id='profil".$log."' onMouseOver='survole_profil_apercu(this,event)' onMouseOut='quitte_profil_apercu(this)'><a href='?page=profil&id=".$id."'>".$log."</a>";
+	echo "<span id='profil".$log."' onMouseOver='survole_profil_apercu(this)' onMouseOut='quitte_profil_apercu(this)'><a href='?page=profil&id=".$id."'>".$log."</a>";
 	profil($id);
 	echo "</span>";
 }

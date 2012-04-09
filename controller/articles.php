@@ -107,12 +107,14 @@ function displayArticle($idPost){
 			echo "<div class='article'>";
 				echo "<div class='category' id='category-".$row["CATEGORY_ID"]."'>".$nomCat."</div>";
 				echo "<div id='titre-article'><h3>".$row["POST_TITLE"]."</h3></div>";
-				echo "<div id='article-image'><img alt='Stul' src='themes/cba/images/imageArticle1.jpg'/></div>";
+				$img = img_of_post($row['POST_ID']);
+				$tab_url_img = explode("site-cba/", $img);
+				echo "<div id='article-image'><img alt='Stul' src='".$tab_url_img[1]."'/></div>";
 				echo "<div class='contenu-article'>";
 				affichage_article($row,0);
-			echo "</div><div class='info_article'><span id='auteur'>Fait par ";
+			echo "</div><div class='info_article'><div id='auteur'>Fait par ";
 			link_profil(sql_user_who_post($row['POST_ID']));
-			echo " </span>";
+			echo " </div>";
 			dateTimeToTime($row['POST_DATE']);
 			echo "</div>";
 			echo "<img alt='Stul' id='bottom-article' src='themes/cba/images/sep_article_bottom.png' />";
@@ -174,7 +176,9 @@ function displayArticles($Action,$page){
 				echo "<div class='article'>";
 					echo "<div class='category' id='category-".$row["CATEGORY_ID"]."'>".$nomCat."</div>";
 					echo "<div id='titre-article'><h3>".$row["POST_TITLE"]."</h3></div>";
-					echo "<div alt='Stul' id='article-image'><img src='themes/cba/images/imageArticle1.jpg' /></div>";
+					$img = img_of_post($row['POST_ID']);
+					$tab_url_img = explode("site-cba/", $img);
+					echo "<div alt='Stul' id='article-image'><img alt='Stul' src='".$tab_url_img[1]."'/></div>";
 					echo "<div class='contenu-article'>";
 					affichage_article($row,1);
 

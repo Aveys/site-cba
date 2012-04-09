@@ -31,28 +31,13 @@ function quitte_personne_cache()
 */
 function survole_profil_apercu(content)
 {
-	var scroll = getScrollPosition();
 	var element = content.querySelector('#profil_apercu');
-	var element2 = content;
-	var curleft = curtop = tmp = 0;
-	if (element2.offsetParent) {
-		do {
-			if(element2.style.position != 'fixed')
-			{
-				tmp = element2.offsetTop;
-				curtop += tmp;
-			}
-			else
-			{
-				curtop = element2.offsetTop+(tmp/2);
-				curleft += 20;
-			}
-			curleft += element2.offsetLeft;
-		} while (element2 = element2.offsetParent);
-	}
-	element.style.position = 'fixed';
-	element.style.left = curleft-scroll[0]+"px";
-	element.style.top = curtop-scroll[1]+15+"px";
+	var element2 = element.offsetParent;
+	var curleft = element2.offsetLeft;
+	var curtop = element2.offsetTop;
+	element.style.position = 'absolute';
+	element.style.left = curleft-element2.offsetLeft.width+"px";
+	element.style.top = curtop+element2.offsetLeft.height+"px";
 	element.style.visibility='visible';
 	element.style.height='auto';
 	element.style.width='auto';
