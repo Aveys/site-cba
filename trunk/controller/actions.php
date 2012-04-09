@@ -39,6 +39,9 @@
 			case "Supprimer post": 	//supprimer un post
 				sql_delete_post($_POST["id_post"]);		
 			break;
+			case "Ajouter article": 	//supprimer un post
+					echo '<script language="Javascript">document.location.replace("./?ADD=1");</script>';
+			break;
 			/*case "Jaime":
 				$query = "update stul_post set nbJaime = nbJaime+1 where id='".$_POST["id"]."'";
 				mysql_query($query) or die(mysql_error());

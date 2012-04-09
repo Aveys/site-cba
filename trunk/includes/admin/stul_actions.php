@@ -86,8 +86,18 @@
 				//addArticle($_POST['content'], $_SESSION["idUser"],$_POST['title'], $_POST['tags'], $_POST['category']) or die(mysql_error());	
 				//MatHack: Il faudra rajouter le champs de la categorie plus tard
 				//$_POST['category']
-				addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category']);				
-				echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
+				require_once "../../controller/controle_upload_image.php";
+				if($message == 'Upload réussi !')
+				{
+					unset($_SESSION['erreur_upload']);
+					addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category'],$dest);				
+					echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';	
+				}
+				else
+				{
+					$_SESSION['erreur_upload'] = $message;
+					echo '<script language="Javascript">history.go(-1);</script>';
+				}
 				//header('Location:./viewer/index.php?mode=editArticles');
 			break;
 

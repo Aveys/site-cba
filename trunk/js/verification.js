@@ -75,6 +75,38 @@ function validCompte(field)
 	else
 		return false;
 }
+function fermeture(requete,methode)
+{
+    if (window.XMLHttpRequest)
+    {
+        xhr_object = new XMLHttpRequest();
+        xhr_object.open(methode, requete, true);
+        xhr_object.send(null);
+        xhr_object.onreadystatechange = function() 
+        { 
+            if(xhr_object.readyState == 4) 
+            {
+                alert(xhr_object.responseText);
+            }
+        }
+    }
+    else if(window.ActiveXObject)
+    {
+        xhr_object = new ActiveXObject("Microsoft.XMLHTTP");
+        xhr_object.open(methode, requete, true);
+        xhr_object.send(null);
+        if(xhr_object.readyState == 4) 
+        {
+            alert(xhr_object.responseText);
+        }
+    }
+    else
+    {
+        alert('Votre navigateur ne supporte pas les objets XMLHTTPRequest...');
+        return(false);
+    }
+    alert('1');
+}
 //BLABLA kk
 $(document).ready(function(){
 	$('#formConnexion').hide()

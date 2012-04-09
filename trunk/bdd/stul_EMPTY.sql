@@ -35,6 +35,7 @@ create table STUL_POST
 (
    POST_ID              int not null auto_increment,
    USER_ID              int,
+   IMG_ID               int,
    POST_DATE            datetime,
    CATEGORY_ID          int,
    POST_STATUS          smallint,
@@ -84,6 +85,16 @@ create table STUL_LOG
    primary key(ID)
 );
 
+create table STUL_UPLOAD
+(
+   UPLOAD_ID         int not null auto_increment,
+   upload_filename   varchar(50),
+   upload_dir        varchar(500),
+   upload_date       datetime,
+   upload_type       varchar(10),
+   primary key(UPLOAD_ID)
+);
+
 ALTER TABLE  STUL_USERS ADD UNIQUE (USER_DISPLAYNAME);
 
 alter table STUL_COMMENT add constraint FK_A foreign key (POST_ID)
@@ -97,6 +108,9 @@ alter table STUL_COMMENT add constraint FK_EST_PARENT foreign key (COM_PARENT)
 
 alter table STUL_POST add constraint FK_EST_L_AUTEUR foreign key (USER_ID)
       references STUL_USERS (USER_ID) on delete restrict on update restrict;
+
+alter table STUL_POST add constraint FK_EST_L_IMAGE foreign key (IMG_ID)
+      references STUL_UPLOAD (UPLOAD_ID) on delete restrict on update restrict;
 
 alter table STUL_POST add constraint FK_APPARTIENT foreign key (CATEGORY_ID)
       references STUL_CATEGORY (CATEGORY_ID) on delete restrict on update restrict;
