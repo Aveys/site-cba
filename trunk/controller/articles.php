@@ -1,5 +1,6 @@
 ﻿
 <?php 
+require_once("stul_config.php");
 	/*	fonction qui affiche un formulaire permettant de se loger ou de se deloger
 	*/
 
@@ -108,7 +109,7 @@ function displayArticle($idPost){
 				echo "<div class='category' id='category-".$row["CATEGORY_ID"]."'>".$nomCat."</div>";
 				echo "<div id='titre-article'><h3>".$row["POST_TITLE"]."</h3></div>";
 				$img = img_of_post($row['POST_ID']);
-				$tab_url_img = explode("site-cba/", $img);
+				$tab_url_img = explode(SITE, $img);
 				echo "<div id='article-image'><img alt='Stul' src='".$tab_url_img[1]."'/></div>";
 				echo "<div class='contenu-article'>";
 				affichage_article($row,0);
@@ -177,7 +178,7 @@ function displayArticles($Action,$page){
 					echo "<div class='category' id='category-".$row["CATEGORY_ID"]."'>".$nomCat."</div>";
 					echo "<div id='titre-article'><h3>".$row["POST_TITLE"]."</h3></div>";
 					$img = img_of_post($row['POST_ID']);
-					$tab_url_img = explode("site-cba/", $img);
+					$tab_url_img = explode(SITE, $img);
 					echo "<div alt='Stul' id='article-image'><img alt='Stul' src='".$tab_url_img[1]."'/></div>";
 					echo "<div class='contenu-article'>";
 					affichage_article($row,1);
