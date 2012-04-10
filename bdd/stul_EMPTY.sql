@@ -12,6 +12,8 @@ drop table if exists STUl_VISITES CASCADE;
 
 drop table if exists STUL_USERS CASCADE;
 
+drop table if exists STUL_UPLOAD CASCADE;
+
 create table STUL_COMMENT
 (
    COM_ID               int not null auto_increment,
