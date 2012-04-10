@@ -120,6 +120,9 @@ alter table STUL_POST add constraint FK_APPARTIENT foreign key (CATEGORY_ID)
 
 alter table STUL_LOG add constraint FK_LOG foreign key (USER_ID)
       references STUL_USERS (USER_ID) on delete restrict on update restrict;
+
+ALTER TABLE STUL_POST  
+   ADD CONSTRAINT valeur_par_defaut DEFAULT 1 FOR IMG_ID  
 	  
 INSERT INTO STUL_CATEGORY(CATEGORY_NAME,CATEGORY_DESC) VALUES('Blog','catégorie news du site'),('News','news du blog');
 
