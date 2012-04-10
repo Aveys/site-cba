@@ -3,9 +3,27 @@
    include_once($a_fmEscape);
    /* fonction sql d'insertion dans la bdd d'un nouveau post
    */
-   function addArticle($texte, $pseudo,$title,$tag,$category,$file_img){
-      mysql_query("insert into STUL_UPLOAD(upload_filename, upload_dir, upload_date,upload_type) values ('".escape($file_img['filename'])."','".escape($file_img['dir'])."',now(),'".escape($file_img['type'])."')");
-      mysql_query("insert into STUL_POST(post_content, user_id, post_date,post_title,post_tag,category_id,img_id) values ('".escape($texte)."','".escape($pseudo)."',now(),'".escape($title)."','".escape($tag)."','".escape($category)."','".mysql_insert_id()."')");
+   function addArticle($texte, $pseudo,$title,$tag,$category,$file_img,$deja_upload){
+      if($deja_upload === false)
+      {
+         mysql_query("insert into STUL_UPLOAD(upload_filename, upload_dir, upload_date,upload_type,upload_description) values ('".escape($file_img['filename'])."','".escape($file_img['dir'])."',now(),'".escape($file_img['type'])."','".escape($title)."')");
+         mysql_query("insert into STUL_POST(post_content, user_id, post_date,post_title,post_tag,category_id,img_id) values ('".escape($texte)."','".escape($pseudo)."',now(),'".escape($title)."','".escape($tag)."','".escape($category)."','".mysql_insert_id()."')");
+      }
+      else if($deja_upload == "default")
+      {
+         if($id_img=img_of_filename("image_default.jpg") === false)
+            $id_img = 1;
+         mysql_query("insert into STUL_POST(post_content, user_id, post_date,post_title,post_tag,category_id,img_id) values ('".escape($texte)."','".escape($pseudo)."',now(),'".escape($title)."','".escape($tag)."','".escape($category)."','".$id_img."')");
+      }
+      else
+      {
+         if($filename = strrchr($deja_upload, "/") === false)
+            $filename = $deja_upload;
+         if($id_img=img_of_filename($filename) === false)
+            $id_img = 1;
+         mysql_query("insert into STUL_POST(post_content, user_id, post_date,post_title,post_tag,category_id,img_id) values ('".escape($texte)."','".escape($pseudo)."',now(),'".escape($title)."','".escape($tag)."','".escape($category)."','".$id_img."')");
+      }
+
       //mysql_query("insert into synchro_jaime_log(id_log, id_article, jaime) values ('".$pseudo."','".mysql_insert_id()."',0)");
    }
    /* fonction sql d'insertion dans la bdd d'un nouveau commentaire avec un lien sur un post
@@ -337,4 +355,13 @@
    function all_image_upload()
    {
       return mysql_query("select * from STUL_UPLOAD where UPPER(upload_type)='IMG'");
+   }
+
+   function img_of_filename($filename)
+   {
+      $result = mysql_fetch_assoc(mysql_query("select UPLOAD_ID from STUL_UPLOAD up where up.upload_filename='".$filename."'"));
+      if($result)
+         return $result['UPLOAD_ID'];
+      else
+         return false;
    }

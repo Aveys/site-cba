@@ -138,7 +138,7 @@ function getfile(input){
 }
 function afficher_image_uploadee(tmp)
 {
-	element = document.getElementById("miniature_image");
+	element = document.GetElementById("miniature_image");
 	if(tmp === 1)
 	{
 		element.style.visibility="visible";
@@ -148,11 +148,10 @@ function afficher_image_uploadee(tmp)
 		element.style.visibility="hidden";
 	}
 }
-function change_image(path)
+function change_image(option)
 {
-	alert("path");
 	element = document.getElementById("miniature_image");
-	element.src = path;
+	element.src = "../../../"+option.options[option.selectedIndex].value;
 }
 function redimImage(inMW, inMH,element)
 {

@@ -22,12 +22,13 @@
                             <input type="radio" name="image" value="image_up" id="image_up" onclick="affichage_champ_fichier('fichier_a_uploader');cacher_champ_fichier('fichier_existant');" />Image de votre ordinateur<span class="espace"></span>             
                             <input type="radio" name="image" value="image_default" id="image_default" checked="checked" onclick="cacher_champ_fichier('fichier_a_uploader');cacher_champ_fichier('fichier_existant');" />Image par défaut<span class="espace"></span>
                             <input type="radio" name="image" value="image_existante" id="radio_image_existante" onclick="affichage_champ_fichier('fichier_existant');cacher_champ_fichier('fichier_a_uploader');" />Image déjà uploadée </br>
-                            <div id="fichier_existant"><select name="image_bdd">
+                            <div id="fichier_existant"><select name="image_bdd" onclick="change_image(this)">
                                 <?php
                                     $allImg = all_image_upload();
                                     while($rowImg=mysql_fetch_assoc($allImg)){
-                                        $path = "'".$rowImg["upload_dir"].$rowImg["upload_filename"]."'";
-                                        echo "<option value='".$rowImg['UPLOAD_ID']."' onMouseOver=change_image($path) >coucou</option>";
+                                        $path = $rowImg["upload_dir"].$rowImg["upload_filename"];
+                                        $tab_path_img = explode(SITE, $path);
+                                        echo "<option value='".$tab_path_img[1]."' >".$rowImg['upload_description']."</option>";
                                     }
                                 ?>
                             </select></div>
