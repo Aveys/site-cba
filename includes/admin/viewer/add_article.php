@@ -1,5 +1,5 @@
 <?php
-    require_once "../../../controller/controle_upload_image.php";
+    //require_once "../../../controller/controle_upload_image.php";
 ?>
 <div id="content" class="black">
             
@@ -14,7 +14,30 @@
                     <div class="input textarea">
                     <p>
                         <label for="title">Titre</label>
-                        <input type="text"  name="title"  value="" onBlur="verifTitre(this)"/>
+                        <input type="text"  name="title"  value="" onBlur="verifTitre(this)" id="title" />
+                    </p>
+                    <p>
+                        <img id="miniature_image" alt="stul" src="../../../avatars/image_default.jpg" onload="redimImage(200,200,this)" onchange="redimImage(200,200,this)" />   
+                        <label for="image">Choisissez une image</label>
+                            <input type="radio" name="image" value="image_up" id="image_up" onclick="affichage_champ_fichier('fichier_a_uploader');cacher_champ_fichier('fichier_existant');" />Image de votre ordinateur<span class="espace"></span>             
+                            <input type="radio" name="image" value="image_default" id="image_default" checked="checked" onclick="cacher_champ_fichier('fichier_a_uploader');cacher_champ_fichier('fichier_existant');" />Image par défaut<span class="espace"></span>
+                            <input type="radio" name="image" value="image_existante" id="radio_image_existante" onclick="affichage_champ_fichier('fichier_existant');cacher_champ_fichier('fichier_a_uploader');" />Image déjà uploadée </br>
+                            <div id="fichier_existant"><select name="image_bdd">
+                                <?php
+                                    $allImg = all_image_upload();
+                                    while($rowImg=mysql_fetch_assoc($allImg)){
+                                        $path = "'".$rowImg["upload_dir"].$rowImg["upload_filename"]."'";
+                                        echo "<option value='".$rowImg['UPLOAD_ID']."' onMouseOver=change_image($path) >coucou</option>";
+                                    }
+                                ?>
+                            </select></div>
+                            <div id="fichier_a_uploader"><input name="fichier" type="file" onchange="afficher_image_uploadee('fichier_a_uploader');" /></div>
+                            <?php
+                              if(isset($_SESSION['erreur_upload']) ) 
+                              {
+                                echo $_SESSION['erreur_upload'];
+                              }
+                            ?>
                     </p>
                      <p>
                         <label for="category">Categorie</label>
@@ -34,17 +57,6 @@
                     <p>
                         <label for="content">Ajouter du texte</label>
                         <textarea name="content" id="test" rows="7" class="wysiwyg" cols="4" onBlur="verifText(this)"></textarea>
-                    </p>
-                    <p>
-                        <label for="image">Choisissez une image</label>
-                        <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" />
-                        <input name="fichier" type="file" id="fichier_a_uploader" />
-                        <?php
-                          if(isset($_SESSION['erreur_upload']) ) 
-                          {
-                            echo $_SESSION['erreur_upload'];
-                          }
-                        ?>
                     </p>
                     </div>
                     <div class="input">                       

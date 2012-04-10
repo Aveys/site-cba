@@ -333,3 +333,8 @@
       $result = mysql_fetch_assoc(mysql_query("select up.upload_filename,up.upload_dir from STUL_POST p join STUL_UPLOAD up on p.img_id=up.UPLOAD_ID where p.POST_ID='".$idPost."'"));
       return $result['upload_dir'].$result['upload_filename'];
    }
+
+   function all_image_upload()
+   {
+      return mysql_query("select * from STUL_UPLOAD where UPPER(upload_type)='IMG'");
+   }

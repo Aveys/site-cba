@@ -7,6 +7,7 @@
 	require_once $a_fAdminFonct;
 	require_once $a_fmSql;
 	require_once $a_fmEscape;
+	require_once $_SERVER['DOCUMENT_ROOT'].'/site-cba/controller/controle_upload_image.php';
 	
 
 	//Reception des GET et traitement
@@ -86,16 +87,27 @@
 				//addArticle($_POST['content'], $_SESSION["idUser"],$_POST['title'], $_POST['tags'], $_POST['category']) or die(mysql_error());	
 				//MatHack: Il faudra rajouter le champs de la categorie plus tard
 				//$_POST['category']
-				require_once "../../controller/controle_upload_image.php";
-				if($message == 'Upload réussi !')
+				if($_POST['image'] == "image_up")
+				{
+					$upload1 = upload('fichier',$rootSite."avatars/",15360, array('png','gif','jpg','jpeg') );
+				}
+  				else
+  				{
+  					$_SESSION['dest']['filename'] = "image_default.jpg";
+  					$_SESSION['dest']['dir'] = $rootSite."avatars/";
+  					$_SESSION['dest']['type'] = "IMG";
+  					$upload1 = true;
+  				}
+				if($upload1 === true)
 				{
 					unset($_SESSION['erreur_upload']);
-					addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category'],$dest);				
-					echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';	
+					addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category'],$_SESSION['dest']);
+					unset($_SESSION['dest']);				
+					echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
 				}
 				else
 				{
-					$_SESSION['erreur_upload'] = $message;
+					$_SESSION['erreur_upload'] = $upload1;
 					echo '<script language="Javascript">history.go(-1);</script>';
 				}
 				//header('Location:./viewer/index.php?mode=editArticles');
