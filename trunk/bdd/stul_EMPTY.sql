@@ -94,6 +94,7 @@ create table STUL_UPLOAD
    upload_dir        varchar(500),
    upload_date       datetime,
    upload_type       varchar(10),
+   upload_description       text,
    primary key(UPLOAD_ID)
 );
 

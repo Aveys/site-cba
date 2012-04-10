@@ -90,25 +90,32 @@
 				if($_POST['image'] == "image_up")
 				{
 					$upload1 = upload('fichier',$rootSite."avatars/",15360, array('png','gif','jpg','jpeg') );
+					if($upload1 === true)
+					{
+						unset($_SESSION['erreur_upload']);
+						addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category'],$_SESSION['dest'],false);
+						unset($_SESSION['dest']);				
+						echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
+					}
+					else
+					{
+						$_SESSION['erreur_upload'] = $upload1;
+						echo '<script language="Javascript">history.go(-1);</script>';
+					}
 				}
-  				else
+  				else if($_POST['image'] == "image_default")
   				{
-  					$_SESSION['dest']['filename'] = "image_default.jpg";
-  					$_SESSION['dest']['dir'] = $rootSite."avatars/";
-  					$_SESSION['dest']['type'] = "IMG";
-  					$upload1 = true;
-  				}
-				if($upload1 === true)
-				{
 					unset($_SESSION['erreur_upload']);
-					addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category'],$_SESSION['dest']);
+					addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category'],$_SESSION['dest'],"default");
 					unset($_SESSION['dest']);				
 					echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
 				}
-				else
-				{
-					$_SESSION['erreur_upload'] = $upload1;
-					echo '<script language="Javascript">history.go(-1);</script>';
+  				else if($_POST['image'] == "image_existante")
+  				{
+					unset($_SESSION['erreur_upload']);
+					addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category'],$_SESSION['dest'],$_POST['image_bdd']);
+					unset($_SESSION['dest']);				
+					echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
 				}
 				//header('Location:./viewer/index.php?mode=editArticles');
 			break;
