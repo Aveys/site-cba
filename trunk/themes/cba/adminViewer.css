@@ -3102,3 +3102,18 @@ ageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#afceed',
 .center td{
 	min-width: 150px;
 }
+.espace{
+  margin-left:6em
+}
+#fichier_a_uploader,#fichier_existant{
+	visibility: hidden;
+	height: 0px;
+	width: 0px;
+}
+#fichier_existant{
+	margin-left: 49%;
+}
+#miniature_image{
+	float:right;
+	margin-right: 10%;
+}

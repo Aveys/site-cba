@@ -222,7 +222,9 @@ function affichage_article($row,$masque)
 			affiche_form_edition_post($text,$row['POST_ID']);
 		else
 		{
-			$row['POST_CONTENT'];
+			foreach ($text as $key => $value) {
+				echo $value;
+			}
 		}
 	}
 }
