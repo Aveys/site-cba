@@ -11,15 +11,20 @@
       }
       else if($deja_upload == "default")
       {
-         if($id_img=img_of_filename("image_default.jpg") === false)
+         if(($id_img=img_of_filename("image_default.jpg")) === false)
             $id_img = 1;
          mysql_query("insert into STUL_POST(post_content, user_id, post_date,post_title,post_tag,category_id,img_id) values ('".escape($texte)."','".escape($pseudo)."',now(),'".escape($title)."','".escape($tag)."','".escape($category)."','".$id_img."')");
       }
       else
       {
-         if($filename = strrchr($deja_upload, "/") === false)
+         if(($filename = strrchr($deja_upload, "/")) === false)
             $filename = $deja_upload;
-         if($id_img=img_of_filename($filename) === false)
+         else
+         {
+            $tmp = explode("/", $filename);
+            $filename = $tmp[1];
+         }
+         if(($id_img=img_of_filename($filename)) === false)
             $id_img = 1;
          mysql_query("insert into STUL_POST(post_content, user_id, post_date,post_title,post_tag,category_id,img_id) values ('".escape($texte)."','".escape($pseudo)."',now(),'".escape($title)."','".escape($tag)."','".escape($category)."','".$id_img."')");
       }
@@ -218,9 +223,32 @@
    }
    /* edite le post proposé
    */
-   function sql_edit_post($post)
-   {//post_content = '".$post['article']."'
-      mysql_query("update STUL_POST set post_content='".escape($post['content'])."', post_title='".escape($post['title'])."', post_tag='".escape($post["tags"])."', category_id='".escape($post["category"])."' where post_id='".escape($post['id_post'])."'");
+   function sql_edit_post($post,$file_img,$deja_upload)
+   {
+      if($deja_upload === false)
+      {
+         mysql_query("insert into STUL_UPLOAD(upload_filename, upload_dir, upload_date,upload_type,upload_description) values ('".escape($file_img['filename'])."','".escape($file_img['dir'])."',now(),'".escape($file_img['type'])."','".escape($post['title'])."')");
+         mysql_query("update STUL_POST set post_content='".escape($post['content'])."', post_title='".escape($post['title'])."', post_tag='".escape($post["tags"])."', category_id='".escape($post["cat"])."', img_id='".mysql_insert_id()."' where post_id='".escape($post['id_post'])."'");
+      }
+      else if($deja_upload == "default")
+      {
+         if(($id_img=img_of_filename("image_default.jpg")) === false)
+            $id_img = 1;
+         mysql_query("update STUL_POST set post_content='".escape($post['content'])."', post_title='".escape($post['title'])."', post_tag='".escape($post["tags"])."', category_id='".escape($post["cat"])."', img_id='".$id_img."' where post_id='".escape($post['id_post'])."'");
+      }
+      else
+      {
+         if(($filename = strrchr($deja_upload, "/")) === false)
+            $filename = $deja_upload;
+         else
+         {
+            $tmp = explode("/", $filename);
+            $filename = $tmp[1];
+         }
+         if(($id_img=img_of_filename($filename)) === false)
+            $id_img = 1;
+         mysql_query("update STUL_POST set post_content='".escape($post['content'])."', post_title='".escape($post['title'])."', post_tag='".escape($post["tags"])."', category_id='".escape($post["cat"])."', img_id='".$id_img."' where post_id='".escape($post['id_post'])."'");
+      }
    }
    /* supprime le post proposé avec suppression de ses commentaires en cascade
    */

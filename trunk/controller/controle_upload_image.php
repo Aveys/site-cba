@@ -14,7 +14,6 @@ function upload($index,$destination,$maxsize=FALSE,$extensions=FALSE)
   // Variables
   $extension = '';
   $nomImage = '';
-   
   /************************************************************
    * Creation du repertoire cible si inexistant
    *************************************************************/
