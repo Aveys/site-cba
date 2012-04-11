@@ -89,12 +89,18 @@
 				//$_POST['category']
 				if($_POST['image'] == "image_up")
 				{
-					$upload1 = upload('fichier',$rootSite."avatars/",15360, array('png','gif','jpg','jpeg') );
+					$upload1 = upload('fichier',$rootSite."avatars/",153600, array('png','gif','jpg','jpeg') );
 					if($upload1 === true)
 					{
-						unset($_SESSION['erreur_upload']);
-						addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category'],$_SESSION['dest'],false);
-						unset($_SESSION['dest']);				
+		                if(img_exist($_SESSION['dest']['dir'].$_SESSION['dest']['filename']) != false)
+		                {
+		                	unlink($_SESSION['dest']['dir'].$_SESSION['dest']['filename']);
+							addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category'],"existe",$_SESSION['dest']['filename']);
+		                }
+		                else
+		                	addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category'],$_SESSION['dest'],false);
+						unset($_SESSION['dest']);	
+						unset($_SESSION['erreur_upload']);			
 						echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
 					}
 					else
