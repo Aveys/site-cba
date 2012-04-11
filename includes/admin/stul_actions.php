@@ -52,8 +52,17 @@
 				break;
 
 			case 'Mettre à jour':
-				sql_edit_post($_POST);
-				echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
+				$tab_img = image_a_ajouter_au_post($_POST,$rootSite);
+				if(isset($_SESSION['erreur_upload']))
+				{
+					echo '<script language="Javascript">history.go(-1);</script>';
+				}
+				else
+				{
+					sql_edit_post($_POST,$tab_img['file'],$tab_img['type']);
+					unset($_SESSION['dest']);				
+					echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
+				}
 			break;
 
 			case 'Mettre à jour le commentaire':
@@ -87,42 +96,17 @@
 				//addArticle($_POST['content'], $_SESSION["idUser"],$_POST['title'], $_POST['tags'], $_POST['category']) or die(mysql_error());	
 				//MatHack: Il faudra rajouter le champs de la categorie plus tard
 				//$_POST['category']
-				if($_POST['image'] == "image_up")
+				$tab_img = image_a_ajouter_au_post($_POST,$rootSite);
+				if(isset($_SESSION['erreur_upload']))
 				{
-					$upload1 = upload('fichier',$rootSite."avatars/",153600, array('png','gif','jpg','jpeg') );
-					if($upload1 === true)
-					{
-		                if(img_exist($_SESSION['dest']['dir'].$_SESSION['dest']['filename']) != false)
-		                {
-		                	unlink($_SESSION['dest']['dir'].$_SESSION['dest']['filename']);
-							addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category'],"existe",$_SESSION['dest']['filename']);
-		                }
-		                else
-		                	addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category'],$_SESSION['dest'],false);
-						unset($_SESSION['dest']);	
-						unset($_SESSION['erreur_upload']);			
-						echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
-					}
-					else
-					{
-						$_SESSION['erreur_upload'] = $upload1;
-						echo '<script language="Javascript">history.go(-1);</script>';
-					}
+					echo '<script language="Javascript">history.go(-1);</script>';
 				}
-  				else if($_POST['image'] == "image_default")
-  				{
-					unset($_SESSION['erreur_upload']);
-					addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category'],'default',"default");
+				else
+				{
+					addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category'],$tab_img['file'],$tab_img['type']);
 					unset($_SESSION['dest']);				
 					echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
-				}
-  				else if($_POST['image'] == "image_existante")
-  				{
-					unset($_SESSION['erreur_upload']);
-					addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category'],"existe",$_POST['image_bdd']);
-					unset($_SESSION['dest']);				
-					echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
-				}
+				}				
 				//header('Location:./viewer/index.php?mode=editArticles');
 			break;
 
@@ -130,4 +114,42 @@
 		}
 	}
 
+function image_a_ajouter_au_post($_POST,$rootSite)
+{
+	$tab_img = array();
+	unset($_SESSION['erreur_upload']);
+	if($_POST['image'] == "image_up")
+	{
+		$upload1 = upload('fichier',$rootSite."avatars/",15360000000, array('png','gif','jpg','jpeg') );
+		if($upload1 === true)
+		{
+            if(img_exist($_SESSION['dest']['dir'].$_SESSION['dest']['filename']) != false)
+            {
+            	unlink($_SESSION['dest']['dir'].$_SESSION['dest']['filename']);
+            	$tab_img['file'] = "existe";
+            	$tab_img['type'] = $_SESSION['dest']['filename'];
+            }
+            else
+            {
+            	$tab_img['file'] = $_SESSION['dest'];
+            	$tab_img['type'] = false;            	
+            }
+		}
+		else
+		{
+			$_SESSION['erreur_upload'] = $upload1;
+		}
+	}
+	else if($_POST['image'] == "image_default")
+	{
+        $tab_img['file'] = "default";
+        $tab_img['type'] = "default"; 
+	}
+	else if($_POST['image'] == "image_existante")
+	{
+        $tab_img['file'] = "existe";
+        $tab_img['type'] = $_POST['image_bdd'];
+	}
+	return $tab_img;
+}
 ?>
