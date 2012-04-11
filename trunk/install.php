@@ -1,7 +1,6 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-//function install(){
 define( 'ABSPATH', dirname(__FILE__) . '/' );
 
 if (isset($_GET['step']))
@@ -9,7 +8,6 @@ if (isset($_GET['step']))
 else
 	$step = 1;
 $configFile= file('stul_config_init.php');
-//print_r($configFile);
 	
 function execute_file_sql($file)
 {
@@ -23,6 +21,86 @@ function execute_file_sql($file)
 
 switch($step){
 	case 1 : 
+		step1();
+	break;
+	case 2:
+		step2();
+	break;
+
+	case 3:
+		step3($configFile);
+	break;
+
+	case 4:
+		step4();
+	break;
+	
+	case 5:
+		step5();
+	break;
+}
+
+function displayHeader(){
+	?>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Stul - Installation</title>
+		<link rel="stylesheet" type="text/css" href="install/install.css" />
+		<script type="text/javascript" src="install/script.js"></script>
+
+	</head>
+	<?php
+}
+function erreur_SQL(){
+	echo '<script language="Javascript">document.location.replace("'."install/error.php?id=1&host=".$_POST["host"].'");</script>';
+}
+function erreur_ecriture(){
+	echo '<script language="Javascript">document.location.replace("install/error.php?id=2");</script>';
+
+}
+function check_admin(){
+	if (isset($_POST)){
+	$submit=true;
+	
+	if (!preg_match("/^(.+)@(.+)\.(.+)$/",$_POST["mail"])){
+
+		$submit=false;}
+	if (strlen($_POST["mdp"]>16)){
+
+		$subit=false;}
+	if ($_POST["mdp"]!=$_POST["mdp_verf"] || $_POST["mdp"]=='') {
+
+		$submit=false;
+	};
+	return $submit;}
+
+}
+function delete_file(){
+
+	
+	unlink('install/images/bg.jpg');
+	unlink('install/images/button.png');
+	unlink('install/images/carbon.gif');
+	unlink('install/images/logo.png');
+	rmdir('install/images');
+
+	unlink('install/polices/Roboto-Bold.ttf');
+	unlink('install/polices/Roboto-Regular.ttf');
+	unlink('install/polices/Roboto-Thin.ttf');
+	rmdir('install/polices');
+
+	unlink('install/error.php');
+	unlink('install/install.css');
+	unlink('install/script.js');
+	rmdir('install');
+	
+	unlink('install.php');
+	unlink('stul_config_init.php');
+}//unlink pour supprimer un fichier
+function step1()
+{	
 	displayHeader();?>
 	<body>	
 		<div id="all">
@@ -51,9 +129,10 @@ switch($step){
 
 	</body>
 	</html>
-
-	<?php break;
-	case 2:
+<?php
+}
+function step2()
+{
 	displayHeader();
 	?>
 	
@@ -80,13 +159,13 @@ switch($step){
 							<label for="BDD">Le nom de votre Base de donnée.</label><br/>
 
 
-						</div>
 					</div>
-					<div id="footer">
-						<input type="reset" class="button" value="reset"/><input class="button" type="submit" value="Continuer" />
-						<input type="hidden" name="action" value="envoyer"/>
-					</form><br/>
 				</div>
+						<div id="footer">
+							<input type="reset" class="button" value="reset"/><input class="button" type="submit" value="Continuer" />
+							<input type="hidden" name="action" value="envoyer"/>
+						</form><br/>
+						</div>
 
 			</div>
 		</div>
@@ -96,11 +175,10 @@ switch($step){
 	</html>
 
 	<?php
-	break;
-
-	case 3:
+}
+function step3($configFile)
+{
 	if (isset($_POST)){
-		//print_r($_POST);
 		$dbname  = trim($_POST['BDD']);
 		$uname   = trim($_POST['user']);
 		$passwrd = trim($_POST['mdp']);
@@ -117,260 +195,176 @@ switch($step){
 
 				execute_file_sql("bdd/stul_EMPTY.sql");
 				foreach ($configFile as $line_num => $line) {
-					//echo(substr($line,1,16))."/n";
 					switch (substr($line,1,16)) {
 						case "define('DB_NAME'":
-							//echo "1";
 							$configFile[$line_num] = str_replace("votre_nom_de_bdd", $dbname, $line);
 						break;
 						case "define('DB_USER'":
-							//echo "2";
 							$configFile[$line_num] = str_replace("'votre_utilisateur_de_bdd'", "'".$uname."'", $line);
 					 	break;
 						case "define('DB_PASSW":
-							//echo "3";
 							$configFile[$line_num] = str_replace("'votre_mdp_de_bdd'", "'".$passwrd."'", $line);
 						break;
 						case "define('DB_HOST'":
-							//echo "4";
 							$configFile[$line_num] = str_replace("localhost", $dbhost, $line);
 						break;
 
 					}
 				}
 
-								if(is_writable(ABSPATH)){
-									//echo "ok";
-								$handle = fopen('stul_config.php', 'w');
-								foreach( $configFile as $line ) {
-									fwrite($handle, $line);
-								}
-								fclose($handle);
-								}else 
-									erreur_ecriture();
-							}
-						}
+				if(is_writable(ABSPATH)){
+				$handle = fopen('stul_config.php', 'w');
+				foreach( $configFile as $line ) {
+					fwrite($handle, $line);
+				}
+				fclose($handle);
+				}else 
+					erreur_ecriture();
+			}
+		}
 	}//else
 		//echo '<script language="Javascript">document.location.replace("install.php?step=2");</script>';
 	displayHeader();unset($_POST);unset($configFile)?>
 		<body>
 			<div id="all">
 				<div id="content">
-								<div id="header" class="box">
-									<div id="logo"><img alt="Stul" src="install/images/logo.png" /></div>
-									<div id="titre">INSTALLATION</div>
-									<div id="sous-titre"> Etape 3 : Creation du compte administrateur</div>
-								</div>
-								<div id="text" class="box">
-									<p> La connexion à la base de donnée s'est bien déroulée, nous allons maintenant configurer votre compte administrateur</p>
-									<p class="box">Informations du compte</p>
-									<div id="formulaire">
-										<form action="install.php?step=4" method="post" name="addAdmin" onSubmit="return verify()">
-											<input type='text' name='login' value='admin' onFocus='init(this)' onBlur='notEmpty(this)'/>
-											<label for="login">Login du compte</label><br/>
-											<input type='password' name='mdp' value='' onFocus='init(this)' onBlur="verify()"/>
-											<label for="mdp">Mot de passe du compte.</label><br/>
-											<input type='password' name='mdp_verf' value='' onBlur="verify()"/>
-											<label for="mdp_verf">Verifcation du mot de passe.</label><br/>
-											<DIV ID="password_result">&nbsp;<br/></DIV>
-											<input type='text' name='mail' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
-											<label for="mail">Entrez une adresse mail valide.</label><br/>
-										</div>
-									</div>
-									<div id="footer">
-										<input type="reset" class="button" value="reset"/><input class="button" type="submit" value="Continuer" />
-										<input type="hidden" name="action" value="envoyer"/>
-									</form><br/>
-								</div>
+					<div id="header" class="box">
+						<div id="logo"><img alt="Stul" src="install/images/logo.png" /></div>
+						<div id="titre">INSTALLATION</div>
+						<div id="sous-titre"> Etape 3 : Creation du compte administrateur</div>
+					</div>
+					<div id="text" class="box">
+						<p> La connexion à la base de donnée s'est bien déroulée, nous allons maintenant configurer votre compte administrateur</p>
+						<p class="box">Informations du compte</p>
+						<div id="formulaire">
+							<form action="install.php?step=4" method="post" name="addAdmin" onSubmit="return verify()">
+								<input type='text' name='login' value='admin' onFocus='init(this)' onBlur='notEmpty(this)'/>
+								<label for="login">Login du compte</label><br/>
+								<input type='password' name='mdp' value='' onFocus='init(this)' onBlur="verify()"/>
+								<label for="mdp">Mot de passe du compte.</label><br/>
+								<input type='password' name='mdp_verf' value='' onBlur="verify()"/>
+								<label for="mdp_verf">Verifcation du mot de passe.</label><br/>
+								<DIV ID="password_result">&nbsp;<br/></DIV>
+								<input type='text' name='mail' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
+								<label for="mail">Entrez une adresse mail valide.</label><br/>
 							</div>
 						</div>
-
-
+						<div id="footer">
+							<input type="reset" class="button" value="reset"/><input class="button" type="submit" value="Continuer" />
+							<input type="hidden" name="action" value="envoyer"/>
+						</form><br/>
+					</div>
+				</div>
+			</div>
 		</body>
 		
-					<?php
-					break;
+<?php
+}
 
-					case 4:
-
-					if (isset($_POST["login"]) && check_admin()){
-						require_once("stul_config.php");
-						require_once("model/connect.php");
-						$query=mysql_query("INSERT INTO STUL_USERS (USER_LOGIN,USER_PASS,USER_DISPLAYNAME,USER_MAIL,USER_REGISTERED,USER_STATUS) VALUES ('".$_POST["login"]."','".sha1($_POST["mdp"])."','".$_POST["login"]."','".$_POST["mail"]."',now(),2);");
-						$_SESSION['login'] = $_POST["login"];
-						$_SESSION["id"] = mysql_insert_id(); 
-						$query=mysql_query("INSERT INTO STUL_POST(USER_ID,POST_DATE,CATEGORY_ID,POST_STATUS,POST_TYPE,POST_TITLE,POST_CONTENT,POST_TAG,IMG_ID) VALUES (1,now(),1,1,1,'Bienvenue sur Stul','Ceci est votre premier article sur stul. N\'hesitez pas à le modifier ou l\'editer pour prendre en main Stul','article',1);");
-						$query=mysql_query("INSERT INTO STUL_POST(USER_ID,POST_DATE,CATEGORY_ID,POST_STATUS,POST_TYPE,POST_TITLE,POST_CONTENT,POST_TAG,IMG_ID) VALUES (1,now(),2,1,1,'News','Ceci est votre premiere news eur stul. N\'hesitez pas à la modifier ou l\'editer pour prendre en main Stul','news',1);");
-						}
-
-					//else
-						//echo '<script language="Javascript">document.location.replace("install.php?step=4");</script>';
-					displayHeader();?>
-					<body>
-						<div id="all">
-							<div id="content">
-								<div id="header" class="box">
-									<div id="logo"><img alt="Stul" src="install/images/logo.png" /></div>
-									<div id="titre">INSTALLATION</div>
-									<div id="sous-titre"> Etape 4 : Creation du site</div>
-								</div>
-								<div id="text" class="box">
-									<p> Le Compte administrateur a bien été crée.<br/>Nous touchons à la fin de l'installation : Il ne reste qu'a configurer les informations générales du site</p>
-									
-									<div id="formulaire">
-										<form action="install.php?step=5" method="post" name="site">
-											<input type='text' name='nom' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
-											<label for="nom">Nom du répertoire parent du site</label><br/>
-											<input type='text' name='site' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
-											<label for="nom">Nom du site</label><br/>
-										</div>
-									</div>
-									<div id="footer">
-										<input type="reset" class="button" value="reset"/><input class="button" type="submit" value="Continuer" />
-										<input type="hidden" name="action" value="envoyer"/>
-									</form><br/>
-								</div>
-							</div>
+function step4()
+{
+	if (isset($_POST["login"]) && check_admin()){
+		require_once("stul_config.php");
+		require_once("model/connect.php");
+		$query=mysql_query("INSERT INTO STUL_USERS (USER_LOGIN,USER_PASS,USER_DISPLAYNAME,USER_MAIL,USER_REGISTERED,USER_STATUS) VALUES ('".$_POST["login"]."','".sha1($_POST["mdp"])."','".$_POST["login"]."','".$_POST["mail"]."',now(),2);");
+		$_SESSION['login'] = $_POST["login"];
+		$_SESSION["id"] = mysql_insert_id(); 
+		$query=mysql_query("INSERT INTO STUL_POST(USER_ID,POST_DATE,CATEGORY_ID,POST_STATUS,POST_TYPE,POST_TITLE,POST_CONTENT,POST_TAG,IMG_ID) VALUES (1,now(),1,1,1,'Bienvenue sur Stul','Ceci est votre premier article sur stul. N\'hesitez pas à le modifier ou l\'editer pour prendre en main Stul','article',1);");
+		$query=mysql_query("INSERT INTO STUL_POST(USER_ID,POST_DATE,CATEGORY_ID,POST_STATUS,POST_TYPE,POST_TITLE,POST_CONTENT,POST_TAG,IMG_ID) VALUES (1,now(),2,1,1,'News','Ceci est votre premiere news eur stul. N\'hesitez pas à la modifier ou l\'editer pour prendre en main Stul','news',1);");
+	}
+	//else
+		//echo '<script language="Javascript">document.location.replace("install.php?step=4");</script>';
+	displayHeader();?>
+	<body>
+		<div id="all">
+			<div id="content">
+				<div id="header" class="box">
+					<div id="logo"><img alt="Stul" src="install/images/logo.png" /></div>
+					<div id="titre">INSTALLATION</div>
+					<div id="sous-titre"> Etape 4 : Creation du site</div>
+				</div>
+				<div id="text" class="box">
+					<p> Le Compte administrateur a bien été crée.<br/>Nous touchons à la fin de l'installation : Il ne reste qu'a configurer les informations générales du site</p>
+					
+					<div id="formulaire">
+						<form action="install.php?step=5" method="post" name="site">
+							<input type='text' name='nom' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
+							<label for="nom">Nom du répertoire parent du site</label><br/>
+							<input type='text' name='site' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
+							<label for="nom">Nom du site</label><br/>
 						</div>
+					</div>
+					<div id="footer">
+						<input type="reset" class="button" value="reset"/><input class="button" type="submit" value="Continuer" />
+						<input type="hidden" name="action" value="envoyer"/>
+					</form><br/>
+				</div>
+			</div>
+		</div>
 
 
-					</body>
-					</html>
-					<?php
-					break;
-					case 5:
+	</body>
+	</html>
+<?php
+}
 
-					$configFile= file('stul_config.php');
-					if (isset($_POST["nom"])){
-						$nom=$_POST["nom"];
-						$site=$_POST["site"];
-						require_once("stul_config.php");
-   						require_once("model/connect.php");
-						mysql_query("insert into STUL_UPLOAD(upload_filename, upload_dir, upload_date,upload_type,upload_description) values ('image_default.jpg','".$_SERVER['DOCUMENT_ROOT']."/".$nom."/avatars/',now(),'IMG','image par defaut')");
-						//print_r($configFile);
-						foreach ($configFile as $line_num => $line) {
-							//echo $nom;
-							//echo substr($line,1,6)."<br/>";
-							switch (substr($line,1,6)) {
-								case 'Site =':
-									$configFile[$line_num] = str_replace("nom-site", $nom, $line);
-								break;
-								case 'Title ':
-									$configFile[$line_num] = str_replace("titre", $site, $line);
-								break;
-
-						
-							}
-						}
-						if(is_writable(ABSPATH)){
-							$handle = fopen(ABSPATH . 'stul_config.php', 'w');
-							foreach( $configFile as $line ) {
-								fwrite($handle, $line);
-							}
-							fclose($handle);
-						}
-						else 
-							erreur_ecriture();
-					}
-					else
-						echo '<script language="Javascript">document.location.replace("install.php?step=5");</script>';
-					displayHeader();delete_file();
-					?>
-					<body>
-						<div id="all">
-							<div id="content">
-								<div id="header" class="box">
-									<div id="logo"><img alt="Stul" src="install/images/logo.png" /></div>
-									<div id="titre">INSTALLATION</div>
-									<div id="sous-titre"> Etape 5 : Finalisation</div>
-								</div>
-								<div id="text" class="box">
-									<p> Félicitation, la création de votre site est maintenant terminée. Vous pouvez désormais y acceder et publier du contenu.</p>
-									<p> Merci d'avoir choisi Stul pour gerer votre site web.  </p>
-								</div>
-									<div id="footer">
-										<div id="continuer" class="button"><a href="index.php">Terminer</div>
-									</form><br/>
-								</div>
-							</div>
-						</div>
+function step5()
+{
+	$configFile= file('stul_config.php');
+	if (isset($_POST["nom"])){
+		$nom=$_POST["nom"];
+		$site=$_POST["site"];
+		require_once("stul_config.php");
+			require_once("model/connect.php");
+		mysql_query("insert into STUL_UPLOAD(upload_filename, upload_dir, upload_date,upload_type,upload_description) values ('image_default.jpg','".$_SERVER['DOCUMENT_ROOT']."/".$nom."/avatars/',now(),'IMG','image par defaut')");
+		foreach ($configFile as $line_num => $line) {
+			switch (substr($line,1,6)) {
+				case 'Site =':
+					$configFile[$line_num] = str_replace("nom-site", $nom, $line);
+				break;
+				case 'Title ':
+					$configFile[$line_num] = str_replace("titre", $site, $line);
+				break;
+			}
+		}
+		if(is_writable(ABSPATH)){
+			$handle = fopen(ABSPATH . 'stul_config.php', 'w');
+			foreach( $configFile as $line ) {
+				fwrite($handle, $line);
+			}
+			fclose($handle);
+		}
+		else 
+			erreur_ecriture();
+	}
+	else
+		echo '<script language="Javascript">document.location.replace("install.php?step=5");</script>';
+	displayHeader();
+	//delete_file();
+	?>
+	<body>
+		<div id="all">
+			<div id="content">
+				<div id="header" class="box">
+					<div id="logo"><img alt="Stul" src="install/images/logo.png" /></div>
+					<div id="titre">INSTALLATION</div>
+					<div id="sous-titre"> Etape 5 : Finalisation</div>
+				</div>
+				<div id="text" class="box">
+					<p> Félicitation, la création de votre site est maintenant terminée. Vous pouvez désormais y acceder et publier du contenu.</p>
+					<p> Merci d'avoir choisi Stul pour gerer votre site web.  </p>
+				</div>
+					<div id="footer">
+						<div id="continuer" class="button"><a href="index.php">Terminer</div>
+					</form><br/>
+				</div>
+			</div>
+		</div>
 
 
-					</body>
-					</html>
-					<?php
-					break;
-
-
-						}
-
-					
-
-
-				
-
-
-
-//}
-//}
-				function displayHeader(){
-					?>
-					<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-					<html xmlns="http://www.w3.org/1999/xhtml">
-					<head>
-						<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-						<title>Stul - Installation</title>
-						<link rel="stylesheet" type="text/css" href="install/install.css" />
-						<script type="text/javascript" src="install/script.js"></script>
-
-					</head>
-					<?php
-				}
-				function erreur_SQL(){
-					echo '<script language="Javascript">document.location.replace("'."install/error.php?id=1&host=".$_POST["host"].'");</script>';
-				}
-				function erreur_ecriture(){
-					echo '<script language="Javascript">document.location.replace("install/error.php?id=2");</script>';
-
-				}
-				function check_admin(){
-					if (isset($_POST)){
-					$submit=true;
-					
-					if (!preg_match("/^(.+)@(.+)\.(.+)$/",$_POST["mail"])){
-
-						$submit=false;}
-					if (strlen($_POST["mdp"]>16)){
-
-						$subit=false;}
-					if ($_POST["mdp"]!=$_POST["mdp_verf"] || $_POST["mdp"]=='') {
-
-						$submit=false;
-					};
-					return $submit;}
-
-				}
-				function delete_file(){
-
-					
-					unlink('install/images/bg.jpg');
-					unlink('install/images/button.png');
-					unlink('install/images/carbon.gif');
-					unlink('install/images/logo.png');
-					rmdir('install/images');
-
-					unlink('install/polices/Roboto-Bold.ttf');
-					unlink('install/polices/Roboto-Regular.ttf');
-					unlink('install/polices/Roboto-Thin.ttf');
-					rmdir('install/polices');
-
-					unlink('install/error.php');
-					unlink('install/install.css');
-					unlink('install/script.js');
-					rmdir('install');
-					
-					unlink('install.php');
-					unlink('stul_config_init.php');
-				}//unlink pour supprimer un fichier
-				?>
+	</body>
+	</html>
+<?php
+}
+?>
 

@@ -108,7 +108,7 @@
 					unset($_SESSION['erreur_upload']);
 					addArticle($_POST['content'], $_SESSION["id"], $_POST['title'], $_POST['tags'], $_POST['category'],'default',"default");
 					unset($_SESSION['dest']);				
-					//echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
+					echo '<script language="Javascript">document.location.replace("./viewer/index.php?mode=editArticles");</script>';
 				}
   				else if($_POST['image'] == "image_existante")
   				{
