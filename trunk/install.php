@@ -315,8 +315,8 @@ function step5()
 		$nom=$_POST["nom"];
 		$site=$_POST["site"];
 		require_once("stul_config.php");
-			require_once("model/connect.php");
-		mysql_query("insert into STUL_UPLOAD(upload_filename, upload_dir, upload_date,upload_type,upload_description) values ('image_default.jpg','".$_SERVER['DOCUMENT_ROOT']."/".$nom."/avatars/',now(),'IMG','image par defaut')");
+		require_once("model/connect.php");
+		liste_image_presente($nom);
 		foreach ($configFile as $line_num => $line) {
 			switch (substr($line,1,6)) {
 				case 'Site =':
@@ -365,6 +365,22 @@ function step5()
 	</body>
 	</html>
 <?php
+}
+
+function liste_image_presente($nom)
+{
+	mysql_query("insert into STUL_UPLOAD(upload_filename, upload_dir, upload_date,upload_type,upload_description) values ('image_default.jpg','".$_SERVER['DOCUMENT_ROOT']."/".$nom."/avatars/',now(),'IMG','image par defaut')");
+	$rp="avatars"; // nom du répertoire à lister
+	$rep=opendir($rp);
+	while ($sous_fichier=readdir($rep)){ 
+		// parcours du répertoire
+		if (($sous_fichier==".") || ($sous_fichier=="..") || ($sous_fichier=="image_default.jpg")){
+		} 
+		else{
+		    mysql_query("insert into STUL_UPLOAD(upload_filename, upload_dir, upload_date,upload_type,upload_description) values ('".$sous_fichier."','".$_SERVER['DOCUMENT_ROOT']."/".$nom."/".$rp."/',now(),'IMG','image par defaut')");
+		}
+	}
+	closedir($rep);
 }
 ?>
 

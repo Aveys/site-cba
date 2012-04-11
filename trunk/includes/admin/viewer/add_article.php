@@ -44,7 +44,7 @@
                         <label for="category">Categorie</label>
                         <?php
                             $allCat = sql_allCat();
-                            echo '<select name=category>';
+                            echo '<select name=category >';
                                 while($rowCat=mysql_fetch_assoc($allCat)){
                                     echo "<option value='".$rowCat['CATEGORY_ID']."'>".$rowCat['CATEGORY_NAME']."</option>";
                                 }
