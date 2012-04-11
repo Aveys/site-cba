@@ -365,3 +365,17 @@
       else
          return false;
    }
+
+   function img_exist($path)
+   {
+      $code = md5(file_get_contents($path));
+      $result = all_image_upload();
+      while ($row_img = mysql_fetch_assoc($result)) {
+         $tab_url_img = explode(SITE,$row_img['upload_dir'].$row_img['upload_filename']);
+         if($code == md5(file_get_contents("../../".$tab_url_img[1])))
+         {
+            return $row_img;
+         }
+      }
+      return false;
+   }
