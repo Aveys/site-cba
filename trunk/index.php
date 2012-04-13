@@ -6,7 +6,6 @@ if (file_exists('stul_config.php'))
 {
 	require_once("stul_config.php");
 	require_once($fmConnect);
-	
 	/*if(!isset($_SESSION['visited']) || $_SESSION['visited'] == false)
 	{
 		$now = date("Y-m-d");
@@ -14,7 +13,6 @@ if (file_exists('stul_config.php'))
 		mysql_query($query) or die(mysql_query());
 		$_SESSION['visited'] = true;
 	}*/
-	
 	if(isset($_GET['page']))
 	{
 		switch($_GET['page'])

@@ -111,6 +111,12 @@ function validCompte(field)
 		return false;
 }
 
+function afficher_cacher(affiche,cache)
+{
+	affichage_champ_fichier(affiche);
+	cacher_champ_fichier(cache);
+}
+
 function affichage_champ_fichier(id)
 {
 	element = document.getElementById(id);
@@ -123,6 +129,12 @@ function affichage_champ_fichier(id)
 	element.style.height = "auto";
 	element.style.width = "auto";
 	afficher_image_uploadee(0);
+}
+
+function cacher_champs_fichier(cache1,cache2)
+{
+	cacher_champ_fichier(cache1);
+	cacher_champ_fichier(cache2);
 }
 
 function cacher_champ_fichier(id)
