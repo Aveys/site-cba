@@ -39,7 +39,7 @@
          $query = "insert into STUL_COMMENT(user_id,post_id,com_content,com_date,com_parent) values('".escape($_SESSION['id'])."','".escape($_POST['id'])."','".escape($_POST['commentaire'])."',now(),'".escape($_POST['id_parent'])."')";
       else
          $query = "insert into STUL_COMMENT(user_id,post_id,com_content,com_date) values('".escape($_SESSION['id'])."','".escape($_POST['id'])."','".escape($_POST['commentaire'])."',now())";
-      mysql_query($query) or die(mysql_error());
+      mysql_query($query);
    }
    /* fonction qui test si on s'est bien connecte (bon pass et login) puis charge l'id et le login dans la variable de session
    */
@@ -57,8 +57,40 @@
    }
    function sql_log_connexion()
    {
-      $query = "insert into STUL_LOG(user_id,date_connexion) values('".escape($_SESSION['id'])."',now())";
-      $result = mysql_query($query) or die(mysql_error());
+      if(isset($_SESSION['id']))
+      {
+         if(!is_connect($_SESSION['id']) && sql_date_add_few_minute(sql_datedeco_of_idlog(sql_last_connexion_of_iduser($_SESSION['id'])),5) <= sql_datetime_now())
+         {
+            $query = "insert into STUL_LOG(user_id,date_connexion) values('".escape($_SESSION['id'])."',now())";
+            $result = mysql_query($query);
+         }
+         else
+         {
+            mysql_query("update STUL_LOG set date_deconnexion = NULL where id='".escape(sql_last_connexion_of_iduser($_SESSION['id']))."'");
+         }
+      }
+   }
+   function sql_date_add_few_minute($date,$minute)
+   {
+      $row = mysql_fetch_assoc(mysql_query("select DATE_ADD('".$date."', INTERVAL ".$minute." MINUTE) as date"));
+      return $row['date'];
+   }
+   function sql_datetime_now()
+   {
+      $row = mysql_fetch_assoc(mysql_query("select now() as date"));
+      return $row['date'];
+   }
+   function sql_last_connexion_of_iduser($id)
+   {
+      $result = mysql_query("SELECT id FROM `stul_log` WHERE `USER_ID`='".$id."' order by `date_deconnexion` DESC");
+      $row = mysql_fetch_assoc($result);
+      return $row['id'];
+   }
+   function sql_datedeco_of_idlog($id_log)
+   {
+      $result = mysql_query("SELECT date_deconnexion FROM `stul_log` WHERE ID=".$id_log);
+      $row = mysql_fetch_assoc($result);
+      return $row['date_deconnexion'];
    }
    /* fonction admin qui permet d'ajouter un utilisateur en verifiant qu'il est pas deja le meme login dans la BDDD*/
    function sql_inscrire_user_by_admin($login, $pass, $pseudo, $email, $dateReg, $status)
@@ -119,7 +151,8 @@
    }
    function sql_add_log_deconnexion()
    {
-      mysql_query("update STUL_LOG set date_deconnexion=now() where USER_ID='".$_SESSION['id']."' and date_deconnexion IS NULL");
+      if(isset($_SESSION['id']))
+         mysql_query("update STUL_LOG set date_deconnexion=now() where ID='".sql_last_connexion_of_iduser($_SESSION['id'])."' and date_deconnexion IS NULL");
    }
    /*Fonction pour editer completement le compte user*/
    function sql_allEdit_user($idUser, $login, $pass, $pseudo, $email, $status)
@@ -304,6 +337,14 @@
       $result[] = sql_recherche_post_tag($search);
       $result[] = sql_recherche_com_content($search);
       return $result;
+   }
+   function is_connect($id_user)
+   {
+      $result = mysql_query("SELECT id FROM `stul_log` WHERE `USER_ID`='".$id_user."' and date_deconnexion IS NULL");
+      if(mysql_num_rows($result) > 0)
+         return true;
+      else
+         return false;
    }
    /* fonction qui retourne le nombre de connexion à la date $date
    */

@@ -1,3 +1,4 @@
+<script type="text/javascript" src="js/gestion_log.js"></script>
 <div id="header">
 				<div id="header-bg">
 				<div id="header-txt">
