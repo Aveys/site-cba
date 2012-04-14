@@ -89,8 +89,13 @@
    function sql_datedeco_of_idlog($id_log)
    {
       $result = mysql_query("SELECT date_deconnexion FROM `stul_log` WHERE ID=".$id_log);
-      $row = mysql_fetch_assoc($result);
-      return $row['date_deconnexion'];
+      if($result)
+      {
+         $row = mysql_fetch_assoc($result);
+         return $row['date_deconnexion'];
+      }
+      else
+         return NULL;
    }
    /* fonction admin qui permet d'ajouter un utilisateur en verifiant qu'il est pas deja le meme login dans la BDDD*/
    function sql_inscrire_user_by_admin($login, $pass, $pseudo, $email, $dateReg, $status)
