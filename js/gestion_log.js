@@ -51,3 +51,35 @@ setInterval(function() {
 	} 
     return xhr
 }
+
+function message_box_open(id,loggin)
+{
+	if(!document.getElementById("message_box_login_"+id))
+	{
+		document.getElementById("message_box").innerHTML += '<div tabindex="0" class="message_box_login" id="message_box_login_'+id+'" onFocus=change_couleur_message_box_login(1,"message_box_login_'+id+'") onBlur=change_couleur_message_box_login(0,"message_box_login_'+id+'")><h3 onclick=agrandir_reduire_messagerie_instantannee("affichage_envoie_message_'+id+'")>'+loggin+'</h3><div class="affichage_envoie_message" id="affichage_envoie_message_'+id+'"><div class="affiche_message_instantanne"></div><input type="text" name="message_a_envoyer" onFocus=change_couleur_message_box_login(1,"message_box_login_'+id+'") onBlur=change_couleur_message_box_login(0,"message_box_login_'+id+'") tabindex="0" /></div></div>';
+	}
+	document.getElementById("message_box_login_"+id).focus();
+}
+
+function agrandir_reduire_messagerie_instantannee(id)
+{
+	element = document.getElementById(id);
+	if(element.style.height == "0px")
+		element.style.height = "auto";
+	else
+		element.style.height = "0px";
+}
+
+function change_couleur_message_box_login(tmp,id)
+{
+	element = document.getElementById(id);
+	if(tmp == 1)
+	{
+		element.style.backgroundColor="rgb(77,104,162)";
+	}
+	else if(tmp == 0)
+	{
+		element.style.backgroundColor="rgb(109,132,180)";
+		element.blur();
+	}
+}
