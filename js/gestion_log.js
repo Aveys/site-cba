@@ -1,3 +1,4 @@
+var messages_precedents = Array;
 $(window).unload( function (){
 	var xhr = getXhr()
 	// On défini ce qu'on va faire quand on aura la réponse
@@ -58,7 +59,23 @@ function message_box_open(id,loggin)
 {
 	if(!document.getElementById("message_box_login_"+id))
 	{
-		document.getElementById("message_box").innerHTML += '<div tabindex="0" class="message_box_login" id="message_box_login_'+id+'" onFocus=change_couleur_message_box_login(1,"message_box_login_'+id+'") onBlur=change_couleur_message_box_login(0,"message_box_login_'+id+'")><h3 onclick=agrandir_reduire_messagerie_instantannee("affichage_envoie_message_'+id+'")>'+loggin+'</h3><div class="affichage_envoie_message" id="affichage_envoie_message_'+id+'"><div class="affiche_message_instantanne" id="affiche_message_instantanne_'+id+'"></div><input type="text" name="message_a_envoyer" onKeyPress="if(event.keyCode == 13){send_message('+id+',this);}" onFocus=change_couleur_message_box_login(1,"message_box_login_'+id+'") onBlur=change_couleur_message_box_login(0,"message_box_login_'+id+'") tabindex="0" /></div></div>';
+		var html_a_envoyer = ""
+		html_a_envoyer += '<div tabindex="0" class="message_box_login" id="message_box_login_'+id+'" ';
+			html_a_envoyer += 'onFocus=change_couleur_message_box_login(1,"message_box_login_'+id+'") ';
+			html_a_envoyer += 'onBlur=change_couleur_message_box_login(0,"message_box_login_'+id+'")>';
+				html_a_envoyer += '<h3 onclick=agrandir_reduire_messagerie_instantannee("affichage_envoie_message_'+id+'")>';
+					html_a_envoyer += loggin;
+					html_a_envoyer += '<div class="fermer_div_message_instannee" onclick=supprimer_div("message_box_login_'+id+'",'+id+') >x</div>';
+				html_a_envoyer += '</h3>';
+				html_a_envoyer += '<div class="affichage_envoie_message" id="affichage_envoie_message_'+id+'">';
+					html_a_envoyer += '<div class="affiche_message_instantanne" id="affiche_message_instantanne_'+id+'"></div>';
+					html_a_envoyer += '<input type="text" name="message_a_envoyer"';
+						html_a_envoyer += ' onKeyPress="if(event.keyCode == 13){send_message('+id+',this);}" ';
+						html_a_envoyer += 'onFocus=change_couleur_message_box_login(1,"message_box_login_'+id+'") '; 
+						html_a_envoyer += 'onBlur=change_couleur_message_box_login(0,"message_box_login_'+id+'") tabindex="0" />';
+				html_a_envoyer += '</div>';
+		html_a_envoyer += '</div>';
+		document.getElementById("message_box").innerHTML += html_a_envoyer;
 		setInterval(function() {
 			var element = document.getElementById("affiche_message_instantanne_"+id);
 			var tmp = element.innerHTML;
@@ -67,11 +84,14 @@ function message_box_open(id,loggin)
 			xhr.onreadystatechange = function(){
 				// On ne fait quelque chose que si on a tout reçu et que le serveur est ok
 				if(xhr.readyState == 4 && xhr.status == 200){
-					element.innerHTML = xhr.responseText;
-					if(tmp != element.innerHTML)
+					tmp = xhr.responseText;
+					//alert(tmp);
+					if(tmp != messages_precedents[id])
 					{
+						element.innerHTML = tmp;
 						element.scrollTop = element.scrollHeight;
 					}
+					messages_precedents[id] = xhr.responseText;
 				}
 			}
 			xhr.open("POST","js/ajax_affiche_messages.php",true);
@@ -167,4 +187,9 @@ function displayClassElement(rootElement,className)
 	    	}
 	    }
 	}
+}
+function supprimer_div(div_id,id)
+{
+	document.getElementById("message_box").removeChild(document.getElementById(div_id));
+	messages_precedents[id] = "";
 }

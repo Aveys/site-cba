@@ -10,7 +10,7 @@
 }
 .message_box_login{
 	padding: 0px;
-	width: 225px;
+	width: 275px;
 	margin-left:5px;
 	border: solid 1px grey;
 	background-color: rgb(77,104,162);
@@ -21,7 +21,7 @@
 	color: white;
 }
 .affiche_message_instantanne{
-	height: 250px;
+	height: 300px;
 	border-top: solid 1px grey;
 	background-color: white;
 	overflow-y: scroll;
@@ -29,13 +29,24 @@
 	white-space : nowrap;
 }
 .message_box_login input{
-	width: 225px;
+	width: 275px;
 	height: 20px;
 	border: none;
 	border-top: solid 1px grey;
 }
-.messages_dialogue{
-	margin-bottom: 5px;
+.messages_dialogue,.messages_dialogue_concatene{
 	white-space : normal;
 	word-wrap: break-word;
+}
+.messages_dialogue_profil_date{
+	border-top: solid 1px grey;
+	margin-top: 10px;
+}
+.messages_dialogue_concatene{
+	margin-top: 5px;	
+}
+.fermer_div_message_instannee{
+	float: right;
+	padding-right: 5px;
+	text-align: center;
 }
