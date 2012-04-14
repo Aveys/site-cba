@@ -451,9 +451,9 @@
    function who_is_log()
    {
       $user_connect = array();
-      $result = mysql_query("select USER_LOGIN from STUL_LOG l join STUL_USERS u on l.user_id = u.user_id where l.date_deconnexion IS NULL");
+      $result = mysql_query("select u.USER_ID,u.USER_LOGIN from STUL_LOG l join STUL_USERS u on l.user_id = u.user_id where l.date_deconnexion IS NULL");
       while ($row = mysql_fetch_assoc($result)) {
-         $user_connect[] = $row['USER_LOGIN'];
+         $user_connect[] = array('id'=>$row['USER_ID'],'login'=>$row['USER_LOGIN']);
       }
       return $user_connect;
    }
