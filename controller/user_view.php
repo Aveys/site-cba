@@ -1,5 +1,6 @@
 <?php
 	
+	date_default_timezone_set('Europe/Paris');
 	require_once("view_comment.php");
 
 /*	affichage du temps écoulé sous le format facebook

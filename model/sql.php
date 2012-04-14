@@ -453,7 +453,23 @@
       $user_connect = array();
       $result = mysql_query("select u.USER_ID,u.USER_LOGIN from STUL_LOG l join STUL_USERS u on l.user_id = u.user_id where l.date_deconnexion IS NULL");
       while ($row = mysql_fetch_assoc($result)) {
+         if(!isset($_SESSION['id']) || $row['USER_ID'] != $_SESSION['id'])
          $user_connect[] = array('id'=>$row['USER_ID'],'login'=>$row['USER_LOGIN']);
       }
       return $user_connect;
+   }
+
+   function sql_add_message($id_receiver,$id_sender,$message)
+   {
+      mysql_query("insert into STUL_MESSAGE(SENDER_USER_ID,RECEIVER_USER_ID,message_text,message_date) values('".escape($id_sender)."','".escape($id_receiver)."','".escape($message)."',now())");
+   }
+
+   function sql_all_messages_between_users($id_user1,$id_user2)
+   {
+      $messages = array();
+      $result = mysql_query("select SENDER_USER_ID,message_text,message_date from STUL_MESSAGE where (SENDER_USER_ID='".escape($id_user1)."' OR SENDER_USER_ID='".escape($id_user2)."') AND (RECEIVER_USER_ID='".escape($id_user1)."' OR RECEIVER_USER_ID='".escape($id_user2)."') order by message_date ASC");
+      while ($row = mysql_fetch_assoc($result)) {
+         $messages[] = array('sender_id' => $row['SENDER_USER_ID'],'message' => $row['message_text'],'date' => $row['message_date']);
+      }
+      return $messages;
    }

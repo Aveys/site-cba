@@ -98,6 +98,16 @@ create table STUL_UPLOAD
    primary key(UPLOAD_ID)
 );
 
+create table STUL_MESSAGE
+(
+   MESSAGE_ID        int not null auto_increment,
+   SENDER_USER_ID    int not null,
+   RECEIVER_USER_ID  int not null,
+   message_text      text,
+   message_date      datetime,
+   primary key(MESSAGE_ID)
+);
+
 ALTER TABLE  STUL_USERS ADD UNIQUE (USER_DISPLAYNAME);
 
 alter table STUL_COMMENT add constraint FK_A foreign key (POST_ID)
@@ -119,6 +129,12 @@ alter table STUL_POST add constraint FK_APPARTIENT foreign key (CATEGORY_ID)
       references STUL_CATEGORY (CATEGORY_ID) on delete restrict on update restrict;
 
 alter table STUL_LOG add constraint FK_LOG foreign key (USER_ID)
+      references STUL_USERS (USER_ID) on delete restrict on update restrict;
+
+alter table STUL_MESSAGE add constraint FK_MESSAGE_SENDER foreign key (SENDER_USER_ID)
+      references STUL_USERS (USER_ID) on delete restrict on update restrict;
+
+alter table STUL_MESSAGE add constraint FK_MESSAGE_RECEIVER foreign key (RECEIVER_USER_ID)
       references STUL_USERS (USER_ID) on delete restrict on update restrict;
 	  
 INSERT INTO STUL_CATEGORY(CATEGORY_NAME,CATEGORY_DESC) VALUES('Blog','catégorie news du site'),('News','news du blog');
