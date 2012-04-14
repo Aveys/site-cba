@@ -1,5 +1,6 @@
 <script type="text/javascript" src="js/gestion_log.js"></script>
 <div id="header">
+	<div id='user_connect' style="position:fixed; z-index: 1000; bottom:0px; left:0px;"></div>
 				<div id="header-bg">
 				<div id="header-txt">
 					<div id="logo"></div>

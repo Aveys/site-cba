@@ -59,12 +59,12 @@
    {
       if(isset($_SESSION['id']))
       {
-         if(!is_connect($_SESSION['id']) && sql_date_add_few_minute(sql_datedeco_of_idlog(sql_last_connexion_of_iduser($_SESSION['id'])),5) <= sql_datetime_now())
+         if(!is_connect($_SESSION['id']) && sql_date_add_few_minute(sql_datedeco_of_idlog(sql_last_connexion_of_iduser($_SESSION['id'])),1) <= sql_datetime_now())
          {
-            $query = "insert into STUL_LOG(user_id,date_connexion) values('".escape($_SESSION['id'])."',now())";
+            $query = "insert into STUL_LOG(user_id,date_connexion,date_deconnexion) values('".escape($_SESSION['id'])."',now(),NULL)";
             $result = mysql_query($query);
          }
-         else
+         else if(!is_connect($_SESSION['id']))
          {
             mysql_query("update STUL_LOG set date_deconnexion = NULL where id='".escape(sql_last_connexion_of_iduser($_SESSION['id']))."'");
          }
@@ -82,7 +82,7 @@
    }
    function sql_last_connexion_of_iduser($id)
    {
-      $result = mysql_query("SELECT id FROM `stul_log` WHERE `USER_ID`='".$id."' order by `date_deconnexion` DESC");
+      $result = mysql_query("SELECT id FROM `stul_log` WHERE `USER_ID`='".$id."' order by `date_connexion` DESC");
       $row = mysql_fetch_assoc($result);
       return $row['id'];
    }
@@ -447,4 +447,13 @@
          }
       }
       return false;
+   }
+   function who_is_log()
+   {
+      $user_connect = array();
+      $result = mysql_query("select USER_LOGIN from STUL_LOG l join STUL_USERS u on l.user_id = u.user_id where l.date_deconnexion IS NULL");
+      while ($row = mysql_fetch_assoc($result)) {
+         $user_connect[] = $row['USER_LOGIN'];
+      }
+      return $user_connect;
    }
