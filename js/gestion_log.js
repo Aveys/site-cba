@@ -16,7 +16,7 @@ $(window).load( function (){
 	xhr.onreadystatechange = function(){
 		// On ne fait quelque chose que si on a tout reçu et que le serveur est ok
 		if(xhr.readyState == 4 && xhr.status == 200){
-			xhr.responseText;
+			document.getElementById("user_connect").innerHTML = xhr.responseText;
 		}
 	}
 	xhr.open("GET","js/ajax_load.php",true);
@@ -28,7 +28,7 @@ setInterval(function() {
 	xhr.onreadystatechange = function(){
 		// On ne fait quelque chose que si on a tout reçu et que le serveur est ok
 		if(xhr.readyState == 4 && xhr.status == 200){
-			xhr.responseText;
+			document.getElementById("user_connect").innerHTML = xhr.responseText;
 		}
 	}
 	xhr.open("GET","js/ajax_load.php",true);
