@@ -63,13 +63,13 @@ function message_box_open(id,loggin)
 		html_a_envoyer += '<div tabindex="0" class="message_box_login" id="message_box_login_'+id+'" ';
 			html_a_envoyer += 'onFocus=change_couleur_message_box_login(1,"message_box_login_'+id+'") ';
 			html_a_envoyer += 'onBlur=change_couleur_message_box_login(0,"message_box_login_'+id+'")>';
-				html_a_envoyer += '<h3 onclick=agrandir_reduire_messagerie_instantannee("affichage_envoie_message_'+id+'")>';
+				html_a_envoyer += '<h3 onclick=agrandir_reduire_messagerie_instantannee('+id+')>';
 					html_a_envoyer += loggin;
 					html_a_envoyer += '<div class="fermer_div_message_instannee" onclick=supprimer_div("message_box_login_'+id+'",'+id+') >x</div>';
 				html_a_envoyer += '</h3>';
 				html_a_envoyer += '<div class="affichage_envoie_message" id="affichage_envoie_message_'+id+'">';
 					html_a_envoyer += '<div class="affiche_message_instantanne" id="affiche_message_instantanne_'+id+'"></div>';
-					html_a_envoyer += '<input type="text" name="message_a_envoyer"';
+					html_a_envoyer += '<input type="text" name="message_a_envoyer" id="input_text_message_instantannee_'+id+'" ';
 						html_a_envoyer += ' onKeyPress="if(event.keyCode == 13){send_message('+id+',this);}" ';
 						html_a_envoyer += 'onFocus=change_couleur_message_box_login(1,"message_box_login_'+id+'") '; 
 						html_a_envoyer += 'onBlur=change_couleur_message_box_login(0,"message_box_login_'+id+'") tabindex="0" />';
@@ -98,19 +98,26 @@ function message_box_open(id,loggin)
 			// ne pas oublier ça pour le post
 			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			// ne pas oublier de poster les arguments
-			xhr.send("user_id="+id);
+			xhr.send("user_id="+encodeURIComponent(id));
 		}, 1000); //5 seconds
 	}
-	document.getElementById("message_box_login_"+id).focus();
+	document.getElementById("input_text_message_instantannee_"+id).focus();
 }
 
 function agrandir_reduire_messagerie_instantannee(id)
 {
-	element = document.getElementById(id);
+	element = document.getElementById("affichage_envoie_message_"+id);
+	element_box = document.getElementById("message_box_login_"+id);
 	if(element.style.height == "0px")
+	{
 		element.style.height = "auto";
+		element_box.style.width = "275px";
+	}
 	else
+	{
 		element.style.height = "0px";
+		element_box.style.width = "200px";
+	}
 }
 
 function change_couleur_message_box_login(tmp,id)
@@ -142,51 +149,8 @@ function send_message(receiver_id,input)
 	// ne pas oublier ça pour le post
 	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 	// ne pas oublier de poster les arguments
-	xhr.send("receiver_id="+receiver_id+"&message="+input.value);
+	xhr.send("receiver_id="+encodeURIComponent(receiver_id)+"&message="+encodeURIComponent(input.value));
 	input.value = "";
-}
-
-function displayClassElement(rootElement,className)
-{
-	var elmnt;
-	nodes = new Array();
-	if(typeof(rootElement) == 'string')
-	{
-		elmnt = document.getElementById(rootElement);
-	}
-	else
-	{
-		elmnt = rootElement;
-	}
-	if(elmnt.cells != undefined)
-	{
-		nodes = elmnt.cells; 
-	}
-	else
-	{
-		if(elmnt.rows != undefined)
-		{
-			nodes = elmnt.rows; 
-		}
-		else
-		{
-			if(elmnt.childNodes != undefined)
-			{
-				nodes = elmnt.childNodes;
-			}
-		}
-	}
-	for(var i = 0; i < nodes.length; i++)
-	{
-	    if(nodes[i].tagName != undefined)
-	    {
-	    	displayClassElement(nodes[i],className);
-	    	if(nodes[i].className  ==  className)
-	    	{
-	    		nodes[i].style.display = getDisplayStyle(nodes[i]);
-	    	}
-	    }
-	}
 }
 function supprimer_div(div_id,id)
 {
