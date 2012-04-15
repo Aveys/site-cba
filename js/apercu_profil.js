@@ -36,8 +36,9 @@ function survole_profil_apercu(content)
 	var curleft = element2.offsetLeft;
 	var curtop = element2.offsetTop;
 	element.style.position = 'absolute';
-	element.style.left = curleft-element2.offsetLeft.width+"px";
-	element.style.top = curtop+element2.offsetLeft.height+"px";
+	element.style.left = curleft-element2.width+"px";
+	element.style.top = curtop+"px";
+	element.style.marginTop = "17px";
 	element.style.visibility='visible';
 	element.style.height='auto';
 	element.style.width='auto';
