@@ -14,6 +14,8 @@ drop table if exists STUL_USERS CASCADE;
 
 drop table if exists STUL_UPLOAD CASCADE;
 
+drop table if exists STUL_MESSAGE CASCADE;
+
 create table STUL_COMMENT
 (
    COM_ID               int not null auto_increment,
@@ -105,6 +107,8 @@ create table STUL_MESSAGE
    RECEIVER_USER_ID  int not null,
    message_text      text,
    message_date      datetime,
+   message_read_sender      bool default false,
+   message_read_receiver      bool default false,
    primary key(MESSAGE_ID)
 );
 

@@ -593,18 +593,40 @@
                         mysql_query("insert into STUL_MESSAGE(SENDER_USER_ID,RECEIVER_USER_ID,message_text,message_date) values('".escape($id_sender)."','".escape($id_receiver)."','".escape($message)."',now())");
                      }
                      /*
+                        retourne un tableau de l'id de l'envoyeur, de la date et du texte de tous les messages non lus échangés entre 2 utilisateurs
+                     */ 
+                     function sql_all_new_messages_of_user($id_user)
+                     {
+                        return mysql_query("select MESSAGE_ID,SENDER_USER_ID,RECEIVER_USER_ID,message_text,message_date from STUL_MESSAGE where (SENDER_USER_ID='".escape($id_user)."' AND message_read_sender=false) OR (RECEIVER_USER_ID='".escape($id_user)."' AND message_read_receiver=false) order by message_date ASC");
+                     }
+                     /*
                         retourne un tableau de l'id de l'envoyeur, de la date et du texte de tous les messages échangés entre 2 utilisateurs
                      */ 
-                     function sql_all_messages_between_users($id_user1,$id_user2)
+                     function sql_all_messages_of_user($id_user1,$id_user2)
                      {
-                        $messages = array();
-                        $result = mysql_query("select SENDER_USER_ID,message_text,message_date from STUL_MESSAGE where (SENDER_USER_ID='".escape($id_user1)."' OR SENDER_USER_ID='".escape($id_user2)."') AND (RECEIVER_USER_ID='".escape($id_user1)."' OR RECEIVER_USER_ID='".escape($id_user2)."') order by message_date ASC");
-                        while ($row = mysql_fetch_assoc($result)) {
-                           $messages[] = array('sender_id' => $row['SENDER_USER_ID'],'message' => $row['message_text'],'date' => $row['message_date']);
-                        }
-                        return $messages;
+                        return mysql_query("select * from STUL_MESSAGE where (SENDER_USER_ID='".escape($id_user1)."' OR SENDER_USER_ID='".escape($id_user2)."') AND (RECEIVER_USER_ID='".escape($id_user1)."' OR RECEIVER_USER_ID='".escape($id_user2)."') order by message_date ASC");
                      }
-
+                     /*
+                        transforme un message non lu par l'envoyeur en message lu
+                     */
+                     function sql_message_lu_by_sender($id_message)
+                     {
+                        mysql_query("update STUL_MESSAGE set message_read_sender=true where MESSAGE_ID='".$id_message."'");
+                     }
+                     /*
+                        transforme un message non lu par le destinataire en message lu
+                     */
+                     function sql_message_lu_by_receiver($id_message)
+                     {
+                        mysql_query("update STUL_MESSAGE set message_read_receiver=true where MESSAGE_ID='".$id_message."'");
+                     }
+                     /*
+                        retourne toutes le infos de la table STUL_MESSAGE du message ayant l'id $id_message
+                     */
+                     function sql_message_of_id_message($id_message)
+                     {
+                        return mysql_fetch_assoc(mysql_query("select * from STUL_MESSAGE where MESSAGE_ID='".$id_message."'"));
+                     }
 /* FONCTIONS RELATIVES AUX DATES */
                      /*
                         fonction qui ajoute $minute a la date $date via le langage SQL
