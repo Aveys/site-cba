@@ -96,7 +96,7 @@
                      */
                      function sql_last_connexion_of_iduser($id)
                      {
-                        $result = mysql_query("SELECT id FROM `stul_log` WHERE `USER_ID`='".$id."' order by `date_connexion` DESC");
+                        $result = mysql_query("SELECT id FROM `STUL_LOG` WHERE `USER_ID`='".$id."' order by `date_connexion` DESC");
                         if($result)
                         {
                            $row = mysql_fetch_assoc($result);
@@ -110,7 +110,7 @@
                      */
                      function sql_datedeco_of_idlog($id_log)
                      {
-                        $result = mysql_query("SELECT date_deconnexion FROM `stul_log` WHERE ID=".$id_log);
+                        $result = mysql_query("SELECT date_deconnexion FROM `STUL_LOG` WHERE ID=".$id_log);
                         if($result)
                         {
                            $row = mysql_fetch_assoc($result);
@@ -149,7 +149,7 @@
                      */
                      function is_connect($id_user)
                      {
-                        $result = mysql_query("SELECT id FROM `stul_log` WHERE `USER_ID`='".$id_user."' and date_deconnexion IS NULL");
+                        $result = mysql_query("SELECT id FROM `STUL_LOG` WHERE `USER_ID`='".$id_user."' and date_deconnexion IS NULL");
                         if(mysql_num_rows($result) > 0)
                            return true;
                         else
@@ -204,7 +204,7 @@
                         if(mysql_num_rows($result) == 0)
                         {
                            mysql_query("insert into STUL_USERS (USER_LOGIN, USER_PASS, USER_DISPLAYNAME, USER_MAIL, USER_REGISTERED, USER_STATUS  ) 
-                                                values ('".escape($login)."','".escape($pass)."','".escape($pseudo)."','".escape($email)."','".escape($dateReg)."', '".escape($status)."')"); 
+                                                values ('".escape($login)."','".escape(sha1($pass))."','".escape($pseudo)."','".escape($email)."','".escape($dateReg)."', '".escape($status)."')"); 
                            echo '<script language="Javascript">document.location.replace("../../includes/admin/viewer/index.php?mode=editComptes");</script>';
                         }
                         else
