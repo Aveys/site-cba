@@ -49,6 +49,9 @@ function displayHeader(){
 		<title>Stul - Installation</title>
 		<link rel="stylesheet" type="text/css" href="install/install.css" />
 		<script type="text/javascript" src="install/script.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mailcheck.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
 
 	</head>
 	<?php
@@ -245,8 +248,8 @@ function step3($configFile)
 								<input type='password' name='mdp_verf' value='' onBlur="verify()"/>
 								<label for="mdp_verf">Verifcation du mot de passe.</label><br/>
 								<DIV ID="password_result">&nbsp;<br/></DIV>
-								<input type='email' name='mail' value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
-								<label for="mail">Entrez une adresse mail valide.</label><br/>
+								<input type='email' name='mail' class="email mailcheck" value='' onFocus='init(this)' onBlur='notEmpty(this)'/>
+								<label for="mail">Entrez une adresse mail valide.</label><br/><span class="help-inline"></span>
 							</div>
 						</div>
 						<div id="footer">
@@ -284,7 +287,6 @@ function step4()
 					<div id="sous-titre"> Etape 4 : Creation du site</div>
 				</div>
 				<div id="text" class="box">
-					<?php echo check_admin();?>
 					<p> Le Compte administrateur a bien été crée.<br/>Nous touchons à la fin de l'installation : Il ne reste qu'a configurer les informations générales du site</p>
 					
 					<div id="formulaire">
