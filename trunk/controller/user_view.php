@@ -44,7 +44,7 @@ function link_profil($id)
 	{
 		$log = sql_user_of_id($id);
  	}
-	echo "<span id='profil".$log."' onMouseOver='survole_profil_apercu(this)' onMouseOut='quitte_profil_apercu(this)'><a href='?page=profil&id=".$id."'>".$log."</a>";
+	echo "<span id=\"profil".$log."\" onMouseOver=\"survole_profil_apercu(this)\" onMouseOut=\"quitte_profil_apercu(this)\"><a href=\"?page=profil&id=".$id."\">".$log."</a>";
 	profil($id);
 	echo "</span>";
 }
@@ -53,7 +53,7 @@ function link_profil($id)
 */
 function profil($user_id) 
 {
-	echo "<div id='profil_apercu' style='float: left;'>";
+	echo "<div id=\"profil_apercu\" style=\"float: left;\">";
 		$row = sql_info_user($user_id);
 		echo "<h3>".$row['USER_LOGIN']."</h3>";
 		echo "Mail: ".$row['USER_MAIL']."</br>";

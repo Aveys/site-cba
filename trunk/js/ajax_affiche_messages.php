@@ -3,25 +3,25 @@
 	include_once "../stul_config.php";
 	require_once($a_fmSql);
 	require_once($a_fcUserView);
-	if(isset($_SESSION['id']))
+	if(isset($_POST['id_message']))
 	{
-		$messages = sql_all_messages_between_users($_POST['user_id'],$_SESSION['id']);
-		$tmp = "";
-		foreach ($messages as $key => $value) {
-			if($tmp != $value['sender_id'])
+		$message = sql_message_of_id_message($_POST['id_message']);
+		echo "<div class=\"messages_dialogue_profil_date\">";
+			echo link_profil($message['SENDER_USER_ID'])." ".dateTimeToTime($message['message_date']);
+			echo "<div class=\"messages_dialogue\">";
+				echo $message['message_text'];
+			echo "</div>";
+		echo "</div>";
+		if(isset($_SESSION['id']))
+		{
+			if($_SESSION['id'] != $message['SENDER_USER_ID'])
 			{
-				echo "<div class='messages_dialogue_profil_date'>";
-					echo link_profil($value['sender_id'])." ".dateTimeToTime($value['date']);
-					echo "<div class='messages_dialogue'>";
-						echo $value['message'];
-					echo "</div>";
-				echo "</div>";
+				sql_message_lu_by_receiver($_POST['id_message']);
 			}
 			else
 			{
-				echo "<div class='messages_dialogue_concatene'>".$value['message']."</div>";
+				sql_message_lu_by_sender($_POST['id_message']);
 			}
-			$tmp = $value['sender_id'];
 		}
 	}
 ?>

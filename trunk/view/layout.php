@@ -13,7 +13,7 @@ require_once($fcSearch);
 	<title>CBA Website</title>
 	<link rel="stylesheet" type="text/css" href="themes/cba/commun.css" />
  	<link rel="stylesheet" type="text/css" href="themes/cba/layout.css" />
- 		
+ 	<script type='text/javascript'>var sid =<?php if(isset($_SESSION['id'])){echo $_SESSION['id'];}else echo "-1"; ?>;</script>
 	<script type="text/javascript" src="js/apercu_profil.js"></script>
 	<script type="text/javascript" src="js/apercu_equipe.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
@@ -26,7 +26,6 @@ require_once($fcSearch);
 	<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
 	  {lang: 'fr'}
 	</script>
-	
 </head>
 <body>
 	<div id="all">
