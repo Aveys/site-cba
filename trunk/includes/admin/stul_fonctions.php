@@ -1,7 +1,6 @@
 <?php
 //Inclusion des fichier
 	    
-
 //Fonction qui ajoute le formulaire de connexion de l'admin
 function addFormAdmin()
 {
@@ -11,7 +10,7 @@ function addFormAdmin()
 	?>
 	<!--Contenue du formulaire de connexion admin-->
 	<div id="login">
-		<h1><img alt='Stul' src='<?php echo $vTheme;?>./images/icons/lock-closed.png' alt=""/>STUL Admin</h1>
+		<h1><img alt='Stul' src='<?php echo $vTheme;?>/images/icons/lock-closed.png' alt=""/>STUL Admin</h1>
 		<!--Message d'erreur lors de la connexion-->
 		<?php
 		if(isset($_SESSION["error_loginAdmin_message"]))
@@ -99,7 +98,7 @@ function checkLoginAdmin( $login, $pass){
 	$passwordF = htmlspecialchars($pass);
 
 	//Execution des requete pour savoir si il y le bon login, passowrd et qu'il appartient au statut admin = 2
-	$query = "SELECT * FROM stul_users WHERE USER_LOGIN='".$loginF."' AND USER_PASS='".sha1($passwordF)."' AND USER_STATUS='2' ";
+	$query = "SELECT * FROM STUL_USERS WHERE USER_LOGIN='".$loginF."' AND USER_PASS='".sha1($passwordF)."' AND USER_STATUS='2' ";
 	$row = mysql_fetch_assoc(mysql_query($query));
 	$ligne = mysql_num_rows(mysql_query($query));
     //Vérification 
